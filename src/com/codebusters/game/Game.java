@@ -32,7 +32,7 @@ public class Game {
         while (!endGame){
             // update the current gamestate
             updateGameState(currentChapter);
-            parser.updateChapter(currentChapter);
+            parser.setCurrentChapter(currentChapter);
 
             // tell viewer to display now that there is a new gamestate
             Viewer.updateViewer(currentGame);
@@ -77,7 +77,7 @@ public class Game {
         // get the current scene text
         String tryAgain = currentGame.getSceneText();
         // create message that there was an invalid input
-        String invalid = "That is an unrecognized input, please try again.";
+        String invalid = "That is an unrecognized input, please try again. Only two word commands are allowed in the form of verb + noun.";
 
         // check if current scene already has the message, if so,
         // we don't need to add again
