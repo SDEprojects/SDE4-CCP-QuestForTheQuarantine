@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ChapterBuilder {
-    private HashMap<String, ArrayList> story = new HashMap<>();
+    private HashMap<String, ArrayList> story;
     private ArrayList<Chapter> chapters = new ArrayList<>();
 
     ChapterBuilder () {
@@ -61,7 +61,6 @@ public class ChapterBuilder {
         } catch ( javax.xml.xpath.XPathExpressionException e) {
             System.out.println(e);
         }
-
         return story;
     }
 
@@ -98,12 +97,11 @@ public class ChapterBuilder {
         return story;
     }
 
-    public void buildChapters() {
+    private void buildChapters() {
 
        ArrayList<HashMap> chs = story.get("Chapters");
        for(HashMap<String, String> entry : chs) {
            Chapter newChapter = new Chapter();
-           newChapter.setCities(entry.get("cities"));
            newChapter.setChapterId(entry.get("chapterId"));
            newChapter.setChapterName(entry.get("chapterName"));
            newChapter.setSceneText(entry.get("sceneText"));
@@ -112,29 +110,25 @@ public class ChapterBuilder {
        }
     }
 
-    public void addPaths(Chapter ch) {
+    private void addPaths(Chapter ch) {
         ArrayList<HashMap> paths = story.get("Paths");
         for(HashMap<String, String> path : paths) {
             if(path.get("chapterId") == null) continue;
             if(path.get("chapterId").equals(ch.getChapterId())) {
-                addItems(path);
+                parseItems(path);
                 ch.setPaths(path);
             }
         }
     }
 
-    public void addItems(HashMap path) {
-        String pathId = (String) path.get("pathId");
-        ArrayList<HashMap> items = story.get("Items");
-        for(HashMap item : items) {
-            if(item.get("pathId") == null) continue;
-            if(item.get("pathId").equals(pathId)){
-                path.put("items", item.get("items"));
-                path.put("requiredItems",item.get("requiredItems"));
-            }
-        }
+    private void parseItems(HashMap path) {
+        String gainItems = (String) path.get("gainItems");
+        String loseItems = (String) path.get("loseItems");
+        String requiredItems = (String) path.get("requiredItems");
+        path.put("gainItems", gainItems);
+        path.put("loseItems", loseItems);
+        path.put("requiredItems", requiredItems);
     }
-
     public HashMap<String, ArrayList> getStory() {
         return story;
     }
