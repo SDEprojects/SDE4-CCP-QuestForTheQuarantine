@@ -12,6 +12,14 @@ public class Chapter {
     private String sceneText;
     private ArrayList<HashMap> paths = new ArrayList<>();
 
+    public void takeOneOf(HashMap path) {}
+    public void take(HashMap path) {};
+    public void use(HashMap path, String item) {};
+    public void trade(HashMap path, String itemA, String itemB) {};
+    public void skip(HashMap path) {};
+    public void fight(HashMap path) {};
+    public void escape(HashMap path) {};
+    
     public String[] getPathItems(HashMap path) {
         return getItems((String) path.get("items"));
     }
@@ -71,6 +79,6 @@ public class Chapter {
     }
 
     public String toString() {
-        return chapterId;
+        return chapterId + " " + chapterName;
     }
 }
