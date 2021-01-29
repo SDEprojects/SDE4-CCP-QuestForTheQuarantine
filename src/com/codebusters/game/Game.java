@@ -42,7 +42,7 @@ public class Game {
             parser.setCurrentChapter(currentChapter, inventory);
 
             // tell viewer to display now that there is a new gamestate
-            Viewer.updateViewer(currentGame);
+           // Viewer.updateViewer(currentGame);
 
             // check if viewer sent valid input to test parser
             if (!parser.isValidInput()){
@@ -68,7 +68,7 @@ public class Game {
 
         // display the end chapter
         updateGameState(currentChapter);
-        Viewer.updateViewer(currentGame);
+       // Viewer.updateViewer(currentGame);
     }
 
     private boolean isEndChapter(Chapter currentChapter) {
