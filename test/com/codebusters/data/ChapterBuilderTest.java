@@ -29,21 +29,8 @@ public class ChapterBuilderTest {
 
     @Test
     public void verifyTablesExist() {
-        assertTrue(cb.getStory().keySet().contains("Items"));
         assertTrue(cb.getStory().keySet().contains("Chapters"));
         assertTrue(cb.getStory().keySet().contains("Paths"));
-    }
-
-    @Test
-    public void verifyItemsInFirstEntryItems() {
-        HashMap<String,String> firstItems = (HashMap) cb.getStory().get("Items").get(0);
-        assertTrue(firstItems.get("items").equals("matches, flashlight, water[1], machete"));
-    }
-
-    @Test
-    public void verifyChaptersInFirstEntryCities() {
-        HashMap<String, String> firstCities = (HashMap) cb.getStory().get("Chapters").get(0);
-        assertTrue(firstCities.get("cities").equals("2,4"));
     }
 
     @Test

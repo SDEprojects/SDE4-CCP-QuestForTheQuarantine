@@ -1,36 +1,13 @@
 package com.codebusters.game;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 public class Chapter {
-    private List<String> cities = new ArrayList<>();
     private String chapterId;
     private String chapterName;
     private String sceneText;
     private ArrayList<HashMap> paths = new ArrayList<>();
-
-    public void takeOneOf(HashMap path) {}
-    public void take(HashMap path) {};
-    public void use(HashMap path, String item) {};
-    public void trade(HashMap path, String itemA, String itemB) {};
-    public void skip(HashMap path) {};
-    public void fight(HashMap path) {};
-    public void escape(HashMap path) {};
-    
-    public String[] getPathItems(HashMap path) {
-        return getItems((String) path.get("items"));
-    }
-
-    public String[] getRequiredPathItems(HashMap path) {
-        return getItems((String) path.get("requiredItems"));
-    }
-
-    private String[] getItems(String items) {
-       return items.split(",");
-    }
 
     public ArrayList<HashMap> getPaths() {
         return paths;
@@ -39,16 +16,6 @@ public class Chapter {
     public void setPaths(HashMap path) {
         if(path == null) return;
         this.paths.add(path);
-    }
-
-    public List<String> getCities() {
-        return cities;
-    }
-
-    public void setCities(String cities) {
-        if(cities == null) return;
-        String[] cityArray = cities.split(",");
-        this.cities = Arrays.asList(cityArray);
     }
 
     public String getChapterId() {
