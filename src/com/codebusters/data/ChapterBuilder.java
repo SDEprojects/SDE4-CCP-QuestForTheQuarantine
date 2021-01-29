@@ -17,12 +17,12 @@ public class ChapterBuilder {
     private HashMap<String, ArrayList> story;
     private ArrayList<Chapter> chapters = new ArrayList<>();
 
-    ChapterBuilder () {
+    public ChapterBuilder () {
         story = readXMLFile("./quarantine_first_edition.xml");
         buildChapters();
     }
 
-    ChapterBuilder(String storyXMLFile) {
+    public ChapterBuilder(String storyXMLFile) {
         story = readXMLFile(storyXMLFile);
         buildChapters();
     }
