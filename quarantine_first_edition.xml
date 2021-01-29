@@ -5,398 +5,77 @@
  xmlns:x="urn:schemas-microsoft-com:office:excel"
  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
  xmlns:html="http://www.w3.org/TR/REC-html40">
-
-
-
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Dustin Morris</Author>
+  <LastAuthor>Dustin Morris</LastAuthor>
+  <Created>2021-01-28T20:22:13Z</Created>
+  <LastSaved>2021-01-29T22:30:01Z</LastSaved>
+  <Version>16.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>20200</WindowHeight>
+  <WindowWidth>32767</WindowWidth>
+  <WindowTopX>32767</WindowTopX>
+  <WindowTopY>500</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="12" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s16">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+  </Style>
+  <Style ss:ID="s17">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="12" ss:Color="#000000"
+    ss:Bold="1"/>
+  </Style>
+ </Styles>
  <Worksheet ss:Name="Chapters">
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="17" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="16">
-   <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="82"/>
-   <Column ss:AutoFitWidth="0" ss:Width="89"/>
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="6" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="66" ss:DefaultRowHeight="16">
+   <Column ss:StyleID="s16" ss:AutoFitWidth="0"/>
+   <Column ss:AutoFitWidth="0" ss:Width="82"/>
    <Column ss:AutoFitWidth="0" ss:Width="154"/>
    <Row>
     <Cell><Data ss:Type="String">chapterId</Data></Cell>
     <Cell><Data ss:Type="String">chapterName</Data></Cell>
-    <Cell><Data ss:Type="String">cities</Data></Cell>
     <Cell><Data ss:Type="String">sceneText</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Start</Data></Cell>
+    <Cell><Data ss:Type="String">Welcome to our game! (start game)</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">Mexico City</Data></Cell>
-    <Cell><Data ss:Type="String">2,4</Data></Cell>
-    <Cell><Data ss:Type="String">blah1</Data></Cell>
+    <Cell><Data ss:Type="String">You're in Mexico City! (enter store) or (leave city)?</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">1A</Data></Cell>
+    <Cell><Data ss:Type="String">MC Store</Data></Cell>
+    <Cell><Data ss:Type="String">You're in the store! (take box1) or (take box2) or (leave store)?</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="String">Leon</Data></Cell>
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="String">blah2</Data></Cell>
+    <Cell><Data ss:Type="String">Outside Leon</Data></Cell>
+    <Cell><Data ss:Type="String">You're outside Leon. (skip city) or (enter city)?</Data></Cell>
    </Row>
    <Row>
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="String">Leon Alleyway</Data></Cell>
-    <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell><Data ss:Type="String">blah3</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell><Data ss:Type="String">El Chayote</Data></Cell>
-    <Cell><Data ss:Type="String">5,6</Data></Cell>
-    <Cell><Data ss:Type="String">blah4</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell><Data ss:Type="String">Zacatecas</Data></Cell>
-    <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell><Data ss:Type="String">blah5</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell><Data ss:Type="String">Mountains</Data></Cell>
-    <Cell><Data ss:Type="Number">7</Data></Cell>
-    <Cell><Data ss:Type="String">blah6</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">7</Data></Cell>
-    <Cell><Data ss:Type="String">Durango</Data></Cell>
-    <Cell><Data ss:Type="Number">8</Data></Cell>
-    <Cell><Data ss:Type="String">blah7</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">8</Data></Cell>
-    <Cell><Data ss:Type="String">Mountains 2</Data></Cell>
-    <Cell><Data ss:Type="Number">9</Data></Cell>
-    <Cell><Data ss:Type="String">blah8</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">9</Data></Cell>
-    <Cell><Data ss:Type="String">Mazatian</Data></Cell>
-    <Cell><Data ss:Type="Number">10</Data></Cell>
-    <Cell><Data ss:Type="String">blah9</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">10</Data></Cell>
-    <Cell><Data ss:Type="String">Culiacan</Data></Cell>
-    <Cell><Data ss:Type="String">11, 12</Data></Cell>
-    <Cell><Data ss:Type="String">blah10</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">11</Data></Cell>
-    <Cell><Data ss:Type="String">Inside Culiacan</Data></Cell>
-    <Cell><Data ss:Type="Number">12</Data></Cell>
-    <Cell><Data ss:Type="String">blah11</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">12</Data></Cell>
-    <Cell><Data ss:Type="String">Guamuchil</Data></Cell>
-    <Cell><Data ss:Type="Number">13</Data></Cell>
-    <Cell><Data ss:Type="String">blah12</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">13</Data></Cell>
-    <Cell><Data ss:Type="String">Los Mochis</Data></Cell>
-    <Cell><Data ss:Type="Number">14</Data></Cell>
-    <Cell><Data ss:Type="String">blah13</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">14</Data></Cell>
-    <Cell><Data ss:Type="String">Loreto</Data></Cell>
-    <Cell><Data ss:Type="Number">15</Data></Cell>
-    <Cell><Data ss:Type="String">blah14</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">15</Data></Cell>
-    <Cell><Data ss:Type="String">Baja Desert</Data></Cell>
-    <Cell><Data ss:Type="Number">16</Data></Cell>
-    <Cell><Data ss:Type="String">blah15</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">16</Data></Cell>
-    <Cell><Data ss:Type="String">Tijuana</Data></Cell>
-    <Cell><Data ss:Type="Number">17</Data></Cell>
-    <Cell><Data ss:Type="String">blah16</Data></Cell>
-   </Row>
-  </Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <PageSetup>
-    <Header x:Margin="0.3"/>
-    <Footer x:Margin="0.3"/>
-    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
-   </PageSetup>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>4</ActiveCol>
-    </Pane>
-   </Panes>
-   <ProtectObjects>False</ProtectObjects>
-   <ProtectScenarios>False</ProtectScenarios>
-  </WorksheetOptions>
- </Worksheet>
- <Worksheet ss:Name="Paths">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="23" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="16">
-   <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="180"/>
-   <Column ss:AutoFitWidth="0" ss:Width="137"/>
-   <Column ss:AutoFitWidth="0" ss:Width="140"/>
-   <Row>
-    <Cell><Data ss:Type="String">pathId</Data></Cell>
-    <Cell><Data ss:Type="String">chapterId</Data></Cell>
-    <Cell><Data ss:Type="String">pathName</Data></Cell>
-    <Cell><Data ss:Type="String">actions</Data></Cell>
-    <Cell><Data ss:Type="String">actionText</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="String">none</Data></Cell>
-    <Cell><Data ss:Type="String">takeOneOf, takeOneOf</Data></Cell>
-    <Cell><Data ss:Type="String">blahblah1</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="String">Search Apartment</Data></Cell>
-    <Cell><Data ss:Type="String">take </Data></Cell>
-    <Cell><Data ss:Type="String">blahblah2</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="String">Search Store</Data></Cell>
-    <Cell><Data ss:Type="String">take</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="String">Escape</Data></Cell>
-    <Cell><Data ss:Type="String">use</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell><Data ss:Type="String">Trade Ammo</Data></Cell>
-    <Cell><Data ss:Type="String">trade</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell><Data ss:Type="String">Threaten With Machete</Data></Cell>
-    <Cell><Data ss:Type="String">take</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">7</Data></Cell>
-    <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell><Data ss:Type="String">Go Around</Data></Cell>
-    <Cell><Data ss:Type="String">skip</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">8</Data></Cell>
-    <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell><Data ss:Type="String">Check Main Street</Data></Cell>
-    <Cell><Data ss:Type="String">take</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">9</Data></Cell>
-    <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell><Data ss:Type="String">Replenish</Data></Cell>
-    <Cell><Data ss:Type="String">takeOneOf </Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">10</Data></Cell>
-    <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell><Data ss:Type="String">Replenish</Data></Cell>
-    <Cell><Data ss:Type="String">takeOneOf</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">11</Data></Cell>
-    <Cell><Data ss:Type="Number">7</Data></Cell>
-    <Cell><Data ss:Type="String">Search Market</Data></Cell>
-    <Cell><Data ss:Type="String">take</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">12</Data></Cell>
-    <Cell><Data ss:Type="Number">7</Data></Cell>
-    <Cell><Data ss:Type="String">Search Farmhouse</Data></Cell>
-    <Cell><Data ss:Type="String">take</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">13</Data></Cell>
-    <Cell><Data ss:Type="Number">8</Data></Cell>
-    <Cell><Data ss:Type="String">Fight Lion</Data></Cell>
-    <Cell><Data ss:Type="String">fight</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">14</Data></Cell>
-    <Cell><Data ss:Type="Number">9</Data></Cell>
-    <Cell><Data ss:Type="String">Replenish</Data></Cell>
-    <Cell><Data ss:Type="String">takeOneOf</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">15</Data></Cell>
-    <Cell><Data ss:Type="Number">9</Data></Cell>
-    <Cell><Data ss:Type="String">Replenish</Data></Cell>
-    <Cell><Data ss:Type="String">takeOneOf</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">16</Data></Cell>
-    <Cell><Data ss:Type="Number">11</Data></Cell>
-    <Cell><Data ss:Type="String">Fight Gangs</Data></Cell>
-    <Cell><Data ss:Type="String">fight</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">17</Data></Cell>
-    <Cell><Data ss:Type="Number">12</Data></Cell>
-    <Cell><Data ss:Type="String">Trade  </Data></Cell>
-    <Cell><Data ss:Type="String">trade</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">18</Data></Cell>
-    <Cell><Data ss:Type="Number">13</Data></Cell>
-    <Cell><Data ss:Type="String">Escape Cartels in Speedboat</Data></Cell>
-    <Cell><Data ss:Type="String">escape</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">19</Data></Cell>
-    <Cell><Data ss:Type="Number">13</Data></Cell>
-    <Cell><Data ss:Type="String">Escape Cartels in Motorboat</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">20</Data></Cell>
-    <Cell><Data ss:Type="Number">14</Data></Cell>
-    <Cell><Data ss:Type="String">Find Gas Station</Data></Cell>
-    <Cell><Data ss:Type="String">takeOneOf, takeOneOf</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">21</Data></Cell>
-    <Cell><Data ss:Type="Number">15</Data></Cell>
-    <Cell><Data ss:Type="String">Determine items needed to survive</Data></Cell>
-    <Cell><Data ss:Type="String">checkInventory</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">22</Data></Cell>
-    <Cell><Data ss:Type="Number">16</Data></Cell>
-    <Cell><Data ss:Type="String">Approach Quarantine</Data></Cell>
-    <Cell><Data ss:Type="String">checkEndOfGame</Data></Cell>
-   </Row>
-  </Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <PageSetup>
-    <Header x:Margin="0.3"/>
-    <Footer x:Margin="0.3"/>
-    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
-   </PageSetup>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <ActiveRow>22</ActiveRow>
-    </Pane>
-   </Panes>
-   <ProtectObjects>False</ProtectObjects>
-   <ProtectScenarios>False</ProtectScenarios>
-  </WorksheetOptions>
- </Worksheet>
- <Worksheet ss:Name="Items">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="23" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="16">
-   <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="246"/>
-   <Column ss:AutoFitWidth="0" ss:Width="248"/>
-   <Row>
-    <Cell><Data ss:Type="String">pathId</Data></Cell>
-    <Cell><Data ss:Type="String">items</Data></Cell>
-    <Cell><Data ss:Type="String">requiredItems</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="String">matches, flashlight, water[1], machete</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="String">pistol, ammo, firecrackers</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="String">water[1], food[1]</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">firecrackers</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell><Data ss:Type="String">pan, medkit</Data></Cell>
-    <Cell><Data ss:Type="String">ammo</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell><Data ss:Type="String">pistol, food[1]</Data></Cell>
-    <Cell><Data ss:Type="String">machete</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">7</Data></Cell>
-    <Cell><Data ss:Type="String">water[1], food[1]</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">8</Data></Cell>
-    <Cell><Data ss:Type="String">pocket knife, water[1]</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">9</Data></Cell>
-    <Cell><Data ss:Type="String">water[1], matches + pan</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">10</Data></Cell>
-    <Cell><Data ss:Type="String">food[1],machete</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">11</Data></Cell>
-    <Cell><Data ss:Type="String">water[1],food[2]</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">12</Data></Cell>
-    <Cell><Data ss:Type="String">food[3],pliers</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">13</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">pistol + ammo, machete, pocket knife, medkit</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">14</Data></Cell>
-    <Cell><Data ss:Type="String">water[1], matches + pan</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">15</Data></Cell>
-    <Cell><Data ss:Type="String">food[1], machete</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">16</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">pistol + ammo, firecrackers</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">17</Data></Cell>
-    <Cell><Data ss:Type="String">compass</Data></Cell>
-    <Cell><Data ss:Type="String">food[1]</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">18</Data></Cell>
-    <Cell><Data ss:Type="String">food[2],water[2]</Data></Cell>
-    <Cell><Data ss:Type="String">pliers</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">19</Data></Cell>
-    <Cell><Data ss:Type="String">water[-2],food[-1]</Data></Cell>
-    <Cell><Data ss:Type="String">compass</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">20</Data></Cell>
-    <Cell><Data ss:Type="String">map, rope, hiking boots</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">21</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="Number">22</Data></Cell>
+    <Cell><Data ss:Type="Number">99</Data></Cell>
+    <Cell><Data ss:Type="String">End</Data></Cell>
+    <Cell><Data ss:Type="String">You beat the game! Have a nice day!</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -409,8 +88,123 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>22</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>2</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Paths">
+  <Table ss:ExpandedColumnCount="10" ss:ExpandedRowCount="10" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="66" ss:DefaultRowHeight="16">
+   <Column ss:StyleID="s16" ss:AutoFitWidth="0" ss:Span="1"/>
+   <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="180"/>
+   <Column ss:AutoFitWidth="0" ss:Width="137"/>
+   <Column ss:AutoFitWidth="0" ss:Width="140"/>
+   <Column ss:StyleID="s16" ss:AutoFitWidth="0"/>
+   <Row ss:StyleID="s17">
+    <Cell><Data ss:Type="String">pathId</Data></Cell>
+    <Cell><Data ss:Type="String">chapterId</Data></Cell>
+    <Cell><Data ss:Type="String">pathName</Data></Cell>
+    <Cell><Data ss:Type="String">verb</Data></Cell>
+    <Cell><Data ss:Type="String">noun</Data></Cell>
+    <Cell><Data ss:Type="String">nextId</Data></Cell>
+    <Cell><Data ss:Type="String">gainItems</Data></Cell>
+    <Cell><Data ss:Type="String">loseItems</Data></Cell>
+    <Cell><Data ss:Type="String">requiredItems</Data></Cell>
+    <Cell><Data ss:Type="String">pathText</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Intro</Data></Cell>
+    <Cell><Data ss:Type="String">start</Data></Cell>
+    <Cell><Data ss:Type="String">game</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Enter the Store</Data></Cell>
+    <Cell><Data ss:Type="String">enter</Data></Cell>
+    <Cell><Data ss:Type="String">store</Data></Cell>
+    <Cell><Data ss:Type="String">1A</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Leave the City</Data></Cell>
+    <Cell><Data ss:Type="String">leave</Data></Cell>
+    <Cell><Data ss:Type="String">city</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">1A</Data></Cell>
+    <Cell><Data ss:Type="String">Take Box 1</Data></Cell>
+    <Cell><Data ss:Type="String">take</Data></Cell>
+    <Cell><Data ss:Type="String">box1</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">matches,water,water</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="String">1A</Data></Cell>
+    <Cell><Data ss:Type="String">Take Box 2</Data></Cell>
+    <Cell><Data ss:Type="String">take</Data></Cell>
+    <Cell><Data ss:Type="String">box2</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">flashlight,machete</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">1A</Data></Cell>
+    <Cell><Data ss:Type="String">Leave the Store</Data></Cell>
+    <Cell><Data ss:Type="String">leave</Data></Cell>
+    <Cell><Data ss:Type="String">store</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Go Around Leon</Data></Cell>
+    <Cell><Data ss:Type="String">skip</Data></Cell>
+    <Cell><Data ss:Type="String">city</Data></Cell>
+    <Cell><Data ss:Type="Number">99</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">water</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Enter Leon</Data></Cell>
+    <Cell><Data ss:Type="String">enter</Data></Cell>
+    <Cell><Data ss:Type="String">city</Data></Cell>
+    <Cell><Data ss:Type="Number">99</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">99</Data></Cell>
+    <Cell><Data ss:Type="Number">99</Data></Cell>
+    <Cell><Data ss:Type="String">End of Game</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
