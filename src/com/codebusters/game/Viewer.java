@@ -20,6 +20,7 @@ public class Viewer implements ActionListener{
     JTextField userInputField;
     JButton inputBtn = new JButton("Enter");
     String[] inventoryList = {"water", "fire crackers", "matches"};
+    GameState gameScene = new GameState();
 
     public static void main(String[] args) {
         new Viewer();
@@ -85,7 +86,7 @@ public class Viewer implements ActionListener{
 
 
         //text area of the main story
-        storyTextArea = new JTextArea("this is where the story is told. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend, dui tempus porttitor egestas, enim odio sodales turpis, in malesuada lacus erat ac erat. Suspendisse cursus maximus aliquet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse dui felis, tincidunt a justo eget, elementum mattis augue.");
+        storyTextArea = new JTextArea(gameScene.getSceneText() +"this is where the story is told. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend, dui tempus porttitor egestas, enim odio sodales turpis, in malesuada lacus erat ac erat. Suspendisse cursus maximus aliquet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse dui felis, tincidunt a justo eget, elementum mattis augue.");
         storyTextArea.setBounds(180,150,480, 180);
         storyTextArea.setBackground(Color.decode("#F5EDDA"));
         storyTextArea.setForeground(Color.black);
@@ -95,8 +96,8 @@ public class Viewer implements ActionListener{
 
         //panel for inventory
         inventoryPanel = new JPanel();
-        JList<String> list = new JList<>(inventoryList);
         inventoryTitle = new JLabel("Inventory");
+        JList<String> list = new JList<>(inventoryList);
         inventoryTitle.setForeground(Color.decode("#e76f51")); //title text color
         inventoryTitle.setFont(normalFont); //title font
         titlePanel.add(titleName);
