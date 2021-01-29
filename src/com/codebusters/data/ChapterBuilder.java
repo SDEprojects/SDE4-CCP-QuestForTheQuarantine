@@ -1,7 +1,6 @@
 package com.codebusters.data;
 
 import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -13,7 +12,7 @@ import javax.xml.xpath.XPathFactory;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
+
 
 public class ChapterBuilder {
     private HashMap<String, ArrayList> story = new HashMap<>();
