@@ -20,7 +20,8 @@ public class Viewer implements ActionListener{
     JTextField userInputField;
     JButton inputBtn = new JButton("Enter");
     String[] inventoryList = {"water", "fire crackers", "matches"};
-    GameState gameScene = new GameState();
+    GameState gameScene = GameState.getInstance();
+    TextParser parser = TextParser.getInstance();
 
 
     public static void main(String[] args) {
@@ -87,7 +88,7 @@ public class Viewer implements ActionListener{
 
 
         //text area of the main story
-        storyTextArea = new JTextArea(gameScene.getSceneText()+"this is where the story is told. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend, dui tempus porttitor egestas, enim odio sodales turpis, in malesuada lacus erat ac erat. Suspendisse cursus maximus aliquet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse dui felis, tincidunt a justo eget, elementum mattis augue.");
+        storyTextArea = new JTextArea(gameScene.getSceneText());
         storyTextArea.setBounds(180,150,480, 180);
         storyTextArea.setBackground(Color.decode("#F5EDDA"));
         storyTextArea.setForeground(Color.black);
@@ -117,9 +118,15 @@ public class Viewer implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==userInputField || e.getSource() == inputBtn) {
             String input = userInputField.getText(); //gets input text and adds to variable input.
-            System.out.println(input);
+//            System.out.println(input);
+            parser.parseInput(input);
             userInputField.setText("");
         }
+    }
 
+    public void updateViewer(){
+        /*
+        @TODO: update text values and inventory in this function by accessing gameState
+         */
     }
 }

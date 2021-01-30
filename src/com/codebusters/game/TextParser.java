@@ -20,8 +20,9 @@ public class TextParser {
     private ArrayList<Items> itemsToAdd;
     private ArrayList<Items> itemsToRemove;
     private ArrayList<Items> inventory;
+    private static TextParser instance = null;
 
-    public TextParser(){
+    private TextParser(){
 //        nextChapter = new Chapter();
         currentChapter = new Chapter();
         setValidInput(false);
@@ -35,25 +36,34 @@ public class TextParser {
 //         ITEM_VERBS_GAIN.add("open");
     }
 
+    public static TextParser getInstance(){
+        if (instance == null){
+            instance = new TextParser();
+        }
+        return instance;
+    }
+
     public void parseInput(String input){
-        setValidInput(false);
+        setValidInput(false);   // reset value each time we check
+
+        // check for empty input
         if (!input.equals("")){
+            // set delims to remove common typing mistakes
             String delims = " \t,.:;?!\"'";
             StringTokenizer parse = new StringTokenizer(input.toLowerCase(), delims);
             ArrayList<String> command = new ArrayList<>();
 
+            // separate input into individual words
             while (parse.hasMoreTokens()){
                 command.add(parse.nextToken());
             }
 
+            // needs to be a two-word input (for now) in the form of verb + noun
             if (command.size() == 2){
                 String verb = command.get(0);
                 String noun = command.get(1);
 
-                /*
-                @TODO: we have the verb and the noun. We need to check it against list of acceptable ones for the current Chapter. Then take the appropriate action.
-                 */
-
+                //get current path list
                 ArrayList<HashMap> paths = currentChapter.getPaths();
                 for (HashMap path: paths){
                     // if we have a valid input
@@ -63,49 +73,47 @@ public class TextParser {
                             ArrayList<String> reqItems = (ArrayList<String>) path.get("requiredItems");
 
                             // we need to make sure at least one required item is in inventory
-                            boolean itemFound = false;
                             for (String item: reqItems){
-                                for (Items possession: inventory){
-                                    if (item.equals(possession.getName().toLowerCase())){
-                                        itemFound = true;
-                                        break;
-                                    }
-                                }
+                                checkAgainstInventory(item.toLowerCase());
 
-                                if (itemFound){
+                                if (isValidInput()){     // no need to keep searching for others, just need one
                                     break;
                                 }
                             }
 
                             // if a required item is found, then proceed, otherwise invalid input
-                            if (itemFound){
-                                setValidInput(true);
-                                nextChapter = (String) path.get("nextId");
-                                ArrayList<String> gainItems = (ArrayList<String>) path.get("gainItems");
-                                ArrayList<String> loseItems = (ArrayList<String>) path.get("loseItems");
-
-                                for (String item : gainItems){
-                                    itemsToAdd.add(new Items(item));
-                                }
-                                for (String item : loseItems){
-                                    itemsToRemove.add(new Items(item));
-                                }
+                            if (isValidInput()){
+                                logInventoryChanges(path);
                             }
+                        // else no required items and valid input: just add the items
                         }else{
-                            setValidInput(true);
-                            nextChapter = (String) path.get("nextId");
-                            ArrayList<String> gainItems = (ArrayList<String>) path.get("gainItems");
-                            ArrayList<String> loseItems = (ArrayList<String>) path.get("loseItems");
-
-                            for (String item : gainItems){
-                                itemsToAdd.add(new Items(item));
-                            }
-                            for (String item : loseItems){
-                                itemsToRemove.add(new Items(item));
-                            }
+                            logInventoryChanges(path);
                         }
                     }
                 }
+            }
+        }
+    }
+
+    //***************HELPER METHODS***************
+    private void logInventoryChanges(HashMap path){
+        setValidInput(true);
+        nextChapter = (String) path.get("nextId");
+        ArrayList<String> gainItems = (ArrayList<String>) path.get("gainItems");
+        ArrayList<String> loseItems = (ArrayList<String>) path.get("loseItems");
+
+        for (String item : gainItems){
+            itemsToAdd.add(new Items(item));
+        }
+        for (String item : loseItems) {
+            itemsToRemove.add(new Items(item));
+        }
+    }
+
+    private void checkAgainstInventory(String item){
+        for (Items possession: inventory){
+            if (item.equals(possession.getName().toLowerCase())){
+                setValidInput(true);
             }
         }
     }

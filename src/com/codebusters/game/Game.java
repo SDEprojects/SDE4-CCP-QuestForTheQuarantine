@@ -1,9 +1,4 @@
 package com.codebusters.game;
-
-import com.codebusters.data.ChapterBuilder;
-
-import java.util.ArrayList;
-
 /**
  * Game.java is the main game engine for Quest for the
  * Quarantine. It contains the startGame() method which
@@ -13,6 +8,8 @@ import java.util.ArrayList;
  * Authors: Bradley Pratt & Debbie Bitencourt
  * Last Edited: 01/29/2021
  */
+import com.codebusters.data.ChapterBuilder;
+import java.util.ArrayList;
 
 public class Game {
     public GameState currentGame;
@@ -23,9 +20,9 @@ public class Game {
     public ArrayList<Chapter> story;
 
     public Game() {
-        currentGame = new GameState();
+        currentGame = GameState.getInstance();
         GUI = new Viewer();
-        parser = new TextParser();
+        parser = TextParser.getInstance();
         inventory = new ArrayList<>();
         story = new ArrayList<>();
         builder = new ChapterBuilder();
@@ -42,7 +39,7 @@ public class Game {
             parser.setCurrentChapter(currentChapter, inventory);
 
             // tell viewer to display now that there is a new gamestate
-            Viewer.updateViewer(currentGame);
+            GUI.updateViewer();
 
             // check if viewer sent valid input to test parser
             if (!parser.isValidInput()){
@@ -68,7 +65,7 @@ public class Game {
 
         // display the end chapter
         updateGameState(currentChapter);
-        Viewer.updateViewer(currentGame);
+        GUI.updateViewer();
     }
 
     private boolean isEndChapter(Chapter currentChapter) {
@@ -103,6 +100,7 @@ public class Game {
 
     private void updateGameState(Chapter currentChapter) {
         currentGame.setSceneText(currentChapter.getSceneText());
+        currentGame.setSceneTitle(currentChapter.getChapterName());
         currentGame.setInventory(inventory);
     }
 
