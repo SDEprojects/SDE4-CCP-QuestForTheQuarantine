@@ -3,6 +3,7 @@ package com.codebusters.game;
 import com.codebusters.data.ChapterBuilder;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Game.java is the main game engine for Quest for the
@@ -17,10 +18,14 @@ import java.util.ArrayList;
 public class Game {
     public GameState currentGame;
     public Viewer GUI;
-    public TextParser parser;
+    public static TextParser parser;
     public ChapterBuilder builder;
     public ArrayList<Items> inventory;
     public ArrayList<Chapter> story;
+
+    //Aliona's changes
+//    public Scanner scanner = new Scanner(System.in);
+//    public String input;
 
     public Game() {
         currentGame = new GameState();
@@ -35,15 +40,23 @@ public class Game {
     public void startGame(){
         boolean endGame = false;
         Chapter currentChapter = story.get(0);
+        //Aliona's changes
+//        System.out.println("Your action");
+//        input = scanner.nextLine();
 
         while (!endGame){
             // update the current gamestate
             updateGameState(currentChapter);
             parser.setCurrentChapter(currentChapter, inventory);
 
-            // tell viewer to display now that there is a new gamestate
-           // Viewer.updateViewer(currentGame);
 
+            // tell viewer to display now that there is a new gamestate
+            GUI.updateViewer(currentGame);
+            // Aliona's changes
+//            System.out.println(currentGame.getSceneText());
+//            System.out.println("Your move");
+//            input = scanner.nextLine();
+//            parser.parseInput(input);
             // check if viewer sent valid input to test parser
             if (!parser.isValidInput()){
                 // if not, we need to tell the player to try again
@@ -68,7 +81,7 @@ public class Game {
 
         // display the end chapter
         updateGameState(currentChapter);
-       // Viewer.updateViewer(currentGame);
+        GUI.updateViewer(currentGame);
     }
 
     private boolean isEndChapter(Chapter currentChapter) {

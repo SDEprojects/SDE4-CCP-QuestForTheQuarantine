@@ -36,6 +36,7 @@ public class TextParser {
     }
 
     public void parseInput(String input){
+        System.out.println(input+" from parser");
         setValidInput(false);
         if (!input.equals("")){
             String delims = " \t,.:;?!\"'";

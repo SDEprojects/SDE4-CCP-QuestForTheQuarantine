@@ -1,4 +1,9 @@
 package com.codebusters.game.client;
+
+import com.codebusters.game.Game;
+
+import java.io.IOException;
+
 /**
  * Main class for the Quest for the Quarantine game.
  *
@@ -7,8 +12,8 @@ package com.codebusters.game.client;
  */
 
 public class GameClient {
-//    public static void main(String[] args) throws IOException {
-//        Game game1 = new Game();
-//        game1.startGame();
-//    }
+    public static void main(String[] args) throws IOException {
+        Game game1 = new Game();
+        game1.startGame();
+    }
 }
