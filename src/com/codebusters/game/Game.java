@@ -19,6 +19,10 @@ public class Game {
     public ArrayList<Items> inventory;
     public ArrayList<Chapter> story;
 
+    //Aliona's changes
+//    public Scanner scanner = new Scanner(System.in);
+//    public String input;
+
     public Game() {
         currentGame = GameState.getInstance();
         GUI = new Viewer();
@@ -32,6 +36,9 @@ public class Game {
     public void startGame(){
         boolean endGame = false;
         Chapter currentChapter = story.get(0);
+        //Aliona's changes
+//        System.out.println("Your action");
+//        input = scanner.nextLine();
 
         while (!endGame){
             // update the current gamestate
@@ -39,8 +46,12 @@ public class Game {
             parser.setCurrentChapter(currentChapter, inventory);
 
             // tell viewer to display now that there is a new gamestate
-            GUI.updateViewer();
-
+            GUI.updateViewer(currentGame);
+            // Aliona's changes
+//            System.out.println(currentGame.getSceneText());
+//            System.out.println("Your move");
+//            input = scanner.nextLine();
+//            parser.parseInput(input);
             // check if viewer sent valid input to test parser
             if (!parser.isValidInput()){
                 // if not, we need to tell the player to try again
@@ -65,7 +76,7 @@ public class Game {
 
         // display the end chapter
         updateGameState(currentChapter);
-        GUI.updateViewer();
+        GUI.updateViewer(currentGame);
     }
 
     private boolean isEndChapter(Chapter currentChapter) {
