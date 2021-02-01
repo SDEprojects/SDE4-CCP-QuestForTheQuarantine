@@ -14,19 +14,21 @@ public class Viewer implements ActionListener{
     Container container;
     JPanel titlePanel, storyPanel, inventoryPanel;
     JLabel titleName, inventoryTitle;
-    JTextArea storyTextArea;
+    JTextArea storyTextArea, inputTextArea, inventoryTextArea;
     Font titleFont = new Font("Times New Roman", Font.BOLD, 36);
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 16);
     JTextField userInputField;
     JButton inputBtn = new JButton("Enter");
-    String[] inventoryList = {"water", "fire crackers", "matches"};
+    GameState gameScene = GameState.getInstance();
+    TextParser parser = TextParser.getInstance();
 
-    public static void main(String[] args) {
-        new Viewer();
-    }
+    String input;
+    boolean waitingForInput;
 
     //Constructor
     public Viewer() {
+        waitingForInput = true;
+
         window = new JFrame(); //initiates the frame
         window.setSize(800,560); //size for the frame
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closes the window
@@ -59,17 +61,24 @@ public class Viewer implements ActionListener{
         titlePanel.add(titleName);
         container.add(titlePanel);
 
+        //user input text area
+        inputTextArea = new JTextArea();
+        inputTextArea.setBounds(180, 380, 150, 30);
+        inputTextArea.setBackground(Color.decode("#F5EDDA"));
+        inputTextArea.setForeground(Color.decode("#2E8B57"));
+        container.add(inputTextArea);
+
         //user input
         userInputField = new JTextField();
-        userInputField.setText("Enter Action:");
-        userInputField.setBounds(180,300,110,30);
+        userInputField.setText("");
+        userInputField.setBounds(180,340,110,30);
         userInputField.setBackground(Color.decode("#F5EDDA"));
         userInputField.setForeground(Color.black);
         userInputField.addActionListener(this);
         container.add(userInputField);
 
         //input button
-        inputBtn.setBounds(292,300,80,30);
+        inputBtn.setBounds(292,340,80,30);
         inputBtn.addActionListener(this);
         inputBtn.setForeground(Color.white);
         inputBtn.setBackground(Color.darkGray);
@@ -79,45 +88,73 @@ public class Viewer implements ActionListener{
 
         //text panel for main story
         storyPanel = new JPanel();
-        storyPanel.setBounds(180,115,480, 180);
+        storyPanel.setBounds(180,115,480, 200);
         storyPanel.setBackground(Color.decode("#F5EDDA"));
         container.add(storyPanel); //adding story panel to main container
 
-
-        //text area of the main story
-        storyTextArea = new JTextArea("this is where the story is told. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend, dui tempus porttitor egestas, enim odio sodales turpis, in malesuada lacus erat ac erat. Suspendisse cursus maximus aliquet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse dui felis, tincidunt a justo eget, elementum mattis augue.");
-        storyTextArea.setBounds(180,150,480, 180);
-        storyTextArea.setBackground(Color.decode("#F5EDDA"));
-        storyTextArea.setForeground(Color.black);
-        storyTextArea.setFont(normalFont);
-        storyTextArea.setLineWrap(true);
-        storyPanel.add(storyTextArea);
-
         //panel for inventory
         inventoryPanel = new JPanel();
-        JList<String> list = new JList<>(inventoryList);
-        inventoryTitle = new JLabel("Inventory");
-        inventoryTitle.setForeground(Color.decode("#e76f51")); //title text color
-        inventoryTitle.setFont(normalFont); //title font
-        titlePanel.add(titleName);
-        inventoryPanel.setBounds(480,300, 180, 100);
+        inventoryPanel.setBounds(480,320, 180, 100);
         inventoryPanel.setBackground(Color.decode("#F5EDDA"));
         inventoryPanel.setForeground(Color.decode("#e76f51")); //title text color
         inventoryPanel.setFont(normalFont); //font
-        list.setBackground(Color.decode("#F5EDDA"));
-
-        inventoryPanel.add(inventoryTitle);
-        inventoryPanel.add(list);
         container.add(inventoryPanel);
 
     }
 
+    public void updateViewer() {
+        inventoryTitle = new JLabel("Inventory");
+        inventoryTitle.setForeground(Color.decode("#e76f51")); //title text color
+        inventoryTitle.setFont(normalFont); //title font
+        titlePanel.add(titleName);
+
+        String inv = "";
+        for (Items item: gameScene.getInventory()){
+            inv += item + "\n";
+        }
+        inventoryTextArea = new JTextArea(inv);
+        inventoryTextArea.setBounds(480,320,180, 100);
+        inventoryTextArea.setBackground(Color.decode("#F5EDDA"));
+        inventoryTextArea.setForeground(Color.black);
+        inventoryTextArea.setFont(normalFont);
+        inventoryTextArea.setLineWrap(true);
+        inventoryPanel.removeAll();
+        inventoryPanel.add(inventoryTitle);
+        inventoryPanel.add(inventoryTextArea);
+        inventoryTextArea.update(inventoryTextArea.getGraphics()); //updates text area
+
+        //text area of the main story
+        storyTextArea = new JTextArea(gameScene.getSceneText());
+        storyTextArea.setBounds(180,150,480, 190);
+        storyTextArea.setBackground(Color.decode("#F5EDDA"));
+        storyTextArea.setForeground(Color.black);
+        storyTextArea.setFont(normalFont);
+        storyTextArea.setLineWrap(true);
+        storyPanel.removeAll();
+        storyPanel.add(storyTextArea);
+        storyTextArea.update(storyTextArea.getGraphics()); //updates text area
+
+        setWaitingForInput(true);
+    }
+
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==userInputField || e.getSource() == inputBtn) {
-            String input = userInputField.getText(); //gets input text and adds to variable input.
-            System.out.println(input);
+
+            input = userInputField.getText();
+            inputTextArea.setText(input);
+            parser.parseInput(input);
+
             userInputField.setText("");
+            setWaitingForInput(false);
         }
 
+    }
+
+    public boolean isWaitingForInput() {
+        return waitingForInput;
+    }
+
+    public void setWaitingForInput(boolean waitingForInput) {
+        this.waitingForInput = waitingForInput;
     }
 }

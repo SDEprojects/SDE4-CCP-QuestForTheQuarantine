@@ -5,32 +5,21 @@ package com.codebusters.game;
  * which represents the current stock in the player's inventory.
  * <p>
  * Authors: Bradley Pratt & Debbie Bitencourt
- * Last Edited: 01/27/2021
+ * Last Edited: 01/31/2021
  */
 
 public class Items {
-    private int idNumber;
     private String name;
     private int count;
 
-    public Items(String name, int idNumber){
+    public Items(String name){
         setName(name);
-        setIdNumber(idNumber);
         setCount(1);
     }
 
-    public Items(String name, int idNumber, int count){
+    public Items(String name, int count){
         setName(name);
-        setIdNumber(idNumber);
         setCount(count);
-    }
-
-    public int getIdNumber() {
-        return idNumber;
-    }
-
-    private void setIdNumber(int idNumber) {
-        this.idNumber = idNumber;
     }
 
     public String getName() {
@@ -47,5 +36,10 @@ public class Items {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    @Override
+    public String toString() {
+        return getName() + " x" + getCount();
     }
 }

@@ -14,21 +14,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ChapterBuilder {
-    private HashMap<String, ArrayList> story = new HashMap<>();
-    private ArrayList<Chapter> chapters = new ArrayList<>();
+    private final HashMap<String, ArrayList<HashMap<String, String>>> story;
+    private final ArrayList<Chapter> chapters = new ArrayList<>();
 
-    ChapterBuilder () {
+    public ChapterBuilder () {
         story = readXMLFile("./quarantine_first_edition.xml");
         buildChapters();
     }
 
-    ChapterBuilder(String storyXMLFile) {
+    public ChapterBuilder(String storyXMLFile) {
         story = readXMLFile(storyXMLFile);
         buildChapters();
     }
 
-    private HashMap<String, ArrayList> readXMLFile(String file){
-        HashMap<String, ArrayList> story = new HashMap<>();
+    private HashMap<String, ArrayList<HashMap<String, String>>> readXMLFile(String file){
+        HashMap<String, ArrayList<HashMap<String, String>>> story = new HashMap<>();
         try {
             File xmlFile = new File(file);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -49,8 +49,8 @@ public class ChapterBuilder {
         return story;
     }
 
-    private HashMap<String, ArrayList> buildStoryMap(Document storyDoc) {
-        HashMap<String, ArrayList> story = new HashMap<>();
+    private HashMap<String, ArrayList<HashMap<String, String>>> buildStoryMap(Document storyDoc) {
+        HashMap<String, ArrayList<HashMap<String, String>>> story = new HashMap<>();
         XPath xpath = XPathFactory.newInstance().newXPath();
         String expression = "/Workbook/Worksheet";
         try {
@@ -61,14 +61,13 @@ public class ChapterBuilder {
         } catch ( javax.xml.xpath.XPathExpressionException e) {
             System.out.println(e);
         }
-
         return story;
     }
 
-    private HashMap<String, ArrayList> addTableToStory(Node table, HashMap<String, ArrayList> story) {
+    private void addTableToStory(Node table, HashMap<String, ArrayList<HashMap<String, String>>> story) {
         String expression = "Table/Row";
         String tableName = table.getAttributes().getNamedItem("ss:Name").getNodeValue();
-        ArrayList list = new ArrayList();
+        ArrayList<HashMap<String, String>> list = new ArrayList<>();
 
         XPath xpath = XPathFactory.newInstance().newXPath();
         try {
@@ -82,11 +81,11 @@ public class ChapterBuilder {
             }
             // add remaining rows
 
-            for(Integer i = 1; i < rows.getLength(); i++) {
+            for(int i = 1; i < rows.getLength(); i++) {
                 HashMap<String, String> row = new HashMap<>();
                 NodeList cells = (NodeList) xpath.evaluate("Cell", rows.item(i),  XPathConstants.NODESET);
                 // add each cell in the row
-                for(Integer j = 0; j < cells.getLength(); j++) {
+                for(int j = 0; j < cells.getLength(); j++) {
                     row.put(columnKeys.get(j),cells.item(j).getTextContent());
                 }
                 list.add(row);
@@ -95,15 +94,13 @@ public class ChapterBuilder {
             System.out.println(e);
         }
         story.put(tableName, list);
-        return story;
     }
 
-    public void buildChapters() {
+    private void buildChapters() {
 
-       ArrayList<HashMap> chs = story.get("Chapters");
+       ArrayList<HashMap<String, String>> chs = story.get("Chapters");
        for(HashMap<String, String> entry : chs) {
            Chapter newChapter = new Chapter();
-           newChapter.setCities(entry.get("cities"));
            newChapter.setChapterId(entry.get("chapterId"));
            newChapter.setChapterName(entry.get("chapterName"));
            newChapter.setSceneText(entry.get("sceneText"));
@@ -112,30 +109,26 @@ public class ChapterBuilder {
        }
     }
 
-    public void addPaths(Chapter ch) {
-        ArrayList<HashMap> paths = story.get("Paths");
+    private void addPaths(Chapter ch) {
+        ArrayList<HashMap<String, String>> paths = story.get("Paths");
         for(HashMap<String, String> path : paths) {
             if(path.get("chapterId") == null) continue;
             if(path.get("chapterId").equals(ch.getChapterId())) {
-                addItems(path);
+                parseItems(path);
                 ch.setPaths(path);
             }
         }
     }
 
-    public void addItems(HashMap path) {
-        String pathId = (String) path.get("pathId");
-        ArrayList<HashMap> items = story.get("Items");
-        for(HashMap item : items) {
-            if(item.get("pathId") == null) continue;
-            if(item.get("pathId").equals(pathId)){
-                path.put("items", item.get("items"));
-                path.put("requiredItems",item.get("requiredItems"));
-            }
-        }
+    private void parseItems(HashMap<String, String> path) {
+        String gainItems = path.get("gainItems");
+        String loseItems = path.get("loseItems");
+        String requiredItems = path.get("requiredItems");
+        path.put("gainItems", gainItems);
+        path.put("loseItems", loseItems);
+        path.put("requiredItems", requiredItems);
     }
-
-    public HashMap<String, ArrayList> getStory() {
+    public HashMap<String, ArrayList<HashMap<String, String>>> getStory() {
         return story;
     }
 
