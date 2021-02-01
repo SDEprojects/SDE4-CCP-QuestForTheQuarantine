@@ -6,7 +6,7 @@ package com.codebusters.game;
  * Game.java can then pull.
  * <p>
  * Authors: Bradley Pratt & Debbie Bitencourt
- * Last Edited: 01/29/2021
+ * Last Edited: 01/31/2021
  */
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -69,7 +69,8 @@ public class TextParser {
                     // if we have a valid input
                     if (verb.equals(path.get("verb")) && noun.equals(path.get("noun"))){
                         // first, we check for required items
-                        if (!path.get("requiredItems").equals("")){
+                        if (!(path.get("requiredItems") == null)){
+//                            String[] reqItems = path.get("requiredItems").split(",");
                             ArrayList<String> reqItems = (ArrayList<String>) path.get("requiredItems");
 
                             // we need to make sure at least one required item is in inventory
@@ -96,17 +97,21 @@ public class TextParser {
     }
 
     //***************HELPER METHODS***************
-    private void logInventoryChanges(HashMap path){
+    private void logInventoryChanges(HashMap<String, String> path){
         setValidInput(true);
-        nextChapter = (String) path.get("nextId");
-        ArrayList<String> gainItems = (ArrayList<String>) path.get("gainItems");
-        ArrayList<String> loseItems = (ArrayList<String>) path.get("loseItems");
+        nextChapter = path.get("nextId");
 
-        for (String item : gainItems){
-            itemsToAdd.add(new Items(item));
+        if (!(path.get("gainItems") == null)){
+            String[] gainItems = path.get("gainItems").split(",");
+            for (String item : gainItems){
+                itemsToAdd.add(new Items(item));
+            }
         }
-        for (String item : loseItems) {
-            itemsToRemove.add(new Items(item));
+        if (!(path.get("loseItems") == null)){
+            String[] loseItems = path.get("loseItems").split(",");
+            for (String item : loseItems) {
+                itemsToRemove.add(new Items(item));
+            }
         }
     }
 
