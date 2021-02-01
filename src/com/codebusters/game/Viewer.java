@@ -1,14 +1,5 @@
 package com.codebusters.game;
 
-//
-//public class Viewer {
-//
-//    public void updateViewer(GameState currentGame) {
-//        System.out.println(currentGame.getSceneText());
-//    }
-//
-//}
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -18,30 +9,26 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-
-public class Viewer implements ActionListener {
+public class Viewer implements ActionListener{
     JFrame window;
     Container container;
     JPanel titlePanel, storyPanel, inventoryPanel;
     JLabel titleName, inventoryTitle;
-    JTextArea storyTextArea, inputTextArea;
+    JTextArea storyTextArea, inputTextArea, inventoryTextArea;
     Font titleFont = new Font("Times New Roman", Font.BOLD, 36);
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 16);
     JTextField userInputField;
     JButton inputBtn = new JButton("Enter");
-    JList list;
-    DefaultListModel<Items> model;
+    GameState gameScene = GameState.getInstance();
+    TextParser parser = TextParser.getInstance();
+
     String input;
-
-    GameState gameScene;
-
-//
-//    public static void main(String[] args) {
-//        new Viewer();
-//    }
+    boolean waitingForInput;
 
     //Constructor
     public Viewer() {
+        waitingForInput = true;
+
         window = new JFrame(); //initiates the frame
         window.setSize(800,560); //size for the frame
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closes the window
@@ -107,57 +94,67 @@ public class Viewer implements ActionListener {
 
         //panel for inventory
         inventoryPanel = new JPanel();
-        inventoryTitle = new JLabel("Inventory");
-        inventoryTitle.setForeground(Color.decode("#e76f51")); //title text color
-        inventoryTitle.setFont(normalFont); //title font
-        titlePanel.add(titleName);
         inventoryPanel.setBounds(480,320, 180, 100);
         inventoryPanel.setBackground(Color.decode("#F5EDDA"));
         inventoryPanel.setForeground(Color.decode("#e76f51")); //title text color
         inventoryPanel.setFont(normalFont); //font
-        //list.setBackground(Color.decode("#F5EDDA"));
-        inventoryPanel.add(inventoryTitle);
         container.add(inventoryPanel);
 
     }
 
-    public void updateViewer(GameState currentGame) {
-        gameScene = currentGame;
-//      JList<Items> list = new JList<Items>(currentGame.getInventory());
-        model = new DefaultListModel<>();
-        list = new JList(model);
-        model.addAll(currentGame.getInventory());
-        container.add(list);
+    public void updateViewer() {
+        inventoryTitle = new JLabel("Inventory");
+        inventoryTitle.setForeground(Color.decode("#e76f51")); //title text color
+        inventoryTitle.setFont(normalFont); //title font
+        titlePanel.add(titleName);
 
-//        //checks for input in parser
-//        input = userInputField.getText();
-//        Game.parser.parseInput(input);
-
-
+        String inv = "";
+        for (Items item: gameScene.getInventory()){
+            inv += item + "\n";
+        }
+        inventoryTextArea = new JTextArea(inv);
+        inventoryTextArea.setBounds(480,320,180, 100);
+        inventoryTextArea.setBackground(Color.decode("#F5EDDA"));
+        inventoryTextArea.setForeground(Color.black);
+        inventoryTextArea.setFont(normalFont);
+        inventoryTextArea.setLineWrap(true);
+        inventoryPanel.removeAll();
+        inventoryPanel.add(inventoryTitle);
+        inventoryPanel.add(inventoryTextArea);
+        inventoryTextArea.update(inventoryTextArea.getGraphics()); //updates text area
 
         //text area of the main story
-        storyTextArea = new JTextArea(currentGame.getSceneText());
+        storyTextArea = new JTextArea(gameScene.getSceneText());
         storyTextArea.setBounds(180,150,480, 190);
         storyTextArea.setBackground(Color.decode("#F5EDDA"));
         storyTextArea.setForeground(Color.black);
         storyTextArea.setFont(normalFont);
         storyTextArea.setLineWrap(true);
+        storyPanel.removeAll();
         storyPanel.add(storyTextArea);
-//      storyTextArea.update(storyTextArea.getGraphics()); //updates text area
+        storyTextArea.update(storyTextArea.getGraphics()); //updates text area
 
+        setWaitingForInput(true);
     }
 
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==userInputField || e.getSource() == inputBtn) {
 
-//          userInputField.getText(); //gets input text and adds to variable input.
             input = userInputField.getText();
             inputTextArea.setText(input);
-            Game.parser.parseInput(input);
+            parser.parseInput(input);
 
-            System.out.println(input);
             userInputField.setText("");
+            setWaitingForInput(false);
         }
 
+    }
+
+    public boolean isWaitingForInput() {
+        return waitingForInput;
+    }
+
+    public void setWaitingForInput(boolean waitingForInput) {
+        this.waitingForInput = waitingForInput;
     }
 }

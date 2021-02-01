@@ -5,7 +5,7 @@ package com.codebusters.game;
  * which represents the current stock in the player's inventory.
  * <p>
  * Authors: Bradley Pratt & Debbie Bitencourt
- * Last Edited: 01/29/2021
+ * Last Edited: 01/31/2021
  */
 
 public class Items {
@@ -36,5 +36,10 @@ public class Items {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    @Override
+    public String toString() {
+        return getName() + " x" + getCount();
     }
 }

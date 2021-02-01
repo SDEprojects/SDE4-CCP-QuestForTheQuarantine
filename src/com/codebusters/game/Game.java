@@ -1,10 +1,4 @@
 package com.codebusters.game;
-
-import com.codebusters.data.ChapterBuilder;
-
-import java.util.ArrayList;
-import java.util.Scanner;
-
 /**
  * Game.java is the main game engine for Quest for the
  * Quarantine. It contains the startGame() method which
@@ -12,25 +6,23 @@ import java.util.Scanner;
  * then the GUI.
  * <p>
  * Authors: Bradley Pratt & Debbie Bitencourt
- * Last Edited: 01/29/2021
+ * Last Edited: 01/31/2021
  */
+import com.codebusters.data.ChapterBuilder;
+import java.util.ArrayList;
 
 public class Game {
     public GameState currentGame;
     public Viewer GUI;
-    public static TextParser parser;
+    public TextParser parser;
     public ChapterBuilder builder;
     public ArrayList<Items> inventory;
     public ArrayList<Chapter> story;
 
-    //Aliona's changes
-//    public Scanner scanner = new Scanner(System.in);
-//    public String input;
-
     public Game() {
-        currentGame = new GameState();
+        currentGame = GameState.getInstance();
         GUI = new Viewer();
-        parser = new TextParser();
+        parser = TextParser.getInstance();
         inventory = new ArrayList<>();
         story = new ArrayList<>();
         builder = new ChapterBuilder();
@@ -40,23 +32,23 @@ public class Game {
     public void startGame(){
         boolean endGame = false;
         Chapter currentChapter = story.get(0);
-        //Aliona's changes
-//        System.out.println("Your action");
-//        input = scanner.nextLine();
+        updateGameState(currentChapter);
 
         while (!endGame){
-            // update the current gamestate
-            updateGameState(currentChapter);
             parser.setCurrentChapter(currentChapter, inventory);
 
-
             // tell viewer to display now that there is a new gamestate
-            GUI.updateViewer(currentGame);
-            // Aliona's changes
-//            System.out.println(currentGame.getSceneText());
-//            System.out.println("Your move");
-//            input = scanner.nextLine();
-//            parser.parseInput(input);
+            GUI.updateViewer();
+            System.out.println("Did you execute?");
+            while (GUI.isWaitingForInput()){
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException ie) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+            System.out.println("How about now?");
+
             // check if viewer sent valid input to test parser
             if (!parser.isValidInput()){
                 // if not, we need to tell the player to try again
@@ -72,16 +64,20 @@ public class Game {
                     }
                 }
 
+                // update the current gamestate
+                updateGameState(currentChapter);
+
                 // last we check if we are now at the end chapter
                 if (isEndChapter(currentChapter)){
                     endGame = true;
                 }
             }
+            System.out.println("Current inventory: "  + currentGame.getInventory());
         }
 
         // display the end chapter
         updateGameState(currentChapter);
-        GUI.updateViewer(currentGame);
+        GUI.updateViewer();
     }
 
     private boolean isEndChapter(Chapter currentChapter) {
@@ -116,13 +112,14 @@ public class Game {
 
     private void updateGameState(Chapter currentChapter) {
         currentGame.setSceneText(currentChapter.getSceneText());
+        currentGame.setSceneTitle(currentChapter.getChapterName());
         currentGame.setInventory(inventory);
     }
 
     //***************INVENTORY ACCESSOR METHODS***************
     public boolean findItemInInventory(Items toFind){
         for (Items item: inventory){
-            if (item.getName() == toFind.getName()){
+            if (item.getName().equals(toFind.getName())){
                 return true;
             }
         }
@@ -134,7 +131,7 @@ public class Game {
         if (findItemInInventory(toAdd)){
             // then we find the item
             for (Items item: inventory){
-                if (item.getName() == toAdd.getName()){
+                if (item.getName().equals(toAdd.getName())){
                     // and just add to its count
                     item.setCount(item.getCount() + toAdd.getCount());
                 }
@@ -149,7 +146,7 @@ public class Game {
     private boolean removeItemFromInventory(Items toLose){
         // find the item in the inventory
         for (Items item: inventory){
-            if (item.getName() == toLose.getName()){
+            if (item.getName().equals(toLose.getName())){
                 // if there is more quantity than the player loses, just update count
                 if (item.getCount() > toLose.getCount()){
                     item.setCount(item.getCount() - toLose.getCount());
