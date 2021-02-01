@@ -9,7 +9,7 @@
   <Author>Dustin Morris</Author>
   <LastAuthor>Dustin Morris</LastAuthor>
   <Created>2021-01-28T20:22:13Z</Created>
-  <LastSaved>2021-01-29T22:30:01Z</LastSaved>
+  <LastSaved>2021-02-01T22:06:54Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -42,7 +42,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Chapters">
-  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="6" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="16" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="66" ss:DefaultRowHeight="16">
    <Column ss:StyleID="s16" ss:AutoFitWidth="0"/>
    <Column ss:AutoFitWidth="0" ss:Width="82"/>
@@ -73,6 +73,56 @@
     <Cell><Data ss:Type="String">You're outside Leon. (skip city) or (enter city)?</Data></Cell>
    </Row>
    <Row>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Leon</Data></Cell>
+    <Cell><Data ss:Type="String">You're in Leon. (enter apartment) or (enter store) or (go farther)?</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">3A</Data></Cell>
+    <Cell><Data ss:Type="String">Leon: Apartment</Data></Cell>
+    <Cell><Data ss:Type="String">You're in the apartment. (search bedroom) or (leave apartment)?</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">3B</Data></Cell>
+    <Cell><Data ss:Type="String">Leon: Store</Data></Cell>
+    <Cell><Data ss:Type="String">You're in the store. (search cabinets) or (leave store)?</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">3C</Data></Cell>
+    <Cell><Data ss:Type="String">Leon: Alleyway</Data></Cell>
+    <Cell><Data ss:Type="String">You're in the alley. (use firecrackers) or (run away)?</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="String">El Chayote</Data></Cell>
+    <Cell><Data ss:Type="String">Talk to the farmer. (trade ammo) or (threaten farmer) or (walk away)?</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">Zacatecas</Data></Cell>
+    <Cell><Data ss:Type="String">You see the town. (go around) or (enter town)?</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="String">Mountains (East)</Data></Cell>
+    <Cell><Data ss:Type="String">Prepare for the hike. (drink water) or (eat food) or (use machete) or (start hike)?</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">96</Data></Cell>
+    <Cell><Data ss:Type="String">End of Part 1</Data></Cell>
+    <Cell><Data ss:Type="String">You have reached the end of Part 1.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">97</Data></Cell>
+    <Cell><Data ss:Type="String">End of Part 2</Data></Cell>
+    <Cell><Data ss:Type="String">You have reached the end of Part 2.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">98</Data></Cell>
+    <Cell><Data ss:Type="String">Death</Data></Cell>
+    <Cell><Data ss:Type="String">You have died!</Data></Cell>
+   </Row>
+   <Row>
     <Cell><Data ss:Type="Number">99</Data></Cell>
     <Cell><Data ss:Type="String">End</Data></Cell>
     <Cell><Data ss:Type="String">You beat the game! Have a nice day!</Data></Cell>
@@ -88,7 +138,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
+     <ActiveRow>16</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
@@ -97,7 +147,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Paths">
-  <Table ss:ExpandedColumnCount="10" ss:ExpandedRowCount="10" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="10" ss:ExpandedRowCount="31" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="66" ss:DefaultRowHeight="16">
    <Column ss:StyleID="s16" ss:AutoFitWidth="0" ss:Span="1"/>
    <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="180"/>
@@ -131,6 +181,7 @@
     <Cell><Data ss:Type="String">enter</Data></Cell>
     <Cell><Data ss:Type="String">store</Data></Cell>
     <Cell><Data ss:Type="String">1A</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">You head towards the store.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="Number">2</Data></Cell>
@@ -139,6 +190,7 @@
     <Cell><Data ss:Type="String">leave</Data></Cell>
     <Cell><Data ss:Type="String">city</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">You turn down Main St and walk out of the city.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="Number">3</Data></Cell>
@@ -148,6 +200,7 @@
     <Cell><Data ss:Type="String">box1</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">matches,water,water</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Inside you find a box of matches and 2L of water. You place them in your backpack, leave the store, and head out of the city.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="Number">4</Data></Cell>
@@ -157,6 +210,7 @@
     <Cell><Data ss:Type="String">box2</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String">flashlight,machete</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Inside you find a flashlight and a machete. You place them in your backpack, leave the store, and head out of the city.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="Number">5</Data></Cell>
@@ -165,6 +219,7 @@
     <Cell><Data ss:Type="String">leave</Data></Cell>
     <Cell><Data ss:Type="String">store</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Deciding not to waste any more time, you turn around, leave the store, and head out of the city.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="Number">6</Data></Cell>
@@ -172,8 +227,9 @@
     <Cell><Data ss:Type="String">Go Around Leon</Data></Cell>
     <Cell><Data ss:Type="String">skip</Data></Cell>
     <Cell><Data ss:Type="String">city</Data></Cell>
-    <Cell><Data ss:Type="Number">99</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">water</Data></Cell>
+    <Cell><Data ss:Type="String">You've got water already and would rather not risk unnecessary run-ins, so you turn west and give the city a wide berth.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="Number">7</Data></Cell>
@@ -181,7 +237,199 @@
     <Cell><Data ss:Type="String">Enter Leon</Data></Cell>
     <Cell><Data ss:Type="String">enter</Data></Cell>
     <Cell><Data ss:Type="String">city</Data></Cell>
-    <Cell><Data ss:Type="Number">99</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">You haven't gotten any water and desperately need a hydration source if you're to continue on your journey. You start walking down the road and into Leon.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">8</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Enter Apartment</Data></Cell>
+    <Cell><Data ss:Type="String">enter</Data></Cell>
+    <Cell><Data ss:Type="String">apartment</Data></Cell>
+    <Cell><Data ss:Type="String">3A</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">You crawl through the broken window and into the apartment.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">9</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Enter Store</Data></Cell>
+    <Cell><Data ss:Type="String">enter </Data></Cell>
+    <Cell><Data ss:Type="String">store</Data></Cell>
+    <Cell><Data ss:Type="String">3B</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">You kick down the decrepit door and stumble your way into the store.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Go Farther</Data></Cell>
+    <Cell><Data ss:Type="String">go </Data></Cell>
+    <Cell><Data ss:Type="String">farther</Data></Cell>
+    <Cell><Data ss:Type="String">3C</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Nothing looks too interesting, so you decide to continue down the street.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">11</Data></Cell>
+    <Cell><Data ss:Type="String">3A</Data></Cell>
+    <Cell><Data ss:Type="String">Search Bedroom</Data></Cell>
+    <Cell><Data ss:Type="String">search</Data></Cell>
+    <Cell><Data ss:Type="String">bedroom</Data></Cell>
+    <Cell><Data ss:Type="String">3C</Data></Cell>
+    <Cell><Data ss:Type="String">pistol ammo,firecrackers</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">You look under the bed and find some pistol ammo and firecrackers. Satisfied with your findings, you leave the bedroom, crawl back out the window, and continue down the street.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">12</Data></Cell>
+    <Cell><Data ss:Type="String">3A</Data></Cell>
+    <Cell><Data ss:Type="String">Leave Apartment</Data></Cell>
+    <Cell><Data ss:Type="String">leave</Data></Cell>
+    <Cell><Data ss:Type="String">apartment</Data></Cell>
+    <Cell><Data ss:Type="String">3C</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">You decide the place looks pretty bare and save time by crawling back out the window and continuing down the street.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">13</Data></Cell>
+    <Cell><Data ss:Type="String">3B</Data></Cell>
+    <Cell><Data ss:Type="String">Search Cabinets</Data></Cell>
+    <Cell><Data ss:Type="String">search</Data></Cell>
+    <Cell><Data ss:Type="String">cabinets</Data></Cell>
+    <Cell><Data ss:Type="String">3C</Data></Cell>
+    <Cell><Data ss:Type="String">water,food</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Pulling open the cabinets, you discover a unopened bottle of water and some food. This should help. After grabbing the items, you head back out of the store and continue down the street.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">14</Data></Cell>
+    <Cell><Data ss:Type="String">3B</Data></Cell>
+    <Cell><Data ss:Type="String">Leave Store</Data></Cell>
+    <Cell><Data ss:Type="String">leave</Data></Cell>
+    <Cell><Data ss:Type="String">store</Data></Cell>
+    <Cell><Data ss:Type="String">3C</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">You decide the place looks pretty bare and save time by walking back out and continuing down the street.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
+    <Cell><Data ss:Type="String">3C</Data></Cell>
+    <Cell><Data ss:Type="String">Use Firecrackers</Data></Cell>
+    <Cell><Data ss:Type="String">use</Data></Cell>
+    <Cell><Data ss:Type="String">firecrackers</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">firecrackers</Data></Cell>
+    <Cell><Data ss:Type="String">firecrackers</Data></Cell>
+    <Cell><Data ss:Type="String">You light the firecrackers and throw them over the nearest building. It causes the perfect distraction as you bolt in the opposite direction, keeping to the shadows as you go. Within 20 minutes you are back outside the city.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell><Data ss:Type="String">3C</Data></Cell>
+    <Cell><Data ss:Type="String">Run Away</Data></Cell>
+    <Cell><Data ss:Type="String">run</Data></Cell>
+    <Cell><Data ss:Type="String">away</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">With nothing to distract, you simply run as fast as you can, scrambling and sliding as you go. Someone snatches at your backpack as you blaze by them and a sound follows which sounds oddly like a water bottle hitting the ground… Nevertheless, you make it out of the city alive.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">17</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="String">Trade Ammo</Data></Cell>
+    <Cell><Data ss:Type="String">trade</Data></Cell>
+    <Cell><Data ss:Type="String">ammo</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">pan,medkit</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">pistol ammo</Data></Cell>
+    <Cell><Data ss:Type="String">Happy with the trade, the farmer happily hands over the frying pan and first aid kit. Nodding your head in thanks, you continue down the dirt road.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="String">Threaten Farmer</Data></Cell>
+    <Cell><Data ss:Type="String">threaten</Data></Cell>
+    <Cell><Data ss:Type="String">farmer</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">pistol,food</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">machete</Data></Cell>
+    <Cell><Data ss:Type="String">The farmer cowers in fear, a look of betrayal and sadness in his eyes. You open the chest and find a pistol and some food inside. Greedily you grab them and shove them into your backpack before heading down the dirt road.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">19</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="String">Walk Away</Data></Cell>
+    <Cell><Data ss:Type="String">walk</Data></Cell>
+    <Cell><Data ss:Type="String">away</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">You politely decline the old farmer's offer and continue down the dirt road.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">Go Around</Data></Cell>
+    <Cell><Data ss:Type="String">go</Data></Cell>
+    <Cell><Data ss:Type="String">around</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">water</Data></Cell>
+    <Cell><Data ss:Type="String">You've got water to spare and no time to waste so you give the city a wide berth and continue on your way.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">21</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">Enter Town</Data></Cell>
+    <Cell><Data ss:Type="String">enter</Data></Cell>
+    <Cell><Data ss:Type="String">town</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="String">pocket knife,water</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">You need some water so you make your way into the city. An overturned truck on one of the roads has a bottle of water and a pocket knife in its remnants. You grab the items and head out of the town.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">22</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="String">Drink Water</Data></Cell>
+    <Cell><Data ss:Type="String">drink</Data></Cell>
+    <Cell><Data ss:Type="String">water</Data></Cell>
+    <Cell><Data ss:Type="Number">96</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">water</Data></Cell>
+    <Cell><Data ss:Type="String">water</Data></Cell>
+    <Cell><Data ss:Type="String">You rest up and drink some water to prepare for the strenuous journey ahead.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">23</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="String">Eat Food</Data></Cell>
+    <Cell><Data ss:Type="String">eat</Data></Cell>
+    <Cell><Data ss:Type="String">food</Data></Cell>
+    <Cell><Data ss:Type="Number">96</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">food</Data></Cell>
+    <Cell><Data ss:Type="String">food</Data></Cell>
+    <Cell><Data ss:Type="String">You rest up and eat some food to prepare for the strenuous journey ahead.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">24</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="String">Use Machete</Data></Cell>
+    <Cell><Data ss:Type="String">use</Data></Cell>
+    <Cell><Data ss:Type="String">machete</Data></Cell>
+    <Cell><Data ss:Type="Number">96</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Using your machete, you're able to turn a roaming tortoise into a snack. You eat and rest, preparing for the strenuous journey ahead.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">25</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="String">Start Hike</Data></Cell>
+    <Cell><Data ss:Type="String">start</Data></Cell>
+    <Cell><Data ss:Type="String">hike</Data></Cell>
+    <Cell><Data ss:Type="Number">98</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">Ambitously, your begin your journey without any preparation. This is a mistake. Within hours you feel extremely weak and unable to move. Your breath gets harder to catch. As your vision begins to fade you notice several coyotes come out of the bushes and begin to circle you...</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">96</Data></Cell>
+    <Cell><Data ss:Type="Number">96</Data></Cell>
+    <Cell><Data ss:Type="String">End of Part 1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">97</Data></Cell>
+    <Cell><Data ss:Type="Number">97</Data></Cell>
+    <Cell><Data ss:Type="String">End of Part 2</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">98</Data></Cell>
+    <Cell><Data ss:Type="Number">98</Data></Cell>
+    <Cell><Data ss:Type="String">Death</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="Number">99</Data></Cell>
@@ -203,8 +451,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>27</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
