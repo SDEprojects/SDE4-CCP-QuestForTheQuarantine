@@ -121,12 +121,12 @@ public class ChapterBuilder {
     }
 
     private void parseItems(HashMap<String, String> path) {
-        String gainItems = path.get("gainItems");
-        String loseItems = path.get("loseItems");
-        String requiredItems = path.get("requiredItems");
-        path.put("gainItems", gainItems);
-        path.put("loseItems", loseItems);
-        path.put("requiredItems", requiredItems);
+        String gainItems = path.getOrDefault("gainItems", "-1");
+        String loseItems = path.getOrDefault("loseItems", "-1");
+        String requiredItems = path.getOrDefault("requiredItems", "-1");
+        gainItems = gainItems.equals("-1") ? path.put("gainItems", null) : path.put("gainItems", gainItems);
+        loseItems = loseItems.equals("-1") ? path.put("loseItems", null) : path.put("loseItems", loseItems);
+        requiredItems = requiredItems.equals("-1") ? path.put("requiredItems", null) : path.put("requiredItems", requiredItems);
     }
     public HashMap<String, ArrayList<HashMap<String, String>>> getStory() {
         return story;

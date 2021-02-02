@@ -44,20 +44,21 @@ public class ChapterBuilderTest {
 
     @Test
     public void builderTest() {
-        System.out.println(cb.getChapters().size());
-        // assertTrue(cb.getChapters().size() == 16);
-        Chapter zacatecas = cb.getChapters().get(4);
-        System.out.println(cb.getChapters().get(4));
-        // assertTrue(zacatecas.getChapterName().equals("Zacatecas"));
-        // assertTrue(zacatecas.getChapterId().equals("5"));
-        ArrayList zPaths = zacatecas.getPaths();
+        assertTrue(cb.getChapters().size() == 15);
+        Chapter leon = cb.getChapters().get(4);
+        assertTrue(leon.getChapterName().equals("Leon"));
+        assertTrue(leon.getChapterId().equals("3"));
+        ArrayList zPaths = leon.getPaths();
         HashMap path = (HashMap) zPaths.get(0);
-        System.out.println(path);
-        // assertTrue(path.get("pathName").equals("Go Around"));
-        // assertTrue(path.get("chapterId").equals("5"));
-        // assertTrue(path.get("pathId").equals("7"));
-        // assertTrue(path.get("actions").equals("skip"));
-        // assertTrue(path.get("items").equals("water[1], food[1]"));
-        // assertTrue(path.get("requiredItems") == null);
+        assertTrue(path.get("pathName").equals("Enter Apartment"));
+        assertTrue(path.get("chapterId").equals("3"));
+        assertTrue(path.get("pathId").equals("8"));
+        assertTrue(path.get("pathText") != null && path.get("pathText").toString().length() > 10);
+        assertTrue(path.get("nextId").equals("3A"));
+        assertTrue(path.get("verb").equals("enter"));
+        assertTrue(path.get("gainItems") == null);
+        assertTrue(path.get("noun").equals("apartment"));
+        assertTrue(path.get("loseItems") == null);
+        assertTrue(path.get("requiredItems") == null);
     }
 }
