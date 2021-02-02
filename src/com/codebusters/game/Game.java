@@ -6,26 +6,21 @@ package com.codebusters.game;
  * then the GUI.
  * <p>
  * Authors: Bradley Pratt & Debbie Bitencourt
- * Last Edited: 01/31/2021
+ * Last Edited: 02/02/2021
  */
 import com.codebusters.data.ChapterBuilder;
 import java.util.ArrayList;
 
 public class Game {
-    public GameState currentGame;
-    public Viewer GUI;
-    public TextParser parser;
-    public ChapterBuilder builder;
-    public ArrayList<Items> inventory;
-    public ArrayList<Chapter> story;
+    private final Viewer GUI;
+    private final ArrayList<Items> inventory;
+    private ArrayList<Chapter> story;
 
     public Game() {
-        currentGame = GameState.getInstance();
         GUI = new Viewer();
-        parser = TextParser.getInstance();
         inventory = new ArrayList<>();
         story = new ArrayList<>();
-        builder = new ChapterBuilder();
+        ChapterBuilder builder = new ChapterBuilder();
         story = builder.getChapters();
     }
 
@@ -35,11 +30,11 @@ public class Game {
         updateGameState(currentChapter);
 
         while (!endGame){
-            parser.setCurrentChapter(currentChapter, inventory);
+            TextParser.getInstance().setCurrentChapter(currentChapter, inventory);
 
             // tell viewer to display now that there is a new gamestate
             GUI.updateViewer();
-            System.out.println("Did you execute?");
+//            System.out.println("Did you execute?");
             while (GUI.isWaitingForInput()){
                 try {
                     Thread.sleep(500);
@@ -47,16 +42,16 @@ public class Game {
                     Thread.currentThread().interrupt();
                 }
             }
-            System.out.println("How about now?");
+//            System.out.println("How about now?");
 
             // check if viewer sent valid input to test parser
-            if (!parser.isValidInput()){
+            if (!TextParser.getInstance().isValidInput()){
                 // if not, we need to tell the player to try again
                 promptAgain();
             }else{
                 // we need to update the inventory and current chapter
                 updateInventory();
-                String next = parser.getNextChapter();
+                String next = TextParser.getInstance().getNextChapter();
                 for (Chapter chapt: story){
                     if (chapt.getChapterId().equals(next)){
                         currentChapter = chapt;
@@ -67,17 +62,28 @@ public class Game {
                 // update the current gamestate
                 updateGameState(currentChapter);
 
+                if (TextParser.getInstance().hasPathText()){
+                    updatePathText();
+                }
+
                 // last we check if we are now at the end chapter
                 if (isEndChapter(currentChapter)){
                     endGame = true;
                 }
             }
-            System.out.println("Current inventory: "  + currentGame.getInventory());
+//            System.out.println("Current inventory: "  + currentGame.getInventory());
         }
 
         // display the end chapter
         updateGameState(currentChapter);
         GUI.updateViewer();
+    }
+
+    private void updatePathText() {
+        // get the current scene text
+        System.out.println("Updating path text");
+        String currentText = GameState.getInstance().getSceneText();
+        GameState.getInstance().setSceneText(TextParser.getInstance().getPathText() + "\n\n" + currentText);
     }
 
     private boolean isEndChapter(Chapter currentChapter) {
@@ -86,34 +92,33 @@ public class Game {
     }
 
     private void updateInventory() {
-        for (Items item: parser.getItemsToAdd()){
+        for (Items item: TextParser.getInstance().getItemsToAdd()){
             addItemToInventory(item);
         }
 
-        for (Items item: parser.getItemsToRemove()){
+        for (Items item: TextParser.getInstance().getItemsToRemove()){
             removeItemFromInventory(item);
         }
     }
 
     private void promptAgain() {
         // get the current scene text
-        String tryAgain = currentGame.getSceneText();
-        // create message that there was an invalid input
-        String invalid = "That is an unrecognized input, please try again. Only two word commands are allowed in the form of verb + noun.";
+        String tryAgain = GameState.getInstance().getSceneText();
 
         // check if current scene already has the message, if so,
         // we don't need to add again
-        if (!tryAgain.contains(invalid)){
+        String INVALID = "That is an unrecognized input, please try again. Only two word commands are allowed in the form of verb + noun.";
+        if (!tryAgain.contains(INVALID)){
             tryAgain += "\n\n";
-            tryAgain += invalid;
+            tryAgain += INVALID;
         }
-        currentGame.setSceneText(tryAgain);
+        GameState.getInstance().setSceneText(tryAgain);
     }
 
     private void updateGameState(Chapter currentChapter) {
-        currentGame.setSceneText(currentChapter.getSceneText());
-        currentGame.setSceneTitle(currentChapter.getChapterName());
-        currentGame.setInventory(inventory);
+        GameState.getInstance().setSceneText(currentChapter.getSceneText());
+        GameState.getInstance().setSceneTitle(currentChapter.getChapterName());
+        GameState.getInstance().setInventory(inventory);
     }
 
     //***************INVENTORY ACCESSOR METHODS***************
@@ -134,6 +139,7 @@ public class Game {
                 if (item.getName().equals(toAdd.getName())){
                     // and just add to its count
                     item.setCount(item.getCount() + toAdd.getCount());
+                    break;
                 }
             }
 

@@ -19,8 +19,6 @@ public class Viewer implements ActionListener{
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 16);
     JTextField userInputField;
     JButton inputBtn = new JButton("Enter");
-    GameState gameScene = GameState.getInstance();
-    TextParser parser = TextParser.getInstance();
 
     String input;
     boolean waitingForInput;
@@ -109,7 +107,7 @@ public class Viewer implements ActionListener{
         titlePanel.add(titleName);
 
         String inv = "";
-        for (Items item: gameScene.getInventory()){
+        for (Items item: GameState.getInstance().getInventory()){
             inv += item + "\n";
         }
         inventoryTextArea = new JTextArea(inv);
@@ -124,7 +122,7 @@ public class Viewer implements ActionListener{
         inventoryTextArea.update(inventoryTextArea.getGraphics()); //updates text area
 
         //text area of the main story
-        storyTextArea = new JTextArea(gameScene.getSceneText());
+        storyTextArea = new JTextArea(GameState.getInstance().getSceneText());
         storyTextArea.setBounds(180,150,480, 190);
         storyTextArea.setBackground(Color.decode("#F5EDDA"));
         storyTextArea.setForeground(Color.black);
@@ -142,7 +140,7 @@ public class Viewer implements ActionListener{
 
             input = userInputField.getText();
             inputTextArea.setText(input);
-            parser.parseInput(input);
+            TextParser.getInstance().parseInput(input);
 
             userInputField.setText("");
             setWaitingForInput(false);
