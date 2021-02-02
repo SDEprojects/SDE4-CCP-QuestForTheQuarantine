@@ -65,7 +65,7 @@ public class Viewer implements ActionListener {
 
         //text panel for main story
         storyPanel = new JPanel();
-        storyPanel.setBounds(160, 115, 390, 280);
+        storyPanel.setBounds(140, 115, 400, 280);
         storyPanel.setBackground(Color.decode("#EDE5D0"));
         //storyPanel.setBorder(BorderFactory.createLoweredBevelBorder());
         container.add(storyPanel); //adding story panel to main container
@@ -138,7 +138,7 @@ public class Viewer implements ActionListener {
 
         //text area of the main story
         storyTextArea = new JTextArea(GameState.getInstance().getSceneText()); //connects to the story text in the game.
-        storyTextArea.setBounds(120, 120, 360, 280);
+        storyTextArea.setBounds(120, 120, 380, 280);
         storyTextArea.setBackground(Color.decode("#EDE5D0"));
         storyTextArea.setForeground(Color.black);
         storyTextArea.setFont(normalFont);
