@@ -19,6 +19,8 @@ public class Viewer implements ActionListener{
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 16);
     JTextField userInputField;
     JButton inputBtn = new JButton("Enter");
+    JButton saveBtn = new JButton("Save");
+    JButton loadBtn = new JButton("Load");
 
     String input;
     boolean waitingForInput;
@@ -84,6 +86,22 @@ public class Viewer implements ActionListener{
         userInputField.add(inputBtn);
         container.add(inputBtn);
 
+        //save button
+        saveBtn.setBounds(392,340,80,30);
+        saveBtn.addActionListener(this);
+        saveBtn.setForeground(Color.white);
+        saveBtn.setBackground(Color.darkGray);
+        saveBtn.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+        container.add(saveBtn);
+
+        //load button
+        loadBtn.setBounds(392,390,80,30);
+        loadBtn.addActionListener(this);
+        loadBtn.setForeground(Color.white);
+        loadBtn.setBackground(Color.darkGray);
+        loadBtn.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+        container.add(loadBtn);
+
         //text panel for main story
         storyPanel = new JPanel();
         storyPanel.setBounds(180,115,480, 200);
@@ -137,13 +155,17 @@ public class Viewer implements ActionListener{
 
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==userInputField || e.getSource() == inputBtn) {
-
             input = userInputField.getText();
             inputTextArea.setText(input);
             TextParser.getInstance().parseInput(input);
 
             userInputField.setText("");
             setWaitingForInput(false);
+        }else if(e.getSource() == saveBtn) {
+            GameState.saveGame(window);
+        }else if (e.getSource() == loadBtn) {
+            GameState.loadGame(window);
+            updateViewer();
         }
 
     }

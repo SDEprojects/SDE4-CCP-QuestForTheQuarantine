@@ -7,9 +7,12 @@ package com.codebusters.game;
  * Authors: Bradley Pratt & Debbie Bitencourt
  * Last Edited: 01/29/2021
  */
+
+import javax.swing.*;
+import java.io.*;
 import java.util.ArrayList;
 
-public class GameState {
+public class GameState implements Serializable {
     private String sceneText;
     private String sceneTitle;
     private ArrayList<Items> inventory;
@@ -25,6 +28,57 @@ public class GameState {
                 "So she decided to leave, to seek out the refuge of the quarantine in Los Estados Unidos. But first she needed to gather supplies. She slipped quietly into the night and made her way through the streets…\n");
         setSceneTitle("");
         inventory = new ArrayList<>();
+    }
+
+    public GameState(GameState game) {
+        instance = game;
+    }
+
+    public static boolean saveGame(JFrame parentFrame) {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Specify name of game file to save");
+        int userSelection = fileChooser.showSaveDialog(parentFrame);
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            File fileToSave = fileChooser.getSelectedFile();
+            try {
+                FileOutputStream fileStream = new FileOutputStream(fileToSave.getAbsolutePath());
+                ObjectOutputStream objectStream = new ObjectOutputStream(fileStream);
+                objectStream.writeObject(GameState.getInstance());
+                objectStream.close();
+            } catch (IOException e) {
+                System.out.println(e);
+            }
+
+        } else if (userSelection == JFileChooser.CANCEL_OPTION) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean loadGame(JFrame parentFrame) {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Specify name of game file to load");
+
+        int userSelection = fileChooser.showOpenDialog(parentFrame);
+
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            File fileToLoad = fileChooser.getSelectedFile();
+            try {
+                FileInputStream fileStream = new FileInputStream(fileToLoad.getAbsolutePath());
+                ObjectInputStream objectStream = new ObjectInputStream(fileStream);
+                GameState loadedGame = (GameState) objectStream.readObject();
+                new GameState(loadedGame);
+                objectStream.close();
+            } catch (IOException e) {
+                System.out.println(e);
+            } catch (ClassNotFoundException e) {
+                System.out.println(e);
+            }
+
+        } else if (userSelection == JFileChooser.CANCEL_OPTION) {
+            return true;
+        }
+        return false;
     }
 
     public static GameState getInstance(){
