@@ -191,6 +191,8 @@ public class Viewer implements ActionListener {
             updateViewer();
         }else if (e.getSource() == quitBtn){
             window.dispose();
+            System.exit(0);
+
         }
 
     }
