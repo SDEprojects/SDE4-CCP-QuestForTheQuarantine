@@ -59,7 +59,6 @@ public class Game {
                     }
                 }
 
-                // update the current gamestate
                 updateGameState(currentChapter);
 
                 if (TextParser.getInstance().hasPathText()){
@@ -81,7 +80,7 @@ public class Game {
 
     private void updatePathText() {
         // get the current scene text
-        System.out.println("Updating path text");
+//        System.out.println("Updating path text");
         String currentText = GameState.getInstance().getSceneText();
         GameState.getInstance().setSceneText(TextParser.getInstance().getPathText() + "\n\n" + currentText);
     }
