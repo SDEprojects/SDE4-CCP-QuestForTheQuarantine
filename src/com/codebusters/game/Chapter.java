@@ -1,4 +1,8 @@
 package com.codebusters.game;
+/**
+ *Chapter Class contains the data for each chapter
+ *
+ **/
 
 import java.util.ArrayList;
 import java.util.HashMap;

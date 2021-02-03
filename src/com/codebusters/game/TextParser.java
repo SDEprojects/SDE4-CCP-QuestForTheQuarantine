@@ -6,34 +6,43 @@ package com.codebusters.game;
  * Game.java can then pull.
  * <p>
  * Authors: Bradley Pratt & Debbie Bitencourt
- * Last Edited: 01/31/2021
+ * Last Edited: 02/02/2021
  */
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class TextParser {
-//    private final ArrayList<String> ITEM_VERBS_GAIN;
+    private final List<String> ITEM_VERBS_GAIN = new ArrayList<>(
+            Arrays.asList("take", "grab", "pickup", "grasp", "open", "confiscate", "seize", "snatch")
+    );
+    private final List<String> ITEM_VERBS_LOSE = new ArrayList<>(
+            Arrays.asList("trade", "drink", "eat", "consume", "feed", "imbibe", "swig", "down", "swill", "swallow", "ingest", "devour", "chew")
+    );
+    private final List<String> ITEM_VERBS_USE = new ArrayList<>(
+            Arrays.asList("use", "light", "threaten", "utilize", "apply", "employ", "ignite", "burn", "intimidate", "bully", "terrorize", "frighten", "scare")
+    );
+    private final List<String> PLACES_VERBS_ENTRY = new ArrayList<>(
+            Arrays.asList("enter", "search", "explore", "go", "access", "look", "invade", "forage")
+    );
+    private final List<String> PLACES_VERBS_EXIT = new ArrayList<>(
+            Arrays.asList("leave", "exit", "run", "walk", "go", "escape", "depart", "retreat", "retire")
+    );
     private String nextChapter;
+    private String pathText;
     private Chapter currentChapter;
     private boolean validInput;
+    private boolean hasPathText;
     private ArrayList<Items> itemsToAdd;
     private ArrayList<Items> itemsToRemove;
     private ArrayList<Items> inventory;
     private static TextParser instance = null;
 
     private TextParser(){
-//        nextChapter = new Chapter();
         currentChapter = new Chapter();
         setValidInput(false);
+        setPathText(false);
         itemsToAdd = new ArrayList<>();
         itemsToRemove = new ArrayList<>();
         inventory = new ArrayList<>();
-//         ITEM_VERBS_GAIN = new ArrayList<>();
-//         ITEM_VERBS_GAIN.add("take");
-//         ITEM_VERBS_GAIN.add("grab");
-//         ITEM_VERBS_GAIN.add("pickup");
-//         ITEM_VERBS_GAIN.add("open");
     }
 
     public static TextParser getInstance(){
@@ -45,6 +54,7 @@ public class TextParser {
 
     public void parseInput(String input){
         setValidInput(false);   // reset value each time we check
+        setPathText(false);
 
         // check for empty input
         if (!input.equals("")){
@@ -66,21 +76,16 @@ public class TextParser {
                 //get current path list
                 ArrayList<HashMap> paths = currentChapter.getPaths();
                 for (HashMap path: paths){
+                    String reqNoun = (String) path.get("noun");
+                    String reqVerb = (String) path.get("verb");
+                    reqNoun = reqNoun.replaceAll(" ", "");
+                    reqVerb = reqVerb.replaceAll(" ", "");
+
                     // if we have a valid input
-                    if (verb.equals(path.get("verb")) && noun.equals(path.get("noun"))){
+                    if ((verb.equals(reqVerb) || isSynonym(reqVerb, verb)) && noun.equals(reqNoun)){
                         // first, we check for required items
                         if (!(path.get("requiredItems") == null)){
-//                            String[] reqItems = path.get("requiredItems").split(",");
-                            ArrayList<String> reqItems = (ArrayList<String>) path.get("requiredItems");
-
-                            // we need to make sure at least one required item is in inventory
-                            for (String item: reqItems){
-                                checkAgainstInventory(item.toLowerCase());
-
-                                if (isValidInput()){     // no need to keep searching for others, just need one
-                                    break;
-                                }
-                            }
+                            checkRequiredItems(path);
 
                             // if a required item is found, then proceed, otherwise invalid input
                             if (isValidInput()){
@@ -88,7 +93,13 @@ public class TextParser {
                             }
                         // else no required items and valid input: just add the items
                         }else{
+//                            System.out.println("Required items was null");
                             logInventoryChanges(path);
+                        }
+
+                        if (!(path.get("pathText") == null)){
+                            setPathText((String) path.get("pathText"));
+                            setPathText(true);
                         }
                     }
                 }
@@ -97,19 +108,46 @@ public class TextParser {
     }
 
     //***************HELPER METHODS***************
+    private boolean isSynonym(String reqVerb, String verb) {
+        return ((ITEM_VERBS_GAIN.contains(reqVerb) && ITEM_VERBS_GAIN.contains(verb))
+            || (ITEM_VERBS_LOSE.contains(reqVerb) && ITEM_VERBS_LOSE.contains(verb))
+            || (ITEM_VERBS_USE.contains(reqVerb) && ITEM_VERBS_USE.contains(verb))
+            || (PLACES_VERBS_ENTRY.contains(reqVerb) && PLACES_VERBS_ENTRY.contains(verb))
+            || (PLACES_VERBS_EXIT.contains(reqVerb) && PLACES_VERBS_EXIT.contains(verb)));
+    }
+
+    private void checkRequiredItems(HashMap<String, String> path){
+        String[] reqItems = path.get("requiredItems").split(",");
+
+        // we need to make sure at least one required item is in inventory
+        for (String item: reqItems){
+            System.out.println(item);
+            checkAgainstInventory(item.toLowerCase());
+
+            if (isValidInput()){     // no need to keep searching for others, just need one
+                break;
+            }
+        }
+    }
+
     private void logInventoryChanges(HashMap<String, String> path){
         setValidInput(true);
         nextChapter = path.get("nextId");
+        itemsToAdd.clear();
+        itemsToRemove.clear();
 
         if (!(path.get("gainItems") == null)){
             String[] gainItems = path.get("gainItems").split(",");
             for (String item : gainItems){
+//                System.out.println(item);
                 itemsToAdd.add(new Items(item));
             }
         }
         if (!(path.get("loseItems") == null)){
+            System.out.println("loseItems content: " + path.get("loseItems"));
             String[] loseItems = path.get("loseItems").split(",");
             for (String item : loseItems) {
+//                System.out.println("Item lost: " + item);
                 itemsToRemove.add(new Items(item));
             }
         }
@@ -132,6 +170,14 @@ public class TextParser {
         this.nextChapter = nextChapter;
     }
 
+    public String getPathText() {
+        return pathText;
+    }
+
+    private void setPathText(String pathText) {
+        this.pathText = pathText;
+    }
+
     private Chapter getCurrentChapter() {
         return currentChapter;
     }
@@ -147,6 +193,14 @@ public class TextParser {
 
     private void setValidInput(boolean validInput) {
         this.validInput = validInput;
+    }
+
+    public boolean hasPathText() {
+        return hasPathText;
+    }
+
+    private void setPathText(boolean pathText) {
+        hasPathText = pathText;
     }
 
     public ArrayList<Items> getItemsToAdd() {
