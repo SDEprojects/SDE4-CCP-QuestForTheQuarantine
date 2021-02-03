@@ -1,4 +1,7 @@
 package com.codebusters.game;
+
+import java.io.Serializable;
+
 /**
  * Items class represents the individual items the player can have in their inventory.
  * Each items has a name, an id number for tracking in an internal database, and a count
@@ -8,7 +11,7 @@ package com.codebusters.game;
  * Last Edited: 01/31/2021
  */
 
-public class Items {
+public class Items implements Serializable {
     private String name;
     private int count;
 
