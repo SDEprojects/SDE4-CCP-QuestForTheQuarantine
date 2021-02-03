@@ -7,9 +7,11 @@ package com.codebusters.game;
  * Authors: Bradley Pratt & Debbie Bitencourt
  * Last Edited: 01/29/2021
  */
+
+import java.io.*;
 import java.util.ArrayList;
 
-public class GameState {
+public class GameState implements Serializable {
     private String sceneText;
     private String sceneTitle;
     private ArrayList<Items> inventory;
@@ -25,6 +27,39 @@ public class GameState {
                 "So she decided to leave, to seek out the refuge of the quarantine in Los Estados Unidos. But first she needed to gather supplies. She slipped quietly into the night and made her way through the streets…\n");
         setSceneTitle("");
         inventory = new ArrayList<>();
+    }
+
+    public GameState(GameState game) {
+        instance = game;
+    }
+
+    public static boolean saveGame(File fileToSave) {
+            try {
+                FileOutputStream fileStream = new FileOutputStream(fileToSave.getAbsolutePath());
+                ObjectOutputStream objectStream = new ObjectOutputStream(fileStream);
+                objectStream.writeObject(GameState.getInstance());
+                objectStream.close();
+                return true;
+            } catch (IOException e) {
+                System.out.println(e);
+            }
+        return false;
+    }
+
+    public static boolean loadGame(File fileToLoad) {
+        try {
+            FileInputStream fileStream = new FileInputStream(fileToLoad.getAbsolutePath());
+            ObjectInputStream objectStream = new ObjectInputStream(fileStream);
+            GameState loadedGame = (GameState) objectStream.readObject();
+            new GameState(loadedGame);
+            objectStream.close();
+            return true;
+        } catch (IOException e) {
+            System.out.println(e);
+        } catch (ClassNotFoundException e) {
+            System.out.println(e);
+        }
+        return false;
     }
 
     public static GameState getInstance(){
