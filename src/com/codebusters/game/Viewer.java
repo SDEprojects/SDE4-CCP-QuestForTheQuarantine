@@ -106,12 +106,10 @@ public class Viewer implements ActionListener {
         container.add(loadBtn);
 
         //panel for game title
-//      titlePanel = new JPanel();
         titleName = new JLabel("The Quest for Quarantine");
         titleName.setBounds(280, 100, 480, 46);
         titleName.setForeground(Color.decode("#e76f51")); //title text color
         titleName.setFont(titleFont); //title font
-//      titlePanel.add(titleName);
         container.add(titleName);
 
         //text panel for main story
@@ -138,6 +136,7 @@ public class Viewer implements ActionListener {
 
     //*************** METHODS ***************
     public void updateViewer() {
+        titleName.setText(GameState.getInstance().getSceneTitle());
         container.add(titleName);
 
         //create StringBuilder for inventory to be displayed as string in the inventory text area.
