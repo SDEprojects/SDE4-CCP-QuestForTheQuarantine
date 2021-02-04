@@ -1,5 +1,12 @@
 package com.codebusters.game;
 
+/**
+Viewer.java is where using GUI the game can be experienced and played in a separate window.
+The GUI is designed to be visually appealing and user friendly.
+Player using the input field can progress through the game.
+
+Author: Aliona (main GUI), Dustin (save/load)
+*/
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -12,23 +19,21 @@ import java.io.File;
 import java.io.IOException;
 
 public class Viewer implements ActionListener {
-    JFrame window = new JFrame();
-    Container container;
-    JPanel storyPanel, inventoryPanel;
-    JLabel titleName, inventoryTitle;
-    JTextArea storyTextArea, inventoryTextArea;
-    Font titleFont = new Font("Times New Roman", Font.BOLD, 32);
-    Font normalFont = new Font("Times New Roman", Font.PLAIN, 16);
-    JTextField userInputField;
-    JButton inputBtn = new JButton("Enter");
-    JButton saveBtn = new JButton("Save");
-    JButton loadBtn = new JButton("Load");
-    JButton quitBtn = new JButton("Quit");
-    Border dashed = BorderFactory.createDashedBorder(Color.decode("#0D5B69"), 1.2f, 8.0f, 2.0f, true);
-    Border empty = BorderFactory.createEmptyBorder(1, 1, 1, 1);
-    Border compound = new CompoundBorder(empty, dashed);
-    String input;
-    boolean waitingForInput;
+    private static final JFrame window = new JFrame();
+    private static Container container;
+    private static JPanel storyPanel, inventoryPanel;
+    private static JLabel titleName, inventoryTitle;
+    private static final Font titleFont = new Font("Times New Roman", Font.BOLD, 32);
+    private static final Font normalFont = new Font("Times New Roman", Font.PLAIN, 16);
+    private static JTextField userInputField;
+    private static final JButton inputBtn = new JButton("Enter");
+    private static final JButton saveBtn = new JButton("Save");
+    private static final JButton loadBtn = new JButton("Load");
+    private static final JButton quitBtn = new JButton("Quit");
+    private static final Border dashed = BorderFactory.createDashedBorder(Color.decode("#0D5B69"), 1.2f, 8.0f, 2.0f, true);
+    private static final Border empty = BorderFactory.createEmptyBorder(1, 1, 1, 1);
+    private static final Border compound = new CompoundBorder(empty, dashed);
+    private static boolean waitingForInput;
 
     //Constructor
     public Viewer() {
@@ -73,13 +78,6 @@ public class Viewer implements ActionListener {
         userInputField.add(inputBtn);
         container.add(inputBtn);
 
-//        //user input text area
-//        inputTextArea = new JTextArea();
-////        inputTextArea.setBounds(160, 420, 150, 30);
-////        inputTextArea.setBackground(Color.decode("#EDE5D0"));
-////        inputTextArea.setForeground(Color.decode("#2E8B57"));
-//        container.add(inputTextArea);
-
         //quit button
         quitBtn.setBounds(510,520,80,30);
         quitBtn.addActionListener(this);
@@ -111,7 +109,6 @@ public class Viewer implements ActionListener {
 //      titlePanel = new JPanel();
         titleName = new JLabel("The Quest for Quarantine");
         titleName.setBounds(280, 100, 480, 46);
-//      titleName.setBackground(Color.decode("#EDE5D0"));
         titleName.setForeground(Color.decode("#e76f51")); //title text color
         titleName.setFont(titleFont); //title font
 //      titlePanel.add(titleName);
@@ -139,14 +136,17 @@ public class Viewer implements ActionListener {
         inventoryPanel.add(inventoryTitle);
     }
 
+    //*************** METHODS ***************
     public void updateViewer() {
         container.add(titleName);
 
+        //create StringBuilder for inventory to be displayed as string in the inventory text area.
         StringBuilder inv = new StringBuilder();
         for (Items item : GameState.getInstance().getInventory()) {
             inv.append(item).append("\n");
         }
-        inventoryTextArea = new JTextArea(inv.toString());
+        //text area for the inventory
+        JTextArea inventoryTextArea = new JTextArea(inv.toString());
         inventoryTextArea.setBounds(620, 180, 100, 100);
         inventoryTextArea.setBackground(Color.decode("#EDE5D0"));
         inventoryTextArea.setForeground(Color.black);
@@ -154,13 +154,14 @@ public class Viewer implements ActionListener {
         inventoryTextArea.setLineWrap(true);
         inventoryTextArea.setWrapStyleWord(true);
 
+        //inventory panel updated
         inventoryPanel.removeAll();
         inventoryPanel.add(inventoryTitle);
         inventoryPanel.add(inventoryTextArea);
         inventoryTextArea.update(inventoryTextArea.getGraphics()); //updates text area
 
         //text area of the main story
-        storyTextArea = new JTextArea(GameState.getInstance().getSceneText()); //connects to the story text in the game.
+        JTextArea storyTextArea = new JTextArea(GameState.getInstance().getSceneText()); //connects to the story text in the game.
         storyTextArea.setBounds(70,180,400, 280);
         storyTextArea.setBackground(Color.decode("#EDE5D0"));
         storyTextArea.setForeground(Color.black);
@@ -177,18 +178,22 @@ public class Viewer implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==userInputField || e.getSource() == inputBtn) {
-            input = userInputField.getText();
+            String input = userInputField.getText();
             //inputTextArea.setText(input); //uncomment to use as feedback to show user's text entered
             TextParser.getInstance().parseInput(input);
 
             userInputField.setText("");
             setWaitingForInput(false);
 
+        //when saveBtn is pressed pass "save" parameter to saveOrLoadGame method
         }else if(e.getSource() == saveBtn) {
             saveOrLoadGame("save");
+        //when loadBtn is pressed pass "load" parameter to saveOrLoadGame method.
+        //then call updateViewer method to update the game in GUI.
         }else if (e.getSource() == loadBtn) {
             saveOrLoadGame("load");
             updateViewer();
+        //when quitBtn is pressed the GUI window and game closes.
         }else if (e.getSource() == quitBtn){
             window.dispose();
             System.exit(0);
@@ -197,6 +202,7 @@ public class Viewer implements ActionListener {
 
     }
 
+    //create load and save window and check for file being saved or loaded successfully
     private boolean saveOrLoadGame(String flag) {
         boolean saveOrLoadSuccessful;
         JFileChooser fileChooser = new JFileChooser();

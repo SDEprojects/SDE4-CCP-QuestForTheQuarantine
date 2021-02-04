@@ -13,6 +13,7 @@ public class Chapter {
     private String sceneText;
     private ArrayList<HashMap> paths = new ArrayList<>();
 
+    //*************** GETTERS/SETTERS ***************
     public ArrayList<HashMap> getPaths() {
         return paths;
     }

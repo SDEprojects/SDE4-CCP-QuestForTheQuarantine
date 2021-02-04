@@ -24,6 +24,7 @@ public class Game {
         story = builder.getChapters();
     }
 
+    //*************** METHODS ***************
     public void startGame(){
         boolean endGame = false;
         Chapter currentChapter = story.get(0);
@@ -35,6 +36,7 @@ public class Game {
             // tell viewer to display now that there is a new gamestate
             GUI.updateViewer();
 //            System.out.println("Did you execute?");
+            //create flag to wait for user's input from GUI
             while (GUI.isWaitingForInput()){
                 try {
                     Thread.sleep(500);
@@ -52,6 +54,7 @@ public class Game {
                 // we need to update the inventory and current chapter
                 updateInventory();
                 String next = TextParser.getInstance().getNextChapter();
+                //loop through each chapter to get the next chapter.
                 for (Chapter chapt: story){
                     if (chapt.getChapterId().equals(next)){
                         currentChapter = chapt;
@@ -60,7 +63,7 @@ public class Game {
                 }
 
                 updateGameState(currentChapter);
-
+                //update story path when the path matches specified path in the TextParser
                 if (TextParser.getInstance().hasPathText()){
                     updatePathText();
                 }
@@ -86,6 +89,7 @@ public class Game {
     }
 
     private boolean isEndChapter(Chapter currentChapter) {
+        //initiate "end" or "death" outcome
         String chapterName = currentChapter.getChapterName();
         return chapterName.equals("End") || chapterName.equals("Death");
     }
@@ -94,7 +98,7 @@ public class Game {
         for (Items item: TextParser.getInstance().getItemsToAdd()){
             addItemToInventory(item);
         }
-
+        //loop through all items in the TextParser and remove matched item
         for (Items item: TextParser.getInstance().getItemsToRemove()){
             removeItemFromInventory(item);
         }
@@ -115,6 +119,7 @@ public class Game {
     }
 
     private void updateGameState(Chapter currentChapter) {
+        //update scene text, title, and inventory in the GameState class.
         GameState.getInstance().setSceneText(currentChapter.getSceneText());
         GameState.getInstance().setSceneTitle(currentChapter.getChapterName());
         GameState.getInstance().setInventory(inventory);
@@ -122,6 +127,7 @@ public class Game {
 
     //***************INVENTORY ACCESSOR METHODS***************
     public boolean findItemInInventory(Items toFind){
+        //loop through items in the inventory and find item by its name.
         for (Items item: inventory){
             if (item.getName().equals(toFind.getName())){
                 return true;
