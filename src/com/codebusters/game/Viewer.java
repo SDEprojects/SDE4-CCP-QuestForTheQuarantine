@@ -229,7 +229,7 @@ public class Viewer implements ActionListener {
                 "Your journey is a dangerous one, but with your wits and my guidance I believe you will find your salvation." +
                 "\n" + "\n" + "Pay attention to the story and navigate the game by making your decisions carefully for each choice changes your fate be it for better or worse."
                 + "\n" + "\n" + "Enter only two commands in the text field at a time to progress through the story: 1 verb and 1 noun." +
-                "\n" + "\n" + "\n" + "\n" + "Examples: go around, use machete, enter store, drink water.");
+                "\n" + "\n" + "\n" + "\n" + "Examples: go around, use machete, enter store, drink water, trade ammo.");
 
         helpText.setBounds(30, 75, 425, 270);
         helpText.setBackground(Color.decode("#EDE5D0"));
