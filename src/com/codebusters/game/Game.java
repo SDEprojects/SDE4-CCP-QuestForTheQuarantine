@@ -6,136 +6,171 @@ package com.codebusters.game;
  * then the GUI.
  * <p>
  * Authors: Bradley Pratt & Debbie Bitencourt
- * Last Edited: 01/28/2021
+ * Last Edited: 02/02/2021
  */
+import com.codebusters.data.ChapterBuilder;
+import java.util.ArrayList;
 
 public class Game {
-//    public GameState currentGame;
-//    public Viewer GUI;
-//    public TextParser parser;
-//    public ArrayList<Items> inventory;
-//    public ArrayList<Chapter> story;
-//
-//    public Game() {
-//        currentGame = new GameState();
-//        GUI = new Viewer();
-//        parser = new TextParser();
-//        inventory = new ArrayList<>();
-//        story = new ArrayList<>();
-//    }
-//
-//    public void startGame(){
-//        boolean endGame = false;
-//        Chapter currentChapter = story.get(0);
-//
-//        while (!endGame){
-//            // update the current gamestate
-//        //    updateGameState(currentChapter);
-//        //    parser.setCurrentChapter(currentChapter);
-//
-//            // tell viewer to display now that there is a new gamestate
-//         //   Viewer.updateViewer(currentGame);
-//
-//            // check if viewer sent valid input to test parser
-//            if (!parser.isValidInput()){
-//                // if not, we need to tell the player to try again
-//                promptAgain();
-//            }else{
-//                // we need to update the inventory and current chapter
-//                updateInventory();
-//          //      currentChapter = parser.getNextChapter();
-//
-//                // last we check if we are now at the end chapter
-//                if (isEndChapter(currentChapter)){
-//                    endGame = true;
-//                }
-//            }
-//        }
-//
-//        // display the end chapter
-//        updateGameState(currentChapter);
-//    //    Viewer.updateViewer(currentGame);
-//    }
-//
-////    private boolean isEndChapter(Chapter currentChapter) {
-////   //     String chapterName = currentChapter.getChapterName();
-////  //      return chapterName.equals("End") || chapterName.equals("Death");
-////    }
-//
-//    private void updateInventory() {
-//        for (Items item: parser.getItemsToAdd()){
-//            addItemToInventory(item);
-//        }
-//
-//        for (Items item: parser.getItemsToRemove()){
-//            removeItemFromInventory(item);
-//        }
-//    }
-//
-//    private void promptAgain() {
-//        // get the current scene text
-//        String tryAgain = currentGame.getSceneText();
-//        // create message that there was an invalid input
-//        String invalid = "That is an unrecognized input, please try again. Only two word commands are allowed in the form of verb + noun.";
-//
-//        // check if current scene already has the message, if so,
-//        // we don't need to add again
-//        if (!tryAgain.contains(invalid)){
-//            tryAgain += "\n\n";
-//            tryAgain += invalid;
-//        }
-//        currentGame.setSceneText(tryAgain);
-//    }
-//
-//    private void updateGameState(Chapter currentChapter) {
-//        currentGame.setSceneText(currentChapter.getSceneText());
-//        currentGame.setInventory(inventory);
-//    }
-//
-//    //***************INVENTORY ACCESSOR METHODS***************
-//    public boolean findItemInInventory(Items toFind){
-//        for (Items item: inventory){
-//            if (item.getName() == toFind.getName()){
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-//
-//    private void addItemToInventory(Items toAdd){
-//        // if the item is already in the inventory
-//        if (findItemInInventory(toAdd)){
-//            // then we find the item
-//            for (Items item: inventory){
-//                if (item.getName() == toAdd.getName()){
-//                    // and just add to its count
-//                    item.setCount(item.getCount() + toAdd.getCount());
-//                }
-//            }
-//
-//        // else we just add the item to the inventory list
-//        }else{
-//            inventory.add(toAdd);
-//        }
-//    }
-//
-//    private boolean removeItemFromInventory(Items toLose){
-//        // find the item in the inventory
-//        for (Items item: inventory){
-//            if (item.getName() == toLose.getName()){
-//                // if there is more quantity than the player loses, just update count
-//                if (item.getCount() > toLose.getCount()){
-//                    item.setCount(item.getCount() - toLose.getCount());
-//                // else remove item completely
-//                }else{
-//                    inventory.remove(item);
-//                }
-//                return true;
-//            }
-//        }
-//
-//        // return false if item not found in inventory
-//        return false;
-//    }
+    private final Viewer GUI;
+    private final ArrayList<Items> inventory;
+    private ArrayList<Chapter> story;
+
+    public Game() {
+        GUI = new Viewer();
+        inventory = new ArrayList<>();
+        story = new ArrayList<>();
+        ChapterBuilder builder = new ChapterBuilder();
+        story = builder.getChapters();
+    }
+
+    //*************** METHODS ***************
+    public void startGame(){
+        boolean endGame = false;
+        Chapter currentChapter = story.get(0);
+        updateGameState(currentChapter);
+
+        while (!endGame){
+            TextParser.getInstance().setCurrentChapter(currentChapter, inventory);
+
+            // tell viewer to display now that there is a new gamestate
+            GUI.updateViewer();
+//            System.out.println("Did you execute?");
+            //create flag to wait for user's input from GUI
+            while (GUI.isWaitingForInput()){
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException ie) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+//            System.out.println("How about now?");
+
+            // check if viewer sent valid input to test parser
+            if (!TextParser.getInstance().isValidInput()){
+                // if not, we need to tell the player to try again
+                promptAgain();
+            }else{
+                // we need to update the inventory and current chapter
+                updateInventory();
+                String next = TextParser.getInstance().getNextChapter();
+                //loop through each chapter to get the next chapter.
+                for (Chapter chapt: story){
+                    if (chapt.getChapterId().equals(next)){
+                        currentChapter = chapt;
+                        break;
+                    }
+                }
+
+                updateGameState(currentChapter);
+                //update story path when the path matches specified path in the TextParser
+                if (TextParser.getInstance().hasPathText()){
+                    updatePathText();
+                }
+
+                // last we check if we are now at the end chapter
+                if (isEndChapter(currentChapter)){
+                    endGame = true;
+                }
+            }
+//            System.out.println("Current inventory: "  + currentGame.getInventory());
+        }
+
+        // display the end chapter
+        updateGameState(currentChapter);
+        GUI.updateViewer();
+    }
+
+    private void updatePathText() {
+        // get the current scene text
+//        System.out.println("Updating path text");
+        String currentText = GameState.getInstance().getSceneText();
+        GameState.getInstance().setSceneText(TextParser.getInstance().getPathText() + "\n\n" + currentText);
+    }
+
+    private boolean isEndChapter(Chapter currentChapter) {
+        //initiate "end" or "death" outcome
+        String chapterName = currentChapter.getChapterName();
+        return chapterName.equals("End") || chapterName.equals("Death");
+    }
+
+    private void updateInventory() {
+        for (Items item: TextParser.getInstance().getItemsToAdd()){
+            addItemToInventory(item);
+        }
+        //loop through all items in the TextParser and remove matched item
+        for (Items item: TextParser.getInstance().getItemsToRemove()){
+            removeItemFromInventory(item);
+        }
+    }
+
+    private void promptAgain() {
+        // get the current scene text
+        String tryAgain = GameState.getInstance().getSceneText();
+
+        // check if current scene already has the message, if so,
+        // we don't need to add again
+        String INVALID = "That is an unrecognized input, please try again. Only two word commands are allowed in the form of verb + noun.";
+        if (!tryAgain.contains(INVALID)){
+            tryAgain += "\n\n";
+            tryAgain += INVALID;
+        }
+        GameState.getInstance().setSceneText(tryAgain);
+    }
+
+    private void updateGameState(Chapter currentChapter) {
+        //update scene text, title, and inventory in the GameState class.
+        GameState.getInstance().setSceneText(currentChapter.getSceneText());
+        GameState.getInstance().setSceneTitle(currentChapter.getChapterName());
+        GameState.getInstance().setInventory(inventory);
+    }
+
+    //***************INVENTORY ACCESSOR METHODS***************
+    public boolean findItemInInventory(Items toFind){
+        //loop through items in the inventory and find item by its name.
+        for (Items item: inventory){
+            if (item.getName().equals(toFind.getName())){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void addItemToInventory(Items toAdd){
+        // if the item is already in the inventory
+        if (findItemInInventory(toAdd)){
+            // then we find the item
+            for (Items item: inventory){
+                if (item.getName().equals(toAdd.getName())){
+                    // and just add to its count
+                    item.setCount(item.getCount() + toAdd.getCount());
+                    break;
+                }
+            }
+
+        // else we just add the item to the inventory list
+        }else{
+            inventory.add(toAdd);
+        }
+    }
+
+    private boolean removeItemFromInventory(Items toLose){
+        // find the item in the inventory
+        for (Items item: inventory){
+            if (item.getName().equals(toLose.getName())){
+                // if there is more quantity than the player loses, just update count
+                if (item.getCount() > toLose.getCount()){
+                    item.setCount(item.getCount() - toLose.getCount());
+                // else remove item completely
+                }else{
+                    inventory.remove(item);
+                }
+                return true;
+            }
+        }
+
+        // return false if item not found in inventory
+        return false;
+    }
 
 }

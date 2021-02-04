@@ -2,6 +2,7 @@ package com.codebusters.data;
 
 import com.codebusters.game.Chapter;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -29,42 +30,35 @@ public class ChapterBuilderTest {
 
     @Test
     public void verifyTablesExist() {
-        assertTrue(cb.getStory().keySet().contains("Items"));
-        assertTrue(cb.getStory().keySet().contains("Chapters"));
-        assertTrue(cb.getStory().keySet().contains("Paths"));
+        assertTrue(cb.getStory().containsKey("Chapters"));
+        assertTrue(cb.getStory().containsKey("Paths"));
     }
 
-    @Test
-    public void verifyItemsInFirstEntryItems() {
-        HashMap<String,String> firstItems = (HashMap) cb.getStory().get("Items").get(0);
-        assertTrue(firstItems.get("items").equals("matches, flashlight, water[1], machete"));
-    }
-
-    @Test
-    public void verifyChaptersInFirstEntryCities() {
-        HashMap<String, String> firstCities = (HashMap) cb.getStory().get("Chapters").get(0);
-        assertTrue(firstCities.get("cities").equals("2,4"));
-    }
-
+    @Ignore
     @Test
     public void verifyPathsInFirstEntryPathName() {
-        HashMap<String, String> firstPaths = (HashMap) cb.getStory().get("Paths").get(0);
-        assertTrue(firstPaths.get("pathName").equals("none"));
+        HashMap firstPaths = cb.getStory().get("Paths").get(0);
+        assertTrue(firstPaths.get("pathName").equals("Intro"));
     }
+
 
     @Test
     public void builderTest() {
-        assertTrue(cb.getChapters().size() == 16);
-        Chapter zacatecas = cb.getChapters().get(4);
-        assertTrue(zacatecas.getChapterName().equals("Zacatecas"));
-        assertTrue(zacatecas.getChapterId().equals("5"));
-        ArrayList zPaths = zacatecas.getPaths();
+        assertTrue(cb.getChapters().size() == 15);
+        Chapter leon = cb.getChapters().get(4);
+        assertTrue(leon.getChapterName().equals("Leon"));
+        assertTrue(leon.getChapterId().equals("3"));
+        ArrayList zPaths = leon.getPaths();
         HashMap path = (HashMap) zPaths.get(0);
-        assertTrue(path.get("pathName").equals("Go Around"));
-        assertTrue(path.get("chapterId").equals("5"));
-        assertTrue(path.get("pathId").equals("7"));
-        assertTrue(path.get("actions").equals("skip"));
-        assertTrue(path.get("items").equals("water[1], food[1]"));
+        assertTrue(path.get("pathName").equals("Enter Apartment"));
+        assertTrue(path.get("chapterId").equals("3"));
+        assertTrue(path.get("pathId").equals("8"));
+        assertTrue(path.get("pathText") != null && path.get("pathText").toString().length() > 10);
+        assertTrue(path.get("nextId").equals("3A"));
+        assertTrue(path.get("verb").equals("enter"));
+        assertTrue(path.get("gainItems") == null);
+        assertTrue(path.get("noun").equals("apartment"));
+        assertTrue(path.get("loseItems") == null);
         assertTrue(path.get("requiredItems") == null);
     }
 }
