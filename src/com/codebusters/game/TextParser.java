@@ -45,6 +45,7 @@ public class TextParser {
         inventory = new ArrayList<>();
     }
 
+    //make TextParser a Singleton to be used in other Classes.
     public static TextParser getInstance(){
         if (instance == null){
             instance = new TextParser();
@@ -124,7 +125,7 @@ public class TextParser {
             System.out.println(item);
             checkAgainstInventory(item.toLowerCase());
 
-            if (isValidInput()){     // no need to keep searching for others, just need one
+            if (isValidInput()){ // no need to keep searching for others, just need one
                 break;
             }
         }
@@ -136,6 +137,8 @@ public class TextParser {
         itemsToAdd.clear();
         itemsToRemove.clear();
 
+        //check if "gainItems" are in the path chosen
+        //loop through the items in the list. When found matching item add it to itemsToAdd list.
         if (!(path.get("gainItems") == null)){
             String[] gainItems = path.get("gainItems").split(",");
             for (String item : gainItems){
@@ -143,6 +146,8 @@ public class TextParser {
                 itemsToAdd.add(new Items(item));
             }
         }
+        //check if "loseItems" are in the path chosen
+        //loop through the items in the list. When found matching item add it to itemsToRemove list.
         if (!(path.get("loseItems") == null)){
             System.out.println("loseItems content: " + path.get("loseItems"));
             String[] loseItems = path.get("loseItems").split(",");
@@ -152,7 +157,7 @@ public class TextParser {
             }
         }
     }
-
+    //validate if item is inside the inventory list.
     private void checkAgainstInventory(String item){
         for (Items possession: inventory){
             if (item.equals(possession.getName().toLowerCase())){

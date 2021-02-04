@@ -33,6 +33,7 @@ public class GameState implements Serializable {
         instance = game;
     }
 
+    //create method to save the game
     public static boolean saveGame(File fileToSave) {
             try {
                 FileOutputStream fileStream = new FileOutputStream(fileToSave.getAbsolutePath());
@@ -46,6 +47,7 @@ public class GameState implements Serializable {
         return false;
     }
 
+    //create method to load the game that was saved
     public static boolean loadGame(File fileToLoad) {
         try {
             FileInputStream fileStream = new FileInputStream(fileToLoad.getAbsolutePath());
@@ -62,13 +64,14 @@ public class GameState implements Serializable {
         return false;
     }
 
+    //make GameState as a Singleton to be used in other Classes.
     public static GameState getInstance(){
         if (instance == null){
             instance = new GameState();
         }
         return instance;
     }
-
+    //*************** GETTERS/SETTERS ***************
     public String getSceneText() {
         return sceneText;
     }
