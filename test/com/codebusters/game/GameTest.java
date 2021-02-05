@@ -81,6 +81,4 @@ public class GameTest {
         chapter.setChapterName("Debbie");
         assertFalse(game1.isEndChapter(chapter));
     }
-
-
 }
