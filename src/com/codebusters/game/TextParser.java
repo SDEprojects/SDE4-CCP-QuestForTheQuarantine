@@ -6,7 +6,7 @@ package com.codebusters.game;
  * Game.java can then pull.
  * <p>
  * Authors: Bradley Pratt & Debbie Bitencourt
- * Last Edited: 02/02/2021
+ * Last Edited: 02/05/2021
  */
 import java.util.*;
 
@@ -28,6 +28,7 @@ public class TextParser {
     );
     private String nextChapter;
     private String pathText;
+    private String invalidInputMessage;
     private Chapter currentChapter;
     private boolean validInput;
     private boolean hasPathText;
@@ -56,6 +57,7 @@ public class TextParser {
     public void parseInput(String input){
         setValidInput(false);   // reset value each time we check
         setPathText(false);
+        setInvalMessage("");
 
         // check for empty input
         if (!input.equals("")){
@@ -94,8 +96,8 @@ public class TextParser {
                             }
                         // else no required items and valid input: just add the items
                         }else{
-//                            System.out.println("Required items was null");
                             logInventoryChanges(path);
+                            setValidInput(true);
                         }
 
                         if (!(path.get("pathText") == null)){
@@ -109,6 +111,16 @@ public class TextParser {
     }
 
     //***************HELPER METHODS***************
+    private void setInvalMessage(String noun) {
+        if (!noun.equals("")){
+            String error = "You need to have a " + noun + " in your inventory to perform this action!";
+            setInvalidInputMessage(error);
+        }else{
+            String invalid = "That is an unrecognized input, please try again.";
+            setInvalidInputMessage(invalid);
+        }
+    }
+
     private boolean isSynonym(String reqVerb, String verb) {
         return ((ITEM_VERBS_GAIN.contains(reqVerb) && ITEM_VERBS_GAIN.contains(verb))
             || (ITEM_VERBS_LOSE.contains(reqVerb) && ITEM_VERBS_LOSE.contains(verb))
@@ -122,11 +134,12 @@ public class TextParser {
 
         // we need to make sure at least one required item is in inventory
         for (String item: reqItems){
-            System.out.println(item);
             checkAgainstInventory(item.toLowerCase());
 
             if (isValidInput()){ // no need to keep searching for others, just need one
                 break;
+            }else{
+                setInvalMessage(item);
             }
         }
     }
@@ -142,17 +155,14 @@ public class TextParser {
         if (!(path.get("gainItems") == null)){
             String[] gainItems = path.get("gainItems").split(",");
             for (String item : gainItems){
-//                System.out.println(item);
                 itemsToAdd.add(new Items(item));
             }
         }
         //check if "loseItems" are in the path chosen
         //loop through the items in the list. When found matching item add it to itemsToRemove list.
         if (!(path.get("loseItems") == null)){
-            System.out.println("loseItems content: " + path.get("loseItems"));
             String[] loseItems = path.get("loseItems").split(",");
             for (String item : loseItems) {
-//                System.out.println("Item lost: " + item);
                 itemsToRemove.add(new Items(item));
             }
         }
@@ -162,9 +172,11 @@ public class TextParser {
         for (Items possession: inventory){
             if (item.equals(possession.getName().toLowerCase())){
                 setValidInput(true);
+                break;
             }
         }
     }
+
 
     //***************GETTERS/SETTERS***************
     public String getNextChapter() {
@@ -181,6 +193,14 @@ public class TextParser {
 
     private void setPathText(String pathText) {
         this.pathText = pathText;
+    }
+
+    public String getInvalidInputMessage() {
+        return invalidInputMessage;
+    }
+
+    private void setInvalidInputMessage(String invalidInputMessage) {
+        this.invalidInputMessage = invalidInputMessage;
     }
 
     private Chapter getCurrentChapter() {
