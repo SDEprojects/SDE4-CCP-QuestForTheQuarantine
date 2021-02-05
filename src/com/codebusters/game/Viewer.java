@@ -1,12 +1,13 @@
 package com.codebusters.game;
 
 /**
-Viewer.java is where using GUI the game can be experienced and played in a separate window.
-The GUI is designed to be visually appealing and user friendly.
-Player using the input field can progress through the game.
+ * Viewer.java is where using GUI the game can be experienced and played in a separate window.
+ * The GUI is designed to be visually appealing and user friendly.
+ * Player using the input field can progress through the game.
+ * <p>
+ * Author: Aliona (main GUI), Dustin (save/load).
+ */
 
-Author: Aliona (main GUI), Dustin (save/load)
-*/
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -30,6 +31,7 @@ public class Viewer implements ActionListener {
     private static final JButton saveBtn = new JButton("Save");
     private static final JButton loadBtn = new JButton("Load");
     private static final JButton quitBtn = new JButton("Quit");
+    private static final JButton helpBtn = new JButton("Help");
     private static final Border dashed = BorderFactory.createDashedBorder(Color.decode("#0D5B69"), 1.2f, 8.0f, 2.0f, true);
     private static final Border empty = BorderFactory.createEmptyBorder(1, 1, 1, 1);
     private static final Border compound = new CompoundBorder(empty, dashed);
@@ -38,7 +40,7 @@ public class Viewer implements ActionListener {
     //Constructor
     public Viewer() {
         waitingForInput = true;
-        window.setSize(880,690); //size for the frame
+        window.setSize(880, 690); //size for the frame
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closes the window
 
         //create background image
@@ -78,8 +80,17 @@ public class Viewer implements ActionListener {
         userInputField.add(inputBtn);
         container.add(inputBtn);
 
+        //help button
+        helpBtn.setBounds(440, 520, 80, 30);
+        helpBtn.addActionListener(this);
+        helpBtn.setForeground(Color.white);
+        helpBtn.setBackground(Color.darkGray);
+        helpBtn.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+        helpBtn.setBorder(BorderFactory.createRaisedBevelBorder());
+        container.add(helpBtn);
+
         //quit button
-        quitBtn.setBounds(510,520,80,30);
+        quitBtn.setBounds(525, 520, 80, 30);
         quitBtn.addActionListener(this);
         quitBtn.setForeground(Color.white);
         quitBtn.setBackground(Color.darkGray);
@@ -88,7 +99,7 @@ public class Viewer implements ActionListener {
         container.add(quitBtn);
 
         //save button
-        saveBtn.setBounds(600,520,80,30);
+        saveBtn.setBounds(610, 520, 80, 30);
         saveBtn.addActionListener(this);
         saveBtn.setForeground(Color.white);
         saveBtn.setBackground(Color.darkGray);
@@ -97,7 +108,7 @@ public class Viewer implements ActionListener {
         container.add(saveBtn);
 
         //load button
-        loadBtn.setBounds(690,520,80,30);
+        loadBtn.setBounds(695, 520, 80, 30);
         loadBtn.addActionListener(this);
         loadBtn.setForeground(Color.white);
         loadBtn.setBackground(Color.darkGray);
@@ -114,7 +125,7 @@ public class Viewer implements ActionListener {
 
         //text panel for main story
         storyPanel = new JPanel();
-        storyPanel.setBounds(148,150,430, 300);
+        storyPanel.setBounds(148, 150, 430, 300);
         storyPanel.setBackground(Color.decode("#EDE5D0"));
         container.add(storyPanel); //adding story panel to main container
 
@@ -161,7 +172,7 @@ public class Viewer implements ActionListener {
 
         //text area of the main story
         JTextArea storyTextArea = new JTextArea(GameState.getInstance().getSceneText()); //connects to the story text in the game.
-        storyTextArea.setBounds(70,180,400, 280);
+        storyTextArea.setBounds(70, 180, 400, 280);
         storyTextArea.setBackground(Color.decode("#EDE5D0"));
         storyTextArea.setForeground(Color.black);
         storyTextArea.setFont(normalFont);
@@ -175,27 +186,89 @@ public class Viewer implements ActionListener {
         setWaitingForInput(true);
     }
 
+    public void helpWindowDisplay() {
+        JFrame helpWindow = new JFrame(); //initiate help window
+        Container helpContainer;
+        JLabel helpTitle;
+
+        //set up help window
+        helpWindow.setVisible(true);
+        helpWindow.setSize(500, 415);
+        helpWindow.setLocation(300, 100);
+
+        //create background image for help window
+        BufferedImage bgImg = null;
+        try {
+            bgImg = ImageIO.read(new File("helpBgImage.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assert bgImg != null;
+        Image helpBgImg = bgImg.getScaledInstance(500, 380, Image.SCALE_SMOOTH);
+        ImageIcon image = new ImageIcon(helpBgImg);
+        helpWindow.setContentPane(new JLabel(image));
+        JLabel bg = new JLabel(new ImageIcon(bgImg));
+        helpWindow.setLayout(null); //disables default layout
+        helpWindow.setVisible(true); //makes window appear on screen
+
+        //help window container
+        helpContainer = helpWindow.getContentPane(); //container inside the window with help content
+        helpContainer.add(bg);
+
+        //help title
+        helpTitle = new JLabel("Little Helper");
+        helpTitle.setBounds(160, -80, 200, 250);
+        helpTitle.setForeground(Color.decode("#e76f51")); //title text color
+        helpTitle.setFont(titleFont);
+        helpContainer.add(helpTitle);
+
+        //text area for the help window
+        JTextArea helpText = new JTextArea();
+        JTextPane imagePane = new JTextPane();
+
+        helpText.setText("Welcome, I'm your Little Helper! You are in a survival text based game where you take a role of a brave girl named Esperanza." +
+                "Your journey is a dangerous one, but with your wits and my guidance I believe you will find your salvation." +
+                "\n" + "\n" + "Pay attention to the story and navigate the game by making your decisions carefully for each choice changes your fate be it for better or worse."
+                + "\n" + "\n" + "Enter only two commands in the text field at a time to progress through the story: 1 verb and 1 noun." +
+                "\n" + "\n" + "\n" + "\n" + "Examples: go around, use machete, enter store, drink water, trade ammo.");
+
+        helpText.setBounds(30, 75, 425, 270);
+        helpText.setBackground(Color.decode("#EDE5D0"));
+        helpText.setLineWrap(true);
+        helpText.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+        helpText.setWrapStyleWord(true); //creates readable text that is separated by word when wrapped.
+        helpText.setForeground(Color.black);
+        //image inside the help text
+        imagePane.insertIcon(new ImageIcon("InputFieldImg.png"));
+        imagePane.setBackground(Color.decode("#EDE5D0"));
+        imagePane.setBounds(10, 195, 200, 40);
+        helpText.add(imagePane);
+        helpContainer.add(helpText);
+
+    }
+
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==userInputField || e.getSource() == inputBtn) {
+        if (e.getSource() == userInputField || e.getSource() == inputBtn) {
             String input = userInputField.getText();
-            //inputTextArea.setText(input); //uncomment to use as feedback to show user's text entered
             TextParser.getInstance().parseInput(input);
 
             userInputField.setText("");
             setWaitingForInput(false);
 
-        //when saveBtn is pressed pass "save" parameter to saveOrLoadGame method
-        }else if(e.getSource() == saveBtn) {
+            //when saveBtn is pressed pass "save" parameter to saveOrLoadGame method
+        } else if (e.getSource() == saveBtn) {
             saveOrLoadGame("save");
-        //when loadBtn is pressed pass "load" parameter to saveOrLoadGame method.
-        //then call updateViewer method to update the game in GUI.
-        }else if (e.getSource() == loadBtn) {
+            //when loadBtn is pressed pass "load" parameter to saveOrLoadGame method.
+            //then call updateViewer method to update the game in GUI.
+        } else if (e.getSource() == loadBtn) {
             saveOrLoadGame("load");
             updateViewer();
-        //when quitBtn is pressed the GUI window and game closes.
-        }else if (e.getSource() == quitBtn){
+            //when quitBtn is pressed the GUI window and game closes.
+        } else if (e.getSource() == quitBtn) {
             window.dispose();
             System.exit(0);
+        } else if (e.getSource() == helpBtn) {
+            helpWindowDisplay();
 
         }
 
@@ -210,7 +283,7 @@ public class Viewer implements ActionListener {
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
             saveOrLoadSuccessful = flag.equals("save") ? GameState.saveGame(file) : GameState.loadGame(file);
-        }else {
+        } else {
             return false;
         }
         return saveOrLoadSuccessful;
@@ -221,7 +294,7 @@ public class Viewer implements ActionListener {
     }
 
     public void setWaitingForInput(boolean waitingForInput) {
-        this.waitingForInput = waitingForInput;
+        Viewer.waitingForInput = waitingForInput;
     }
 }
 
