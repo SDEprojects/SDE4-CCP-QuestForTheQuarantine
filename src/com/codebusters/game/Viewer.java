@@ -125,7 +125,7 @@ public class Viewer implements ActionListener {
 
         //text panel for main story
         storyPanel = new JPanel();
-        storyPanel.setBounds(148, 150, 430, 300);
+        storyPanel.setBounds(162, 150, 430, 350);
         storyPanel.setBackground(Color.decode("#EDE5D0"));
         container.add(storyPanel); //adding story panel to main container
 
@@ -147,6 +147,7 @@ public class Viewer implements ActionListener {
 
     //*************** METHODS ***************
     public void updateViewer() {
+
         titleName.setText(GameState.getInstance().getSceneTitle());
 //        container.add(titleName);
 
@@ -172,7 +173,7 @@ public class Viewer implements ActionListener {
 
         //text area of the main story
         JTextArea storyTextArea = new JTextArea(GameState.getInstance().getSceneText()); //connects to the story text in the game.
-        storyTextArea.setBounds(70, 180, 400, 280);
+        storyTextArea.setBounds(10, 150, 430, 350);
         storyTextArea.setBackground(Color.decode("#EDE5D0"));
         storyTextArea.setForeground(Color.black);
         storyTextArea.setFont(normalFont);
