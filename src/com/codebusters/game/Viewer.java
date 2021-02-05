@@ -41,6 +41,8 @@ public class Viewer implements ActionListener {
     public Viewer() {
         waitingForInput = true;
         window.setSize(880, 690); //size for the frame
+        window.setLocation(350, 80);
+
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closes the window
 
         //create background image
@@ -179,6 +181,7 @@ public class Viewer implements ActionListener {
         storyTextArea.setFont(normalFont);
         storyTextArea.setLineWrap(true);
         storyTextArea.setWrapStyleWord(true); //creates readable text that is separated by word when wrapped.
+        storyTextArea.setEditable(false);
 
         storyPanel.removeAll();
         storyPanel.add(storyTextArea);
@@ -195,7 +198,7 @@ public class Viewer implements ActionListener {
         //set up help window
         helpWindow.setVisible(true);
         helpWindow.setSize(500, 415);
-        helpWindow.setLocation(300, 100);
+        helpWindow.setLocation(480, 200);
 
         //create background image for help window
         BufferedImage bgImg = null;
@@ -231,7 +234,7 @@ public class Viewer implements ActionListener {
                 "Your journey is a dangerous one, but with your wits and my guidance I believe you will find your salvation." +
                 "\n" + "\n" + "Pay attention to the story and navigate the game by making your decisions carefully for each choice changes your fate be it for better or worse."
                 + "\n" + "\n" + "Enter only two commands in the text field at a time to progress through the story: 1 verb and 1 noun." +
-                "\n" + "\n" + "\n" + "\n" + "Examples: go around, use machete, enter store, drink water, trade ammo.");
+                "\n" + "\n" + "\n" + "\n" + "Examples: go around, use machete, enter store, grab crate, trade ammo.");
 
         helpText.setBounds(30, 75, 425, 270);
         helpText.setBackground(Color.decode("#EDE5D0"));
@@ -239,6 +242,7 @@ public class Viewer implements ActionListener {
         helpText.setFont(new Font("Times New Roman", Font.PLAIN, 14));
         helpText.setWrapStyleWord(true); //creates readable text that is separated by word when wrapped.
         helpText.setForeground(Color.black);
+        helpText.setEditable(false);
         //image inside the help text
         imagePane.insertIcon(new ImageIcon("InputFieldImg.png"));
         imagePane.setBackground(Color.decode("#EDE5D0"));
