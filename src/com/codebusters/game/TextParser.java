@@ -12,7 +12,7 @@ import java.util.*;
 
 public class TextParser {
     private final List<String> ITEM_VERBS_GAIN = new ArrayList<>(
-            Arrays.asList("take", "grab", "pickup", "grasp", "open", "confiscate", "seize", "snatch")
+            Arrays.asList("take", "grab", "pickup", "grasp", "open", "confiscate", "seize", "snatch", "search")
     );
     private final List<String> ITEM_VERBS_LOSE = new ArrayList<>(
             Arrays.asList("trade", "drink", "eat", "consume", "feed", "imbibe", "swig", "down", "swill", "swallow", "ingest", "devour", "chew")

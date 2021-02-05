@@ -148,7 +148,7 @@ public class Viewer implements ActionListener {
     //*************** METHODS ***************
     public void updateViewer() {
         titleName.setText(GameState.getInstance().getSceneTitle());
-        container.add(titleName);
+//        container.add(titleName);
 
         //create StringBuilder for inventory to be displayed as string in the inventory text area.
         StringBuilder inv = new StringBuilder();
