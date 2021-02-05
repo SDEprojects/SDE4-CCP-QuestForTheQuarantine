@@ -26,6 +26,24 @@ public class TextParser {
     private final List<String> PLACES_VERBS_EXIT = new ArrayList<>(
             Arrays.asList("leave", "exit", "run", "walk", "go", "escape", "depart", "retreat", "retire")
     );
+    private final List<String> PLACES_NOUNS_1 = new ArrayList<>(
+            Arrays.asList("city", "town", "village", "settlement", "around")
+    );
+    private final List<String> PLACES_NOUNS_2 = new ArrayList<>(
+            Arrays.asList("store", "bodega", "market", "shop")
+    );
+    private final List<String> PLACES_NOUNS_3 = new ArrayList<>(
+            Arrays.asList("apartment", "flat", "house", "home", "condo", "hut")
+    );
+    private final List<String> PLACES_NOUNS_4 = new ArrayList<>(
+            Arrays.asList("bedroom", "room", "suite")
+    );
+    private final List<String> VERBS1 = new ArrayList<>(
+            Arrays.asList("go", "skip")
+    );
+    private final List<String> VERBS2 = new ArrayList<>(
+            Arrays.asList("start", "begin")
+    );
     private String nextChapter;
     private String pathText;
     private String invalidInputMessage;
@@ -85,7 +103,7 @@ public class TextParser {
                     reqVerb = reqVerb.replaceAll(" ", "");
 
                     // if we have a valid input
-                    if ((verb.equals(reqVerb) || isSynonym(reqVerb, verb)) && noun.equals(reqNoun)){
+                    if ((verb.equals(reqVerb) || isSynonym(reqVerb, verb)) && (noun.equals(reqNoun) || isSynonym(reqNoun, noun))){
                         // first, we check for required items
                         if (!(path.get("requiredItems") == null)){
                             checkRequiredItems(path);
@@ -121,12 +139,19 @@ public class TextParser {
         }
     }
 
-    private boolean isSynonym(String reqVerb, String verb) {
-        return ((ITEM_VERBS_GAIN.contains(reqVerb) && ITEM_VERBS_GAIN.contains(verb))
-            || (ITEM_VERBS_LOSE.contains(reqVerb) && ITEM_VERBS_LOSE.contains(verb))
-            || (ITEM_VERBS_USE.contains(reqVerb) && ITEM_VERBS_USE.contains(verb))
-            || (PLACES_VERBS_ENTRY.contains(reqVerb) && PLACES_VERBS_ENTRY.contains(verb))
-            || (PLACES_VERBS_EXIT.contains(reqVerb) && PLACES_VERBS_EXIT.contains(verb)));
+    private boolean isSynonym(String reqWord, String word) {
+        return ((ITEM_VERBS_GAIN.contains(reqWord) && ITEM_VERBS_GAIN.contains(word))
+            || (ITEM_VERBS_LOSE.contains(reqWord) && ITEM_VERBS_LOSE.contains(word))
+            || (ITEM_VERBS_USE.contains(reqWord) && ITEM_VERBS_USE.contains(word))
+            || (PLACES_VERBS_ENTRY.contains(reqWord) && PLACES_VERBS_ENTRY.contains(word))
+            || (PLACES_VERBS_EXIT.contains(reqWord) && PLACES_VERBS_EXIT.contains(word))
+            || (PLACES_NOUNS_1.contains(reqWord) && PLACES_NOUNS_1.contains(word))
+            || (PLACES_NOUNS_2.contains(reqWord) && PLACES_NOUNS_2.contains(word))
+            || (PLACES_NOUNS_3.contains(reqWord) && PLACES_NOUNS_3.contains(word))
+            || (PLACES_NOUNS_4.contains(reqWord) && PLACES_NOUNS_4.contains(word))
+            || (VERBS1.contains(reqWord) && VERBS1.contains(word))
+            || (VERBS2.contains(reqWord) && VERBS2.contains(word))
+        );
     }
 
     private void checkRequiredItems(HashMap<String, String> path){
