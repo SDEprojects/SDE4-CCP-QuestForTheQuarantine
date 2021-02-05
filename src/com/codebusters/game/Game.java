@@ -6,7 +6,7 @@ package com.codebusters.game;
  * then the GUI.
  * <p>
  * Authors: Bradley Pratt & Debbie Bitencourt
- * Last Edited: 02/02/2021
+ * Last Edited: 02/05/2021
  */
 import com.codebusters.data.ChapterBuilder;
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class Game {
 
             // tell viewer to display now that there is a new gamestate
             GUI.updateViewer();
-//            System.out.println("Did you execute?");
+
             //create flag to wait for user's input from GUI
             while (GUI.isWaitingForInput()){
                 try {
@@ -44,12 +44,11 @@ public class Game {
                     Thread.currentThread().interrupt();
                 }
             }
-//            System.out.println("How about now?");
 
             // check if viewer sent valid input to test parser
             if (!TextParser.getInstance().isValidInput()){
                 // if not, we need to tell the player to try again
-                promptAgain();
+                promptAgain(currentChapter);
             }else{
                 // we need to update the inventory and current chapter
                 updateInventory();
@@ -73,7 +72,6 @@ public class Game {
                     endGame = true;
                 }
             }
-//            System.out.println("Current inventory: "  + currentGame.getInventory());
         }
 
         // display the end chapter
@@ -83,7 +81,6 @@ public class Game {
 
     private void updatePathText() {
         // get the current scene text
-//        System.out.println("Updating path text");
         String currentText = GameState.getInstance().getSceneText();
         GameState.getInstance().setSceneText(TextParser.getInstance().getPathText() + "\n\n" + currentText);
     }
@@ -104,17 +101,11 @@ public class Game {
         }
     }
 
-    private void promptAgain() {
+    private void promptAgain(Chapter currentChapter) {
         // get the current scene text
-        String tryAgain = GameState.getInstance().getSceneText();
-
-        // check if current scene already has the message, if so,
-        // we don't need to add again
-        String INVALID = "That is an unrecognized input, please try again. Only two word commands are allowed in the form of verb + noun.";
-        if (!tryAgain.contains(INVALID)){
-            tryAgain += "\n\n";
-            tryAgain += INVALID;
-        }
+        String tryAgain = currentChapter.getSceneText();
+        tryAgain += "\n\n";
+        tryAgain += TextParser.getInstance().getInvalidInputMessage();
         GameState.getInstance().setSceneText(tryAgain);
     }
 
