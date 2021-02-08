@@ -305,7 +305,7 @@ public class Viewer implements ActionListener {
         }
         fileChooser = new JFileChooser("./saved_games");
         fileChooser.setDialogTitle("Specify name of game file to " + flag);
-        int userSelection = fileChooser.showSaveDialog(window);
+        int userSelection = flag.equals("save") ? fileChooser.showSaveDialog(window) : fileChooser.showOpenDialog(window);
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
             saveOrLoadSuccessful = flag.equals("save") ? GameState.saveGame(file) : GameState.loadGame(file);
