@@ -1,13 +1,12 @@
 package com.codebusters.game;
-
 /**
  * Viewer.java is where using GUI the game can be experienced and played in a separate window.
  * The GUI is designed to be visually appealing and user friendly.
  * Player using the input field can progress through the game.
  * <p>
  * Author: Aliona (main GUI), Dustin (save/load).
+ * Last Edited: 02/09/2021
  */
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -154,9 +153,7 @@ public class Viewer implements ActionListener {
 
     //*************** METHODS ***************
     public void updateViewer() {
-
         titleName.setText(GameState.getInstance().getSceneTitle());
-//        container.add(titleName);
 
         //create StringBuilder for inventory to be displayed as string in the inventory text area.
         StringBuilder inv = new StringBuilder();
