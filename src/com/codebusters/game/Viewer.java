@@ -65,6 +65,7 @@ public class Viewer implements ActionListener {
         container = window.getContentPane(); //container inside the window that contains all the content
         container.add(background);
 
+
         //user input
         userInputField = new JTextField();
         userInputField.setText("");
@@ -148,6 +149,7 @@ public class Viewer implements ActionListener {
         inventoryTitle.setForeground(Color.decode("#635147")); //title text color
         inventoryTitle.setFont(new Font("Arial", Font.BOLD, 13)); //title font
         inventoryPanel.add(inventoryTitle);
+
     }
 
     //*************** METHODS ***************
@@ -191,6 +193,8 @@ public class Viewer implements ActionListener {
         storyTextArea.update(storyTextArea.getGraphics()); //updates text area
 
         setWaitingForInput(true);
+        window.repaint();
+        window.revalidate();
     }
 
     public void helpWindowDisplay() {
