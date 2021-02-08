@@ -6,7 +6,7 @@ package com.codebusters.game;
  * Game.java can then pull.
  * <p>
  * Authors: Bradley Pratt & Debbie Bitencourt
- * Last Edited: 02/05/2021
+ * Last Edited: 02/09/2021
  */
 import java.util.*;
 
@@ -21,10 +21,10 @@ public class TextParser {
             Arrays.asList("use", "light", "threaten", "utilize", "apply", "employ", "ignite", "burn", "intimidate", "bully", "terrorize", "frighten", "scare")
     );
     private final List<String> PLACES_VERBS_ENTRY = new ArrayList<>(
-            Arrays.asList("enter", "search", "explore", "go", "access", "look", "invade", "forage")
+            Arrays.asList("enter", "search", "explore", "access", "look", "invade", "forage")
     );
     private final List<String> PLACES_VERBS_EXIT = new ArrayList<>(
-            Arrays.asList("leave", "exit", "run", "walk", "go", "escape", "depart", "retreat", "retire")
+            Arrays.asList("leave", "exit", "run", "walk", "escape", "depart", "retreat", "retire")
     );
     private final List<String> PLACES_NOUNS_1 = new ArrayList<>(
             Arrays.asList("city", "town", "village", "settlement", "around")
@@ -37,6 +37,9 @@ public class TextParser {
     );
     private final List<String> PLACES_NOUNS_4 = new ArrayList<>(
             Arrays.asList("bedroom", "room", "suite")
+    );
+    private final List<String> PLACES_NOUNS_5 = new ArrayList<>(
+            Arrays.asList("cabinet", "cabinets")
     );
     private final List<String> VERBS1 = new ArrayList<>(
             Arrays.asList("go", "skip")
@@ -149,6 +152,7 @@ public class TextParser {
             || (PLACES_NOUNS_2.contains(reqWord) && PLACES_NOUNS_2.contains(word))
             || (PLACES_NOUNS_3.contains(reqWord) && PLACES_NOUNS_3.contains(word))
             || (PLACES_NOUNS_4.contains(reqWord) && PLACES_NOUNS_4.contains(word))
+            || (PLACES_NOUNS_5.contains(reqWord) && PLACES_NOUNS_5.contains(word))
             || (VERBS1.contains(reqWord) && VERBS1.contains(word))
             || (VERBS2.contains(reqWord) && VERBS2.contains(word))
         );

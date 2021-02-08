@@ -5,9 +5,8 @@ package com.codebusters.game;
  * access to display the interface for the player. It is updated by Game.java.
  * <p>
  * Authors: Bradley Pratt & Debbie Bitencourt
- * Last Edited: 01/29/2021
+ * Last Edited: 02/08/2021
  */
-
 import java.io.*;
 import java.util.ArrayList;
 
@@ -56,7 +55,6 @@ public class GameState implements Serializable {
         }
         return false;
     }
-
 
     //make GameState as a Singleton to be used in other Classes.
     public static GameState getInstance(){

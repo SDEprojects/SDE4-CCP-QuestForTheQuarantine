@@ -2,6 +2,8 @@ package com.codebusters.game;
 /**
  *Chapter Class contains the data for each chapter
  *
+ * Author: Dustin Morris
+ *
  **/
 
 import java.util.ArrayList;
