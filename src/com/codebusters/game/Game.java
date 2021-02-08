@@ -17,11 +17,11 @@ public class Game {
     private ArrayList<Chapter> story;
 
     public Game() {
-        GUI = new Viewer();
-        inventory = new ArrayList<>();
         story = new ArrayList<>();
         ChapterBuilder builder = new ChapterBuilder();
         story = builder.getChapters();
+        GUI = new Viewer();
+        inventory = new ArrayList<>();
     }
 
     //*************** METHODS ***************
