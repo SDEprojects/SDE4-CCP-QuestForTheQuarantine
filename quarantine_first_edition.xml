@@ -9,7 +9,7 @@
   <Author>Dustin Morris</Author>
   <LastAuthor>Dustin Morris</LastAuthor>
   <Created>2021-01-28T20:22:13Z</Created>
-  <LastSaved>2021-02-05T23:35:47Z</LastSaved>
+  <LastSaved>2021-02-08T16:39:32Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,7 +20,6 @@
   <WindowWidth>17200</WindowWidth>
   <WindowTopX>17200</WindowTopX>
   <WindowTopY>500</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -102,7 +101,7 @@
    <Row>
     <Cell><Data ss:Type="String">3C</Data></Cell>
     <Cell><Data ss:Type="String">Leon: Alleyway</Data></Cell>
-    <Cell ss:StyleID="s19"><Data ss:Type="String">As Esperanza is making her way out of the city, she can’t help but shake the feeling that someone is watching her. She pauses in the dark and searches the shadows for a sign of movement. Nothing. And then there’s noise: a faint jingle, like that of a glass bottle rolling on concrete. Time slows down and she feels every muscle in her body tighten like a loaded spring. She releases and within two steps, the sound of whoops and shouts light up the concrete jungle. She can hear several sets of footsteps in pursuit. She sprints- ducking around corners and dodging between cars. Minutes later in a dark alley she pauses, catching her breath. Can she use something as a distraction perhaps? She thinks she can make it out of the city, but it sure would help to divert their attention.</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">As Esperanza is making her way out of the city, she can’t help but shake the feeling that someone is watching her. She pauses in the dark and searches the shadows for a sign of movement. Nothing. And then there’s noise: a faint jingle, like that of a glass bottle rolling on concrete. Time slows down and she feels every muscle in her body tighten like a loaded spring. She releases and within two steps, the sound of whoops and shouts light up the concrete jungle. She can hear several sets of footsteps in pursuit. She sprints- ducking around corners and dodging between cars. Minutes later in a dark alley she pauses, catching her breath. Can she use something as a distraction perhaps? She thinks she can make a run for it regardless, but it sure would help to divert their attention.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="Number">4</Data></Cell>
@@ -153,10 +152,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>8</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
@@ -557,7 +557,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <TopRowVisible>3</TopRowVisible>
    <LeftColumnVisible>3</LeftColumnVisible>
    <Panes>
