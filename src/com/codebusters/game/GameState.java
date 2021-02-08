@@ -29,19 +29,18 @@ public class GameState implements Serializable {
 
     //create method to save the game
     public static boolean saveGame(File fileToSave) {
-            try {
-                FileOutputStream fileStream = new FileOutputStream(fileToSave.getAbsolutePath());
-                ObjectOutputStream objectStream = new ObjectOutputStream(fileStream);
-                objectStream.writeObject(GameState.getInstance());
-                objectStream.close();
-                return true;
-            } catch (IOException e) {
-                System.out.println(e);
-            }
+        try {
+            FileOutputStream fileStream = new FileOutputStream(fileToSave.getAbsolutePath());
+            ObjectOutputStream objectStream = new ObjectOutputStream(fileStream);
+            objectStream.writeObject(GameState.getInstance());
+            objectStream.close();
+            return true;
+        } catch (IOException e) {
+            System.out.println(e);
+        }
         return false;
     }
 
-    //create method to load the game that was saved
     public static boolean loadGame(File fileToLoad) {
         try {
             FileInputStream fileStream = new FileInputStream(fileToLoad.getAbsolutePath());
@@ -50,11 +49,14 @@ public class GameState implements Serializable {
             new GameState(loadedGame);
             objectStream.close();
             return true;
-        } catch (IOException | ClassNotFoundException e) {
+        } catch (IOException e) {
+            System.out.println(e);
+        } catch (ClassNotFoundException e) {
             System.out.println(e);
         }
         return false;
     }
+
 
     //make GameState as a Singleton to be used in other Classes.
     public static GameState getInstance(){

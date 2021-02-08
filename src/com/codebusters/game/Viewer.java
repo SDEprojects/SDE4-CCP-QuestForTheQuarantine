@@ -18,6 +18,9 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Viewer implements ActionListener {
     private static final JFrame window = new JFrame();
@@ -282,13 +285,20 @@ public class Viewer implements ActionListener {
     //create load and save window and check for file being saved or loaded successfully
     private boolean saveOrLoadGame(String flag) {
         boolean saveOrLoadSuccessful;
-        JFileChooser fileChooser = new JFileChooser();
+        JFileChooser fileChooser;
+        Path path = Paths.get("./saved_games");
+        System.out.println(Files.exists(path));
+        if (!Files.exists(path)) {
+            File dir = new File("./saved_games");
+            dir.mkdirs();
+        }
+        fileChooser = new JFileChooser("./saved_games");
         fileChooser.setDialogTitle("Specify name of game file to " + flag);
         int userSelection = fileChooser.showSaveDialog(window);
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
             saveOrLoadSuccessful = flag.equals("save") ? GameState.saveGame(file) : GameState.loadGame(file);
-        } else {
+        }else {
             return false;
         }
         return saveOrLoadSuccessful;
