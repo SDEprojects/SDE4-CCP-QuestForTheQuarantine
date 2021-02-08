@@ -6,13 +6,13 @@ package com.codebusters.game;
  * Game.java can then pull.
  * <p>
  * Authors: Bradley Pratt & Debbie Bitencourt
- * Last Edited: 02/02/2021
+ * Last Edited: 02/09/2021
  */
 import java.util.*;
 
 public class TextParser {
     private final List<String> ITEM_VERBS_GAIN = new ArrayList<>(
-            Arrays.asList("take", "grab", "pickup", "grasp", "open", "confiscate", "seize", "snatch")
+            Arrays.asList("take", "grab", "pickup", "grasp", "open", "confiscate", "seize", "snatch", "search")
     );
     private final List<String> ITEM_VERBS_LOSE = new ArrayList<>(
             Arrays.asList("trade", "drink", "eat", "consume", "feed", "imbibe", "swig", "down", "swill", "swallow", "ingest", "devour", "chew")
@@ -21,13 +21,35 @@ public class TextParser {
             Arrays.asList("use", "light", "threaten", "utilize", "apply", "employ", "ignite", "burn", "intimidate", "bully", "terrorize", "frighten", "scare")
     );
     private final List<String> PLACES_VERBS_ENTRY = new ArrayList<>(
-            Arrays.asList("enter", "search", "explore", "go", "access", "look", "invade", "forage")
+            Arrays.asList("enter", "search", "explore", "access", "look", "invade", "forage")
     );
     private final List<String> PLACES_VERBS_EXIT = new ArrayList<>(
-            Arrays.asList("leave", "exit", "run", "walk", "go", "escape", "depart", "retreat", "retire")
+            Arrays.asList("leave", "exit", "run", "walk", "escape", "depart", "retreat", "retire")
+    );
+    private final List<String> PLACES_NOUNS_1 = new ArrayList<>(
+            Arrays.asList("city", "town", "village", "settlement", "around")
+    );
+    private final List<String> PLACES_NOUNS_2 = new ArrayList<>(
+            Arrays.asList("store", "bodega", "market", "shop")
+    );
+    private final List<String> PLACES_NOUNS_3 = new ArrayList<>(
+            Arrays.asList("apartment", "flat", "house", "home", "condo", "hut")
+    );
+    private final List<String> PLACES_NOUNS_4 = new ArrayList<>(
+            Arrays.asList("bedroom", "room", "suite")
+    );
+    private final List<String> PLACES_NOUNS_5 = new ArrayList<>(
+            Arrays.asList("cabinet", "cabinets")
+    );
+    private final List<String> VERBS1 = new ArrayList<>(
+            Arrays.asList("go", "skip")
+    );
+    private final List<String> VERBS2 = new ArrayList<>(
+            Arrays.asList("start", "begin")
     );
     private String nextChapter;
     private String pathText;
+    private String invalidInputMessage;
     private Chapter currentChapter;
     private boolean validInput;
     private boolean hasPathText;
@@ -45,6 +67,7 @@ public class TextParser {
         inventory = new ArrayList<>();
     }
 
+    //make TextParser a Singleton to be used in other Classes.
     public static TextParser getInstance(){
         if (instance == null){
             instance = new TextParser();
@@ -55,6 +78,7 @@ public class TextParser {
     public void parseInput(String input){
         setValidInput(false);   // reset value each time we check
         setPathText(false);
+        setInvalMessage("");
 
         // check for empty input
         if (!input.equals("")){
@@ -82,7 +106,7 @@ public class TextParser {
                     reqVerb = reqVerb.replaceAll(" ", "");
 
                     // if we have a valid input
-                    if ((verb.equals(reqVerb) || isSynonym(reqVerb, verb)) && noun.equals(reqNoun)){
+                    if ((verb.equals(reqVerb) || isSynonym(reqVerb, verb)) && (noun.equals(reqNoun) || isSynonym(reqNoun, noun))){
                         // first, we check for required items
                         if (!(path.get("requiredItems") == null)){
                             checkRequiredItems(path);
@@ -93,8 +117,8 @@ public class TextParser {
                             }
                         // else no required items and valid input: just add the items
                         }else{
-//                            System.out.println("Required items was null");
                             logInventoryChanges(path);
+                            setValidInput(true);
                         }
 
                         if (!(path.get("pathText") == null)){
@@ -108,12 +132,30 @@ public class TextParser {
     }
 
     //***************HELPER METHODS***************
-    private boolean isSynonym(String reqVerb, String verb) {
-        return ((ITEM_VERBS_GAIN.contains(reqVerb) && ITEM_VERBS_GAIN.contains(verb))
-            || (ITEM_VERBS_LOSE.contains(reqVerb) && ITEM_VERBS_LOSE.contains(verb))
-            || (ITEM_VERBS_USE.contains(reqVerb) && ITEM_VERBS_USE.contains(verb))
-            || (PLACES_VERBS_ENTRY.contains(reqVerb) && PLACES_VERBS_ENTRY.contains(verb))
-            || (PLACES_VERBS_EXIT.contains(reqVerb) && PLACES_VERBS_EXIT.contains(verb)));
+    private void setInvalMessage(String noun) {
+        if (!noun.equals("")){
+            String error = "You need to have a " + noun + " in your inventory to perform this action!";
+            setInvalidInputMessage(error);
+        }else{
+            String invalid = "That is an unrecognized input, please try again.";
+            setInvalidInputMessage(invalid);
+        }
+    }
+
+    private boolean isSynonym(String reqWord, String word) {
+        return ((ITEM_VERBS_GAIN.contains(reqWord) && ITEM_VERBS_GAIN.contains(word))
+            || (ITEM_VERBS_LOSE.contains(reqWord) && ITEM_VERBS_LOSE.contains(word))
+            || (ITEM_VERBS_USE.contains(reqWord) && ITEM_VERBS_USE.contains(word))
+            || (PLACES_VERBS_ENTRY.contains(reqWord) && PLACES_VERBS_ENTRY.contains(word))
+            || (PLACES_VERBS_EXIT.contains(reqWord) && PLACES_VERBS_EXIT.contains(word))
+            || (PLACES_NOUNS_1.contains(reqWord) && PLACES_NOUNS_1.contains(word))
+            || (PLACES_NOUNS_2.contains(reqWord) && PLACES_NOUNS_2.contains(word))
+            || (PLACES_NOUNS_3.contains(reqWord) && PLACES_NOUNS_3.contains(word))
+            || (PLACES_NOUNS_4.contains(reqWord) && PLACES_NOUNS_4.contains(word))
+            || (PLACES_NOUNS_5.contains(reqWord) && PLACES_NOUNS_5.contains(word))
+            || (VERBS1.contains(reqWord) && VERBS1.contains(word))
+            || (VERBS2.contains(reqWord) && VERBS2.contains(word))
+        );
     }
 
     private void checkRequiredItems(HashMap<String, String> path){
@@ -121,11 +163,12 @@ public class TextParser {
 
         // we need to make sure at least one required item is in inventory
         for (String item: reqItems){
-            System.out.println(item);
             checkAgainstInventory(item.toLowerCase());
 
-            if (isValidInput()){     // no need to keep searching for others, just need one
+            if (isValidInput()){ // no need to keep searching for others, just need one
                 break;
+            }else{
+                setInvalMessage(item);
             }
         }
     }
@@ -136,30 +179,33 @@ public class TextParser {
         itemsToAdd.clear();
         itemsToRemove.clear();
 
+        //check if "gainItems" are in the path chosen
+        //loop through the items in the list. When found matching item add it to itemsToAdd list.
         if (!(path.get("gainItems") == null)){
             String[] gainItems = path.get("gainItems").split(",");
             for (String item : gainItems){
-//                System.out.println(item);
                 itemsToAdd.add(new Items(item));
             }
         }
+        //check if "loseItems" are in the path chosen
+        //loop through the items in the list. When found matching item add it to itemsToRemove list.
         if (!(path.get("loseItems") == null)){
-            System.out.println("loseItems content: " + path.get("loseItems"));
             String[] loseItems = path.get("loseItems").split(",");
             for (String item : loseItems) {
-//                System.out.println("Item lost: " + item);
                 itemsToRemove.add(new Items(item));
             }
         }
     }
-
+    //validate if item is inside the inventory list.
     private void checkAgainstInventory(String item){
         for (Items possession: inventory){
             if (item.equals(possession.getName().toLowerCase())){
                 setValidInput(true);
+                break;
             }
         }
     }
+
 
     //***************GETTERS/SETTERS***************
     public String getNextChapter() {
@@ -176,6 +222,14 @@ public class TextParser {
 
     private void setPathText(String pathText) {
         this.pathText = pathText;
+    }
+
+    public String getInvalidInputMessage() {
+        return invalidInputMessage;
+    }
+
+    private void setInvalidInputMessage(String invalidInputMessage) {
+        this.invalidInputMessage = invalidInputMessage;
     }
 
     private Chapter getCurrentChapter() {

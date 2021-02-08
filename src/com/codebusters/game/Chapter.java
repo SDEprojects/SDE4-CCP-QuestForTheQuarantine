@@ -2,6 +2,8 @@ package com.codebusters.game;
 /**
  *Chapter Class contains the data for each chapter
  *
+ * Author: Dustin Morris
+ *
  **/
 
 import java.util.ArrayList;
@@ -13,6 +15,7 @@ public class Chapter {
     private String sceneText;
     private ArrayList<HashMap> paths = new ArrayList<>();
 
+    //*************** GETTERS/SETTERS ***************
     public ArrayList<HashMap> getPaths() {
         return paths;
     }
