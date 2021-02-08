@@ -230,28 +230,43 @@ public class Viewer implements ActionListener {
         helpContainer.add(helpTitle);
 
         //text area for the help window
-        JTextArea helpText = new JTextArea();
+        JTextArea helpText1 = new JTextArea();
+        JTextArea helpText2 = new JTextArea();
         JTextPane imagePane = new JTextPane();
 
-        helpText.setText("Welcome, I'm your Little Helper! You are in a survival text based game where you take a role of a brave girl named Esperanza." +
+        helpText1.setText("Welcome, I'm your Little Helper! You are in a survival text based game where you take a role of a brave girl named Esperanza." +
                 "Your journey is a dangerous one, but with your wits and my guidance I believe you will find your salvation.\n\n" +
                 "Pay attention to the story and navigate the game by making your decisions carefully for each choice changes your fate be it for better or worse.\n\n" +
-                "Enter only two commands in the text field at a time to progress through the story: 1 verb and 1 noun." +
-                "\n\n\n\n" + "Examples: go around, use firecrackers, enter store, leave city, go farther, search cabinets, grab crate, trade ammo, run away, threaten farmer.");
+                "Enter only two commands in the text field at a time to progress through the story: 1 verb and 1 noun.");
 
-        helpText.setBounds(30, 75, 425, 270);
-        helpText.setBackground(Color.decode("#EDE5D0"));
-        helpText.setLineWrap(true);
-        helpText.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-        helpText.setWrapStyleWord(true); //creates readable text that is separated by word when wrapped.
-        helpText.setForeground(Color.black);
-        helpText.setEditable(false);
+        helpText2.setText("Examples: go around, use firecrackers, enter store, leave city, go farther, search cabinets, grab crate, trade ammo, run away, threaten farmer.");
+
+        helpText1.setBounds(34, 75, 425, 200);
+        helpText1.setBackground(Color.decode("#EDE5D0"));
+        helpText1.setLineWrap(true);
+        helpText1.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+        helpText1.setWrapStyleWord(true); //creates readable text that is separated by word when wrapped.
+        helpText1.setForeground(Color.black);
+        helpText1.setEditable(false);
+
+        helpText2.setBounds(34, 310, 425, 40);
+        helpText2.setBackground(Color.decode("#EDE5D0"));
+        helpText2.setLineWrap(true);
+        helpText2.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+        helpText2.setWrapStyleWord(true); //creates readable text that is separated by word when wrapped.
+        helpText2.setForeground(Color.black);
+        helpText2.setEditable(false);
+
         //image inside the help text
         imagePane.insertIcon(new ImageIcon("InputFieldImg.png"));
         imagePane.setBackground(Color.decode("#EDE5D0"));
-        imagePane.setBounds(10, 195, 200, 40);
-        helpText.add(imagePane);
-        helpContainer.add(helpText);
+        imagePane.setBounds(45, 268, 200, 40);
+
+        //add all content to the container
+        helpContainer.add(imagePane);
+        helpContainer.add(helpText1);
+        helpContainer.add(helpText2);
+
     }
 
     public void actionPerformed(ActionEvent e) {
