@@ -18,6 +18,9 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Viewer implements ActionListener {
     private static final JFrame window = new JFrame();
@@ -231,10 +234,10 @@ public class Viewer implements ActionListener {
         JTextPane imagePane = new JTextPane();
 
         helpText.setText("Welcome, I'm your Little Helper! You are in a survival text based game where you take a role of a brave girl named Esperanza." +
-                "Your journey is a dangerous one, but with your wits and my guidance I believe you will find your salvation." +
-                "\n" + "\n" + "Pay attention to the story and navigate the game by making your decisions carefully for each choice changes your fate be it for better or worse."
-                + "\n" + "\n" + "Enter only two commands in the text field at a time to progress through the story: 1 verb and 1 noun." +
-                "\n" + "\n" + "\n" + "\n" + "Examples: go around, use firecrackers, enter store, leave city, go farther, search cabinets, grab crate, trade ammo, run away, threaten farmer.");
+                "Your journey is a dangerous one, but with your wits and my guidance I believe you will find your salvation.\n\n" +
+                "Pay attention to the story and navigate the game by making your decisions carefully for each choice changes your fate be it for better or worse.\n\n" +
+                "Enter only two commands in the text field at a time to progress through the story: 1 verb and 1 noun." +
+                "\n\n\n\n" + "Examples: go around, use firecrackers, enter store, leave city, go farther, search cabinets, grab crate, trade ammo, run away, threaten farmer.");
 
         helpText.setBounds(30, 75, 425, 270);
         helpText.setBackground(Color.decode("#EDE5D0"));
@@ -249,7 +252,6 @@ public class Viewer implements ActionListener {
         imagePane.setBounds(10, 195, 200, 40);
         helpText.add(imagePane);
         helpContainer.add(helpText);
-
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -274,21 +276,25 @@ public class Viewer implements ActionListener {
             System.exit(0);
         } else if (e.getSource() == helpBtn) {
             helpWindowDisplay();
-
         }
-
     }
 
     //create load and save window and check for file being saved or loaded successfully
     private boolean saveOrLoadGame(String flag) {
         boolean saveOrLoadSuccessful;
-        JFileChooser fileChooser = new JFileChooser();
+        JFileChooser fileChooser;
+        Path path = Paths.get("./saved_games");
+        if (!Files.exists(path)) {
+            File dir = new File("./saved_games");
+            dir.mkdirs();
+        }
+        fileChooser = new JFileChooser("./saved_games");
         fileChooser.setDialogTitle("Specify name of game file to " + flag);
         int userSelection = fileChooser.showSaveDialog(window);
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
             saveOrLoadSuccessful = flag.equals("save") ? GameState.saveGame(file) : GameState.loadGame(file);
-        } else {
+        }else {
             return false;
         }
         return saveOrLoadSuccessful;
