@@ -202,7 +202,7 @@ public class Viewer implements ActionListener {
         //set up help window
         helpWindow.setVisible(true);
         helpWindow.setSize(500, 415);
-        helpWindow.setLocation(480, 200);
+        helpWindow.setLocationRelativeTo(window); //help window will now pop up in front of main game window so user doesn't have to look for it
 
         //create background image for help window
         BufferedImage bgImg = null;
