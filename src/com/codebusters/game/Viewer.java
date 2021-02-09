@@ -43,7 +43,7 @@ public class Viewer implements ActionListener {
     public Viewer() {
         waitingForInput = true;
         window.setSize(880, 690); //size for the frame
-        window.setLocation(350, 80);
+        window.setLocationRelativeTo(null); //window pops up in center of screen
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closes the window
 
