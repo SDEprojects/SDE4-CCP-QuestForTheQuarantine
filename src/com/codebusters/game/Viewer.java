@@ -239,7 +239,6 @@ public class Viewer implements ActionListener {
         JLabel helpTitle;
 
         //set up help window
-        helpWindow.setVisible(true);
         helpWindow.setSize(500, 415);
         helpWindow.setLocationRelativeTo(window); //help window will now pop up in front of main game window so user doesn't have to look for it
 
@@ -301,12 +300,16 @@ public class Viewer implements ActionListener {
         imagePane.insertIcon(new ImageIcon("resources/inputFieldImg.png"));
         imagePane.setBackground(Color.decode("#EDE5D0"));
         imagePane.setBounds(45, 268, 200, 40);
+        imagePane.setEditable(false);
 
         //add all content to the container
         helpContainer.add(imagePane);
         helpContainer.add(helpText1);
         helpContainer.add(helpText2);
 
+        //ensure everything fits snugly in JFrame and set visible
+        helpWindow.pack();
+        helpWindow.setVisible(true);
     }
 
     public void actionPerformed(ActionEvent e) {
