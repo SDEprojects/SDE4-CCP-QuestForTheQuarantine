@@ -1,4 +1,5 @@
 package com.codebusters.game;
+
 /**
  * Game.java is the main game engine for Quest for the
  * Quarantine. It contains the startGame() method which
@@ -18,8 +19,8 @@ public class Game {
 
     public Game() {
         story = new ArrayList<>();
-        ChapterBuilder builder = new ChapterBuilder();
-        story = builder.getChapters();
+        ChapterBuilder.getInstance();
+        story = ChapterBuilder.getInstance().getChapters();
         GUI = new Viewer();
         inventory = new ArrayList<>();
     }

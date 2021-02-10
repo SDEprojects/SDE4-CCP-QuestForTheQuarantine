@@ -24,7 +24,7 @@ import java.nio.file.Paths;
 public class Viewer implements ActionListener {
     private static final JFrame window = new JFrame();
     private static Container container;
-    private static JPanel storyPanel, inventoryPanel;
+    private static JPanel storyPanel, inventoryPanel, bottomPanel, bottomRightPanel;
     private static JLabel titleName, inventoryTitle;
     private static final Font titleFont = new Font("Times New Roman", Font.BOLD, 32);
     private static final Font normalFont = new Font("Times New Roman", Font.PLAIN, 16);
@@ -43,14 +43,14 @@ public class Viewer implements ActionListener {
     public Viewer() {
         waitingForInput = true;
         window.setSize(880, 690); //size for the frame
-        window.setLocation(350, 80);
+        window.setLocationRelativeTo(null); //window pops up in center of screen
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closes the window
 
         //create background image
         BufferedImage img = null;
         try {
-            img = ImageIO.read(new File("bgImage.png"));
+            img = ImageIO.read(new File("resources/bgImage.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -58,97 +58,135 @@ public class Viewer implements ActionListener {
         Image bgImg = img.getScaledInstance(880, 690, Image.SCALE_SMOOTH);
         ImageIcon imageIcon = new ImageIcon(bgImg);
         window.setContentPane(new JLabel(imageIcon));
-        JLabel background = new JLabel(new ImageIcon(img));
-        window.setLayout(null); //disables default layout
-        window.setVisible(true); //makes window appear on screen
+        window.setLayout(new GridBagLayout()); //created new GridBagLayout so text moves with screen resize
         container = window.getContentPane(); //container inside the window that contains all the content
-        container.add(background);
+        GridBagConstraints c = new GridBagConstraints(); //needed to specify constraints for components
+
+        //bottom panel to hold user input field and submit buttons
+        bottomPanel = new JPanel();
+        c.gridx = 1;
+        c.gridy = 2;
+        c.insets = new Insets(0,-20, 0, -20);
+        container.add(bottomPanel, c);
 
 
         //user input
-        userInputField = new JTextField();
+        userInputField = new JTextField(10);
         userInputField.setText("");
-        userInputField.setBounds(160, 520, 120, 30);
+        userInputField.setPreferredSize(new Dimension(80,30));
         userInputField.setBackground(Color.decode("#EDE5D0"));
         userInputField.setBorder(BorderFactory.createLoweredBevelBorder());
         userInputField.setForeground(Color.black);
         userInputField.addActionListener(this);
-        container.add(userInputField);
+        bottomPanel.add(userInputField);
 
         //input button
-        inputBtn.setBounds(290, 520, 80, 30);
+        inputBtn.setPreferredSize(new Dimension(80,30));
         inputBtn.addActionListener(this);
         inputBtn.setForeground(Color.white);
         inputBtn.setBackground(Color.darkGray);
+        inputBtn.setOpaque(true);
+        inputBtn.setBorderPainted(false);
         inputBtn.setFont(new Font("Times New Roman", Font.PLAIN, 12));
         inputBtn.setBorder(BorderFactory.createRaisedBevelBorder());
-        userInputField.add(inputBtn);
-        container.add(inputBtn);
+        bottomPanel.add(inputBtn);
+
+        //bottom right panel to hold help, quit, save and load buttons
+        bottomRightPanel = new JPanel();
+        c.gridx = 2;
+        c.gridy = 2;
+        c.insets = new Insets(0,-60,0, 70);
+        container.add(bottomRightPanel, c);
+
 
         //help button
-        helpBtn.setBounds(440, 520, 80, 30);
+        helpBtn.setPreferredSize(new Dimension(80,30));
         helpBtn.addActionListener(this);
         helpBtn.setForeground(Color.white);
         helpBtn.setBackground(Color.darkGray);
+        helpBtn.setOpaque(true);
+        helpBtn.setBorderPainted(false);
         helpBtn.setFont(new Font("Times New Roman", Font.PLAIN, 12));
         helpBtn.setBorder(BorderFactory.createRaisedBevelBorder());
-        container.add(helpBtn);
+        bottomRightPanel.add(helpBtn);
 
         //quit button
-        quitBtn.setBounds(525, 520, 80, 30);
+        quitBtn.setPreferredSize(new Dimension(80,30));
         quitBtn.addActionListener(this);
         quitBtn.setForeground(Color.white);
         quitBtn.setBackground(Color.darkGray);
+        quitBtn.setOpaque(true);
+        quitBtn.setBorderPainted(false);
         quitBtn.setFont(new Font("Times New Roman", Font.PLAIN, 12));
         quitBtn.setBorder(BorderFactory.createRaisedBevelBorder());
-        container.add(quitBtn);
+        bottomRightPanel.add(quitBtn);
 
         //save button
-        saveBtn.setBounds(610, 520, 80, 30);
+        saveBtn.setPreferredSize(new Dimension(80,30));
         saveBtn.addActionListener(this);
         saveBtn.setForeground(Color.white);
         saveBtn.setBackground(Color.darkGray);
+        saveBtn.setOpaque(true);
+        saveBtn.setBorderPainted(false);
         saveBtn.setFont(new Font("Times New Roman", Font.PLAIN, 12));
         saveBtn.setBorder(BorderFactory.createRaisedBevelBorder());
-        container.add(saveBtn);
+        bottomRightPanel.add(saveBtn);
 
         //load button
-        loadBtn.setBounds(695, 520, 80, 30);
+        loadBtn.setPreferredSize(new Dimension(80,30));
         loadBtn.addActionListener(this);
         loadBtn.setForeground(Color.white);
         loadBtn.setBackground(Color.darkGray);
+        loadBtn.setOpaque(true);
+        loadBtn.setBorderPainted(false);
         loadBtn.setFont(new Font("Times New Roman", Font.PLAIN, 12));
         loadBtn.setBorder(BorderFactory.createRaisedBevelBorder());
-        container.add(loadBtn);
+        bottomRightPanel.add(loadBtn);
 
         //panel for game title
         titleName = new JLabel("The Quest for Quarantine");
-        titleName.setBounds(280, 100, 480, 46);
+        titleName.setPreferredSize(new Dimension(480, 46));
+        c.gridx = 1;
+        c.gridy = 0;
+        c.gridwidth = 2;
+        c.insets = new Insets(0,110, 30, -100);
         titleName.setForeground(Color.decode("#e76f51")); //title text color
         titleName.setFont(titleFont); //title font
-        container.add(titleName);
+        container.add(titleName, c);
 
         //text panel for main story
         storyPanel = new JPanel();
-        storyPanel.setBounds(162, 150, 430, 350);
+        storyPanel.setPreferredSize(new Dimension(430, 350));
+        c.gridx = 0;
+        c.gridy = 1;
+        c.gridwidth = 2;
+        c.insets = new Insets(0, 140, 0, -80);
         storyPanel.setBackground(Color.decode("#EDE5D0"));
-        container.add(storyPanel); //adding story panel to main container
+        container.add(storyPanel, c); //adding story panel to main container
 
         //panel for inventory
         inventoryPanel = new JPanel();
-        inventoryPanel.setBounds(620, 160, 150, 340);
+        inventoryPanel.setPreferredSize(new Dimension(150, 340));
+        c.gridx = 2;
+        c.gridy = 0;
+        c.gridheight = 2;
+        c.gridwidth = 1;
+        c.insets = new Insets(0,30,0,0);
         inventoryPanel.setBackground(Color.decode("#EDE5D0"));
         inventoryPanel.setForeground(Color.decode("#e76f51")); //title text color
         inventoryPanel.setBorder(compound);
         inventoryPanel.setFont(normalFont); //font
-        container.add(inventoryPanel);
 
         //inventory title
         inventoryTitle = new JLabel("INVENTORY");
         inventoryTitle.setForeground(Color.decode("#635147")); //title text color
         inventoryTitle.setFont(new Font("Arial", Font.BOLD, 13)); //title font
         inventoryPanel.add(inventoryTitle);
+        container.add(inventoryPanel, c);
 
+        //once everything is added pack() to make everything fit snugly into frame then set frame to visible
+        window.pack();
+        window.setVisible(true);
     }
 
     //*************** METHODS ***************
@@ -168,6 +206,7 @@ public class Viewer implements ActionListener {
         inventoryTextArea.setFont(normalFont);
         inventoryTextArea.setLineWrap(true);
         inventoryTextArea.setWrapStyleWord(true);
+        inventoryTextArea.setEditable(false);
 
         //inventory panel updated
         inventoryPanel.removeAll();
@@ -202,12 +241,12 @@ public class Viewer implements ActionListener {
         //set up help window
         helpWindow.setVisible(true);
         helpWindow.setSize(500, 415);
-        helpWindow.setLocation(480, 200);
+        helpWindow.setLocationRelativeTo(window); //help window will now pop up in front of main game window so user doesn't have to look for it
 
         //create background image for help window
         BufferedImage bgImg = null;
         try {
-            bgImg = ImageIO.read(new File("helpBgImage.png"));
+            bgImg = ImageIO.read(new File("resources/helpBgImage.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -259,7 +298,7 @@ public class Viewer implements ActionListener {
         helpText2.setEditable(false);
 
         //image inside the help text
-        imagePane.insertIcon(new ImageIcon("InputFieldImg.png"));
+        imagePane.insertIcon(new ImageIcon("resources/inputFieldImg.png"));
         imagePane.setBackground(Color.decode("#EDE5D0"));
         imagePane.setBounds(45, 268, 200, 40);
 

@@ -1,0 +1,572 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Dustin Morris</Author>
+  <LastAuthor>Dustin Morris</LastAuthor>
+  <Created>2021-01-28T20:22:13Z</Created>
+  <LastSaved>2021-02-08T16:39:32Z</LastSaved>
+  <Version>16.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>20200</WindowHeight>
+  <WindowWidth>17200</WindowWidth>
+  <WindowTopX>17200</WindowTopX>
+  <WindowTopY>500</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="12" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s16">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+  </Style>
+  <Style ss:ID="s17">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="12" ss:Color="#000000"
+    ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s18">
+   <Alignment ss:Vertical="Center"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="12" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s19">
+   <Alignment ss:Vertical="Center"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Chapters">
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="16" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="66" ss:DefaultRowHeight="16">
+   <Column ss:StyleID="s16" ss:AutoFitWidth="0"/>
+   <Column ss:AutoFitWidth="0" ss:Width="82"/>
+   <Column ss:AutoFitWidth="0" ss:Width="154"/>
+   <Row>
+    <Cell><Data ss:Type="String">chapterId</Data></Cell>
+    <Cell><Data ss:Type="String">chapterName</Data></Cell>
+    <Cell><Data ss:Type="String">sceneText</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Quest for the Quarantine</Data></Cell>
+    <Cell><Data ss:Type="String">Quest for the Quarantine follows our protagonist, 16-year-old Esperanza, as she navigates post-apocalyptic Mexico in hopes of reaching salvation in the form of the &quot;Quarantine Zone&quot;. As we follow Esperanza through her journey, we discover that the most pressing danger is the loss of humanity itself... Welcome to Quest for the Quarantine! Throughout this playable story you, the player, can enter commands to help Esperanza navigate both her paths and decisions. Commands must be in the form of “verb noun”. To begin the game, enter “start game” in the text box below. May you guide Esperanza safely to the Quarantine.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Mexico City</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">In the weeks following The Event,&#160;the days were unsafe. She had learned that lesson the hard way with the death of Mama. They took refuge in the night, and for months everything was okay. They even met others who had not succumbed, who were not Violent. They shared stories of past lives, better lives, and hope for salvation. Rumors of a safe zone in the United States, just outside San Diego, persisted among survivors. For a time, they had hope. But slowly, the survivors disappeared, Mama included; so she decided to leave,&#160;to seek out the refuge of the quarantine in the States. She slipped quietly into the night and made her way through the streets of Mexico City, careful to avoid others. As she approaches the main avenue, she notices a small store along the road heading out of the city. Perhaps I should look for supplies? She ponders. Or is it better to just leave the city?</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">1A</Data></Cell>
+    <Cell><Data ss:Type="String">Mexico City: Construcentro</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">The sign above the door reads “Construcentro”. Esperanza steps through the shadowed doorframe and is immediately hit with the smell of mildew. She gazes around the dark store- and notes it’s pretty barren. To her right along the wall is an old storage crate and behind the counter is an unopened delivery box. Outside, some distant shouting appears to grow stronger. If she’s going to grab something, she should be quick.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Outside Leon</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">It has been nearly two weeks since Esperanza has departed Mexico City. After roughly 500 km of hiking, her feet hurt, and she is beginning to run low on supplies. On the twelfth day of her journey, she crests a ridge and spots a city in the valley below. Judging by the nearby highway sign, it’s the city of Leon. There’s people there, potentially dangerous people. On one hand, she needs to make a supply run, but on the other she really likes being alive. She could possibly give the city a wide berth, ignoring it completely, but only if she has enough water in her backpack.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Leon</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">The sun has now fully disappeared behind the horizon as she makes her way into Leon. Old, decrepit cars accentuate the crumbling roadways. There are definite signs of habitation however, as she notes some uncorroded ammunition shells at the entry of an alleyway. She pauses to look back and reconsider her decision, but decides to continue forward. An hour later she enters a small square. She gazes around the square and notes a couple potential looting points: an apartment across the square with a shattered second-story window and a fire escape, and a small bodega below. Or she could continue farther down the road.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">3A</Data></Cell>
+    <Cell><Data ss:Type="String">Leon: Apartment</Data></Cell>
+    <Cell ss:StyleID="s19"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">Once inside the apartment, Esperanza immediately regrets her decision. A violent smell assaults her nose…</Font><I><Font
+        html:Color="#000000">something is dead in here. </Font></I><Font
+       html:Color="#000000">With her senses heightened, Esperanza peers down the hallway and notices two doors: one open and one closed. It’s evident the smell is coming from the closed door, but with a quick glance the other room appears to be a bedroom. With her back to the closed door, the hair on her neck begins to stand. She notices a faint creaking coming from the closed room. Between the smell and the adrenaline, she considers escaping the apartment as fast as possible. But there may be treasure to be had within the bedroom.</Font></ss:Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">3B</Data></Cell>
+    <Cell><Data ss:Type="String">Leon: Bodega</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">The bodega is dimly lit, and it appears to Esperanza that she is far from being the first person to scavenge in here. Empty bottles and wrappers layer the floor. Few things remain untouched. She picks her way around the discarded remnants for a while, but it proves unfruitful. A distant sound, possibly human, cause her to bolt upright, eyes wide. She cocks her head and listens for a while but notices no other sounds. As she makes her way to the doorway, she notices a small cabinet with closed doors behind the counter. It’s low to the ground and otherwise hidden at eye level.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">3C</Data></Cell>
+    <Cell><Data ss:Type="String">Leon: Alleyway</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">As she leaves the city, she feels that someone is watching her. She searches the shadows. Nothing. She hears glass bottles rolling on concrete. Time slows down. She can hear footsteps in pursuit. She sprints- ducking around corners. Later in a dark alley she pauses. Can she use something as a distraction? She thinks she can make a run for it maybe, but it might help to divert their attention.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="String">El Chayote</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">A week later, Esperanza finds herself trudging along a dirt road. Since Leon, she had played it safe and avoided any large settlements. As she comes around a bend in the road, she notices a small farmstead to her right. The remnants of a fenced pasture dot the roadside. At the end of a path is a wooden chair with an elderly man. He nods to Esperanza as she approaches, and she regards him cautiously. The farmer attempts to initiate a barter. He wants  ammo and he’s offering the contents of a medium-sized sack he has laying on the ground next to his chair.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">Zacatecas</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">As Esperanza’s odyssey continues, the mountains in the distance continue to grow larger. She knows the time is getting near for her to traverse the range and reach the western side. As she reaches the foothills, a small village lies in her path. At first observation, it seems completely abandoned. This might be her last chance to get supplies before she summits, but it isn’t devoid of risk. She would need water if she were going to go around the town.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="String">Sierra Madre Foothills (East)</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">At long last Esperanza reaches the base of the mountains known as the Sierra Madre. She rests for a day before starting her journey. It would benefit her to get some sustenance before the next leg of her journey. Perhaps some food or water, or she could even hunt if she had the right tools.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">96</Data></Cell>
+    <Cell><Data ss:Type="String">End of Part 1</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">You have reached the end of Part 1 of Esperanza’s story. We hope to have Parts 2 and 3 ready in the near future. Thank you for guiding Esperanza on her journey!</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">97</Data></Cell>
+    <Cell><Data ss:Type="String">End of Part 2</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">You have reached the end of Part 1 of Esperanza’s story. We hope to have Part 3 ready in the near future. Thank you for guiding Esperanza on her journey!</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">98</Data></Cell>
+    <Cell><Data ss:Type="String">Death</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">Esperanza has died. You make a terrible guide. Feel free to start over and uh…try not get her killed again.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">99</Data></Cell>
+    <Cell><Data ss:Type="String">End</Data></Cell>
+    <Cell ss:StyleID="s19"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">Esperanza has successfully completed her journey and she thanks you for guiding her to safety. </Font><Font
+       html:Face="Segoe UI Emoji" x:CharSet="1" x:Family="Swiss" html:Color="#000000">&#128522;</Font></ss:Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>2</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Paths">
+  <Table ss:ExpandedColumnCount="10" ss:ExpandedRowCount="31" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="66" ss:DefaultRowHeight="16">
+   <Column ss:StyleID="s16" ss:AutoFitWidth="0" ss:Span="1"/>
+   <Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="180"/>
+   <Column ss:AutoFitWidth="0" ss:Width="137"/>
+   <Column ss:AutoFitWidth="0" ss:Width="140"/>
+   <Column ss:StyleID="s16" ss:AutoFitWidth="0"/>
+   <Row ss:StyleID="s17">
+    <Cell><Data ss:Type="String">pathId</Data></Cell>
+    <Cell><Data ss:Type="String">chapterId</Data></Cell>
+    <Cell><Data ss:Type="String">pathName</Data></Cell>
+    <Cell><Data ss:Type="String">verb</Data></Cell>
+    <Cell><Data ss:Type="String">noun</Data></Cell>
+    <Cell><Data ss:Type="String">nextId</Data></Cell>
+    <Cell><Data ss:Type="String">gainItems</Data></Cell>
+    <Cell><Data ss:Type="String">loseItems</Data></Cell>
+    <Cell><Data ss:Type="String">requiredItems</Data></Cell>
+    <Cell><Data ss:Type="String">pathText</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">Intro</Data></Cell>
+    <Cell><Data ss:Type="String">start</Data></Cell>
+    <Cell><Data ss:Type="String">game</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Enter the Store</Data></Cell>
+    <Cell><Data ss:Type="String">enter</Data></Cell>
+    <Cell><Data ss:Type="String">store</Data></Cell>
+    <Cell><Data ss:Type="String">1A</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">Esperanza decides the smartest thing to do is to look for some supplies before her trek and makes her way towards the store.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Leave the City</Data></Cell>
+    <Cell><Data ss:Type="String">leave</Data></Cell>
+    <Cell><Data ss:Type="String">city</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell ss:StyleID="s18"><Data ss:Type="String">No need to waste any more time in this god-forsaken city. Esperanza disregards the small store and continues down the main road and out of the city.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">1A</Data></Cell>
+    <Cell><Data ss:Type="String">Take Box</Data></Cell>
+    <Cell><Data ss:Type="String">take</Data></Cell>
+    <Cell><Data ss:Type="String">box</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">matches,water,water</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">She decides the box looks more promising and quickly makes her way over to it. What she finds inside: a box of matches and 2L of water. Not too bad. She grabs the items and places them in her backpack before heading back out the door, and out of the city.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="String">1A</Data></Cell>
+    <Cell><Data ss:Type="String">Take Crate</Data></Cell>
+    <Cell><Data ss:Type="String">take</Data></Cell>
+    <Cell><Data ss:Type="String">crate</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">flashlight,machete</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">She decides the crate looks more promising and quickly makes her way over to it. She finds two items: a flashlight and a machete. Not too bad. She grabs the items and places them in her backpack before heading back out the door, and out of the city.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">1A</Data></Cell>
+    <Cell><Data ss:Type="String">Leave the Store</Data></Cell>
+    <Cell><Data ss:Type="String">leave</Data></Cell>
+    <Cell><Data ss:Type="String">store</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">She decides the best course of action is to just get out of the city as soon as possible. Heading back out the door of Construcentro, she continues down the main road and out of the city.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Go Around Leon</Data></Cell>
+    <Cell><Data ss:Type="String">go</Data></Cell>
+    <Cell><Data ss:Type="String">around</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="String">water</Data></Cell>
+    <Cell><Data ss:Type="String">water</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">She’s got enough water and would rather not risk unnecessary contact with individuals, so she decides to go around the city and avoid it completely. She heads to the west, keeping several kilometers between her and the urban center.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell><Data ss:Type="Number">2</Data></Cell>
+    <Cell><Data ss:Type="String">Enter Leon</Data></Cell>
+    <Cell><Data ss:Type="String">enter</Data></Cell>
+    <Cell><Data ss:Type="String">city</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">She really needs some more water and after two weeks on the road, some additional supplies wouldn’t hurt either. She heads down the ridge and makes her way into the city.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">8</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Enter Apartment</Data></Cell>
+    <Cell><Data ss:Type="String">enter</Data></Cell>
+    <Cell><Data ss:Type="String">apartment</Data></Cell>
+    <Cell><Data ss:Type="String">3A</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">Being on the second story, the apartment is less likely to be picked clean, she reasons. She approaches the fire escape and scrambles up it. Once at the top, she carefully makes her way across the broken glass and through the window frame.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">9</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Enter Store</Data></Cell>
+    <Cell><Data ss:Type="String">enter</Data></Cell>
+    <Cell><Data ss:Type="String">bodega</Data></Cell>
+    <Cell><Data ss:Type="String">3B</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">Noting the distant lights and likely nearby danger, she decides to keep to the ground for a quick escape. She approaches the bodega and surveys it. Pausing for a minute, she shuffles through the doorway and into the dark.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">Go Farther</Data></Cell>
+    <Cell><Data ss:Type="String">go</Data></Cell>
+    <Cell><Data ss:Type="String">farther</Data></Cell>
+    <Cell><Data ss:Type="String">3C</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">Nothing looks overly promising, so she keeps winding her way through the rubble and down the street.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">11</Data></Cell>
+    <Cell><Data ss:Type="String">3A</Data></Cell>
+    <Cell><Data ss:Type="String">Search Bedroom</Data></Cell>
+    <Cell><Data ss:Type="String">search</Data></Cell>
+    <Cell><Data ss:Type="String">bedroom</Data></Cell>
+    <Cell><Data ss:Type="String">3C</Data></Cell>
+    <Cell><Data ss:Type="String">pistol ammo,firecrackers</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell ss:StyleID="s19"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">She steps into the bedroom. She checks is under the bed: a small wooden keepsake box resides there. She opens it and finds some pistol ammunition and a string of firecrackers. She shoves them in her pockets and rushes out of the room. A wet spot causes her to slip and fall backwards into the closed door, forcing it open. The smell is overwhelming, and she immediately vomits. She notices a faint brushing against her cheek. She is paralyzed in fear but manages to look out of the corner of her eye. A body is suspended from above. She crawls out of the room and scrambles out of the apartment.</Font></ss:Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">12</Data></Cell>
+    <Cell><Data ss:Type="String">3A</Data></Cell>
+    <Cell><Data ss:Type="String">Leave Apartment</Data></Cell>
+    <Cell><Data ss:Type="String">leave</Data></Cell>
+    <Cell><Data ss:Type="String">apartment</Data></Cell>
+    <Cell><Data ss:Type="String">3C</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">The fear is too great, and rightly so. She turns and quickly tiptoes back out of the window and down the fire escape.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">13</Data></Cell>
+    <Cell><Data ss:Type="String">3B</Data></Cell>
+    <Cell><Data ss:Type="String">Search Cabinets</Data></Cell>
+    <Cell><Data ss:Type="String">search</Data></Cell>
+    <Cell><Data ss:Type="String">cabinets</Data></Cell>
+    <Cell><Data ss:Type="String">3C</Data></Cell>
+    <Cell><Data ss:Type="String">water,food</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">She pulls open the cabinet doors and hurriedly searches, grasping a bottle of water and a small packet of food before turning and leaving the store.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">14</Data></Cell>
+    <Cell><Data ss:Type="String">3B</Data></Cell>
+    <Cell><Data ss:Type="String">Leave Store</Data></Cell>
+    <Cell><Data ss:Type="String">leave</Data></Cell>
+    <Cell><Data ss:Type="String">store</Data></Cell>
+    <Cell><Data ss:Type="String">3C</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">The sound has her spooked and she decides to just get away from the square with haste. She steps out of the store and keeps winding her way through the rubble and down the street.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
+    <Cell><Data ss:Type="String">3C</Data></Cell>
+    <Cell><Data ss:Type="String">Use Firecrackers</Data></Cell>
+    <Cell><Data ss:Type="String">use</Data></Cell>
+    <Cell><Data ss:Type="String">firecrackers</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="String">firecrackers</Data></Cell>
+    <Cell><Data ss:Type="String">firecrackers</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">Pulling the firecrackers out of her pocket, she quickly lights them and lobs them over the roof of the building behind her. She immediately sprints down the roadway. Behind her the sounds of cracks, snaps, and pops greet her, followed by a delayed shouting. She is out of the city limits within a few minutes.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">16</Data></Cell>
+    <Cell><Data ss:Type="String">3C</Data></Cell>
+    <Cell><Data ss:Type="String">Run Away</Data></Cell>
+    <Cell><Data ss:Type="String">run</Data></Cell>
+    <Cell><Data ss:Type="String">away</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="String">water</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">Mistakenly she immediately runs out of the alley and into a shadowy figure, both falling to the ground. She scrambles to her feet, but the person has a hand on her backpack. Digging her heels in, she pulls forward and a small ripping sound issues from her backpack. The person falls to the ground again and she hears the sound of something falling out of her backpack. She sprints and is out of the city in minutes, alone and safe.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">17</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="String">Trade Ammo</Data></Cell>
+    <Cell><Data ss:Type="String">trade</Data></Cell>
+    <Cell><Data ss:Type="String">ammo</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">pan,medkit</Data></Cell>
+    <Cell><Data ss:Type="String">pistol ammo</Data></Cell>
+    <Cell><Data ss:Type="String">pistol ammo</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">Esperanza acquiesces and holds out her ammo. The farmer looks excited and hands her the sack in return, which she then opens and peers inside. The contents are a small first aid kit and a cooking pan; they could prove useful. She waves goodbye, and continues down the dirt road.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">18</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="String">Threaten Farmer</Data></Cell>
+    <Cell><Data ss:Type="String">threaten</Data></Cell>
+    <Cell><Data ss:Type="String">farmer</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">pistol,food</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="String">machete</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">Esperanza whips out her machete and raises it in the air menacingly. Surprised, the farmer stumbles backwards, a look of betrayal in his eyes. She tells him to run and he doesn’t hesitate, bounding back towards the house with the sack in his hand. She notices a wooden box on the ground under the chair. Opening it, she finds a pistol and some food. She let’s the farmer live another day.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">19</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell><Data ss:Type="String">Walk Away</Data></Cell>
+    <Cell><Data ss:Type="String">walk</Data></Cell>
+    <Cell><Data ss:Type="String">away</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">She politely declines the farmer’s offer. It’s a relief to meet someone not Violent. Something that seems to be happening less frequently as time wears on.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">Go Around</Data></Cell>
+    <Cell><Data ss:Type="String">go</Data></Cell>
+    <Cell><Data ss:Type="String">around</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="String">water</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">She has water to spare and no time to waste, so she gives the village a wide berth and continues on her way.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">21</Data></Cell>
+    <Cell><Data ss:Type="Number">5</Data></Cell>
+    <Cell><Data ss:Type="String">Enter Town</Data></Cell>
+    <Cell><Data ss:Type="String">enter</Data></Cell>
+    <Cell><Data ss:Type="String">town</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="String">pocketknife,water</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">She walks down the small main road and into the village. The place is devoid of any signs of life. Towards the center of the village, she finds an overturned truck with its contents and broken glass strewn about. She rummages about and is able to acquire a pocketknife and another bottle of water. Satisfied, she follows the road out of the village.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">22</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="String">Drink Water</Data></Cell>
+    <Cell><Data ss:Type="String">drink</Data></Cell>
+    <Cell><Data ss:Type="String">water</Data></Cell>
+    <Cell><Data ss:Type="Number">96</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="String">water</Data></Cell>
+    <Cell><Data ss:Type="String">water</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">Hydrate or die-drate, she muses. She downs another liter of water. She sighs and looks to the valley behind her. Looking south, somewhere down there is her home. Or what used to be her home. She shoulders her backpack higher, and steps off into the mountains, never again looking back.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">23</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="String">Eat Food</Data></Cell>
+    <Cell><Data ss:Type="String">eat</Data></Cell>
+    <Cell><Data ss:Type="String">food</Data></Cell>
+    <Cell><Data ss:Type="Number">96</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="String">food</Data></Cell>
+    <Cell><Data ss:Type="String">food</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">A rumbling stomach concludes that she needs to eat. She downs another packet of food. She sighs and looks to the valley behind her. Looking south, somewhere down there is her home. Or what used to be her home. She shoulders her backpack higher, and steps off into the mountains, never again looking back.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">24</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="String">Use Machete</Data></Cell>
+    <Cell><Data ss:Type="String">use</Data></Cell>
+    <Cell><Data ss:Type="String">machete</Data></Cell>
+    <Cell><Data ss:Type="Number">96</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="String">machete</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">Using her machete, she’s able to turn a roaming tortoise into a solid meal. She eats. She sighs and looks to the valley behind her. Looking south, somewhere down there is her home. Or what used to be her home. She shoulders her backpack higher, and steps off into the mountains, never again looking back.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">25</Data></Cell>
+    <Cell><Data ss:Type="Number">6</Data></Cell>
+    <Cell><Data ss:Type="String">Start Hike</Data></Cell>
+    <Cell><Data ss:Type="String">start</Data></Cell>
+    <Cell><Data ss:Type="String">hike</Data></Cell>
+    <Cell><Data ss:Type="Number">98</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell ss:StyleID="s19"><Data ss:Type="String">Ambitiously, she immediately begins the hike into the mountains. Within hours she feels extremely weak and can barely move. Her muscles tighten and cramp with every passing moment. Her breath gets harder to catch, the panting is never-ending. Her vision slowly begins to fade, but not before she notices several moving shapes around her. Coyotes are circling her. A sharp pain followed by warmth. And then darkness.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">96</Data></Cell>
+    <Cell><Data ss:Type="Number">96</Data></Cell>
+    <Cell><Data ss:Type="String">End of Part 1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">97</Data></Cell>
+    <Cell><Data ss:Type="Number">97</Data></Cell>
+    <Cell><Data ss:Type="String">End of Part 2</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">98</Data></Cell>
+    <Cell><Data ss:Type="Number">98</Data></Cell>
+    <Cell><Data ss:Type="String">Death</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">99</Data></Cell>
+    <Cell><Data ss:Type="Number">99</Data></Cell>
+    <Cell><Data ss:Type="String">End of Game</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+    <Cell><Data ss:Type="Number">-1</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <TopRowVisible>3</TopRowVisible>
+   <LeftColumnVisible>3</LeftColumnVisible>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>19</ActiveRow>
+     <ActiveCol>9</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>

@@ -14,17 +14,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ChapterBuilder {
+    private static ChapterBuilder instance = null;
     private final HashMap<String, ArrayList<HashMap<String, String>>> story;
     private final ArrayList<Chapter> chapters = new ArrayList<>();
 
-    public ChapterBuilder () {
-        story = readXMLFile("./quarantine_first_edition.xml");
+    private ChapterBuilder () {
+        story = readXMLFile("resources/quarantine_first_edition.xml");
         buildChapters();
     }
-
-    public ChapterBuilder(String storyXMLFile) {
-        story = readXMLFile(storyXMLFile);
-        buildChapters();
+    public static ChapterBuilder getInstance() {
+        if (instance == null) {
+            instance = new ChapterBuilder();
+        }
+        return instance;
     }
 
     private HashMap<String, ArrayList<HashMap<String, String>>> readXMLFile(String file){

@@ -3,6 +3,7 @@ package com.codebusters.game;
 import com.codebusters.data.ChapterBuilder;
 import org.junit.Before;
 import org.junit.Test;
+import com.codebusters.game.Chapter;
 
 import java.util.ArrayList;
 
@@ -17,7 +18,7 @@ public class TextParserTest {
     @Before
     public void setUp() {
         currentChapter = new Chapter();
-        ChapterBuilder builder = new ChapterBuilder();
+        ChapterBuilder builder = ChapterBuilder.getInstance();
         story = builder.getChapters();
         currentChapter = story.get(3);
         inventory = new ArrayList<>();
