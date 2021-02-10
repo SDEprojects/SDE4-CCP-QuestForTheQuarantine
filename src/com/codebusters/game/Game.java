@@ -19,8 +19,8 @@ public class Game {
 
     public Game() {
         story = new ArrayList<>();
-        ChapterBuilder builder = new ChapterBuilder();
-        story = builder.getChapters();
+        ChapterBuilder.getInstance();
+        story = ChapterBuilder.getInstance().getChapters();
         GUI = new Viewer();
         inventory = new ArrayList<>();
     }

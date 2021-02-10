@@ -10,7 +10,7 @@ public class GameStateLoadAndSaveTest {
 
     @Before
     public void initializeClasses() {
-        cb = new ChapterBuilder();
+        cb = ChapterBuilder.getInstance();
         gs = GameState.getInstance();
     }
 

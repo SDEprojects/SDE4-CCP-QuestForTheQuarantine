@@ -85,6 +85,8 @@ public class Viewer implements ActionListener {
         inputBtn.addActionListener(this);
         inputBtn.setForeground(Color.white);
         inputBtn.setBackground(Color.darkGray);
+        inputBtn.setOpaque(true);
+        inputBtn.setBorderPainted(false);
         inputBtn.setFont(new Font("Times New Roman", Font.PLAIN, 12));
         inputBtn.setBorder(BorderFactory.createRaisedBevelBorder());
         bottomPanel.add(inputBtn);
@@ -102,6 +104,8 @@ public class Viewer implements ActionListener {
         helpBtn.addActionListener(this);
         helpBtn.setForeground(Color.white);
         helpBtn.setBackground(Color.darkGray);
+        helpBtn.setOpaque(true);
+        helpBtn.setBorderPainted(false);
         helpBtn.setFont(new Font("Times New Roman", Font.PLAIN, 12));
         helpBtn.setBorder(BorderFactory.createRaisedBevelBorder());
         bottomRightPanel.add(helpBtn);
@@ -111,6 +115,8 @@ public class Viewer implements ActionListener {
         quitBtn.addActionListener(this);
         quitBtn.setForeground(Color.white);
         quitBtn.setBackground(Color.darkGray);
+        quitBtn.setOpaque(true);
+        quitBtn.setBorderPainted(false);
         quitBtn.setFont(new Font("Times New Roman", Font.PLAIN, 12));
         quitBtn.setBorder(BorderFactory.createRaisedBevelBorder());
         bottomRightPanel.add(quitBtn);
@@ -120,6 +126,8 @@ public class Viewer implements ActionListener {
         saveBtn.addActionListener(this);
         saveBtn.setForeground(Color.white);
         saveBtn.setBackground(Color.darkGray);
+        saveBtn.setOpaque(true);
+        saveBtn.setBorderPainted(false);
         saveBtn.setFont(new Font("Times New Roman", Font.PLAIN, 12));
         saveBtn.setBorder(BorderFactory.createRaisedBevelBorder());
         bottomRightPanel.add(saveBtn);
@@ -129,6 +137,8 @@ public class Viewer implements ActionListener {
         loadBtn.addActionListener(this);
         loadBtn.setForeground(Color.white);
         loadBtn.setBackground(Color.darkGray);
+        loadBtn.setOpaque(true);
+        loadBtn.setBorderPainted(false);
         loadBtn.setFont(new Font("Times New Roman", Font.PLAIN, 12));
         loadBtn.setBorder(BorderFactory.createRaisedBevelBorder());
         bottomRightPanel.add(loadBtn);
@@ -196,6 +206,7 @@ public class Viewer implements ActionListener {
         inventoryTextArea.setFont(normalFont);
         inventoryTextArea.setLineWrap(true);
         inventoryTextArea.setWrapStyleWord(true);
+        inventoryTextArea.setEditable(false);
 
         //inventory panel updated
         inventoryPanel.removeAll();
