@@ -3,6 +3,7 @@ package com.codebusters.game;
 import com.codebusters.data.ChapterBuilder;
 import org.junit.Before;
 import org.junit.Test;
+import com.codebusters.game.Chapter;
 
 import java.util.ArrayList;
 
