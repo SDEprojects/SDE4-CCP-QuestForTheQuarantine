@@ -16,7 +16,7 @@ public class ChapterBuilderTest {
     ChapterBuilder cb;
     @Before
     public void initializeChaptersTest() {
-        cb = new ChapterBuilder();
+        cb = ChapterBuilder.getInstance();
     }
 
     @Test
