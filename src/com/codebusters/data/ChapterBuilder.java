@@ -18,7 +18,7 @@ public class ChapterBuilder {
     private final ArrayList<Chapter> chapters = new ArrayList<>();
 
     public ChapterBuilder () {
-        story = readXMLFile("./quarantine_first_edition.xml");
+        story = readXMLFile("resources/quarantine_first_edition.xml");
         buildChapters();
     }
 
