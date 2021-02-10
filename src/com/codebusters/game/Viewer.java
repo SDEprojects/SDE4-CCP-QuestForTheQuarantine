@@ -253,13 +253,11 @@ public class Viewer implements ActionListener {
         Image helpBgImg = bgImg.getScaledInstance(500, 380, Image.SCALE_SMOOTH);
         ImageIcon image = new ImageIcon(helpBgImg);
         helpWindow.setContentPane(new JLabel(image));
-        JLabel bg = new JLabel(new ImageIcon(bgImg));
         helpWindow.setLayout(null); //disables default layout
-        helpWindow.setVisible(true); //makes window appear on screen
 
         //help window container
         helpContainer = helpWindow.getContentPane(); //container inside the window with help content
-        helpContainer.add(bg);
+
 
         //help title
         helpTitle = new JLabel("Little Helper");
