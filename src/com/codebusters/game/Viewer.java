@@ -253,18 +253,20 @@ public class Viewer implements ActionListener {
         Image helpBgImg = bgImg.getScaledInstance(500, 380, Image.SCALE_SMOOTH);
         ImageIcon image = new ImageIcon(helpBgImg);
         helpWindow.setContentPane(new JLabel(image));
-        helpWindow.setLayout(null); //disables default layout
-
+        helpWindow.setLayout(new GridBagLayout()); //disables default layout
+        GridBagConstraints constraints = new GridBagConstraints();
         //help window container
         helpContainer = helpWindow.getContentPane(); //container inside the window with help content
 
+        constraints.gridx = 0;
 
         //help title
         helpTitle = new JLabel("Little Helper");
-        helpTitle.setBounds(160, -80, 200, 250);
+//        helpTitle.setBounds(160, -80, 200, 250);
+        helpTitle.setPreferredSize(new Dimension(200,250));
         helpTitle.setForeground(Color.decode("#e76f51")); //title text color
         helpTitle.setFont(titleFont);
-        helpContainer.add(helpTitle);
+        helpContainer.add(helpTitle, constraints);
 
         //text area for the help window
         JTextArea helpText1 = new JTextArea();
@@ -278,7 +280,8 @@ public class Viewer implements ActionListener {
 
         helpText2.setText("Examples: go around, use firecrackers, enter store, leave city, go farther, search cabinets, grab crate, trade ammo, run away, threaten farmer.");
 
-        helpText1.setBounds(34, 75, 425, 200);
+//        helpText1.setBounds(34, 75, 425, 200);
+        helpText1.setPreferredSize(new Dimension(425, 200));
         helpText1.setBackground(Color.decode("#EDE5D0"));
         helpText1.setLineWrap(true);
         helpText1.setFont(new Font("Times New Roman", Font.PLAIN, 14));
@@ -286,7 +289,8 @@ public class Viewer implements ActionListener {
         helpText1.setForeground(Color.black);
         helpText1.setEditable(false);
 
-        helpText2.setBounds(34, 310, 425, 40);
+//        helpText2.setBounds(34, 310, 425, 40);
+        helpText2.setPreferredSize(new Dimension(425,40));
         helpText2.setBackground(Color.decode("#EDE5D0"));
         helpText2.setLineWrap(true);
         helpText2.setFont(new Font("Times New Roman", Font.PLAIN, 14));
@@ -297,17 +301,19 @@ public class Viewer implements ActionListener {
         //image inside the help text
         imagePane.insertIcon(new ImageIcon("resources/inputFieldImg.png"));
         imagePane.setBackground(Color.decode("#EDE5D0"));
-        imagePane.setBounds(45, 268, 200, 40);
+//        imagePane.setBounds(45, 268, 200, 40);
+        imagePane.setPreferredSize(new Dimension(200,40));
         imagePane.setEditable(false);
 
         //add all content to the container
-        helpContainer.add(imagePane);
-        helpContainer.add(helpText1);
-        helpContainer.add(helpText2);
+        helpContainer.add(helpText1, constraints);
+        helpContainer.add(imagePane, constraints);
+        helpContainer.add(helpText2, constraints);
 
         //ensure everything fits snugly in JFrame and set visible
         helpWindow.pack();
         helpWindow.setVisible(true);
+
     }
 
     public void actionPerformed(ActionEvent e) {
