@@ -8,9 +8,13 @@ package com.codebusters.game;
  * Authors: Bradley Pratt & Debbie Bitencourt
  * Last Edited: 02/09/2021
  */
+
 import java.util.*;
 
 public class TextParser {
+
+
+    private static TextParser instance = null;
     private final List<String> ITEM_VERBS_GAIN = new ArrayList<>(
             Arrays.asList("take", "grab", "pickup", "grasp", "open", "confiscate", "seize", "snatch", "search")
     );
@@ -56,9 +60,8 @@ public class TextParser {
     private ArrayList<Items> itemsToAdd;
     private ArrayList<Items> itemsToRemove;
     private ArrayList<Items> inventory;
-    private static TextParser instance = null;
 
-    private TextParser(){
+    private TextParser() {
         currentChapter = new Chapter();
         setValidInput(false);
         setPathText(false);
@@ -68,60 +71,60 @@ public class TextParser {
     }
 
     //make TextParser a Singleton to be used in other Classes.
-    public static TextParser getInstance(){
-        if (instance == null){
+    public static TextParser getInstance() {
+        if (instance == null) {
             instance = new TextParser();
         }
         return instance;
     }
 
-    public void parseInput(String input){
+    public void parseInput(String input) {
         setValidInput(false);   // reset value each time we check
         setPathText(false);
         setInvalMessage("");
 
         // check for empty input
-        if (!input.equals("")){
+        if (!input.equals("")) {
             // set delims to remove common typing mistakes
             String delims = " \t,.:;?!\"'";
             StringTokenizer parse = new StringTokenizer(input.toLowerCase(), delims);
             ArrayList<String> command = new ArrayList<>();
 
             // separate input into individual words
-            while (parse.hasMoreTokens()){
+            while (parse.hasMoreTokens()) {
                 command.add(parse.nextToken());
             }
 
             // needs to be a two-word input (for now) in the form of verb + noun
-            if (command.size() == 2){
+            if (command.size() == 2) {
                 String verb = command.get(0);
                 String noun = command.get(1);
 
                 //get current path list
                 ArrayList<HashMap> paths = currentChapter.getPaths();
-                for (HashMap path: paths){
+                for (HashMap path : paths) {
                     String reqNoun = (String) path.get("noun");
                     String reqVerb = (String) path.get("verb");
                     reqNoun = reqNoun.replaceAll(" ", "");
                     reqVerb = reqVerb.replaceAll(" ", "");
 
                     // if we have a valid input
-                    if ((verb.equals(reqVerb) || isSynonym(reqVerb, verb)) && (noun.equals(reqNoun) || isSynonym(reqNoun, noun))){
+                    if ((verb.equals(reqVerb) || isSynonym(reqVerb, verb)) && (noun.equals(reqNoun) || isSynonym(reqNoun, noun))) {
                         // first, we check for required items
-                        if (!(path.get("requiredItems") == null)){
+                        if (!(path.get("requiredItems") == null)) {
                             checkRequiredItems(path);
 
                             // if a required item is found, then proceed, otherwise invalid input
-                            if (isValidInput()){
+                            if (isValidInput()) {
                                 logInventoryChanges(path);
                             }
-                        // else no required items and valid input: just add the items
-                        }else{
+                            // else no required items and valid input: just add the items
+                        } else {
                             logInventoryChanges(path);
                             setValidInput(true);
                         }
 
-                        if (!(path.get("pathText") == null)){
+                        if (!(path.get("pathText") == null)) {
                             setPathText((String) path.get("pathText"));
                             setPathText(true);
                         }
@@ -133,10 +136,10 @@ public class TextParser {
 
     //***************HELPER METHODS***************
     private void setInvalMessage(String noun) {
-        if (!noun.equals("")){
+        if (!noun.equals("")) {
             String error = "You need to have a " + noun + " in your inventory to perform this action!";
             setInvalidInputMessage(error);
-        }else{
+        } else {
             String invalid = "That is an unrecognized input, please try again.";
             setInvalidInputMessage(invalid);
         }
@@ -144,36 +147,36 @@ public class TextParser {
 
     private boolean isSynonym(String reqWord, String word) {
         return ((ITEM_VERBS_GAIN.contains(reqWord) && ITEM_VERBS_GAIN.contains(word))
-            || (ITEM_VERBS_LOSE.contains(reqWord) && ITEM_VERBS_LOSE.contains(word))
-            || (ITEM_VERBS_USE.contains(reqWord) && ITEM_VERBS_USE.contains(word))
-            || (PLACES_VERBS_ENTRY.contains(reqWord) && PLACES_VERBS_ENTRY.contains(word))
-            || (PLACES_VERBS_EXIT.contains(reqWord) && PLACES_VERBS_EXIT.contains(word))
-            || (PLACES_NOUNS_1.contains(reqWord) && PLACES_NOUNS_1.contains(word))
-            || (PLACES_NOUNS_2.contains(reqWord) && PLACES_NOUNS_2.contains(word))
-            || (PLACES_NOUNS_3.contains(reqWord) && PLACES_NOUNS_3.contains(word))
-            || (PLACES_NOUNS_4.contains(reqWord) && PLACES_NOUNS_4.contains(word))
-            || (PLACES_NOUNS_5.contains(reqWord) && PLACES_NOUNS_5.contains(word))
-            || (VERBS1.contains(reqWord) && VERBS1.contains(word))
-            || (VERBS2.contains(reqWord) && VERBS2.contains(word))
+                || (ITEM_VERBS_LOSE.contains(reqWord) && ITEM_VERBS_LOSE.contains(word))
+                || (ITEM_VERBS_USE.contains(reqWord) && ITEM_VERBS_USE.contains(word))
+                || (PLACES_VERBS_ENTRY.contains(reqWord) && PLACES_VERBS_ENTRY.contains(word))
+                || (PLACES_VERBS_EXIT.contains(reqWord) && PLACES_VERBS_EXIT.contains(word))
+                || (PLACES_NOUNS_1.contains(reqWord) && PLACES_NOUNS_1.contains(word))
+                || (PLACES_NOUNS_2.contains(reqWord) && PLACES_NOUNS_2.contains(word))
+                || (PLACES_NOUNS_3.contains(reqWord) && PLACES_NOUNS_3.contains(word))
+                || (PLACES_NOUNS_4.contains(reqWord) && PLACES_NOUNS_4.contains(word))
+                || (PLACES_NOUNS_5.contains(reqWord) && PLACES_NOUNS_5.contains(word))
+                || (VERBS1.contains(reqWord) && VERBS1.contains(word))
+                || (VERBS2.contains(reqWord) && VERBS2.contains(word))
         );
     }
 
-    private void checkRequiredItems(HashMap<String, String> path){
+    private void checkRequiredItems(HashMap<String, String> path) {
         String[] reqItems = path.get("requiredItems").split(",");
 
         // we need to make sure at least one required item is in inventory
-        for (String item: reqItems){
+        for (String item : reqItems) {
             checkAgainstInventory(item.toLowerCase());
 
-            if (isValidInput()){ // no need to keep searching for others, just need one
+            if (isValidInput()) { // no need to keep searching for others, just need one
                 break;
-            }else{
+            } else {
                 setInvalMessage(item);
             }
         }
     }
 
-    private void logInventoryChanges(HashMap<String, String> path){
+    private void logInventoryChanges(HashMap<String, String> path) {
         setValidInput(true);
         nextChapter = path.get("nextId");
         itemsToAdd.clear();
@@ -181,25 +184,26 @@ public class TextParser {
 
         //check if "gainItems" are in the path chosen
         //loop through the items in the list. When found matching item add it to itemsToAdd list.
-        if (!(path.get("gainItems") == null)){
+        if (!(path.get("gainItems") == null)) {
             String[] gainItems = path.get("gainItems").split(",");
-            for (String item : gainItems){
+            for (String item : gainItems) {
                 itemsToAdd.add(new Items(item));
             }
         }
         //check if "loseItems" are in the path chosen
         //loop through the items in the list. When found matching item add it to itemsToRemove list.
-        if (!(path.get("loseItems") == null)){
+        if (!(path.get("loseItems") == null)) {
             String[] loseItems = path.get("loseItems").split(",");
             for (String item : loseItems) {
                 itemsToRemove.add(new Items(item));
             }
         }
     }
+
     //validate if item is inside the inventory list.
-    private void checkAgainstInventory(String item){
-        for (Items possession: inventory){
-            if (item.equals(possession.getName().toLowerCase())){
+    private void checkAgainstInventory(String item) {
+        for (Items possession : inventory) {
+            if (item.equals(possession.getName().toLowerCase())) {
                 setValidInput(true);
                 break;
             }
@@ -222,6 +226,10 @@ public class TextParser {
 
     private void setPathText(String pathText) {
         this.pathText = pathText;
+    }
+
+    private void setPathText(boolean pathText) {
+        hasPathText = pathText;
     }
 
     public String getInvalidInputMessage() {
@@ -253,10 +261,6 @@ public class TextParser {
         return hasPathText;
     }
 
-    private void setPathText(boolean pathText) {
-        hasPathText = pathText;
-    }
-
     public ArrayList<Items> getItemsToAdd() {
         return itemsToAdd;
     }
@@ -271,5 +275,33 @@ public class TextParser {
 
     private void setItemsToRemove(ArrayList<Items> toRemove) {
         this.itemsToRemove = toRemove;
+    }
+
+    public List<String> getITEM_VERBS_GAIN() {
+        return ITEM_VERBS_GAIN;
+    }
+
+    public List<String> getITEM_VERBS_LOSE() {
+        return ITEM_VERBS_LOSE;
+    }
+
+    public List<String> getITEM_VERBS_USE() {
+        return ITEM_VERBS_USE;
+    }
+
+    public List<String> getPLACES_VERBS_ENTRY() {
+        return PLACES_VERBS_ENTRY;
+    }
+
+    public List<String> getPLACES_VERBS_EXIT() {
+        return PLACES_VERBS_EXIT;
+    }
+
+    public List<String> getVERBS1() {
+        return VERBS1;
+    }
+
+    public List<String> getVERBS2() {
+        return VERBS2;
     }
 }

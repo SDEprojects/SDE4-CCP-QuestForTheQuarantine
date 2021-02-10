@@ -50,7 +50,7 @@ public class Viewer implements ActionListener {
         //create background image
         BufferedImage img = null;
         try {
-            img = ImageIO.read(new File("bgImage.png"));
+            img = ImageIO.read(new File("resources/bgImage.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -235,7 +235,7 @@ public class Viewer implements ActionListener {
         //create background image for help window
         BufferedImage bgImg = null;
         try {
-            bgImg = ImageIO.read(new File("helpBgImage.png"));
+            bgImg = ImageIO.read(new File("resources/helpBgImage.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -287,7 +287,7 @@ public class Viewer implements ActionListener {
         helpText2.setEditable(false);
 
         //image inside the help text
-        imagePane.insertIcon(new ImageIcon("InputFieldImg.png"));
+        imagePane.insertIcon(new ImageIcon("resources/inputFieldImg.png"));
         imagePane.setBackground(Color.decode("#EDE5D0"));
         imagePane.setBounds(45, 268, 200, 40);
 
