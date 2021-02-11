@@ -38,9 +38,11 @@ public class Viewer implements ActionListener {
     private static final Border empty = BorderFactory.createEmptyBorder(1, 1, 1, 1);
     private static final Border compound = new CompoundBorder(empty, dashed);
     private static boolean waitingForInput;
+    private Game game;
 
     //Constructor
-    public Viewer() {
+    public Viewer(Game game) {
+        this.game = game;
         waitingForInput = true;
         window.setSize(880, 690); //size for the frame
         window.setLocationRelativeTo(null); //window pops up in center of screen
@@ -315,24 +317,31 @@ public class Viewer implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == userInputField || e.getSource() == inputBtn) {
             String input = userInputField.getText();
-            TextParser.getInstance().parseInput(input);
+            //pass user input to be validated and game updated
+            game.playerAction(input);
 
             userInputField.setText("");
-            setWaitingForInput(false);
-
-            //when saveBtn is pressed pass "save" parameter to saveOrLoadGame method
-        } else if (e.getSource() == saveBtn) {
-            saveOrLoadGame("save");
-            //when loadBtn is pressed pass "load" parameter to saveOrLoadGame method.
-            //then call updateViewer method to update the game in GUI.
-        } else if (e.getSource() == loadBtn) {
-            saveOrLoadGame("load");
+            //update the window to reflect any changes caused by user input
             updateViewer();
-            //when quitBtn is pressed the GUI window and game closes.
-        } else if (e.getSource() == quitBtn) {
+        }
+        //when saveBtn is pressed pass "save" parameter to saveOrLoadGame method
+        else if (e.getSource() == saveBtn) {
+            saveOrLoadGame("save");
+        }
+        //when loadBtn is pressed pass "load" parameter to saveOrLoadGame method.
+        else if (e.getSource() == loadBtn) {
+            saveOrLoadGame("load");
+            //updates viewer with the GameState from loaded game
+            updateViewer();
+            //updates the current chapter in the game to track the newly loaded GameState
+            game.loadGame();
+        }
+        //when quitBtn is pressed the GUI window and game closes.
+        else if (e.getSource() == quitBtn) {
             window.dispose();
             System.exit(0);
-        } else if (e.getSource() == helpBtn) {
+        }
+        else if (e.getSource() == helpBtn) {
             helpWindowDisplay();
         }
     }
