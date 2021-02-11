@@ -49,7 +49,7 @@ public class Game {
                 }
             }
             if (!GameState.getInstance().getSceneTitle().equals(currentChapter.getChapterName())) {
-                
+
 
                 for (Chapter c1 : ChapterBuilder.getInstance().getChapters()) {
                     if (c1.getChapterName().equals(GameState.getInstance().getSceneTitle())) {
