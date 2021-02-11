@@ -18,82 +18,97 @@ public class Game {
     private final Viewer GUI;
     private final ArrayList<Items> inventory;
     private ArrayList<Chapter> story;
+    private Chapter currentChapter;
 
     public Game() {
         story = new ArrayList<>();
         ChapterBuilder.getInstance();
         story = ChapterBuilder.getInstance().getChapters();
-        GUI = new Viewer();
+        currentChapter = story.get(0);
+        GUI = new Viewer(this);
         inventory = new ArrayList<>();
     }
 
     //*************** METHODS ***************
-    public void startGame() {
-        boolean endGame = false;
-        Chapter currentChapter = story.get(0);
+
+    /*
+     * sets the game state and text parser to the first chapter of the story
+     * updates the GUI to reflect the beginning of the game
+     * Must be called to begin the game
+     */
+    public void initialize() {
         updateGameState(currentChapter);
+        TextParser.getInstance().setCurrentChapter(currentChapter, inventory);
+        GUI.updateViewer();
+    }
 
-        while (!endGame) {
-            TextParser.getInstance().setCurrentChapter(currentChapter, inventory);
+    /*
+     * Takes input from the user
+     * updates the state of game to current chapter and inventory
+     * passes input to TextParser for validation
+     * updates game accordingly
+     */
+    public void playerAction(String input) {
+        updateGameState(currentChapter);
+        TextParser.getInstance().setCurrentChapter(currentChapter, inventory);
+        TextParser.getInstance().parseInput(input);
 
-            // tell viewer to display now that there is a new gamestate
-            GUI.updateViewer();
-
-
-            //create flag to wait for user's input from GUI
-            while (GUI.isWaitingForInput()) {
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException ie) {
-                    Thread.currentThread().interrupt();
+        // check if viewer sent valid input to test parser
+        if (!TextParser.getInstance().isValidInput()){
+            // if not, we need to tell the player to try again
+            promptAgain(currentChapter);
+        }
+        else {
+            // we need to update the inventory and current chapter
+            updateInventory();
+            String next = TextParser.getInstance().getNextChapter();
+            //loop through each chapter to get the next chapter.
+            for (Chapter chapt: story){
+                if (chapt.getChapterId().equals(next)){
+                    currentChapter = chapt;
+                    break;
                 }
             }
-            if (!GameState.getInstance().getSceneTitle().equals(currentChapter.getChapterName())) {
-                
-
-                for (Chapter c1 : ChapterBuilder.getInstance().getChapters()) {
-                    if (c1.getChapterName().equals(GameState.getInstance().getSceneTitle())) {
-                        currentChapter = c1;
-
-                        TextParser.getInstance().setCurrentChapter(currentChapter, GameState.getInstance().getInventory());
-                        break;
-                    }
-                }
+            //keep game state updated with the current Chapter
+            updateGameState(currentChapter);
+            //update story path when the path matches specified path in the TextParser
+            if (TextParser.getInstance().hasPathText()){
+                updatePathText();
             }
+        }
+    }
 
+    /*
+     * checks if currentChapter is the last chapter of game
+     * returns true if last chapter
+     * returns false if not last chapter
+     * TODO: may not need
+     */
+    public boolean isGameOver() {
+        boolean isOver = false;
+        if (isEndChapter(currentChapter)) {
+            isOver = true;
+        }
+        return isOver;
+    }
 
-            // check if viewer sent valid input to test parser
-            if (!TextParser.getInstance().isValidInput()) {
-                // if not, we need to tell the player to try again
-                promptAgain(currentChapter);
-            } else {
-                // we need to update the inventory and current chapter
-                updateInventory();
-                String next = TextParser.getInstance().getNextChapter();
-                //loop through each chapter to get the next chapter.
-                for (Chapter chapt : story) {
-                    if (chapt.getChapterId().equals(next)) {
-                        currentChapter = chapt;
-                        break;
-                    }
-                }
-
-                updateGameState(currentChapter);
-                //update story path when the path matches specified path in the TextParser
-                if (TextParser.getInstance().hasPathText()) {
-                    updatePathText();
-                }
-
-                // last we check if we are now at the end chapter
-                if (isEndChapter(currentChapter)) {
-                    endGame = true;
+    /*
+     * If game is loaded GameState is updated with that saved games information
+     * This method checks if the GameState is tracking a different current chapter than the game class
+     * If the chapters are different, currentChapter is set to the chapter GameState reflects,
+     * Inventory is also updated based on the GameStates data
+     */
+    public void loadGame() {
+        if (!(GameState.getInstance().getSceneTitle().equals(currentChapter.getChapterName()))) {
+            for (Chapter chapter : story) {
+                if (chapter.getChapterName().equals(GameState.getInstance().getSceneTitle())) {
+                    currentChapter = chapter;
+                    inventory.clear();
+                    inventory.addAll(GameState.getInstance().getInventory());
+                    break;
                 }
             }
         }
-
-        // display the end chapter
-        updateGameState(currentChapter);
-        GUI.updateViewer();
     }
 
     private void updatePathText() {
