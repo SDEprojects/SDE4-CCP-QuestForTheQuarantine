@@ -240,7 +240,7 @@ public class TextParser {
         this.invalidInputMessage = invalidInputMessage;
     }
 
-    private Chapter getCurrentChapter() {
+    public Chapter getCurrentChapter() {
         return currentChapter;
     }
 
@@ -248,6 +248,7 @@ public class TextParser {
         this.currentChapter = currentChapter;
         this.inventory = inventory;
     }
+
 
     public boolean isValidInput() {
         return validInput;

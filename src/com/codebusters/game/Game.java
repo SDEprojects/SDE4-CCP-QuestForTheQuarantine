@@ -10,6 +10,7 @@ package com.codebusters.game;
  * Last Edited: 02/05/2021
  */
 import com.codebusters.data.ChapterBuilder;
+
 import java.util.ArrayList;
 
 public class Game {
@@ -32,7 +33,21 @@ public class Game {
         updateGameState(currentChapter);
 
         while (!endGame){
-            TextParser.getInstance().setCurrentChapter(currentChapter, inventory);
+
+
+            if (!(GameState.getInstance().getSceneTitle().equals(currentChapter.getChapterName()))) {
+                for (Chapter chapter : ChapterBuilder.getInstance().getChapters()) {
+                    if (GameState.getInstance().getSceneTitle().equals(chapter.getChapterName())) {
+                        System.out.println(chapter.getChapterName() + " Line 44");
+                        currentChapter = chapter;
+                        TextParser.getInstance().setCurrentChapter(currentChapter, GameState.getInstance().getInventory());
+                        break;
+                    }
+                }
+            }
+            else {
+                TextParser.getInstance().setCurrentChapter(currentChapter, inventory);
+            }
 
             // tell viewer to display now that there is a new gamestate
             GUI.updateViewer();
@@ -46,9 +61,13 @@ public class Game {
                 }
             }
 
+            System.out.println("GAMESTATE CHAPTER: " + GameState.getInstance().getSceneTitle());
+            System.out.println("TEXTPARSE CHAPTER: " + TextParser.getInstance().getCurrentChapter().getChapterName());
+
             // check if viewer sent valid input to test parser
             if (!TextParser.getInstance().isValidInput()){
                 // if not, we need to tell the player to try again
+                System.out.println(currentChapter.getChapterName() + " Line 67");
                 promptAgain(currentChapter);
             }else{
                 // we need to update the inventory and current chapter
