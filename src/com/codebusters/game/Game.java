@@ -35,8 +35,7 @@ public class Game {
 
         while (!endGame) {
             TextParser.getInstance().setCurrentChapter(currentChapter, inventory);
-            System.out.println(currentChapter + " at line 36");
-            System.out.println(inventory+ "  inventory at 37");
+
             // tell viewer to display now that there is a new gamestate
             GUI.updateViewer();
 
@@ -50,18 +49,18 @@ public class Game {
                 }
             }
             if (!GameState.getInstance().getSceneTitle().equals(currentChapter.getChapterName())) {
-                System.out.println(currentChapter.getChapterName() + " line 41");
-              //  System.out.println(currentChapter.);
+                
+
                 for (Chapter c1 : ChapterBuilder.getInstance().getChapters()) {
                     if (c1.getChapterName().equals(GameState.getInstance().getSceneTitle())) {
                         currentChapter = c1;
-                        System.out.println(currentChapter + " at line 45");
+
                         TextParser.getInstance().setCurrentChapter(currentChapter, GameState.getInstance().getInventory());
                         break;
                     }
                 }
             }
-                    System.out.println(currentChapter+"  at line 62 ");
+
 
             // check if viewer sent valid input to test parser
             if (!TextParser.getInstance().isValidInput()) {
