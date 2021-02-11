@@ -15,40 +15,40 @@ public class TextParser {
 
 
     private static TextParser instance = null;
-    private final List<String> ITEM_VERBS_GAIN = new ArrayList<>(
+    private final ArrayList<String> ITEM_VERBS_GAIN = new ArrayList<>(
             Arrays.asList("take", "grab", "pickup", "grasp", "open", "confiscate", "seize", "snatch", "search")
     );
-    private final List<String> ITEM_VERBS_LOSE = new ArrayList<>(
+    private final ArrayList<String> ITEM_VERBS_LOSE = new ArrayList<>(
             Arrays.asList("trade", "drink", "eat", "consume", "feed", "imbibe", "swig", "down", "swill", "swallow", "ingest", "devour", "chew")
     );
-    private final List<String> ITEM_VERBS_USE = new ArrayList<>(
+    private final ArrayList<String> ITEM_VERBS_USE = new ArrayList<>(
             Arrays.asList("use", "light", "threaten", "utilize", "apply", "employ", "ignite", "burn", "intimidate", "bully", "terrorize", "frighten", "scare")
     );
-    private final List<String> PLACES_VERBS_ENTRY = new ArrayList<>(
+    private final ArrayList<String> PLACES_VERBS_ENTRY = new ArrayList<>(
             Arrays.asList("enter", "search", "explore", "access", "look", "invade", "forage")
     );
-    private final List<String> PLACES_VERBS_EXIT = new ArrayList<>(
+    private final ArrayList<String> PLACES_VERBS_EXIT = new ArrayList<>(
             Arrays.asList("leave", "exit", "run", "walk", "escape", "depart", "retreat", "retire")
     );
-    private final List<String> PLACES_NOUNS_1 = new ArrayList<>(
+    private final ArrayList<String> PLACES_NOUNS_1 = new ArrayList<>(
             Arrays.asList("city", "town", "village", "settlement", "around")
     );
-    private final List<String> PLACES_NOUNS_2 = new ArrayList<>(
+    private final ArrayList<String> PLACES_NOUNS_2 = new ArrayList<>(
             Arrays.asList("store", "bodega", "market", "shop")
     );
-    private final List<String> PLACES_NOUNS_3 = new ArrayList<>(
+    private final ArrayList<String> PLACES_NOUNS_3 = new ArrayList<>(
             Arrays.asList("apartment", "flat", "house", "home", "condo", "hut")
     );
-    private final List<String> PLACES_NOUNS_4 = new ArrayList<>(
+    private final ArrayList<String> PLACES_NOUNS_4 = new ArrayList<>(
             Arrays.asList("bedroom", "room", "suite")
     );
-    private final List<String> PLACES_NOUNS_5 = new ArrayList<>(
+    private final ArrayList<String> PLACES_NOUNS_5 = new ArrayList<>(
             Arrays.asList("cabinet", "cabinets")
     );
-    private final List<String> VERBS1 = new ArrayList<>(
+    private final ArrayList<String> VERBS1 = new ArrayList<>(
             Arrays.asList("go", "skip")
     );
-    private final List<String> VERBS2 = new ArrayList<>(
+    private final ArrayList<String> VERBS2 = new ArrayList<>(
             Arrays.asList("start", "begin")
     );
     private String nextChapter;
@@ -277,31 +277,31 @@ public class TextParser {
         this.itemsToRemove = toRemove;
     }
 
-    public List<String> getITEM_VERBS_GAIN() {
+    public ArrayList<String> getITEM_VERBS_GAIN() {
         return ITEM_VERBS_GAIN;
     }
 
-    public List<String> getITEM_VERBS_LOSE() {
+    public ArrayList<String> getITEM_VERBS_LOSE() {
         return ITEM_VERBS_LOSE;
     }
 
-    public List<String> getITEM_VERBS_USE() {
+    public ArrayList<String> getITEM_VERBS_USE() {
         return ITEM_VERBS_USE;
     }
 
-    public List<String> getPLACES_VERBS_ENTRY() {
+    public ArrayList<String> getPLACES_VERBS_ENTRY() {
         return PLACES_VERBS_ENTRY;
     }
 
-    public List<String> getPLACES_VERBS_EXIT() {
+    public ArrayList<String> getPLACES_VERBS_EXIT() {
         return PLACES_VERBS_EXIT;
     }
 
-    public List<String> getVERBS1() {
+    public ArrayList<String> getVERBS1() {
         return VERBS1;
     }
 
-    public List<String> getVERBS2() {
+    public ArrayList<String> getVERBS2() {
         return VERBS2;
     }
 }
