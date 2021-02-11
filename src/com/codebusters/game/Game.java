@@ -9,6 +9,7 @@ package com.codebusters.game;
  * Authors: Bradley Pratt & Debbie Bitencourt
  * Last Edited: 02/05/2021
  */
+
 import com.codebusters.data.ChapterBuilder;
 
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class Game {
     }
 
     //*************** METHODS ***************
+
     /*
      * sets the game state and text parser to the first chapter of the story
      * updates the GUI to reflect the beginning of the game
@@ -122,11 +124,11 @@ public class Game {
     }
 
     private void updateInventory() {
-        for (Items item: TextParser.getInstance().getItemsToAdd()){
+        for (Items item : TextParser.getInstance().getItemsToAdd()) {
             addItemToInventory(item);
         }
         //loop through all items in the TextParser and remove matched item
-        for (Items item: TextParser.getInstance().getItemsToRemove()){
+        for (Items item : TextParser.getInstance().getItemsToRemove()) {
             removeItemFromInventory(item);
         }
     }
@@ -147,43 +149,43 @@ public class Game {
     }
 
     //***************INVENTORY ACCESSOR METHODS***************
-    public boolean findItemInInventory(Items toFind){
+    public boolean findItemInInventory(Items toFind) {
         //loop through items in the inventory and find item by its name.
-        for (Items item: inventory){
-            if (item.getName().equals(toFind.getName())){
+        for (Items item : inventory) {
+            if (item.getName().equals(toFind.getName())) {
                 return true;
             }
         }
         return false;
     }
 
-    private void addItemToInventory(Items toAdd){
+    private void addItemToInventory(Items toAdd) {
         // if the item is already in the inventory
-        if (findItemInInventory(toAdd)){
+        if (findItemInInventory(toAdd)) {
             // then we find the item
-            for (Items item: inventory){
-                if (item.getName().equals(toAdd.getName())){
+            for (Items item : inventory) {
+                if (item.getName().equals(toAdd.getName())) {
                     // and just add to its count
                     item.setCount(item.getCount() + toAdd.getCount());
                     break;
                 }
             }
 
-        // else we just add the item to the inventory list
-        }else{
+            // else we just add the item to the inventory list
+        } else {
             inventory.add(toAdd);
         }
     }
 
-    private boolean removeItemFromInventory(Items toLose){
+    private boolean removeItemFromInventory(Items toLose) {
         // find the item in the inventory
-        for (Items item: inventory){
-            if (item.getName().equals(toLose.getName())){
+        for (Items item : inventory) {
+            if (item.getName().equals(toLose.getName())) {
                 // if there is more quantity than the player loses, just update count
-                if (item.getCount() > toLose.getCount()){
+                if (item.getCount() > toLose.getCount()) {
                     item.setCount(item.getCount() - toLose.getCount());
-                // else remove item completely
-                }else{
+                    // else remove item completely
+                } else {
                     inventory.remove(item);
                 }
                 return true;
