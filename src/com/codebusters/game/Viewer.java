@@ -72,6 +72,7 @@ public class Viewer implements ActionListener {
 
         //bottom panel to hold user input field and submit buttons
         bottomPanel = new JPanel();
+        bottomPanel.setBackground(Color.decode("#EDE5D0"));
         c.gridx = 1;
         c.gridy = 2;
         c.insets = new Insets(0,-20, 0, -20);
@@ -93,12 +94,15 @@ public class Viewer implements ActionListener {
         inputBtn.addActionListener(this);
         inputBtn.setForeground(Color.white);
         inputBtn.setBackground(Color.darkGray);
+        inputBtn.setOpaque(true);
+        inputBtn.setBorderPainted(false);
         inputBtn.setFont(new Font("Times New Roman", Font.PLAIN, 12));
         inputBtn.setBorder(BorderFactory.createRaisedBevelBorder());
         bottomPanel.add(inputBtn);
 
         //bottom right panel to hold help, quit, save and load buttons
         bottomRightPanel = new JPanel();
+        bottomRightPanel.setBackground(Color.decode("#EDE5D0"));
         c.gridx = 2;
         c.gridy = 2;
         c.insets = new Insets(0,-60,0, 70);
@@ -110,6 +114,8 @@ public class Viewer implements ActionListener {
         helpBtn.addActionListener(this);
         helpBtn.setForeground(Color.white);
         helpBtn.setBackground(Color.darkGray);
+        helpBtn.setOpaque(true);
+        helpBtn.setBorderPainted(false);
         helpBtn.setFont(new Font("Times New Roman", Font.PLAIN, 12));
         helpBtn.setBorder(BorderFactory.createRaisedBevelBorder());
         bottomRightPanel.add(helpBtn);
@@ -119,6 +125,8 @@ public class Viewer implements ActionListener {
         quitBtn.addActionListener(this);
         quitBtn.setForeground(Color.white);
         quitBtn.setBackground(Color.darkGray);
+        quitBtn.setOpaque(true);
+        quitBtn.setBorderPainted(false);
         quitBtn.setFont(new Font("Times New Roman", Font.PLAIN, 12));
         quitBtn.setBorder(BorderFactory.createRaisedBevelBorder());
         bottomRightPanel.add(quitBtn);
@@ -128,6 +136,8 @@ public class Viewer implements ActionListener {
         saveBtn.addActionListener(this);
         saveBtn.setForeground(Color.white);
         saveBtn.setBackground(Color.darkGray);
+        saveBtn.setOpaque(true);
+        saveBtn.setBorderPainted(false);
         saveBtn.setFont(new Font("Times New Roman", Font.PLAIN, 12));
         saveBtn.setBorder(BorderFactory.createRaisedBevelBorder());
         bottomRightPanel.add(saveBtn);
@@ -137,6 +147,8 @@ public class Viewer implements ActionListener {
         loadBtn.addActionListener(this);
         loadBtn.setForeground(Color.white);
         loadBtn.setBackground(Color.darkGray);
+        loadBtn.setOpaque(true);
+        loadBtn.setBorderPainted(false);
         loadBtn.setFont(new Font("Times New Roman", Font.PLAIN, 12));
         loadBtn.setBorder(BorderFactory.createRaisedBevelBorder());
         bottomRightPanel.add(loadBtn);
@@ -204,6 +216,7 @@ public class Viewer implements ActionListener {
         inventoryTextArea.setFont(normalFont);
         inventoryTextArea.setLineWrap(true);
         inventoryTextArea.setWrapStyleWord(true);
+        inventoryTextArea.setEditable(false);
 
         //inventory panel updated
         inventoryPanel.removeAll();
@@ -236,7 +249,6 @@ public class Viewer implements ActionListener {
         JLabel helpTitle;
 
         //set up help window
-        helpWindow.setVisible(true);
         helpWindow.setSize(500, 415);
         helpWindow.setLocationRelativeTo(window); //help window will now pop up in front of main game window so user doesn't have to look for it
         helpWindow.setResizable(false);
@@ -252,13 +264,10 @@ public class Viewer implements ActionListener {
         Image helpBgImg = bgImg.getScaledInstance(500, 380, Image.SCALE_SMOOTH);
         ImageIcon image = new ImageIcon(helpBgImg);
         helpWindow.setContentPane(new JLabel(image));
-        JLabel bg = new JLabel(new ImageIcon(bgImg));
         helpWindow.setLayout(null); //disables default layout
-        helpWindow.setVisible(true); //makes window appear on screen
-
+        helpWindow.setResizable(false); //keep window from being resized
         //help window container
         helpContainer = helpWindow.getContentPane(); //container inside the window with help content
-        helpContainer.add(bg);
 
         //help title
         helpTitle = new JLabel("Little Helper");
@@ -311,6 +320,7 @@ public class Viewer implements ActionListener {
         imagePane.insertIcon(new ImageIcon("resources/inputFieldImg.png"));
         imagePane.setBackground(Color.decode("#EDE5D0"));
         imagePane.setBounds(45, 268, 200, 40);
+        imagePane.setEditable(false);
 
         //add all content to the container
 
@@ -324,6 +334,10 @@ public class Viewer implements ActionListener {
         }
         helpContainer.add(buttonPanel);
 
+
+        //ensure everything fits snugly in JFrame and set visible
+        helpWindow.pack();
+        helpWindow.setVisible(true);
 
     }
 
