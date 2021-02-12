@@ -31,6 +31,9 @@ public class Game {
         // inventory = new ArrayList<>();
     }
 
+    //*************** GETTERS/SETTERS ***************
+
+
     //*************** METHODS ***************
 
     /*
