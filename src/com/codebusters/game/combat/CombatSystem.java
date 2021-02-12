@@ -15,10 +15,14 @@ public class CombatSystem {
     //map of weapons in game and their weighted values
     // TODO: potentially generate from xml?
     private static final Map<String, Integer> GAME_WEAPONS_AND_WEIGHTS = Map.of("machete", 3, "pistol", 4, "pocket knife", 1, "axe", 2);
+    //maximum number range
+    private static final int MAX_DMG_RANGE = 10;
+    //minimum number range
+    private static final int MIN_DMG_RANGE = 1;
     //user with no weapons has a damage range of 1-5, weapons weight add to that value
     private static int userDmgRange = 5;
     //needed to generate a random number
-    private final Random rand;
+    private static Random rand;
 
     private CombatSystem() {
         //add later
@@ -29,7 +33,27 @@ public class CombatSystem {
      * combat method
      */
     public static boolean combat(String userWeapon) {
-        return false;
+        boolean isUserWin = false;
+        int weaponDmg = 0;
+        if (GAME_WEAPONS_AND_WEIGHTS.containsKey(userWeapon)) {
+            weaponDmg = GAME_WEAPONS_AND_WEIGHTS.get(userWeapon);
+        }
+
+        setUserDmgRange((getUserDmgRange() + weaponDmg));
+        int winningNumber = generateBattleRangeNumber();
+
+        if (winningNumber <= getUserDmgRange()) {
+            isUserWin = true;
+        }
+
+        return isUserWin;
+    }
+
+    /*
+     * generates the winning damage number within the min and max damage range
+     */
+    private static int generateBattleRangeNumber() {
+        return rand.nextInt(MAX_DMG_RANGE) + MIN_DMG_RANGE;
     }
 
     /*
@@ -42,11 +66,11 @@ public class CombatSystem {
         return instance;
     }
 
-    public void setUserDmgRange(int range) {
+    public static void setUserDmgRange(int range) {
         userDmgRange = range;
     }
 
-    public int getUserDmgRange() {
+    public static int getUserDmgRange() {
         return userDmgRange;
     }
 }
