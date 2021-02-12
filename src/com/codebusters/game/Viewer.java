@@ -45,13 +45,12 @@ public class Viewer implements ActionListener {
     private static final Border dashed = BorderFactory.createDashedBorder(Color.decode("#0D5B69"), 1.2f, 8.0f, 2.0f, true);
     private static final Border empty = BorderFactory.createEmptyBorder(1, 1, 1, 1);
     private static final Border compound = new CompoundBorder(empty, dashed);
-    private static boolean waitingForInput;
+
     private Game game;
 
     //Constructor
     public Viewer(Game game) {
         this.game = game;
-        waitingForInput = true;
         window.setSize(880, 690); //size for the frame
         window.setLocationRelativeTo(null); //window pops up in center of screen
 
@@ -240,9 +239,9 @@ public class Viewer implements ActionListener {
         storyPanel.add(storyTextArea);
         storyTextArea.update(storyTextArea.getGraphics()); //updates text area
 
-        setWaitingForInput(true);
-        window.repaint();
+
         window.revalidate();
+        window.repaint();
     }
 
     public void helpWindowDisplay() {
@@ -469,13 +468,6 @@ public class Viewer implements ActionListener {
         return saveOrLoadSuccessful;
     }
 
-    public boolean isWaitingForInput() {
-        return waitingForInput;
-    }
-
-    public void setWaitingForInput(boolean waitingForInput) {
-        Viewer.waitingForInput = waitingForInput;
-    }
 }
 
 
