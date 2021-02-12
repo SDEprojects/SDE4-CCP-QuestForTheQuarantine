@@ -24,7 +24,6 @@ public class GameState implements Serializable {
 
     public GameState(GameState game) {
         instance = game;
-        System.out.println(game.sceneTitle+"   "+game.inventory);
     }
 
     //create method to save the game
@@ -46,7 +45,6 @@ public class GameState implements Serializable {
             FileInputStream fileStream = new FileInputStream(fileToLoad.getAbsolutePath());
             ObjectInputStream objectStream = new ObjectInputStream(fileStream);
             GameState loadedGame = (GameState) objectStream.readObject();
-            System.out.println(loadedGame.sceneTitle+"  Title "+ loadedGame.sceneText+"  text "+loadedGame.inventory+" inventory");
             new GameState(loadedGame);
             objectStream.close();
             return true;

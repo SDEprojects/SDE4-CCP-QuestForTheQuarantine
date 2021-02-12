@@ -20,6 +20,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Viewer implements ActionListener {
     private static final JFrame window = new JFrame();
@@ -34,14 +36,21 @@ public class Viewer implements ActionListener {
     private static final JButton loadBtn = new JButton("Load");
     private static final JButton quitBtn = new JButton("Quit");
     private static final JButton helpBtn = new JButton("Help");
+    private static final JButton gainBtn = new JButton("Gain");
+    private static final JButton loseBtn = new JButton("Lose");
+    private static final JButton useBtn = new JButton("Use");
+    private static final JButton entryBtn = new JButton("Entry");
+    private static final JButton exitBtn = new JButton("Exit");
+    private static final JButton verbsBtn = new JButton("Verbs");
     private static final Border dashed = BorderFactory.createDashedBorder(Color.decode("#0D5B69"), 1.2f, 8.0f, 2.0f, true);
     private static final Border empty = BorderFactory.createEmptyBorder(1, 1, 1, 1);
     private static final Border compound = new CompoundBorder(empty, dashed);
-    private static boolean waitingForInput;
+
+    private Game game;
 
     //Constructor
-    public Viewer() {
-        waitingForInput = true;
+    public Viewer(Game game) {
+        this.game = game;
         window.setSize(880, 690); //size for the frame
         window.setLocationRelativeTo(null); //window pops up in center of screen
 
@@ -230,9 +239,9 @@ public class Viewer implements ActionListener {
         storyPanel.add(storyTextArea);
         storyTextArea.update(storyTextArea.getGraphics()); //updates text area
 
-        setWaitingForInput(true);
-        window.repaint();
+
         window.revalidate();
+        window.repaint();
     }
 
     public void helpWindowDisplay() {
@@ -243,6 +252,7 @@ public class Viewer implements ActionListener {
         //set up help window
         helpWindow.setSize(500, 415);
         helpWindow.setLocationRelativeTo(window); //help window will now pop up in front of main game window so user doesn't have to look for it
+        helpWindow.setResizable(false);
 
         //create background image for help window
         BufferedImage bgImg = null;
@@ -277,7 +287,19 @@ public class Viewer implements ActionListener {
                 "Pay attention to the story and navigate the game by making your decisions carefully for each choice changes your fate be it for better or worse.\n\n" +
                 "Enter only two commands in the text field at a time to progress through the story: 1 verb and 1 noun.");
 
-        helpText2.setText("Examples: go around, use firecrackers, enter store, leave city, go farther, search cabinets, grab crate, trade ammo, run away, threaten farmer.");
+
+        // examplesBtn.setPreferredSize(new Dimension(80,30));
+        ArrayList<JButton> buttons = new ArrayList<>(Arrays.asList(gainBtn, loseBtn, useBtn, entryBtn, exitBtn, verbsBtn));
+        for (JButton button : buttons) {
+            button.addActionListener(this);
+            button.setForeground(Color.white);
+            button.setBackground(Color.darkGray);
+            button.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+            button.setBorder(BorderFactory.createRaisedBevelBorder());
+            button.setPreferredSize(new Dimension(100,35));
+        }
+
+        // helpText2.setText("Examples: go around, use firecrackers, enter store, leave city, go farther, search cabinets, grab crate, trade ammo, run away, threaten farmer.");
 
         helpText1.setBounds(34, 75, 425, 200);
         helpText1.setBackground(Color.decode("#EDE5D0"));
@@ -287,13 +309,13 @@ public class Viewer implements ActionListener {
         helpText1.setForeground(Color.black);
         helpText1.setEditable(false);
 
-        helpText2.setBounds(34, 310, 425, 40);
-        helpText2.setBackground(Color.decode("#EDE5D0"));
-        helpText2.setLineWrap(true);
-        helpText2.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-        helpText2.setWrapStyleWord(true); //creates readable text that is separated by word when wrapped.
-        helpText2.setForeground(Color.black);
-        helpText2.setEditable(false);
+        // helpText2.setBounds(34, 310, 425, 40);
+        // helpText2.setBackground(Color.decode("#EDE5D0"));
+        // helpText2.setLineWrap(true);
+        // helpText2.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+        // helpText2.setWrapStyleWord(true); //creates readable text that is separated by word when wrapped.
+        // helpText2.setForeground(Color.black);
+        // helpText2.setEditable(false);
 
         //image inside the help text
         imagePane.insertIcon(new ImageIcon("resources/inputFieldImg.png"));
@@ -302,9 +324,17 @@ public class Viewer implements ActionListener {
         imagePane.setEditable(false);
 
         //add all content to the container
+
+        // helpContainer.add(imagePane);
         helpContainer.add(helpText1);
-        helpContainer.add(imagePane);
-        helpContainer.add(helpText2);
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setBounds(45, 270, 400, 80);
+        buttonPanel.setBackground(Color.decode("#EDE5D0"));
+        for (JButton button : buttons) {
+            buttonPanel.add(button);
+        }
+        helpContainer.add(buttonPanel);
+
 
         //ensure everything fits snugly in JFrame and set visible
         helpWindow.pack();
@@ -315,27 +345,95 @@ public class Viewer implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == userInputField || e.getSource() == inputBtn) {
             String input = userInputField.getText();
-            TextParser.getInstance().parseInput(input);
+            //pass user input to be validated and game updated
+            game.playerAction(input);
 
             userInputField.setText("");
-            setWaitingForInput(false);
-
-            //when saveBtn is pressed pass "save" parameter to saveOrLoadGame method
-        } else if (e.getSource() == saveBtn) {
-            saveOrLoadGame("save");
-            //when loadBtn is pressed pass "load" parameter to saveOrLoadGame method.
-            //then call updateViewer method to update the game in GUI.
-        } else if (e.getSource() == loadBtn) {
-            saveOrLoadGame("load");
+            //update the window to reflect any changes caused by user input
             updateViewer();
-            //when quitBtn is pressed the GUI window and game closes.
-        } else if (e.getSource() == quitBtn) {
+        }
+        //when saveBtn is pressed pass "save" parameter to saveOrLoadGame method
+        else if (e.getSource() == saveBtn) {
+            saveOrLoadGame("save");
+        }
+        //when loadBtn is pressed pass "load" parameter to saveOrLoadGame method.
+        else if (e.getSource() == loadBtn) {
+            saveOrLoadGame("load");
+            //updates viewer with the GameState from loaded game
+            updateViewer();
+            //updates the current chapter in the game to track the newly loaded GameState
+            game.loadGame();
+        }
+        //when quitBtn is pressed the GUI window and game closes.
+        else if (e.getSource() == quitBtn) {
             window.dispose();
             System.exit(0);
-        } else if (e.getSource() == helpBtn) {
+        }
+        else if (e.getSource() == helpBtn) {
             helpWindowDisplay();
+        } else if (e.getSource() == gainBtn) {
+            displayExamples(TextParser.getInstance().getITEM_VERBS_GAIN(), gainBtn.getText());
+        } else if (e.getSource() == loseBtn) {
+            displayExamples(TextParser.getInstance().getITEM_VERBS_LOSE(), loseBtn.getText());
+        } else if (e.getSource() == useBtn) {
+            displayExamples(TextParser.getInstance().getITEM_VERBS_USE(), useBtn.getText());
+        } else if (e.getSource() == entryBtn) {
+            displayExamples(TextParser.getInstance().getPLACES_VERBS_ENTRY(), entryBtn.getText());
+        } else if (e.getSource() == exitBtn) {
+            displayExamples(TextParser.getInstance().getPLACES_VERBS_EXIT(), exitBtn.getText());
+        } else if (e.getSource() == verbsBtn) {
+            ArrayList<String> data = new ArrayList<String>();
+            data.addAll(TextParser.getInstance().getVERBS1());
+            data.addAll(TextParser.getInstance().getVERBS2());
+            displayExamples(data, verbsBtn.getText());
         }
     }
+
+    private void displayExamples(ArrayList<String> data, String buttonName) {
+        JFrame examplesWindow = new JFrame(); //initiate help window
+        JLabel helpTitle;
+        Container helpContainer;
+        examplesWindow.setResizable(false);
+        examplesWindow.setVisible(true);
+        examplesWindow.setSize(500, 415);
+        examplesWindow.setLocationRelativeTo(window);
+        examplesWindow.setBackground(Color.decode("#EDE5D0"));
+
+        BufferedImage bgImg = null;
+        try {
+            bgImg = ImageIO.read(new File("resources/helpBgImage.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assert bgImg != null;
+        Image helpBgImg = bgImg.getScaledInstance(500, 380, Image.SCALE_SMOOTH);
+        ImageIcon image = new ImageIcon(helpBgImg);
+        examplesWindow.setContentPane(new JLabel(image));
+        JLabel bg = new JLabel(new ImageIcon(bgImg));
+        examplesWindow.setLayout(null); //disables default layout
+        examplesWindow.setVisible(true); //makes window appear on screen
+
+        //help window container
+        helpContainer = examplesWindow.getContentPane(); //container inside the window with help content
+        helpContainer.add(bg);
+
+        //help title
+        helpTitle = new JLabel(buttonName + " Commands");
+        helpTitle.setBounds(130, -80, 400, 250);
+        helpTitle.setForeground(Color.decode("#e76f51")); //title text color
+        helpTitle.setFont(titleFont);
+        helpContainer.add(helpTitle);
+
+        JTextArea commands = new JTextArea();
+        commands.setBounds(200, 90, 100, 80);
+        commands.setBackground(Color.decode("#EDE5D0"));
+        commands.setFont(normalFont);
+        data.forEach(x -> commands.append(x.toUpperCase() + "\n"));
+        helpContainer.add(commands);
+    }
+
+    //Create list of commands window
+
 
     //create load and save window and check for file being saved or loaded successfully
     private boolean saveOrLoadGame(String flag) {
@@ -358,13 +456,6 @@ public class Viewer implements ActionListener {
         return saveOrLoadSuccessful;
     }
 
-    public boolean isWaitingForInput() {
-        return waitingForInput;
-    }
-
-    public void setWaitingForInput(boolean waitingForInput) {
-        Viewer.waitingForInput = waitingForInput;
-    }
 }
 
 
