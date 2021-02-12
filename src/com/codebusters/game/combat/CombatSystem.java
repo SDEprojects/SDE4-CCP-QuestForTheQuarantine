@@ -37,7 +37,10 @@ public class CombatSystem {
         return instance;
     }
     /*
-     * combat method
+     * combat method takes the weapon the user is choosing to use in combat
+     * and calculates who wins the battle based on random chance
+     * If the random winning number falls in the range of the user, user wins and true is returned
+     * otherwise user loses and false is returned
      */
     public boolean combat(String userWeapon) {
         //calculate userDmg based on weapon passed in
