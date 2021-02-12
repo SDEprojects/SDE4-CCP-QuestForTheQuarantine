@@ -13,13 +13,15 @@ import java.util.ArrayList;
 public class GameState implements Serializable {
     private String sceneText;
     private String sceneTitle;
-    private ArrayList<Items> inventory;
+
+    // private ArrayList<Items> inventory;
+    private Player player;
     private static GameState instance = null;
 
     private GameState(){
         setSceneText("");
         setSceneTitle("");
-        inventory = new ArrayList<>();
+        player = new Player();
     }
 
     public GameState(GameState game) {
@@ -81,10 +83,18 @@ public class GameState implements Serializable {
     }
 
     public ArrayList<Items> getInventory() {
-        return inventory;
+        return player.getInventory();
     }
 
     public void setInventory(ArrayList<Items> inventory) {
-        this.inventory = inventory;
+        this.player.setInventory(inventory);
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 }
