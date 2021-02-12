@@ -14,7 +14,7 @@ public class CombatSystem {
     private static CombatSystem instance = null;
     //map of weapons in game and their weighted values
     // TODO: potentially generate from xml?
-    private static final Map<String, Integer> GAME_WEAPONS_AND_WEIGHTS = Map.of("machete", 3, "pistol", 4, "pocket knife", 1, "axe", 2);
+    private static final Map<String, Integer> GAME_WEAPONS_AND_WEIGHTS = Map.of("machete", 3, "pistol", 4, "knife", 1, "axe", 2);
     //maximum number range
     private static final int MAX_DMG_RANGE = 10;
     //minimum number range
