@@ -364,16 +364,28 @@ public class Viewer implements ActionListener {
         } else if (e.getSource() == helpBtn) {
             helpWindowDisplay();
         } else if (e.getSource() == gainBtn) {
+            gainBtn.setOpaque(true);
+            gainBtn.setBorderPainted(false);
             displayExamples(TextParser.getInstance().getITEM_VERBS_GAIN(), gainBtn.getText());
         } else if (e.getSource() == loseBtn) {
+            loseBtn.setOpaque(true);
+            loseBtn.setBorderPainted(false);
             displayExamples(TextParser.getInstance().getITEM_VERBS_LOSE(), loseBtn.getText());
         } else if (e.getSource() == useBtn) {
+            useBtn.setOpaque(true);
+            useBtn.setBorderPainted(false);
             displayExamples(TextParser.getInstance().getITEM_VERBS_USE(), useBtn.getText());
         } else if (e.getSource() == entryBtn) {
+            entryBtn.setOpaque(true);
+            entryBtn.setBorderPainted(false);
             displayExamples(TextParser.getInstance().getPLACES_VERBS_ENTRY(), entryBtn.getText());
         } else if (e.getSource() == exitBtn) {
+            exitBtn.setOpaque(true);
+            exitBtn.setBorderPainted(false);
             displayExamples(TextParser.getInstance().getPLACES_VERBS_EXIT(), exitBtn.getText());
         } else if (e.getSource() == verbsBtn) {
+            verbsBtn.setOpaque(true);
+            verbsBtn.setBorderPainted(false);
             ArrayList<String> data = new ArrayList<String>();
             data.addAll(TextParser.getInstance().getVERBS1());
             data.addAll(TextParser.getInstance().getVERBS2());
