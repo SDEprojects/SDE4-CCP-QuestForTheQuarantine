@@ -10,12 +10,12 @@
    <Row>
     <Cell><Data Type="Number">0</Data></Cell>
     <Cell><Data Type="String">Quest for the Quarantine</Data></Cell>
-    <Cell><Data Type="String">Quest for the Quarantine follows our protagonist, 16-year-old Esperanza, as she navigates post-apocalyptic Mexico in hopes of reaching salvation in the form of the &quot;Quarantine Zone&quot;. As we follow Esperanza through her journey, we discover that the most pressing danger is the loss of humanity itself... Welcome to Quest for the Quarantine! Throughout this playable story you, the player, can enter commands to help Esperanza navigate both her paths and decisions. Commands must be in the form of “verb noun”. To begin the game, enter “start game” in the text box below. May you guide Esperanza safely to the Quarantine.</Data></Cell>
+    <Cell><Data Type="String">Quest for the Quarantine follows our protagonist, 16-year-old Esperanza, as she navigates post-apocalyptic Mexico in hopes of reaching salvation in the form of the QUARANTINE ZONE. As we follow Esperanza through her journey, we discover that the most pressing danger is the loss of humanity itself... Welcome to Quest for the Quarantine! Throughout this playable story you, the player, can enter commands to help Esperanza navigate both her paths and decisions. Commands must be in the form of “verb noun”. To begin the game, enter “start game” in the text box below. May you guide Esperanza safely to the Quarantine.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">1</Data></Cell>
     <Cell><Data Type="String">Mexico City</Data></Cell>
-    <Cell StyleID="s18"><Data Type="String">In the weeks following The Event,&#160;the days were unsafe. She had learned that lesson the hard way with the death of Mama. They took refuge in the night, and for months everything was okay. They even met others who had not succumbed, who were not Violent. They shared stories of past lives, better lives, and hope for salvation. Rumors of a safe zone in the United States, just outside San Diego, persisted among survivors. For a time, they had hope. But slowly, the survivors disappeared, Mama included; so she decided to leave,&#160;to seek out the refuge of the quarantine in the States. She slipped quietly into the night and made her way through the streets of Mexico City, careful to avoid others. As she approaches the main avenue, she notices a small store along the road heading out of the city. Perhaps I should look for supplies? She ponders. Or is it better to just leave the city?</Data></Cell>
+    <Cell StyleID="s18"><Data Type="String">In the weeks following THE EVENT; the days were unsafe. She had learned that lesson the hard way with the death of Mama. They took refuge in the night, and for months everything was okay. They even met others who had not succumbed, who were not Violent. They shared stories of past lives, better lives, and hope for salvation. Rumors of a safe zone in the United States, just outside San Diego, persisted among survivors. For a time, they had hope. But slowly, the survivors disappeared, Mama included; so she decided to leave, to seek out the refuge of the quarantine in the States. She slipped quietly into the night and made her way through the streets of Mexico City, careful to avoid others. As she approaches the main avenue, she notices a small store along the road heading out of the city. Perhaps I should look for supplies? She ponders. Or is it better to just leave the city?</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="String">1A</Data></Cell>
@@ -25,12 +25,12 @@
    <Row>
     <Cell><Data Type="Number">2</Data></Cell>
     <Cell><Data Type="String">Outside Leon</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">It has been nearly two weeks since Esperanza has departed Mexico City. After roughly 500 km of hiking, her feet hurt, and she is beginning to run low on supplies. On the twelfth day of her journey, she crests a ridge and spots a city in the valley below. Judging by the nearby highway sign, it’s the city of Leon. There’s people there, potentially dangerous people. On one hand, she needs to make a supply run, but on the other she really likes being alive. She could possibly give the city a wide berth, ignoring it completely, but only if she has enough water in her backpack.</Data></Cell>
+    <Cell StyleID="s19"><Data Type="String">It has been two weeks since Esperanza has departed Mexico City. After roughly 500 km of hiking, she is beginning to run low on supplies. She crests a ridge and spots a city in the valley below. The nearby highway sign says it’s the city of Leon. There’s people there, potentially dangerous people. On one hand, she needs to make a supply run, but on the other she really likes being alive. She could possibly give the city a wide berth, ignoring it completely, but only if she has enough water in her backpack.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">3</Data></Cell>
     <Cell><Data Type="String">Leon</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">The sun has now fully disappeared behind the horizon as she makes her way into Leon. Old, decrepit cars accentuate the crumbling roadways. There are definite signs of habitation however, as she notes some uncorroded ammunition shells at the entry of an alleyway. She pauses to look back and reconsider her decision, but decides to continue forward. An hour later she enters a small square. She gazes around the square and notes a couple potential looting points: an apartment across the square with a shattered second-story window and a fire escape, and a small bodega below. Or she could continue farther down the road.</Data></Cell>
+    <Cell StyleID="s19"><Data Type="String">The sun has disappeared behind the horizon as she makes her way into Leon. There are definite signs of habitation however, as she notes some uncorroded ammunition shells at the entry of an alleyway. She pauses to look back and reconsider her decision, but decides to continue forward. An hour later she enters a small square. She gazes around the square and notes a couple potential looting points: an apartment across the square with a second-story, and a small bodega below. Or she could continue farther down the road.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="String">3A</Data></Cell>
@@ -40,7 +40,7 @@
    <Row>
     <Cell><Data Type="String">3B</Data></Cell>
     <Cell><Data Type="String">Leon: Bodega</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">The bodega is dimly lit, and it appears to Esperanza that she is far from being the first person to scavenge in here. Empty bottles and wrappers layer the floor. Few things remain untouched. She picks her way around the discarded remnants for a while, but it proves unfruitful. A distant sound, possibly human, cause her to bolt upright, eyes wide. She cocks her head and listens for a while but notices no other sounds. As she makes her way to the doorway, she notices a small cabinet with closed doors behind the counter. It’s low to the ground and otherwise hidden at eye level.</Data></Cell>
+    <Cell StyleID="s19"><Data Type="String">The bodega is dimly lit, and it appears to Esperanza that she is far from being the first person to scavenge in here. Few things remain untouched. She picks her way around the discarded remnants for a while, but it proves unfruitful. A distant sound, possibly human, cause her to bolt upright, eyes wide. She cocks her head and listens for a while but notices no other sounds. As she makes her way to the doorway, she notices a small cabinet with closed doors behind the counter. It’s low to the ground and otherwise hidden at eye level.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="String">3C</Data></Cell>
@@ -50,7 +50,7 @@
    <Row>
     <Cell><Data Type="Number">4</Data></Cell>
     <Cell><Data Type="String">El Chayote</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">A week later, Esperanza finds herself trudging along a dirt road. Since Leon, she had played it safe and avoided any large settlements. As she comes around a bend in the road, she notices a small farmstead to her right. The remnants of a fenced pasture dot the roadside. At the end of a path is a wooden chair with an elderly man. He nods to Esperanza as she approaches, and she regards him cautiously. The farmer attempts to initiate a barter. He wants  ammo and he’s offering the contents of a medium-sized sack he has laying on the ground next to his chair.</Data></Cell>
+    <Cell StyleID="s19"><Data Type="String">A week later, Esperanza finds herself trudging along a dirt road. Since Leon, she had played it safe and avoided any large settlements. As she comes around a bend in the road, she notices a small farmstead to her right. The remnants of a fenced pasture dot the roadside. At the end of a path is a wooden chair with an elderly man. He nods to Esperanza as she approaches, and she regards him cautiously. The farmer attempts to initiate a barter. He needs matches and he’s offering the contents of a medium-sized sack he has laying on the ground next to his chair.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">5</Data></Cell>
@@ -154,10 +154,10 @@
     <Cell><Data Type="String">take</Data></Cell>
     <Cell><Data Type="String">crate</Data></Cell>
     <Cell><Data Type="Number">2</Data></Cell>
-    <Cell><Data Type="String">flashlight,machete</Data></Cell>
+    <Cell><Data Type="String">flashlight,machete,food</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">She decides the crate looks more promising and quickly makes her way over to it. She finds two items: a flashlight and a machete. Not too bad. She grabs the items and places them in her backpack before heading back out the door, and out of the city.</Data></Cell>
+    <Cell StyleID="s19"><Data Type="String">She finds a flashlight, a machete, and food.  She grabs the items heading out the door, and out of the city.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">5</Data></Cell>
@@ -205,7 +205,7 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">Being on the second story, the apartment is less likely to be picked clean, she reasons. She approaches the fire escape and scrambles up it. Once at the top, she carefully makes her way across the broken glass and through the window frame.</Data></Cell>
+    <Cell StyleID="s19"><Data Type="String">Being on the second story, the apartment is less likely to be picked clean, she reasons. She approaches the fire escape and scrambles up it. Once at the top, she enters.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">9</Data></Cell>
@@ -238,10 +238,10 @@
     <Cell><Data Type="String">search</Data></Cell>
     <Cell><Data Type="String">bedroom</Data></Cell>
     <Cell><Data Type="String">3C</Data></Cell>
-    <Cell><Data Type="String">pistol ammo,firecrackers</Data></Cell>
+    <Cell><Data Type="String">pistol,ammo,firecrackers</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell StyleID="s19"><Data >She steps into the bedroom. She checks is under the bed: a small wooden keepsake box resides there. She opens it and finds some pistol ammunition and a string of firecrackers. She shoves them in her pockets and rushes out of the room. A wet spot causes her to slip and fall backwards into the closed door, forcing it open. The smell is overwhelming, and she immediately vomits. She notices a faint brushing against her cheek. She is paralyzed in fear but manages to look out of the corner of her eye. A body is suspended from above. She crawls out of the room and scrambles out of the apartment.</Data></Cell>
+    <Cell StyleID="s19"><Data >She steps into the bedroom. She checks is under the bed: a small wooden keepsake box resides there. She opens it and finds a pistol with ammunition and a string of firecrackers. She takes them and rushes out of the room. She slips and falls backwards into the closed door, it opens. The smell is overwhelming, and she immediately vomits. She is paralyzed in fear but manages to look out of the corner of her eye. A body is suspended from above. She crawls out of the room and scrambles out of the apartment.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">12</Data></Cell>
@@ -301,19 +301,19 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">water</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">Mistakenly she immediately runs out of the alley and into a shadowy figure, both falling to the ground. She scrambles to her feet, but the person has a hand on her backpack. Digging her heels in, she pulls forward and a small ripping sound issues from her backpack. The person falls to the ground again and she hears the sound of something falling out of her backpack. She sprints and is out of the city in minutes, alone and safe.</Data></Cell>
+    <Cell StyleID="s19"><Data Type="String">She immediately runs out of the alley and into a shadowy figure, they fall to the ground. She scrambles to her feet, but the person has a hand on her backpack. Digging her heels in, she pulls forward and a small ripping sound issues from her backpack. The person falls to the ground again and she hears the sound of something falling out of her backpack. She sprints and is out of the city in minutes.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">17</Data></Cell>
     <Cell><Data Type="Number">4</Data></Cell>
-    <Cell><Data Type="String">Trade Ammo</Data></Cell>
+    <Cell><Data Type="String">Trade Matches</Data></Cell>
     <Cell><Data Type="String">trade</Data></Cell>
-    <Cell><Data Type="String">ammo</Data></Cell>
+    <Cell><Data Type="String">matches</Data></Cell>
     <Cell><Data Type="Number">5</Data></Cell>
     <Cell><Data Type="String">pan,medkit</Data></Cell>
-    <Cell><Data Type="String">pistol ammo</Data></Cell>
-    <Cell><Data Type="String">pistol ammo</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">Esperanza acquiesces and holds out her ammo. The farmer looks excited and hands her the sack in return, which she then opens and peers inside. The contents are a small first aid kit and a cooking pan; they could prove useful. She waves goodbye, and continues down the dirt road.</Data></Cell>
+    <Cell><Data Type="String">matches</Data></Cell>
+    <Cell><Data Type="String">matches</Data></Cell>
+    <Cell StyleID="s19"><Data Type="String">Esperanza acquiesces and holds out her box of matches. The farmer looks excited and hands her the sack in return, which she then opens and peers inside. The contents are a small first aid kit and a cooking pan; they could prove useful. She waves goodbye, and continues down the dirt road.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">18</Data></Cell>
@@ -358,10 +358,10 @@
     <Cell><Data Type="String">enter</Data></Cell>
     <Cell><Data Type="String">town</Data></Cell>
     <Cell><Data Type="Number">6</Data></Cell>
-    <Cell><Data Type="String">pocketknife,water</Data></Cell>
+    <Cell><Data Type="String">knife,water</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">She walks down the small main road and into the village. The place is devoid of any signs of life. Towards the center of the village, she finds an overturned truck with its contents and broken glass strewn about. She rummages about and is able to acquire a pocketknife and another bottle of water. Satisfied, she follows the road out of the village.</Data></Cell>
+    <Cell StyleID="s19"><Data Type="String">She walks down the small main road and into the village. The place is devoid of any signs of life. Towards the center of the village, she finds an overturned truck with its contents and broken glass strewn about. She rummages about and is able to acquire a knife and another bottle of water. Satisfied, she follows the road out of the village.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">22</Data></Cell>

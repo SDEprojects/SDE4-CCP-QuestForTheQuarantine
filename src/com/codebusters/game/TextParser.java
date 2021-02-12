@@ -59,7 +59,8 @@ public class TextParser {
     private boolean hasPathText;
     private ArrayList<Items> itemsToAdd;
     private ArrayList<Items> itemsToRemove;
-    private ArrayList<Items> inventory;
+    // private ArrayList<Items> inventory;
+    private Player player;
 
     private TextParser() {
         currentChapter = new Chapter();
@@ -67,7 +68,8 @@ public class TextParser {
         setPathText(false);
         itemsToAdd = new ArrayList<>();
         itemsToRemove = new ArrayList<>();
-        inventory = new ArrayList<>();
+        player = new Player();
+        // inventory = new ArrayList<>();
     }
 
     //make TextParser a Singleton to be used in other Classes.
@@ -202,7 +204,7 @@ public class TextParser {
 
     //validate if item is inside the inventory list.
     private void checkAgainstInventory(String item) {
-        for (Items possession : inventory) {
+        for (Items possession : player.getInventory()) {
             if (item.equals(possession.getName().toLowerCase())) {
                 setValidInput(true);
                 break;
@@ -246,7 +248,7 @@ public class TextParser {
 
     public void setCurrentChapter(Chapter currentChapter, ArrayList<Items> inventory) {
         this.currentChapter = currentChapter;
-        this.inventory = inventory;
+        this.player.setInventory(inventory);
     }
 
 
