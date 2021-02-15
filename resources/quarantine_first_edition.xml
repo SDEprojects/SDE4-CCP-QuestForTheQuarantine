@@ -487,7 +487,7 @@
     <Cell><Data Type="String">51A</Data></Cell>
     <Cell><Data Type="Number">53</Data></Cell>
     <Cell><Data Type="String">Fight Banditos w/ pistol</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">pistol</Data></Cell>
     <Cell ><Data Type="Number">60</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
@@ -500,7 +500,7 @@
     <Cell><Data Type="String">51B</Data></Cell>
     <Cell><Data Type="Number">53</Data></Cell>
     <Cell><Data Type="String">Fight Banditos w/ machete</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">machete</Data></Cell>
     <Cell ><Data Type="Number">60</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
@@ -513,7 +513,7 @@
     <Cell><Data Type="String">51C</Data></Cell>
     <Cell><Data Type="Number">53</Data></Cell>
     <Cell><Data Type="String">Fight Banditos w/ knife</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">knife</Data></Cell>
     <Cell ><Data Type="Number">60</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
@@ -526,7 +526,7 @@
     <Cell><Data Type="Number">51D</Data></Cell>
     <Cell><Data Type="Number">53</Data></Cell>
     <Cell><Data Type="String">Fight Banditos w/ fist</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">fist</Data></Cell>
     <Cell ><Data Type="Number">60</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
@@ -598,7 +598,7 @@
     <Cell><Data Type="Number">73</Data></Cell>
     <Cell><Data Type="Number">70</Data></Cell>
     <Cell><Data Type="String">fight cowboys w/ pistol</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">pistol</Data></Cell>
     <Cell ><Data Type="Number">80</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
@@ -610,7 +610,7 @@
     <Cell><Data Type="Number">75</Data></Cell>
     <Cell><Data Type="Number">75</Data></Cell>
     <Cell><Data Type="String">fight cowboys w/ machete</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">machete</Data></Cell>
     <Cell ><Data Type="Number">80</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
@@ -622,7 +622,7 @@
     <Cell><Data Type="Number">76</Data></Cell>
     <Cell><Data Type="Number">75</Data></Cell>
     <Cell><Data Type="String">fight cowboys w/ knife</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">knife</Data></Cell>
     <Cell ><Data Type="Number">80</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
@@ -634,7 +634,7 @@
     <Cell><Data Type="Number">77</Data></Cell>
     <Cell><Data Type="Number">75</Data></Cell>
     <Cell><Data Type="String">fight cowboys w/ ax</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">ax</Data></Cell>
     <Cell ><Data Type="Number">80</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
@@ -646,7 +646,7 @@
     <Cell><Data Type="Number">78</Data></Cell>
     <Cell><Data Type="Number">75</Data></Cell>
     <Cell><Data Type="String">fight cowboys w/ fist</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">fist</Data></Cell>
     <Cell ><Data Type="Number">80</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
@@ -682,7 +682,7 @@
     <Cell><Data Type="Number">101</Data></Cell>
     <Cell><Data Type="Number">100</Data></Cell>
     <Cell><Data Type="String">fight miners w/ pistol</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">pistol</Data></Cell>
     <Cell ><Data Type="Number">96</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
@@ -694,7 +694,7 @@
     <Cell><Data Type="Number">102</Data></Cell>
     <Cell><Data Type="Number">100</Data></Cell>
     <Cell><Data Type="String">fight miners w/ ax</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">ax</Data></Cell>
     <Cell ><Data Type="Number">96</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
@@ -706,7 +706,7 @@
     <Cell><Data Type="Number">103</Data></Cell>
     <Cell><Data Type="Number">100</Data></Cell>
     <Cell><Data Type="String">fight miners w/ machete</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">machete</Data></Cell>
     <Cell ><Data Type="Number">96</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
@@ -718,7 +718,7 @@
     <Cell><Data Type="Number">104</Data></Cell>
     <Cell><Data Type="Number">100</Data></Cell>
     <Cell><Data Type="String">fight miners w/ knife</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">knife</Data></Cell>
     <Cell ><Data Type="Number">96</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
@@ -730,7 +730,7 @@
     <Cell><Data Type="Number">105</Data></Cell>
     <Cell><Data Type="Number">100</Data></Cell>
     <Cell><Data Type="String">fight miners w/ fist</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">fist</Data></Cell>
     <Cell ><Data Type="Number">96</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
@@ -742,7 +742,7 @@
     <Cell><Data Type="Number">111</Data></Cell>
     <Cell><Data Type="Number">110</Data></Cell>
     <Cell><Data Type="String">fight depot w/ pistol</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">pistol</Data></Cell>
     <Cell ><Data Type="Number">96</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
@@ -754,7 +754,7 @@
     <Cell><Data Type="Number">112</Data></Cell>
     <Cell><Data Type="Number">110</Data></Cell>
     <Cell><Data Type="String">fight depot w/ machete</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">machete</Data></Cell>
     <Cell ><Data Type="Number">96</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
@@ -766,7 +766,7 @@
     <Cell><Data Type="Number">113</Data></Cell>
     <Cell><Data Type="Number">110</Data></Cell>
     <Cell><Data Type="String">fight depot w/ ax</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">ax</Data></Cell>
     <Cell ><Data Type="Number">96</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
@@ -778,7 +778,7 @@
     <Cell><Data Type="Number">114</Data></Cell>
     <Cell><Data Type="Number">110</Data></Cell>
     <Cell><Data Type="String">fight depot w/ knife</Data></Cell>
-    <Cell><Data Type="Number">use</Data></Cell>
+    <Cell><Data Type="Number">fight</Data></Cell>
     <Cell><Data Type="Number">knife</Data></Cell>
     <Cell ><Data Type="Number">96</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
@@ -790,7 +790,7 @@
     <Cell><Data Type="Number">115</Data></Cell>
     <Cell><Data Type="Number">110</Data></Cell>
     <Cell><Data Type="String">fight depot w / fist</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">fist</Data></Cell>
     <Cell ><Data Type="Number">96</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
