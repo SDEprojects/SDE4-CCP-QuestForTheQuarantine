@@ -25,6 +25,7 @@ import java.util.Arrays;
 
 public class Viewer implements ActionListener {
     private static final JFrame window = new JFrame();
+    private static final JFrame quitWindow = new JFrame();
     private static Container container;
     private static JPanel storyPanel, inventoryPanel, bottomPanel, bottomRightPanel;
     private static JLabel titleName, inventoryTitle;
@@ -42,6 +43,8 @@ public class Viewer implements ActionListener {
     private static final JButton entryBtn = new JButton("Entry");
     private static final JButton exitBtn = new JButton("Exit");
     private static final JButton verbsBtn = new JButton("Verbs");
+    private static final JButton yesButton = new JButton("Yes");
+    private static final JButton noButton = new JButton("No");
     private static final Border dashed = BorderFactory.createDashedBorder(Color.decode("#0D5B69"), 1.2f, 8.0f, 2.0f, true);
     private static final Border empty = BorderFactory.createEmptyBorder(1, 1, 1, 1);
     private static final Border compound = new CompoundBorder(empty, dashed);
@@ -239,7 +242,6 @@ public class Viewer implements ActionListener {
         storyPanel.add(storyTextArea);
         storyTextArea.update(storyTextArea.getGraphics()); //updates text area
 
-
         window.revalidate();
         window.repaint();
     }
@@ -297,6 +299,8 @@ public class Viewer implements ActionListener {
             button.setFont(new Font("Times New Roman", Font.PLAIN, 12));
             button.setBorder(BorderFactory.createRaisedBevelBorder());
             button.setPreferredSize(new Dimension(100,35));
+            button.setOpaque(true);
+            button.setBorderPainted(false);
         }
 
         // helpText2.setText("Examples: go around, use firecrackers, enter store, leave city, go farther, search cabinets, grab crate, trade ammo, run away, threaten farmer.");
@@ -366,8 +370,15 @@ public class Viewer implements ActionListener {
         }
         //when quitBtn is pressed the GUI window and game closes.
         else if (e.getSource() == quitBtn) {
+            askToQuit();
+        }
+        else if (e.getSource() == yesButton) {
             window.dispose();
+            quitWindow.dispose();
             System.exit(0);
+        }
+        else if (e.getSource() == noButton) {
+            quitWindow.dispose();
         }
         else if (e.getSource() == helpBtn) {
             helpWindowDisplay();
@@ -399,6 +410,59 @@ public class Viewer implements ActionListener {
             data.addAll(TextParser.getInstance().getVERBS2());
             displayExamples(data, verbsBtn.getText());
         }
+    }
+
+    private void askToQuit() {
+        JLabel quitTitle;
+        Container quitContainer;
+        quitWindow.setResizable(false);
+        quitWindow.setVisible(true);
+        quitWindow.setSize(500, 200);
+        quitWindow.setLocationRelativeTo(window);
+        quitWindow.setBackground(Color.decode("#EDE5D0"));
+        BufferedImage bgImg = null;
+        try {
+            bgImg = ImageIO.read(new File("resources/helpBgImage.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assert bgImg != null;
+        Image quitBgImg = bgImg.getScaledInstance(500, 200, Image.SCALE_SMOOTH);
+        ImageIcon image = new ImageIcon(quitBgImg);
+        quitWindow.setContentPane(new JLabel(image));
+        JLabel bg = new JLabel(new ImageIcon(bgImg));
+        quitWindow.setLayout(null); //disables default layout
+        quitWindow.setVisible(true); //makes window appear on screen
+
+        quitTitle = new JLabel("Are you sure you want to quit?");
+        quitTitle.setBounds(55, 0, 400, 100);
+        quitTitle.setForeground(Color.decode("#e76f51")); //title text color
+        Font quitFontTitle = titleFont.deriveFont(30F);
+        quitTitle.setFont(quitFontTitle);
+        quitContainer = quitWindow.getContentPane();
+        quitContainer.add(quitTitle);
+
+        ArrayList<JButton> buttons = new ArrayList<>(Arrays.asList(yesButton, noButton));
+        for (JButton button : buttons) {
+            button.addActionListener(this);
+            button.setForeground(Color.white);
+            button.setBackground(Color.darkGray);
+            button.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+            button.setBorder(BorderFactory.createRaisedBevelBorder());
+            button.setPreferredSize(new Dimension(100, 35));
+            button.setOpaque(true);
+            button.setBorderPainted(false);
+        }
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setBounds(45, 90, 400, 80);
+        buttonPanel.setBackground(Color.decode("#EDE5D0"));
+        for (JButton button : buttons) {
+            buttonPanel.add(button);
+        }
+        quitContainer.add(buttonPanel);
+
+        quitWindow.pack();
+        quitWindow.setVisible(true);
     }
 
     private void displayExamples(ArrayList<String> data, String buttonName) {
