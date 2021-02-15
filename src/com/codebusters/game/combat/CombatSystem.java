@@ -34,12 +34,12 @@ public class CombatSystem {
     //needed to generate a random number
     private final Random rand;
 
+    //private ctor - CombatSystem is a singleton
     private CombatSystem() {
-        //add later
         rand = new Random();
     }
 
-    //get instance of CombatSystem
+    //get instance of CombatSystem singleton
     public static CombatSystem getInstance() {
         if (instance == null) {
             instance = new CombatSystem();
