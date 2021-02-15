@@ -16,9 +16,10 @@ import java.util.ArrayList;
 
 public class Game {
     private final Viewer GUI;
-    private final ArrayList<Items> inventory;
+    // private final ArrayList<Items> inventory;
     private ArrayList<Chapter> story;
     private Chapter currentChapter;
+    private Player player;
 
     public Game() {
         story = new ArrayList<>();
@@ -26,8 +27,12 @@ public class Game {
         story = ChapterBuilder.getInstance().getChapters();
         currentChapter = story.get(0);
         GUI = new Viewer(this);
-        inventory = new ArrayList<>();
+        player = new Player();
+        // inventory = new ArrayList<>();
     }
+
+    //*************** GETTERS/SETTERS ***************
+
 
     //*************** METHODS ***************
 
@@ -38,7 +43,7 @@ public class Game {
      */
     public void initialize() {
         updateGameState(currentChapter);
-        TextParser.getInstance().setCurrentChapter(currentChapter, inventory);
+        TextParser.getInstance().setCurrentChapter(currentChapter, player.getInventory());
         GUI.updateViewer();
     }
 
@@ -50,7 +55,7 @@ public class Game {
      */
     public void playerAction(String input) {
         updateGameState(currentChapter);
-        TextParser.getInstance().setCurrentChapter(currentChapter, inventory);
+        TextParser.getInstance().setCurrentChapter(currentChapter, player.getInventory());
         TextParser.getInstance().parseInput(input);
 
         // check if viewer sent valid input to test parser
@@ -103,8 +108,8 @@ public class Game {
             for (Chapter chapter : story) {
                 if (chapter.getChapterName().equals(GameState.getInstance().getSceneTitle())) {
                     currentChapter = chapter;
-                    inventory.clear();
-                    inventory.addAll(GameState.getInstance().getInventory());
+                    player.clearInventory();
+                    player.addToInventory(GameState.getInstance().getInventory());
                     break;
                 }
             }
@@ -129,7 +134,7 @@ public class Game {
         }
         //loop through all items in the TextParser and remove matched item
         for (Items item : TextParser.getInstance().getItemsToRemove()) {
-            removeItemFromInventory(item);
+            player.removeItemFromInventory(item);
         }
     }
 
@@ -145,13 +150,13 @@ public class Game {
         //update scene text, title, and inventory in the GameState class.
         GameState.getInstance().setSceneText(currentChapter.getSceneText());
         GameState.getInstance().setSceneTitle(currentChapter.getChapterName());
-        GameState.getInstance().setInventory(inventory);
+        GameState.getInstance().getPlayer().setInventory(player.getInventory());
     }
 
     //***************INVENTORY ACCESSOR METHODS***************
     public boolean findItemInInventory(Items toFind) {
         //loop through items in the inventory and find item by its name.
-        for (Items item : inventory) {
+        for (Items item : player.getInventory()) {
             if (item.getName().equals(toFind.getName())) {
                 return true;
             }
@@ -163,7 +168,7 @@ public class Game {
         // if the item is already in the inventory
         if (findItemInInventory(toAdd)) {
             // then we find the item
-            for (Items item : inventory) {
+            for (Items item : player.getInventory()) {
                 if (item.getName().equals(toAdd.getName())) {
                     // and just add to its count
                     item.setCount(item.getCount() + toAdd.getCount());
@@ -173,27 +178,8 @@ public class Game {
 
             // else we just add the item to the inventory list
         } else {
-            inventory.add(toAdd);
+            player.addToInventory(toAdd);
         }
-    }
-
-    private boolean removeItemFromInventory(Items toLose) {
-        // find the item in the inventory
-        for (Items item : inventory) {
-            if (item.getName().equals(toLose.getName())) {
-                // if there is more quantity than the player loses, just update count
-                if (item.getCount() > toLose.getCount()) {
-                    item.setCount(item.getCount() - toLose.getCount());
-                    // else remove item completely
-                } else {
-                    inventory.remove(item);
-                }
-                return true;
-            }
-        }
-
-        // return false if item not found in inventory
-        return false;
     }
 
 }
