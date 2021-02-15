@@ -3,12 +3,22 @@ package com.codebusters.game.combat;
 import java.util.Map;
 import java.util.Random;
 
-/*
- * CombatSystem sets up how fights between user and enemies work in game
- * With no weapons users will have a 50% chance of winning a fight,
- * weapons have a value that increases the chances based on a weighted value of the weapon used
- * example: fist - 5 so 5 in 10 chance of winning, pistol has weight of 4 - 5+4 = 9 -> 9 in 10 chance 90%
- * current version only allows one chance, user either wins or loses
+/**
+ * <p>
+ * CombatSystem.java - conflict resolution engine for rpg based game
+ * Determines if a user wins or loses a fight in game using the combat method
+ * default chance of winning a fight is 50%, weapons increase user percentage to win, highest chance to win is 90%
+ * with games strongest weapon
+ * </p>
+ * <pre>
+ * <code>
+ *     //to utilize in code to get fight winner
+ *     boolean isUserWin = CombatSystem.getInstance().combat("pistol");
+ * </code>
+ * </pre>
+ *
+ * @author Cody Cronberger
+ * @version 1.0
  */
 public class CombatSystem {
     private static CombatSystem instance = null;
@@ -24,23 +34,34 @@ public class CombatSystem {
     //needed to generate a random number
     private final Random rand;
 
+    //private ctor - CombatSystem is a singleton
     private CombatSystem() {
-        //add later
         rand = new Random();
     }
 
-    //get instance of CombatSystem
+    //get instance of CombatSystem singleton
     public static CombatSystem getInstance() {
         if (instance == null) {
             instance = new CombatSystem();
         }
         return instance;
     }
-    /*
-     * combat method takes the weapon the user is choosing to use in combat
-     * and calculates who wins the battle based on random chance
-     * If the random winning number falls in the range of the user, user wins and true is returned
-     * otherwise user loses and false is returned
+
+    /**
+     * <p>
+     * Determines the chance of user winning by adjusting chance based on the weight of the weapon user is utilizing
+     * When weapon passed in is not in game or possessed by user, defaults to fist which gives a 50% chance to win
+     * Complete random chance to win a fight, weapons increase that chance, highest chance to win is 90% based on
+     * games most powerful weapons
+     * </p>
+     * <pre>
+     * <code>
+     *     prompter.prompt("What would you like to do?", ["GO", "OPEN", "Look"], "I'm sorry I don't understand those commands");
+     * </code>
+     * </pre>
+     *
+     * @param userWeapon weapon the user is utilizing in combat
+     * @return boolean if true user won, else user lost
      */
     public boolean combat(String userWeapon) {
         //calculate userDmg based on weapon passed in
