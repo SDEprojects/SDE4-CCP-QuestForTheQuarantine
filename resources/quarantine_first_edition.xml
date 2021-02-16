@@ -10,85 +10,130 @@
    <Row>
     <Cell><Data Type="Number">0</Data></Cell>
     <Cell><Data Type="String">Quest for the Quarantine</Data></Cell>
-    <Cell><Data Type="String">Quest for the Quarantine follows our protagonist, 16-year-old Esperanza, as she navigates post-apocalyptic Mexico in hopes of reaching salvation in the form of the &quot;Quarantine Zone&quot;. As we follow Esperanza through her journey, we discover that the most pressing danger is the loss of humanity itself... Welcome to Quest for the Quarantine! Throughout this playable story you, the player, can enter commands to help Esperanza navigate both her paths and decisions. Commands must be in the form of “verb noun”. To begin the game, enter “start game” in the text box below. May you guide Esperanza safely to the Quarantine.</Data></Cell>
+    <Cell><Data Type="String">Quest for the Quarantine follows our protagonist, 16-year-old Esperanza, as she navigates post-apocalyptic Mexico in hopes of reaching salvation in the form of the QUARANTINE ZONE. As we follow Esperanza through her journey, we discover that the most pressing danger is the loss of humanity itself... Welcome to Quest for the Quarantine! Throughout this playable story you, the player, can enter commands to help Esperanza navigate both her paths and decisions. Commands must be in the form of “verb noun”. To begin the game, enter “start game” in the text box below. May you guide Esperanza safely to the Quarantine.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">1</Data></Cell>
     <Cell><Data Type="String">Mexico City</Data></Cell>
-    <Cell StyleID="s18"><Data Type="String">In the weeks following The Event,&#160;the days were unsafe. She had learned that lesson the hard way with the death of Mama. They took refuge in the night, and for months everything was okay. They even met others who had not succumbed, who were not Violent. They shared stories of past lives, better lives, and hope for salvation. Rumors of a safe zone in the United States, just outside San Diego, persisted among survivors. For a time, they had hope. But slowly, the survivors disappeared, Mama included; so she decided to leave,&#160;to seek out the refuge of the quarantine in the States. She slipped quietly into the night and made her way through the streets of Mexico City, careful to avoid others. As she approaches the main avenue, she notices a small store along the road heading out of the city. Perhaps I should look for supplies? She ponders. Or is it better to just leave the city?</Data></Cell>
+    <Cell ><Data Type="String">In the weeks following THE EVENT; the days were unsafe. She had learned that lesson the hard way with the death of Mama. They took refuge in the night, and for months everything was okay. They even met others who had not succumbed, who were not Violent. They shared stories of past lives, better lives, and hope for salvation. Rumors of a safe zone in the United States, just outside San Diego, persisted among survivors. For a time, they had hope. But slowly, the survivors disappeared, Mama included; so she decided to leave, to seek out the refuge of the quarantine in the States. She slipped quietly into the night and made her way through the streets of Mexico City, careful to avoid others. As she approaches the main avenue, she notices a small store along the road heading out of the city. Perhaps I should look for supplies? She ponders. Or is it better to just leave the city?</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="String">1A</Data></Cell>
     <Cell><Data Type="String">Mexico City: Construcentro</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">The sign above the door reads “Construcentro”. Esperanza steps through the shadowed doorframe and is immediately hit with the smell of mildew. She gazes around the dark store- and notes it’s pretty barren. To her right along the wall is an old storage crate and behind the counter is an unopened delivery box. Outside, some distant shouting appears to grow stronger. If she’s going to grab something, she should be quick.</Data></Cell>
+    <Cell ><Data Type="String">The sign above the door reads “Construcentro”. Esperanza steps through the shadowed doorframe and is immediately hit with the smell of mildew. She gazes around the dark store- and notes it’s pretty barren. To her right along the wall is an old storage crate and behind the counter is an unopened delivery box. Outside, some distant shouting appears to grow stronger. If she’s going to grab something, she should be quick.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">2</Data></Cell>
     <Cell><Data Type="String">Outside Leon</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">It has been nearly two weeks since Esperanza has departed Mexico City. After roughly 500 km of hiking, her feet hurt, and she is beginning to run low on supplies. On the twelfth day of her journey, she crests a ridge and spots a city in the valley below. Judging by the nearby highway sign, it’s the city of Leon. There’s people there, potentially dangerous people. On one hand, she needs to make a supply run, but on the other she really likes being alive. She could possibly give the city a wide berth, ignoring it completely, but only if she has enough water in her backpack.</Data></Cell>
+    <Cell ><Data Type="String">It has been two weeks since Esperanza has departed Mexico City. After roughly 500 km of hiking, she is beginning to run low on supplies. She crests a ridge and spots a city in the valley below. The nearby highway sign says it’s the city of Leon. There’s people there, potentially dangerous people. On one hand, she needs to make a supply run, but on the other she really likes being alive. She could possibly give the city a wide berth, ignoring it completely, but only if she has enough water in her backpack.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">3</Data></Cell>
     <Cell><Data Type="String">Leon</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">The sun has now fully disappeared behind the horizon as she makes her way into Leon. Old, decrepit cars accentuate the crumbling roadways. There are definite signs of habitation however, as she notes some uncorroded ammunition shells at the entry of an alleyway. She pauses to look back and reconsider her decision, but decides to continue forward. An hour later she enters a small square. She gazes around the square and notes a couple potential looting points: an apartment across the square with a shattered second-story window and a fire escape, and a small bodega below. Or she could continue farther down the road.</Data></Cell>
+    <Cell ><Data Type="String">The sun has disappeared behind the horizon as she makes her way into Leon. There are definite signs of habitation however, as she notes some uncorroded ammunition shells at the entry of an alleyway. She pauses to look back and reconsider her decision, but decides to continue forward. An hour later she enters a small square. She gazes around the square and notes a couple potential looting points: an apartment across the square with a second-story, and a small bodega below. Or she could continue farther down the road.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="String">3A</Data></Cell>
     <Cell><Data Type="String">Leon: Apartment</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">Once inside the apartment, Esperanza immediately regrets her decision. A violent smell assaults her nose…something is dead in here. With her senses heightened, Esperanza peers down the hallway and notices two doors: one open and one closed. It’s evident the smell is coming from the closed door, but with a quick glance the other room appears to be a bedroom. With her back to the closed door, the hair on her neck begins to stand. She notices a faint creaking coming from the closed room. Between the smell and the adrenaline, she considers escaping the apartment as fast as possible. But there may be treasure to be had within the bedroom.</Data></Cell>
+    <Cell ><Data Type="String">Once inside the apartment, Esperanza immediately regrets her decision. A violent smell assaults her nose…something is dead in here. With her senses heightened, Esperanza peers down the hallway and notices two doors: one open and one closed. It’s evident the smell is coming from the closed door, but with a quick glance the other room appears to be a bedroom. With her back to the closed door, the hair on her neck begins to stand. She notices a faint creaking coming from the closed room. Between the smell and the adrenaline, she considers escaping the apartment as fast as possible. But there may be treasure to be had within the bedroom.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="String">3B</Data></Cell>
     <Cell><Data Type="String">Leon: Bodega</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">The bodega is dimly lit, and it appears to Esperanza that she is far from being the first person to scavenge in here. Empty bottles and wrappers layer the floor. Few things remain untouched. She picks her way around the discarded remnants for a while, but it proves unfruitful. A distant sound, possibly human, cause her to bolt upright, eyes wide. She cocks her head and listens for a while but notices no other sounds. As she makes her way to the doorway, she notices a small cabinet with closed doors behind the counter. It’s low to the ground and otherwise hidden at eye level.</Data></Cell>
+    <Cell ><Data Type="String">The bodega is dimly lit, and it appears to Esperanza that she is far from being the first person to scavenge in here. Few things remain untouched. She picks her way around the discarded remnants for a while, but it proves unfruitful. A distant sound, possibly human, cause her to bolt upright, eyes wide. She cocks her head and listens for a while but notices no other sounds. As she makes her way to the doorway, she notices a small cabinet with closed doors behind the counter. It’s low to the ground and otherwise hidden at eye level.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="String">3C</Data></Cell>
     <Cell><Data Type="String">Leon: Alleyway</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">As she leaves the city, she feels that someone is watching her. She searches the shadows. Nothing. She hears glass bottles rolling on concrete. Time slows down. She can hear footsteps in pursuit. She sprints- ducking around corners. Later in a dark alley she pauses. Can she use something as a distraction? She thinks she can make a run for it maybe, but it might help to divert their attention.</Data></Cell>
+    <Cell ><Data Type="String">As she leaves the city, she feels that someone is watching her. She searches the shadows. Nothing. She hears glass bottles rolling on concrete. Time slows down. She can hear footsteps in pursuit. She sprints- ducking around corners. Later in a dark alley she pauses. Can she use something as a distraction? She thinks she can make a run for it maybe, but it might help to divert their attention.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">4</Data></Cell>
     <Cell><Data Type="String">El Chayote</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">A week later, Esperanza finds herself trudging along a dirt road. Since Leon, she had played it safe and avoided any large settlements. As she comes around a bend in the road, she notices a small farmstead to her right. The remnants of a fenced pasture dot the roadside. At the end of a path is a wooden chair with an elderly man. He nods to Esperanza as she approaches, and she regards him cautiously. The farmer attempts to initiate a barter. He wants  ammo and he’s offering the contents of a medium-sized sack he has laying on the ground next to his chair.</Data></Cell>
+    <Cell ><Data Type="String">A week later, Esperanza finds herself trudging along a dirt road. Since Leon, she had played it safe and avoided any large settlements. As she comes around a bend in the road, she notices a small farmstead to her right. The remnants of a fenced pasture dot the roadside. At the end of a path is a wooden chair with an elderly man. He nods to Esperanza as she approaches, and she regards him cautiously. The farmer attempts to initiate a barter. He needs matches and he’s offering the contents of a medium-sized sack he has laying on the ground next to his chair.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">5</Data></Cell>
     <Cell><Data Type="String">Zacatecas</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">As Esperanza’s odyssey continues, the mountains in the distance continue to grow larger. She knows the time is getting near for her to traverse the range and reach the western side. As she reaches the foothills, a small village lies in her path. At first observation, it seems completely abandoned. This might be her last chance to get supplies before she summits, but it isn’t devoid of risk. She would need water if she were going to go around the town.</Data></Cell>
+    <Cell ><Data Type="String">As Esperanza’s odyssey continues, the mountains in the distance continue to grow larger. She knows the time is getting near for her to traverse the range and reach the western side. As she reaches the foothills, a small village lies in her path. At first observation, it seems completely abandoned. This might be her last chance to get supplies before she summits, but it isn’t devoid of risk. She would need water if she were going to go around the town.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">6</Data></Cell>
     <Cell><Data Type="String">Sierra Madre Foothills (East)</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">At long last Esperanza reaches the base of the mountains known as the Sierra Madre. She rests for a day before starting her journey. It would benefit her to get some sustenance before the next leg of her journey. Perhaps some food or water, or she could even hunt if she had the right tools.</Data></Cell>
+    <Cell ><Data Type="String">At long last Esperanza reaches the base of the mountains known as the Sierra Madre. She rests for a day before starting her journey. It would benefit her to get some sustenance before the next leg of her journey. Perhaps some food or water, or she could even hunt if she had the right tools.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">50</Data></Cell>
+    <Cell><Data Type="String">South of Durango</Data></Cell>
+    <Cell><Data Type="String">Looking North, you realize things are going to get tougher. There will be fights for survival. Decisions will need to be made. Fight or Flight is in effect. Supplies will needed for both survival and fighting.  KEY * When you fight; you need to use the form "fight noun".*    For now, we need to decide to enter Durango, or not.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">53</Data></Cell>
+    <Cell><Data Type="String">Durango</Data></Cell>
+    <Cell><Data Type="String">You will need to fight or flee. ¿But what to use to fight with? ¿Fight with weapon (fight what weapon) or is this gonna be a fist fight (use, fist)? </Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">51</Data></Cell>
+    <Cell><Data Type="String">Streets of Durango</Data></Cell>
+    <Cell><Data Type="String">You just ran into a roaming band of 3 banditos.  They have stuff you need, are the risks worth it? Do you fight or run away?</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">60</Data></Cell>
+    <Cell><Data Type="String">Torreon</Data></Cell>
+    <Cell><Data Type="String">Looking around the barron streets, you see an abandonded warehouse and a pharmacia. Time is short, as the city looks dangerous. This could be dangerous. Should we try one and take risks? Or go around?</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">70</Data></Cell>
+    <Cell><Data Type="String">South of Monclova</Data></Cell>
+    <Cell><Data Type="String">You stumble upon a dangerous looking old ranch, south of town. You got a bad vibe about this. It is situated in a valley you have to pass through. No choice but forward.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">75</Data></Cell>
+    <Cell><Data Type="String">Rancho de Los Miserables</Data></Cell>
+    <Cell><Data Type="String">These guys are going to give you no choice but to fight it out for your pack.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">80</Data></Cell>
+    <Cell><Data Type="String">Nuevo Laredo MX</Data></Cell>
+    <Cell><Data Type="String">So close to the border, you can feel it. Across the border is possible safety from this apocolypts.  But it looks like you only have two choices through it: Through a mining camp or through a border depot. Both look to have dangers. This time you can't go around.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">100</Data></Cell>
+    <Cell><Data Type="String">Mining Camp</Data></Cell>
+    <Cell><Data Type="String">Oh this part of the border is patroled by coyotes that want your bag and they got some tough miners to help them take it.  You will have no choice but to fight to get across the border.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">110</Data></Cell>
+    <Cell><Data Type="String">Border Depot</Data></Cell>
+    <Cell><Data Type="String">Oh this part of the border is controlled by coyotes that want your stuff and they got local toughs to help them take it.  You will have no choice but to fight to get across the border.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">96</Data></Cell>
-    <Cell><Data Type="String">End of Part 1</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">You have reached the end of Part 1 of Esperanza’s story. We hope to have Parts 2 and 3 ready in the near future. Thank you for guiding Esperanza on her journey!</Data></Cell>
+    <Cell><Data Type="String">You Lost</Data></Cell>
+    <Cell ><Data Type="String">If your seeing this message, you lost a virtual fight and DIED...  Poor Esparanza won't make it across the border to safety now.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">97</Data></Cell>
-    <Cell><Data Type="String">End of Part 2</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">You have reached the end of Part 1 of Esperanza’s story. We hope to have Part 3 ready in the near future. Thank you for guiding Esperanza on her journey!</Data></Cell>
+    <Cell><Data Type="String">End of this series</Data></Cell>
+    <Cell ><Data Type="String">You have reached the Border and the end of this series of Esperanza’s story.  Thank you for guiding Esperanza on her journey!</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">98</Data></Cell>
     <Cell><Data Type="String">Death</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">Esperanza has died. You make a terrible guide. Feel free to start over and uh…try not get her killed again.</Data></Cell>
+    <Cell ><Data Type="String">Esperanza has died. You make a terrible guide. Feel free to start over and uh…try not get her killed again.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">99</Data></Cell>
     <Cell><Data Type="String">End</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String"
-    >Esperanza has successfully completed her journey and she thanks you for guiding her to safety.</Data></Cell>
+    <Cell ><Data Type="String">Esperanza has successfully completed her journey and she thanks you for guiding her to safety.</Data></Cell>
    </Row>
+
   </Table>
  </Worksheet>
 
  <Worksheet Name="Paths">
   <Table>
-   <Row StyleID="s17">
+   <Row >
     <Cell><Data Type="String">pathId</Data></Cell>
     <Cell><Data Type="String">chapterId</Data></Cell>
     <Cell><Data Type="String">pathName</Data></Cell>
@@ -99,6 +144,7 @@
     <Cell><Data Type="String">loseItems</Data></Cell>
     <Cell><Data Type="String">requiredItems</Data></Cell>
     <Cell><Data Type="String">pathText</Data></Cell>
+    <Cell><Data Type="String">lossId</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">0</Data></Cell>
@@ -121,7 +167,7 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell StyleID="s18"><Data Type="String">Esperanza decides the smartest thing to do is to look for some supplies before her trek and makes her way towards the store.</Data></Cell>
+    <Cell ><Data Type="String">Esperanza decides the smartest thing to do is to look for some supplies before her trek and makes her way towards the store.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">2</Data></Cell>
@@ -133,7 +179,7 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell StyleID="s18"><Data Type="String">No need to waste any more time in this god-forsaken city. Esperanza disregards the small store and continues down the main road and out of the city.</Data></Cell>
+    <Cell ><Data Type="String">No need to waste any more time in this god-forsaken city. Esperanza disregards the small store and continues down the main road and out of the city.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">3</Data></Cell>
@@ -145,7 +191,7 @@
     <Cell><Data Type="String">matches,water,water</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">She decides the box looks more promising and quickly makes her way over to it. What she finds inside: a box of matches and 2L of water. Not too bad. She grabs the items and places them in her backpack before heading back out the door, and out of the city.</Data></Cell>
+    <Cell ><Data Type="String">She decides the box looks more promising and quickly makes her way over to it. What she finds inside: a box of matches and 2L of water. Not too bad. She grabs the items and places them in her backpack before heading back out the door, and out of the city.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">4</Data></Cell>
@@ -154,10 +200,10 @@
     <Cell><Data Type="String">take</Data></Cell>
     <Cell><Data Type="String">crate</Data></Cell>
     <Cell><Data Type="Number">2</Data></Cell>
-    <Cell><Data Type="String">flashlight,machete</Data></Cell>
+    <Cell><Data Type="String">flashlight,machete,food</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">She decides the crate looks more promising and quickly makes her way over to it. She finds two items: a flashlight and a machete. Not too bad. She grabs the items and places them in her backpack before heading back out the door, and out of the city.</Data></Cell>
+    <Cell ><Data Type="String">She finds a flashlight, a machete, and food.  She grabs the items heading out the door, and out of the city.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">5</Data></Cell>
@@ -169,7 +215,7 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">She decides the best course of action is to just get out of the city as soon as possible. Heading back out the door of Construcentro, she continues down the main road and out of the city.</Data></Cell>
+    <Cell ><Data Type="String">She decides the best course of action is to just get out of the city as soon as possible. Heading back out the door of Construcentro, she continues down the main road and out of the city.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">6</Data></Cell>
@@ -181,7 +227,7 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">water</Data></Cell>
     <Cell><Data Type="String">water</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">She’s got enough water and would rather not risk unnecessary contact with individuals, so she decides to go around the city and avoid it completely. She heads to the west, keeping several kilometers between her and the urban center.</Data></Cell>
+    <Cell ><Data Type="String">She’s got enough water and would rather not risk unnecessary contact with individuals, so she decides to go around the city and avoid it completely. She heads to the west, keeping several kilometers between her and the urban center.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">7</Data></Cell>
@@ -193,7 +239,7 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">She really needs some more water and after two weeks on the road, some additional supplies wouldn’t hurt either. She heads down the ridge and makes her way into the city.</Data></Cell>
+    <Cell ><Data Type="String">She really needs some more water and after two weeks on the road, some additional supplies wouldn’t hurt either. She heads down the ridge and makes her way into the city.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">8</Data></Cell>
@@ -205,7 +251,7 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">Being on the second story, the apartment is less likely to be picked clean, she reasons. She approaches the fire escape and scrambles up it. Once at the top, she carefully makes her way across the broken glass and through the window frame.</Data></Cell>
+    <Cell ><Data Type="String">Being on the second story, the apartment is less likely to be picked clean, she reasons. She approaches the fire escape and scrambles up it. Once at the top, she enters.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">9</Data></Cell>
@@ -238,10 +284,10 @@
     <Cell><Data Type="String">search</Data></Cell>
     <Cell><Data Type="String">bedroom</Data></Cell>
     <Cell><Data Type="String">3C</Data></Cell>
-    <Cell><Data Type="String">pistol ammo,firecrackers</Data></Cell>
+    <Cell><Data Type="String">pistol,ammo,firecrackers</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell StyleID="s19"><Data >She steps into the bedroom. She checks is under the bed: a small wooden keepsake box resides there. She opens it and finds some pistol ammunition and a string of firecrackers. She shoves them in her pockets and rushes out of the room. A wet spot causes her to slip and fall backwards into the closed door, forcing it open. The smell is overwhelming, and she immediately vomits. She notices a faint brushing against her cheek. She is paralyzed in fear but manages to look out of the corner of her eye. A body is suspended from above. She crawls out of the room and scrambles out of the apartment.</Data></Cell>
+    <Cell ><Data >She steps into the bedroom. She checks is under the bed: a small wooden keepsake box resides there. She opens it and finds a pistol with ammunition and a string of firecrackers. She takes them and rushes out of the room. She slips and falls backwards into the closed door, it opens. The smell is overwhelming, and she immediately vomits. She is paralyzed in fear but manages to look out of the corner of her eye. A body is suspended from above. She crawls out of the room and scrambles out of the apartment.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">12</Data></Cell>
@@ -253,7 +299,7 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">The fear is too great, and rightly so. She turns and quickly tiptoes back out of the window and down the fire escape.</Data></Cell>
+    <Cell ><Data Type="String">The fear is too great, and rightly so. She turns and quickly tiptoes back out of the window and down the fire escape.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">13</Data></Cell>
@@ -265,7 +311,7 @@
     <Cell><Data Type="String">water,food</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">She pulls open the cabinet doors and hurriedly searches, grasping a bottle of water and a small packet of food before turning and leaving the store.</Data></Cell>
+    <Cell ><Data Type="String">She pulls open the cabinet doors and hurriedly searches, grasping a bottle of water and a small packet of food before turning and leaving the store.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">14</Data></Cell>
@@ -277,7 +323,7 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">The sound has her spooked and she decides to just get away from the square with haste. She steps out of the store and keeps winding her way through the rubble and down the street.</Data></Cell>
+    <Cell ><Data Type="String">The sound has her spooked and she decides to just get away from the square with haste. She steps out of the store and keeps winding her way through the rubble and down the street.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">15</Data></Cell>
@@ -289,7 +335,7 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">firecrackers</Data></Cell>
     <Cell><Data Type="String">firecrackers</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">Pulling the firecrackers out of her pocket, she quickly lights them and lobs them over the roof of the building behind her. She immediately sprints down the roadway. Behind her the sounds of cracks, snaps, and pops greet her, followed by a delayed shouting. She is out of the city limits within a few minutes.</Data></Cell>
+    <Cell ><Data Type="String">Pulling the firecrackers out of her pocket, she quickly lights them and lobs them over the roof of the building behind her. She immediately sprints down the roadway. Behind her the sounds of cracks, snaps, and pops greet her, followed by a delayed shouting. She is out of the city limits within a few minutes.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">16</Data></Cell>
@@ -301,19 +347,19 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">water</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">Mistakenly she immediately runs out of the alley and into a shadowy figure, both falling to the ground. She scrambles to her feet, but the person has a hand on her backpack. Digging her heels in, she pulls forward and a small ripping sound issues from her backpack. The person falls to the ground again and she hears the sound of something falling out of her backpack. She sprints and is out of the city in minutes, alone and safe.</Data></Cell>
+    <Cell ><Data Type="String">She immediately runs out of the alley and into a shadowy figure, they fall to the ground. She scrambles to her feet, but the person has a hand on her backpack. Digging her heels in, she pulls forward and a small ripping sound issues from her backpack. The person falls to the ground again and she hears the sound of something falling out of her backpack. She sprints and is out of the city in minutes.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">17</Data></Cell>
     <Cell><Data Type="Number">4</Data></Cell>
-    <Cell><Data Type="String">Trade Ammo</Data></Cell>
+    <Cell><Data Type="String">Trade Matches</Data></Cell>
     <Cell><Data Type="String">trade</Data></Cell>
-    <Cell><Data Type="String">ammo</Data></Cell>
+    <Cell><Data Type="String">matches</Data></Cell>
     <Cell><Data Type="Number">5</Data></Cell>
     <Cell><Data Type="String">pan,medkit</Data></Cell>
-    <Cell><Data Type="String">pistol ammo</Data></Cell>
-    <Cell><Data Type="String">pistol ammo</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">Esperanza acquiesces and holds out her ammo. The farmer looks excited and hands her the sack in return, which she then opens and peers inside. The contents are a small first aid kit and a cooking pan; they could prove useful. She waves goodbye, and continues down the dirt road.</Data></Cell>
+    <Cell><Data Type="String">matches</Data></Cell>
+    <Cell><Data Type="String">matches</Data></Cell>
+    <Cell ><Data Type="String">Esperanza acquiesces and holds out her box of matches. The farmer looks excited and hands her the sack in return, which she then opens and peers inside. The contents are a small first aid kit and a cooking pan; they could prove useful. She waves goodbye, and continues down the dirt road.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">18</Data></Cell>
@@ -325,7 +371,7 @@
     <Cell><Data Type="String">pistol,food</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">machete</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">Esperanza whips out her machete and raises it in the air menacingly. Surprised, the farmer stumbles backwards, a look of betrayal in his eyes. She tells him to run and he doesn’t hesitate, bounding back towards the house with the sack in his hand. She notices a wooden box on the ground under the chair. Opening it, she finds a pistol and some food. She let’s the farmer live another day.</Data></Cell>
+    <Cell ><Data Type="String">Esperanza whips out her machete and raises it in the air menacingly. Surprised, the farmer stumbles backwards, a look of betrayal in his eyes. She tells him to run and he doesn’t hesitate, bounding back towards the house with the sack in his hand. She notices a wooden box on the ground under the chair. Opening it, she finds a pistol and some food. She let’s the farmer live another day.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">19</Data></Cell>
@@ -337,7 +383,7 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">She politely declines the farmer’s offer. It’s a relief to meet someone not Violent. Something that seems to be happening less frequently as time wears on.</Data></Cell>
+    <Cell ><Data Type="String">She politely declines the farmer’s offer. It’s a relief to meet someone not Violent. Something that seems to be happening less frequently as time wears on.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">20</Data></Cell>
@@ -349,7 +395,7 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">water</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">She has water to spare and no time to waste, so she gives the village a wide berth and continues on her way.</Data></Cell>
+    <Cell ><Data Type="String">She has water to spare and no time to waste, so she gives the village a wide berth and continues on her way.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">21</Data></Cell>
@@ -358,10 +404,10 @@
     <Cell><Data Type="String">enter</Data></Cell>
     <Cell><Data Type="String">town</Data></Cell>
     <Cell><Data Type="Number">6</Data></Cell>
-    <Cell><Data Type="String">pocketknife,water</Data></Cell>
+    <Cell><Data Type="String">knife,water</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">She walks down the small main road and into the village. The place is devoid of any signs of life. Towards the center of the village, she finds an overturned truck with its contents and broken glass strewn about. She rummages about and is able to acquire a pocketknife and another bottle of water. Satisfied, she follows the road out of the village.</Data></Cell>
+    <Cell StyleID="s19"><Data Type="String">She walks down the small main road and into the village. The place is devoid of any signs of life. Towards the center of the village, she finds an overturned truck with its contents and broken glass strewn about. She rummages about and is able to acquire a knife and another bottle of water. Satisfied, she follows the road out of the village.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">22</Data></Cell>
@@ -369,11 +415,11 @@
     <Cell><Data Type="String">Drink Water</Data></Cell>
     <Cell><Data Type="String">drink</Data></Cell>
     <Cell><Data Type="String">water</Data></Cell>
-    <Cell><Data Type="Number">96</Data></Cell>
-    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="Number">50</Data></Cell>
+    <Cell><Data Type="Number">fist</Data></Cell>
     <Cell><Data Type="String">water</Data></Cell>
     <Cell><Data Type="String">water</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">Hydrate or die-drate, she muses. She downs another liter of water. She sighs and looks to the valley behind her. Looking south, somewhere down there is her home. Or what used to be her home. She shoulders her backpack higher, and steps off into the mountains, never again looking back.</Data></Cell>
+    <Cell ><Data Type="String"> She downs another liter of water. Looking North, she sees the city of Durango. Onward North.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">23</Data></Cell>
@@ -381,11 +427,11 @@
     <Cell><Data Type="String">Eat Food</Data></Cell>
     <Cell><Data Type="String">eat</Data></Cell>
     <Cell><Data Type="String">food</Data></Cell>
-    <Cell><Data Type="Number">96</Data></Cell>
-    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="Number">50</Data></Cell>
+    <Cell><Data Type="Number">fist</Data></Cell>
     <Cell><Data Type="String">food</Data></Cell>
     <Cell><Data Type="String">food</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">A rumbling stomach concludes that she needs to eat. She downs another packet of food. She sighs and looks to the valley behind her. Looking south, somewhere down there is her home. Or what used to be her home. She shoulders her backpack higher, and steps off into the mountains, never again looking back.</Data></Cell>
+    <Cell ><Data Type="String">She downs another packet of food. Looking North, she sees the city of Durango. Onward North.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">24</Data></Cell>
@@ -393,11 +439,11 @@
     <Cell><Data Type="String">Use Machete</Data></Cell>
     <Cell><Data Type="String">use</Data></Cell>
     <Cell><Data Type="String">machete</Data></Cell>
-    <Cell><Data Type="Number">96</Data></Cell>
-    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="Number">50</Data></Cell>
+    <Cell><Data Type="Number">fist</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">machete</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">Using her machete, she’s able to turn a roaming tortoise into a solid meal. She eats. She sighs and looks to the valley behind her. Looking south, somewhere down there is her home. Or what used to be her home. She shoulders her backpack higher, and steps off into the mountains, never again looking back.</Data></Cell>
+    <Cell ><Data Type="String">Using her machete, she’s able to turn a wild goat into a solid meal. She eats. Looking North, she sees the city of Durango. Onward North. </Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">25</Data></Cell>
@@ -409,27 +455,384 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell StyleID="s19"><Data Type="String">Ambitiously, she immediately begins the hike into the mountains. Within hours she feels extremely weak and can barely move. Her muscles tighten and cramp with every passing moment. Her breath gets harder to catch, the panting is never-ending. Her vision slowly begins to fade, but not before she notices several moving shapes around her. Coyotes are circling her. A sharp pain followed by warmth. And then darkness.</Data></Cell>
+    <Cell ><Data Type="String">Ambitiously, she immediately begins the hike into the mountains. Within hours she feels extremely weak and can barely move. Her muscles tighten and cramp with every passing moment. Her breath gets harder to catch, the panting is never-ending. Her vision slowly begins to fade, but not before she notices several moving shapes around her. Coyotes are circling her. A sharp pain followed by warmth. And then darkness.</Data></Cell>
    </Row>
+   <Row>
+    <Cell><Data Type="Number">50A</Data></Cell>
+    <Cell><Data Type="Number">50</Data></Cell>
+    <Cell><Data Type="String">Enter Durango</Data></Cell>
+    <Cell><Data Type="String">enter</Data></Cell>
+    <Cell><Data Type="String">city</Data></Cell>
+    <Cell ><Data Type="Number">53</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+
+    <Cell><Data Type="String">Luck ran out.  Banditos are blocking your route. </Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="String">50B</Data></Cell>
+    <Cell><Data Type="Number">50</Data></Cell>
+    <Cell><Data Type="String">Avoid Durango</Data></Cell>
+    <Cell><Data Type="String">go</Data></Cell>
+    <Cell><Data Type="String">around</Data></Cell>
+    <Cell ><Data Type="Number">60</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">water,food</Data></Cell>
+
+    <Cell><Data Type="String">Avoiding the city is safe, but you use up needed supplies</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="String">51A</Data></Cell>
+    <Cell><Data Type="Number">53</Data></Cell>
+    <Cell><Data Type="String">Fight Banditos w/ pistol</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
+    <Cell><Data Type="String">pistol</Data></Cell>
+    <Cell ><Data Type="Number">60</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">ammo</Data></Cell>
+    <Cell><Data Type="String">pistol,ammo</Data></Cell>
+    <Cell><Data Type="String">Good thing you aquired the pistol and ammo as that gives you the best odds in a fight. Esperanza's aim was true and she has survived the fight, unfortunately she used up ammo.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="String">51B</Data></Cell>
+    <Cell><Data Type="Number">53</Data></Cell>
+    <Cell><Data Type="String">Fight Banditos w/ machete</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
+    <Cell><Data Type="String">machete</Data></Cell>
+    <Cell ><Data Type="Number">60</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">machete</Data></Cell>
+    <Cell><Data Type="String">machete</Data></Cell>
+    <Cell><Data Type="String">Fighting with the machete improves your odds. Esperanza hacked and slashed her way to victory, unfortunately during the fight she lost the machete.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="String">51C</Data></Cell>
+    <Cell><Data Type="Number">53</Data></Cell>
+    <Cell><Data Type="String">Fight Banditos w/ knife</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
+    <Cell><Data Type="String">knife</Data></Cell>
+    <Cell ><Data Type="Number">60</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">knife</Data></Cell>
+    <Cell><Data Type="String">knife</Data></Cell>
+    <Cell><Data Type="String">Fighting with knife is better than fist, but the odds are still tough. Even with poor odds Esperanza stabbed her way to victory, but during the fight she lost the knife.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">51D</Data></Cell>
+    <Cell><Data Type="Number">53</Data></Cell>
+    <Cell><Data Type="String">fight Banditos w/ fist</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
+    <Cell><Data Type="String">fist</Data></Cell>
+    <Cell ><Data Type="Number">60</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">fist,medkit</Data></Cell>
+    <Cell><Data Type="String">fist</Data></Cell>
+    <Cell><Data Type="String">The odds are not great fight with fist, however Esperanza has come out triumphant during the fight, she got banged up and won't be fighting with her fist for a while, and she used her medkit after the squirmish.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">63</Data></Cell>
+    <Cell><Data Type="Number">60</Data></Cell>
+    <Cell><Data Type="String">avoid torreon</Data></Cell>
+    <Cell><Data Type="String">go</Data></Cell>
+    <Cell><Data Type="String">around</Data></Cell>
+    <Cell ><Data Type="Number">70</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">water</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">Maybe a safe bet, but you tripped going through a pile of rubbage and lost valuable water.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">61</Data></Cell>
+    <Cell><Data Type="Number">60</Data></Cell>
+    <Cell><Data Type="String">search warehouse</Data></Cell>
+    <Cell><Data Type="String">search</Data></Cell>
+    <Cell><Data Type="String">warehouse</Data></Cell>
+    <Cell ><Data Type="Number">70</Data></Cell>
+    <Cell><Data Type="String">ax,matches</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">Luck is with you, managed to get supplies and get out before running into danger.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">62</Data></Cell>
+    <Cell><Data Type="Number">60</Data></Cell>
+    <Cell><Data Type="String">search pharmacia</Data></Cell>
+    <Cell><Data Type="Number">search</Data></Cell>
+    <Cell><Data Type="Number">pharmacia</Data></Cell>
+    <Cell ><Data Type="Number">70</Data></Cell>
+    <Cell><Data Type="String">medkit,water</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">Luck is with you, managed to get supplies and get out before running into danger.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">71</Data></Cell>
+    <Cell><Data Type="Number">70</Data></Cell>
+    <Cell><Data Type="String">enter ranch</Data></Cell>
+    <Cell><Data Type="String">enter</Data></Cell>
+    <Cell><Data Type="String">ranch</Data></Cell>
+    <Cell ><Data Type="Number">75</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">Bad news, hungry dieing vaqueros(cowboys) and they want what you got by the looks in their eyes. Looks like a fight is inevitable.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">72</Data></Cell>
+    <Cell><Data Type="Number">70</Data></Cell>
+    <Cell><Data Type="String">avoid ranch</Data></Cell>
+    <Cell><Data Type="String">go</Data></Cell>
+    <Cell><Data Type="String">around</Data></Cell>
+    <Cell ><Data Type="Number">70</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="Number">water</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">Doesn't look like you can find away around safely. You loose valuable water, looking for a route.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">73</Data></Cell>
+    <Cell><Data Type="Number">70</Data></Cell>
+    <Cell><Data Type="String">fight cowboys w/ pistol</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
+    <Cell><Data Type="String">pistol</Data></Cell>
+    <Cell ><Data Type="Number">80</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">ammo</Data></Cell>
+    <Cell><Data Type="String">pistol,ammo</Data></Cell>
+    <Cell><Data Type="String">Good thing you aquired the pistol and ammo as that gives you the best odds in a fight. Esperanza's aim was true and she has survived the fight, unfortunately she used up ammo.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">75</Data></Cell>
+    <Cell><Data Type="Number">75</Data></Cell>
+    <Cell><Data Type="String">fight cowboys w/ machete</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
+    <Cell><Data Type="String">machete</Data></Cell>
+    <Cell ><Data Type="Number">80</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">machete</Data></Cell>
+    <Cell><Data Type="String">machete</Data></Cell>
+    <Cell><Data Type="String">Fighting with the machete improves your odds. Esperanza hacked and slashed her way to victory, unfortunately during the fight she lost the machete.</Data></Cell>    <Cell><Data Type="Number">98</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">76</Data></Cell>
+    <Cell><Data Type="Number">75</Data></Cell>
+    <Cell><Data Type="String">fight cowboys w/ knife</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
+    <Cell><Data Type="String">knife</Data></Cell>
+    <Cell ><Data Type="Number">80</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="Sting">knife</Data></Cell>
+    <Cell><Data Type="String">knife</Data></Cell>
+    <Cell><Data Type="String">Fighting with knife is better than fist, but the odds are still tough. Even with poor odds Esperanza stabbed her way to victory, but during the fight she lost the knife.</Data></Cell>    <Cell><Data Type="Number">98</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">77</Data></Cell>
+    <Cell><Data Type="Number">75</Data></Cell>
+    <Cell><Data Type="String">fight cowboys w/ ax</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
+    <Cell><Data Type="String">ax</Data></Cell>
+    <Cell ><Data Type="Number">80</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">ax</Data></Cell>
+    <Cell><Data Type="String">ax</Data></Cell>
+    <Cell><Data Type="String">Fighting with an ax is risk, but Esperanza made it work and hacked her way to triumph.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">78</Data></Cell>
+    <Cell><Data Type="Number">75</Data></Cell>
+    <Cell><Data Type="String">fight cowboys w/ fist</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
+    <Cell><Data Type="String">fist</Data></Cell>
+    <Cell ><Data Type="Number">80</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">fist,medkit</Data></Cell>
+    <Cell><Data Type="String">fist</Data></Cell>
+    <Cell><Data Type="String">The odds are not great fight with fist, however Esperanza has come out triumphant during the fight, she got banged up and won't be fighting with her fist for a while, and she used her medkit after the squirmish.</Data></Cell>    <Cell><Data Type="Number">98</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">81</Data></Cell>
+    <Cell><Data Type="Number">80</Data></Cell>
+    <Cell><Data Type="String">enter mining camp</Data></Cell>
+    <Cell><Data Type="String">enter</Data></Cell>
+    <Cell><Data Type="String">camp</Data></Cell>
+    <Cell ><Data Type="Number">100</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">It looks like a fight.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">85</Data></Cell>
+    <Cell><Data Type="Number">80</Data></Cell>
+    <Cell><Data Type="String">enter depot</Data></Cell>
+    <Cell><Data Type="String">enter</Data></Cell>
+    <Cell><Data Type="String">depot</Data></Cell>
+    <Cell ><Data Type="Number">110</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">It looks like a fight.</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">101</Data></Cell>
+    <Cell><Data Type="Number">100</Data></Cell>
+    <Cell><Data Type="String">fight miners w/ pistol</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
+    <Cell><Data Type="String">pistol</Data></Cell>
+    <Cell ><Data Type="Number">97</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">ammo</Data></Cell>
+    <Cell><Data Type="String">pistol,ammo</Data></Cell>
+    <Cell><Data Type="String">Good thing you aquired the pistol and ammo as that gives you the best odds in a fight. Esperanza's aim was true and she has survived the fight, unfortunately she used up ammo.</Data></Cell>    <Cell><Data Type="Number">98</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">102</Data></Cell>
+    <Cell><Data Type="Number">100</Data></Cell>
+    <Cell><Data Type="String">fight miners w/ ax</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
+    <Cell><Data Type="String">ax</Data></Cell>
+    <Cell ><Data Type="Number">97</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">ax</Data></Cell>
+    <Cell><Data Type="String">ax</Data></Cell>
+    <Cell><Data Type="String">Fighting with an ax is risk, but Esperanza made it work and hacked her way to triumph.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">103</Data></Cell>
+    <Cell><Data Type="Number">100</Data></Cell>
+    <Cell><Data Type="String">fight miners w/ machete</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
+    <Cell><Data Type="String">machete</Data></Cell>
+    <Cell ><Data Type="Number">97</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">machete</Data></Cell>
+    <Cell><Data Type="String">machete</Data></Cell>
+    <Cell><Data Type="String">Fighting with the machete improves your odds. Esperanza hacked and slashed her way to victory, unfortunately during the fight she lost the machete.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">104</Data></Cell>
+    <Cell><Data Type="Number">100</Data></Cell>
+    <Cell><Data Type="String">fight miners w/ knife</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
+    <Cell><Data Type="String">knife</Data></Cell>
+    <Cell ><Data Type="Number">97</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">knife</Data></Cell>
+    <Cell><Data Type="String">knife</Data></Cell>
+    <Cell><Data Type="String">Fighting with knife is better than fist, but the odds are still tough. Even with poor odds Esperanza stabbed her way to victory, but during the fight she lost the knife.</Data></Cell>
+   <Cell><Data Type="Number">98</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">105</Data></Cell>
+    <Cell><Data Type="Number">100</Data></Cell>
+    <Cell><Data Type="String">fight miners w/ fist</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
+    <Cell><Data Type="String">fist</Data></Cell>
+    <Cell ><Data Type="Number">97</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">fist,medkit</Data></Cell>
+    <Cell><Data Type="String">fist</Data></Cell>
+    <Cell><Data Type="String">The odds are not great fight with fist, however Esperanza has come out triumphant during the fight, she got banged up and won't be fighting with her fist for a while, and she used her medkit after the squirmish.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">111</Data></Cell>
+    <Cell><Data Type="Number">110</Data></Cell>
+    <Cell><Data Type="String">fight depot w/ pistol</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
+    <Cell><Data Type="String">pistol</Data></Cell>
+    <Cell ><Data Type="Number">97</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">ammo</Data></Cell>
+    <Cell><Data Type="String">pistol,ammo</Data></Cell>
+    <Cell><Data Type="String">Good thing you aquired the pistol and ammo as that gives you the best odds in a fight. Esperanza's aim was true and she has survived the fight, unfortunately she used up ammo.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">112</Data></Cell>
+    <Cell><Data Type="Number">110</Data></Cell>
+    <Cell><Data Type="String">fight depot w/ machete</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
+    <Cell><Data Type="String">machete</Data></Cell>
+    <Cell ><Data Type="Number">97</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">machete</Data></Cell>
+    <Cell><Data Type="String">machete</Data></Cell>
+    <Cell><Data Type="String">Fighting with the machete improves your odds. Esperanza hacked and slashed her way to victory, unfortunately during the fight she lost the machete.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">113</Data></Cell>
+    <Cell><Data Type="Number">110</Data></Cell>
+    <Cell><Data Type="String">fight depot w/ ax</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
+    <Cell><Data Type="String">ax</Data></Cell>
+    <Cell ><Data Type="Number">97</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">ax</Data></Cell>
+    <Cell><Data Type="String">ax</Data></Cell>
+    <Cell><Data Type="String">Fighting with an ax is risk, but Esperanza made it work and hacked her way to triumph.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">114</Data></Cell>
+    <Cell><Data Type="Number">110</Data></Cell>
+    <Cell><Data Type="String">fight depot w/ knife</Data></Cell>
+    <Cell><Data Type="Number">fight</Data></Cell>
+    <Cell><Data Type="Number">knife</Data></Cell>
+    <Cell><Data Type="Number">97</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="Sting">knife</Data></Cell>
+    <Cell><Data Type="String">knife</Data></Cell>
+    <Cell><Data Type="String">Fighting with knife is better than fist, but the odds are still tough. Even with poor odds Esperanza stabbed her way to victory, but during the fight she lost the knife.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data Type="Number">115</Data></Cell>
+    <Cell><Data Type="Number">110</Data></Cell>
+    <Cell><Data Type="String">fight depot w / fist</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
+    <Cell><Data Type="String">fist</Data></Cell>
+    <Cell ><Data Type="Number">97</Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="Number">fist,medkit</Data></Cell>
+    <Cell><Data Type="String">fist</Data></Cell>
+    <Cell><Data Type="String">The odds are not great fight with fist, however Esperanza has come out triumphant during the fight, she got banged up and won't be fighting with her fist for a while, and she used her medkit after the squirmish.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
+   </Row>
+
    <Row>
     <Cell><Data Type="Number">96</Data></Cell>
     <Cell><Data Type="Number">96</Data></Cell>
     <Cell><Data Type="String">End of Part 1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell StyleID="Default"><Data Type="Number">-1</Data></Cell>
+    <Cell ><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
    </Row>
+
+
+
    <Row>
     <Cell><Data Type="Number">97</Data></Cell>
     <Cell><Data Type="Number">97</Data></Cell>
-    <Cell><Data Type="String">End of Part 2</Data></Cell>
+    <Cell><Data Type="String">Win</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell StyleID="Default"><Data Type="Number">-1</Data></Cell>
+    <Cell ><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
@@ -441,7 +844,7 @@
     <Cell><Data Type="String">Death</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell StyleID="Default"><Data Type="Number">-1</Data></Cell>
+    <Cell ><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
@@ -453,7 +856,7 @@
     <Cell><Data Type="String">End of Game</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell StyleID="Default"><Data Type="Number">-1</Data></Cell>
+    <Cell ><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>

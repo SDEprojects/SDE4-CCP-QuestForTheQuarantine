@@ -9,7 +9,12 @@ package com.codebusters.game;
  * Last Edited: 02/09/2021
  */
 
-import java.util.*;
+import com.codebusters.game.combat.CombatSystem;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.StringTokenizer;
 
 public class TextParser {
 
@@ -59,7 +64,10 @@ public class TextParser {
     private boolean hasPathText;
     private ArrayList<Items> itemsToAdd;
     private ArrayList<Items> itemsToRemove;
-    private ArrayList<Items> inventory;
+    // private ArrayList<Items> inventory;
+    private Player player;
+    //used to track if a player is still alive after combat
+    private boolean isGameOver = false;
 
     private TextParser() {
         currentChapter = new Chapter();
@@ -67,7 +75,8 @@ public class TextParser {
         setPathText(false);
         itemsToAdd = new ArrayList<>();
         itemsToRemove = new ArrayList<>();
-        inventory = new ArrayList<>();
+        player = new Player();
+        // inventory = new ArrayList<>();
     }
 
     //make TextParser a Singleton to be used in other Classes.
@@ -110,8 +119,13 @@ public class TextParser {
 
                     // if we have a valid input
                     if ((verb.equals(reqVerb) || isSynonym(reqVerb, verb)) && (noun.equals(reqNoun) || isSynonym(reqNoun, noun))) {
+                        //Done: check if fight, get fight result, render correct path after
+                        if ("fight".equals(verb)) {
+                            //battle happening
+                            fightScene(path, noun);
+                        }
                         // first, we check for required items
-                        if (!(path.get("requiredItems") == null)) {
+                        else if (!(path.get("requiredItems") == null)) {
                             checkRequiredItems(path);
 
                             // if a required item is found, then proceed, otherwise invalid input
@@ -119,13 +133,19 @@ public class TextParser {
                                 logInventoryChanges(path);
                             }
                             // else no required items and valid input: just add the items
-                        } else {
+                        }
+                        else {
                             logInventoryChanges(path);
                             setValidInput(true);
                         }
-
-                        if (!(path.get("pathText") == null)) {
+                        //gets the path text while there is path text and the game is not over
+                        if (!(path.get("pathText") == null) && !isGameOver) {
                             setPathText((String) path.get("pathText"));
+                            setPathText(true);
+                        }
+                        //if game is over, create path text to show user
+                        else if (isGameOver) {
+                            setPathText("Esperanza tried her best, but her " + noun + " failed her. She was brutally murdered.");
                             setPathText(true);
                         }
                     }
@@ -161,6 +181,31 @@ public class TextParser {
         );
     }
 
+    /*
+     * Takes current chapter path and the weapon the user is choosing to use
+     * If user wins fight, game continues to next chapter
+     * If user loses the fight, the game is over and death scene appears
+     */
+    private void fightScene(HashMap<String, String> path, String userWeapon) {
+        boolean userFightWin = CombatSystem.getInstance().combat(userWeapon);
+        //check for required items
+        if (!(path.get("requiredItems") == null)) {
+            checkRequiredItems(path);
+
+            // if a required item is found, then proceed, otherwise invalid input
+            if (isValidInput()) {
+                isGameOver = !userFightWin; //if user loses isGameOver becomes true
+                logInventoryChanges(path);
+            }
+        }
+        // else no required items and valid input: just add the items
+        else {
+            isGameOver = !userFightWin;
+            logInventoryChanges(path);
+            setValidInput(true);
+        }
+    }
+
     private void checkRequiredItems(HashMap<String, String> path) {
         String[] reqItems = path.get("requiredItems").split(",");
 
@@ -178,7 +223,7 @@ public class TextParser {
 
     private void logInventoryChanges(HashMap<String, String> path) {
         setValidInput(true);
-        nextChapter = path.get("nextId");
+        nextChapter = isGameOver ? path.get("lossId") : path.get("nextId"); //if game over get path id to the death chapter otherwise continue
         itemsToAdd.clear();
         itemsToRemove.clear();
 
@@ -202,7 +247,7 @@ public class TextParser {
 
     //validate if item is inside the inventory list.
     private void checkAgainstInventory(String item) {
-        for (Items possession : inventory) {
+        for (Items possession : player.getInventory()) {
             if (item.equals(possession.getName().toLowerCase())) {
                 setValidInput(true);
                 break;
@@ -246,7 +291,7 @@ public class TextParser {
 
     public void setCurrentChapter(Chapter currentChapter, ArrayList<Items> inventory) {
         this.currentChapter = currentChapter;
-        this.inventory = inventory;
+        this.player.setInventory(inventory);
     }
 
 
