@@ -13,6 +13,7 @@ import javax.xml.xpath.XPathFactory;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class ChapterBuilder {
     private static ChapterBuilder instance = null;
@@ -34,7 +35,7 @@ public class ChapterBuilder {
     private HashMap<String, ArrayList<HashMap<String, String>>> readXMLFile(String file) {
         HashMap<String, ArrayList<HashMap<String, String>>> story = new HashMap<>();
         try {
-            File xmlFile = new File(file);
+            File xmlFile = new File(Objects.requireNonNull(getClass().getClassLoader().getResource(file)).getFile());
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document storyDoc = dBuilder.parse(xmlFile);
