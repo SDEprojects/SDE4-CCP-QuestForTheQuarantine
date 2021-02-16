@@ -24,7 +24,7 @@ public class CombatSystem {
     private static CombatSystem instance = null;
     //map of weapons in game and their weighted values
     // TODO: potentially generate from xml?
-    private static final Map<String, Integer> GAME_WEAPONS_AND_WEIGHTS = Map.of("machete", 3, "pistol", 4, "knife", 1, "axe", 2);
+    private static final Map<String, Integer> GAME_WEAPONS_AND_WEIGHTS = Map.of("machete", 3, "pistol", 4, "knife", 1, "ax", 2);
     //maximum number range
     private static final int MAX_DMG_RANGE = 10;
     //minimum number range
@@ -84,23 +84,17 @@ public class CombatSystem {
      * If the weapon passed in does not match any in the GAME_WEAPONS_AND_WEIGHTS Map, default damage range is 5
      */
     public int calculateUserDmg(String weapon) {
-        //check for null
+        int userDmg = getUserDmgRange();
+
         if (weapon == null) {
             weapon = "fist";
         }
-        //send input param to lowercase to match Map keys
-        else {
-            weapon = weapon.toLowerCase();
+        if (GAME_WEAPONS_AND_WEIGHTS.containsKey(weapon.toLowerCase())) {
+            int weaponDmg = GAME_WEAPONS_AND_WEIGHTS.get(weapon.toLowerCase());
+            userDmg += weaponDmg;
         }
 
-        int userDmg = getUserDmgRange();
-        int weaponDmg = 0;
-
-        if (GAME_WEAPONS_AND_WEIGHTS.containsKey(weapon)) {
-            weaponDmg = GAME_WEAPONS_AND_WEIGHTS.get(weapon);
-        }
-
-        return userDmg + weaponDmg;
+        return userDmg;
     }
 
     /*

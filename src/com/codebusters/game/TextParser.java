@@ -9,6 +9,8 @@ package com.codebusters.game;
  * Last Edited: 02/09/2021
  */
 
+import com.codebusters.game.combat.CombatSystem;
+
 import java.util.*;
 
 public class TextParser {
@@ -112,8 +114,13 @@ public class TextParser {
 
                     // if we have a valid input
                     if ((verb.equals(reqVerb) || isSynonym(reqVerb, verb)) && (noun.equals(reqNoun) || isSynonym(reqNoun, noun))) {
+                        //TODO: check if fight, get fight result, render correct path after
+                        if (verb.equals("fight")) {
+                            boolean fightWin = CombatSystem.getInstance().combat(noun);
+                            System.out.println("Did ESPERANZA WIN " + fightWin);
+                        }
                         // first, we check for required items
-                        if (!(path.get("requiredItems") == null)) {
+                        else if (!(path.get("requiredItems") == null)) {
                             checkRequiredItems(path);
 
                             // if a required item is found, then proceed, otherwise invalid input
