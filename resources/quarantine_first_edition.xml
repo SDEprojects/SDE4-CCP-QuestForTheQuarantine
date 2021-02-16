@@ -65,12 +65,12 @@
    <Row>
     <Cell><Data Type="Number">50</Data></Cell>
     <Cell><Data Type="String">South of Durango</Data></Cell>
-    <Cell><Data Type="String">Looking North, you realize things are going to get tougher. There will be fights for survival. Decisions will need to be made. Fight or Flight is in effect. Supplies will needed for both survival and fighting.  For now, we need to decide to enter Durango, or not.</Data></Cell>
+    <Cell><Data Type="String">Looking North, you realize things are going to get tougher. There will be fights for survival. Decisions will need to be made. Fight or Flight is in effect. Supplies will needed for both survival and fighting.  KEY * When you fight; you need to use the form "fight noun".*    For now, we need to decide to enter Durango, or not.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">53</Data></Cell>
     <Cell><Data Type="String">Durango</Data></Cell>
-    <Cell><Data Type="String">You will need to fight or flee. ¿But what to use to fight with? ¿Fight with weapon (use, what) or is this gonna be a fist fight (use, fist)? </Data></Cell>
+    <Cell><Data Type="String">You will need to fight or flee. ¿But what to use to fight with? ¿Fight with weapon (fight what weapon) or is this gonna be a fist fight (use, fist)? </Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">51</Data></Cell>
@@ -80,12 +80,12 @@
    <Row>
     <Cell><Data Type="Number">60</Data></Cell>
     <Cell><Data Type="String">Torreon</Data></Cell>
-    <Cell><Data Type="String">Looking around the barron streets, you see an abandonded warehouse, a pharmacia. Time is short, as the city looks dangerous. This could be dangerous. Should we try one and take risks? Or go around?</Data></Cell>
+    <Cell><Data Type="String">Looking around the barron streets, you see an abandonded warehouse and a pharmacia. Time is short, as the city looks dangerous. This could be dangerous. Should we try one and take risks? Or go around?</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">70</Data></Cell>
     <Cell><Data Type="String">South of Monclova</Data></Cell>
-    <Cell><Data Type="String">You stumble upon a dangerous looking old ranch, south of town. You got a bad vibe about this. It is situated in valley you have to pass through. No choice but forward.</Data></Cell>
+    <Cell><Data Type="String">You stumble upon a dangerous looking old ranch, south of town. You got a bad vibe about this. It is situated in a valley you have to pass through. No choice but forward.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">75</Data></Cell>
@@ -107,17 +107,15 @@
     <Cell><Data Type="String">Border Depot</Data></Cell>
     <Cell><Data Type="String">Oh this part of the border is controlled by coyotes that want your stuff and they got local toughs to help them take it.  You will have no choice but to fight to get across the border.</Data></Cell>
    </Row>
-
-
    <Row>
     <Cell><Data Type="Number">96</Data></Cell>
-    <Cell><Data Type="String">End of Part 1</Data></Cell>
-    <Cell ><Data Type="String">You have reached the end of Part 1 of Esperanza’s story. We hope to have Parts 2 and 3 ready in the near future. Thank you for guiding Esperanza on her journey!</Data></Cell>
+    <Cell><Data Type="String">You Lost</Data></Cell>
+    <Cell ><Data Type="String">If your seeing this message, you lost a virtual fight and DIED...  Poor Esparanza won't make it across the border to safety now.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">97</Data></Cell>
-    <Cell><Data Type="String">End of Part 2</Data></Cell>
-    <Cell ><Data Type="String">You have reached the end of Part 1 of Esperanza’s story. We hope to have Part 3 ready in the near future. Thank you for guiding Esperanza on her journey!</Data></Cell>
+    <Cell><Data Type="String">End of this series</Data></Cell>
+    <Cell ><Data Type="String">You have reached the Border and the end of this series of Esperanza’s story.  Thank you for guiding Esperanza on her journey!</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">98</Data></Cell>
@@ -129,6 +127,7 @@
     <Cell><Data Type="String">End</Data></Cell>
     <Cell ><Data Type="String">Esperanza has successfully completed her journey and she thanks you for guiding her to safety.</Data></Cell>
    </Row>
+
   </Table>
  </Worksheet>
 
@@ -487,25 +486,23 @@
     <Cell><Data Type="String">51A</Data></Cell>
     <Cell><Data Type="Number">53</Data></Cell>
     <Cell><Data Type="String">Fight Banditos w/ pistol</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">pistol</Data></Cell>
     <Cell ><Data Type="Number">60</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">ammo</Data></Cell>
-
+    <Cell><Data Type="String">pistol,ammo</Data></Cell>
     <Cell><Data Type="String">Good thing you aquired the pistol and ammo; as that gives you the best odds in a fight.  Unfortunately you used up ammo.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="String">51B</Data></Cell>
     <Cell><Data Type="Number">53</Data></Cell>
     <Cell><Data Type="String">Fight Banditos w/ machete</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">machete</Data></Cell>
     <Cell ><Data Type="Number">60</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell><Data Type="Number">-1</Data></Cell>
-
+    <Cell><Data Type="String">machete</Data></Cell>
     <Cell><Data Type="String">machete</Data></Cell>
     <Cell><Data Type="String">Fighting with the machete improves your odds. But during the fight you lost the machete.</Data></Cell>
    </Row>
@@ -513,20 +510,19 @@
     <Cell><Data Type="String">51C</Data></Cell>
     <Cell><Data Type="Number">53</Data></Cell>
     <Cell><Data Type="String">Fight Banditos w/ knife</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">knife</Data></Cell>
     <Cell ><Data Type="Number">60</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">knife</Data></Cell>
-
+    <Cell><Data Type="String">knife</Data></Cell>
     <Cell><Data Type="String">Fighting with knife is better than fist, but the odds are still tough. But during the fight you lost the knife.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">51D</Data></Cell>
     <Cell><Data Type="Number">53</Data></Cell>
-    <Cell><Data Type="String">Fight Banditos w/ fist</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight Banditos w/ fist</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">fist</Data></Cell>
     <Cell ><Data Type="Number">60</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
@@ -598,23 +594,23 @@
     <Cell><Data Type="Number">73</Data></Cell>
     <Cell><Data Type="Number">70</Data></Cell>
     <Cell><Data Type="String">fight cowboys w/ pistol</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">pistol</Data></Cell>
     <Cell ><Data Type="Number">80</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">ammo</Data></Cell>
     <Cell><Data Type="String">pistol,ammo</Data></Cell>
-    <Cell><Data Type="String">The pistol is a good choice and gives you the best odds.</Data></Cell>
+    <Cell><Data Type="String">The pistol is a good choice and gives you the best odds.  During the fight you used up ammo.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">75</Data></Cell>
     <Cell><Data Type="Number">75</Data></Cell>
     <Cell><Data Type="String">fight cowboys w/ machete</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">machete</Data></Cell>
     <Cell ><Data Type="Number">80</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">machete</Data></Cell>
     <Cell><Data Type="String">machete</Data></Cell>
     <Cell><Data Type="String">The mechete is a good choice.</Data></Cell>
    </Row>
@@ -622,11 +618,11 @@
     <Cell><Data Type="Number">76</Data></Cell>
     <Cell><Data Type="Number">75</Data></Cell>
     <Cell><Data Type="String">fight cowboys w/ knife</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">knife</Data></Cell>
     <Cell ><Data Type="Number">80</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="Sting">knife</Data></Cell>
     <Cell><Data Type="String">knife</Data></Cell>
     <Cell><Data Type="String">The knife is better than nothing but the odds are not great.</Data></Cell>
    </Row>
@@ -634,11 +630,11 @@
     <Cell><Data Type="Number">77</Data></Cell>
     <Cell><Data Type="Number">75</Data></Cell>
     <Cell><Data Type="String">fight cowboys w/ ax</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">ax</Data></Cell>
     <Cell ><Data Type="Number">80</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">ax</Data></Cell>
     <Cell><Data Type="String">ax</Data></Cell>
     <Cell><Data Type="String">Fighting with an ax is risk, but works.</Data></Cell>
    </Row>
@@ -646,11 +642,11 @@
     <Cell><Data Type="Number">78</Data></Cell>
     <Cell><Data Type="Number">75</Data></Cell>
     <Cell><Data Type="String">fight cowboys w/ fist</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">fist</Data></Cell>
     <Cell ><Data Type="Number">80</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">fist,medkit</Data></Cell>
     <Cell><Data Type="String">fist</Data></Cell>
     <Cell><Data Type="String">The odds are not great, but if you're tough it can be done.</Data></Cell>
    </Row>
@@ -682,35 +678,35 @@
     <Cell><Data Type="Number">101</Data></Cell>
     <Cell><Data Type="Number">100</Data></Cell>
     <Cell><Data Type="String">fight miners w/ pistol</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">pistol</Data></Cell>
-    <Cell ><Data Type="Number">96</Data></Cell>
+    <Cell ><Data Type="Number">97</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">ammo</Data></Cell>
     <Cell><Data Type="String">pistol,ammo</Data></Cell>
-    <Cell><Data Type="String">Good choice using the pistol.</Data></Cell>
+    <Cell><Data Type="String">Good choice using the pistol.  During the fight you used up ammo.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">102</Data></Cell>
     <Cell><Data Type="Number">100</Data></Cell>
     <Cell><Data Type="String">fight miners w/ ax</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">ax</Data></Cell>
-    <Cell ><Data Type="Number">96</Data></Cell>
+    <Cell ><Data Type="Number">97</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell><Data Type="v">ax</Data></Cell>
+    <Cell><Data Type="String">ax</Data></Cell>
+    <Cell><Data Type="String">ax</Data></Cell>
     <Cell><Data Type="String">Let us see how using an ax works.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">103</Data></Cell>
     <Cell><Data Type="Number">100</Data></Cell>
     <Cell><Data Type="String">fight miners w/ machete</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">machete</Data></Cell>
-    <Cell ><Data Type="Number">96</Data></Cell>
+    <Cell ><Data Type="Number">97</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">machete</Data></Cell>
     <Cell><Data Type="String">machete</Data></Cell>
     <Cell><Data Type="String">This is gonna be bloody with the machete.</Data></Cell>
    </Row>
@@ -718,11 +714,11 @@
     <Cell><Data Type="Number">104</Data></Cell>
     <Cell><Data Type="Number">100</Data></Cell>
     <Cell><Data Type="String">fight miners w/ knife</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">knife</Data></Cell>
-    <Cell ><Data Type="Number">96</Data></Cell>
+    <Cell ><Data Type="Number">97</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">knife</Data></Cell>
     <Cell><Data Type="String">knife</Data></Cell>
     <Cell><Data Type="String">Let see how the knife works.</Data></Cell>
    </Row>
@@ -730,47 +726,47 @@
     <Cell><Data Type="Number">105</Data></Cell>
     <Cell><Data Type="Number">100</Data></Cell>
     <Cell><Data Type="String">fight miners w/ fist</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">fist</Data></Cell>
-    <Cell ><Data Type="Number">96</Data></Cell>
+    <Cell ><Data Type="Number">97</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">fist,medkit</Data></Cell>
     <Cell><Data Type="String">fist</Data></Cell>
-    <Cell><Data Type="String">A fist fight against miners is not good odds.</Data></Cell>
+    <Cell><Data Type="String">A fist fight against miners is not good odds. You will need your medkit and won't be fist fighting for a while.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">111</Data></Cell>
     <Cell><Data Type="Number">110</Data></Cell>
     <Cell><Data Type="String">fight depot w/ pistol</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">pistol</Data></Cell>
-    <Cell ><Data Type="Number">96</Data></Cell>
+    <Cell ><Data Type="Number">97</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">ammo</Data></Cell>
     <Cell><Data Type="String">pistol,ammo</Data></Cell>
-    <Cell><Data Type="String">The pistol was a good choice.</Data></Cell>
+    <Cell><Data Type="String">The pistol was a good choice.  During the fight you used up ammo.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">112</Data></Cell>
     <Cell><Data Type="Number">110</Data></Cell>
     <Cell><Data Type="String">fight depot w/ machete</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">machete</Data></Cell>
-    <Cell ><Data Type="Number">96</Data></Cell>
-    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell ><Data Type="Number">97</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">machete</Data></Cell>
-    <Cell><Data Type="String">Lets see how the machete works out.</Data></Cell>
+    <Cell><Data Type="String">machete</Data></Cell>
+    <Cell><Data Type="String">Lets see how the machete works out.  </Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">113</Data></Cell>
     <Cell><Data Type="Number">110</Data></Cell>
     <Cell><Data Type="String">fight depot w/ ax</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">ax</Data></Cell>
-    <Cell ><Data Type="Number">96</Data></Cell>
+    <Cell ><Data Type="Number">97</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="String">ax</Data></Cell>
     <Cell><Data Type="String">ax</Data></Cell>
     <Cell><Data Type="String">This ax is gonna make a bloody mess.</Data></Cell>
    </Row>
@@ -778,11 +774,11 @@
     <Cell><Data Type="Number">114</Data></Cell>
     <Cell><Data Type="Number">110</Data></Cell>
     <Cell><Data Type="String">fight depot w/ knife</Data></Cell>
-    <Cell><Data Type="Number">use</Data></Cell>
+    <Cell><Data Type="Number">fight</Data></Cell>
     <Cell><Data Type="Number">knife</Data></Cell>
-    <Cell ><Data Type="Number">96</Data></Cell>
+    <Cell><Data Type="Number">97</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="Sting">knife</Data></Cell>
     <Cell><Data Type="String">knife</Data></Cell>
     <Cell><Data Type="String">A knife fight against this crowd will be tough.</Data></Cell>
    </Row>
@@ -790,11 +786,11 @@
     <Cell><Data Type="Number">115</Data></Cell>
     <Cell><Data Type="Number">110</Data></Cell>
     <Cell><Data Type="String">fight depot w / fist</Data></Cell>
-    <Cell><Data Type="String">use</Data></Cell>
+    <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">fist</Data></Cell>
-    <Cell ><Data Type="Number">96</Data></Cell>
+    <Cell ><Data Type="Number">97</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell><Data Type="Number">-1</Data></Cell>
+    <Cell><Data Type="Number">fist,medkit</Data></Cell>
     <Cell><Data Type="String">fist</Data></Cell>
     <Cell><Data Type="String">Fist fight will be tough.</Data></Cell>
    </Row>
@@ -809,7 +805,7 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
-    <Cell><Data Type="String"></Data></Cell>
+    <Cell><Data Type="Number">-1</Data></Cell>
    </Row>
 
 
@@ -817,7 +813,7 @@
    <Row>
     <Cell><Data Type="Number">97</Data></Cell>
     <Cell><Data Type="Number">97</Data></Cell>
-    <Cell><Data Type="String">End of Part 2</Data></Cell>
+    <Cell><Data Type="String">Win</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell ><Data Type="Number">-1</Data></Cell>
