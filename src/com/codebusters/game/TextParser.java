@@ -66,7 +66,7 @@ public class TextParser {
     private ArrayList<Items> itemsToRemove;
     // private ArrayList<Items> inventory;
     private Player player;
-
+    //used to track if a player is still alive after combat
     private boolean isGameOver = false;
 
     private TextParser() {
@@ -138,11 +138,12 @@ public class TextParser {
                             logInventoryChanges(path);
                             setValidInput(true);
                         }
-                        //Done: may need to change this call
+                        //gets the path text while there is path text and the game is not over
                         if (!(path.get("pathText") == null) && !isGameOver) {
                             setPathText((String) path.get("pathText"));
                             setPathText(true);
                         }
+                        //if game is over, create path text to show user
                         else if (isGameOver) {
                             setPathText("Esperanza tried her best, but her " + noun + " failed her. She was brutally murdered.");
                             setPathText(true);
@@ -180,15 +181,20 @@ public class TextParser {
         );
     }
 
+    /*
+     * Takes current chapter path and the weapon the user is choosing to use
+     * If user wins fight, game continues to next chapter
+     * If user loses the fight, the game is over and death scene appears
+     */
     private void fightScene(HashMap<String, String> path, String userWeapon) {
         boolean userFightWin = CombatSystem.getInstance().combat(userWeapon);
-        System.out.println("FIGHT RESULT, USER WIN? " + userFightWin);
+        //check for required items
         if (!(path.get("requiredItems") == null)) {
             checkRequiredItems(path);
 
             // if a required item is found, then proceed, otherwise invalid input
             if (isValidInput()) {
-                isGameOver = !userFightWin;
+                isGameOver = !userFightWin; //if user loses isGameOver becomes true
                 logInventoryChanges(path);
             }
         }
@@ -217,7 +223,7 @@ public class TextParser {
 
     private void logInventoryChanges(HashMap<String, String> path) {
         setValidInput(true);
-        nextChapter = isGameOver ? path.get("lossId") : path.get("nextId");
+        nextChapter = isGameOver ? path.get("lossId") : path.get("nextId"); //if game over get path id to the death chapter otherwise continue
         itemsToAdd.clear();
         itemsToRemove.clear();
 
