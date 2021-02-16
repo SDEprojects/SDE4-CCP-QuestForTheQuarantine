@@ -729,7 +729,8 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">knife</Data></Cell>
     <Cell><Data Type="String">knife</Data></Cell>
-    <Data Type="String">Fighting with knife is better than fist, but the odds are still tough. Even with poor odds Esperanza stabbed her way to victory, but during the fight she lost the knife.</Data></Cell>    <Cell><Data Type="Number">98</Data></Cell>
+    <Cell><Data Type="String">Fighting with knife is better than fist, but the odds are still tough. Even with poor odds Esperanza stabbed her way to victory, but during the fight she lost the knife.</Data></Cell>
+   <Cell><Data Type="Number">98</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">105</Data></Cell>

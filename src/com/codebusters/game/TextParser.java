@@ -119,7 +119,7 @@ public class TextParser {
 
                     // if we have a valid input
                     if ((verb.equals(reqVerb) || isSynonym(reqVerb, verb)) && (noun.equals(reqNoun) || isSynonym(reqNoun, noun))) {
-                        //TODO: check if fight, get fight result, render correct path after
+                        //Done: check if fight, get fight result, render correct path after
                         if ("fight".equals(verb)) {
                             //battle happening
                             fightScene(path, noun);
@@ -138,7 +138,7 @@ public class TextParser {
                             logInventoryChanges(path);
                             setValidInput(true);
                         }
-                        //TODO: may need to change this call
+                        //Done: may need to change this call
                         if (!(path.get("pathText") == null) && !isGameOver) {
                             setPathText((String) path.get("pathText"));
                             setPathText(true);
