@@ -17,6 +17,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -61,8 +62,9 @@ public class Viewer implements ActionListener {
 
         //create background image
         BufferedImage img = null;
+        InputStream is = getClass().getClassLoader().getResourceAsStream("bgImage.png");
         try {
-            img = ImageIO.read(new File("resources/bgImage.png"));
+            img = ImageIO.read(is);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -258,8 +260,9 @@ public class Viewer implements ActionListener {
 
         //create background image for help window
         BufferedImage bgImg = null;
+        InputStream is = getClass().getClassLoader().getResourceAsStream("helpBgImage.png");
         try {
-            bgImg = ImageIO.read(new File("resources/helpBgImage.png"));
+            bgImg = ImageIO.read(is);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -322,7 +325,7 @@ public class Viewer implements ActionListener {
         // helpText2.setEditable(false);
 
         //image inside the help text
-        imagePane.insertIcon(new ImageIcon("resources/inputFieldImg.png"));
+        imagePane.insertIcon(new ImageIcon(getClass().getClassLoader().getResource("inputFieldImg.png")));
         imagePane.setBackground(Color.decode("#EDE5D0"));
         imagePane.setBounds(45, 268, 200, 40);
         imagePane.setEditable(false);
@@ -421,8 +424,9 @@ public class Viewer implements ActionListener {
         quitWindow.setLocationRelativeTo(window);
         quitWindow.setBackground(Color.decode("#EDE5D0"));
         BufferedImage bgImg = null;
+        InputStream is = getClass().getClassLoader().getResourceAsStream("helpBgImage.png");
         try {
-            bgImg = ImageIO.read(new File("resources/helpBgImage.png"));
+            bgImg = ImageIO.read(is);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -476,8 +480,9 @@ public class Viewer implements ActionListener {
         examplesWindow.setBackground(Color.decode("#EDE5D0"));
 
         BufferedImage bgImg = null;
+        InputStream is = getClass().getClassLoader().getResourceAsStream("helpBgImage.png");
         try {
-            bgImg = ImageIO.read(new File("resources/helpBgImage.png"));
+            bgImg = ImageIO.read(is);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,6 +1,6 @@
 package com.codebusters.data;
 
-import com.codebusters.game.*;
+import com.codebusters.game.Chapter;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -10,7 +10,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathFactory;
-import java.io.File;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -20,7 +20,8 @@ public class ChapterBuilder {
     private final ArrayList<Chapter> chapters = new ArrayList<>();
 
     private ChapterBuilder() {
-        story = readXMLFile("resources/quarantine_first_edition.xml");
+        InputStream is = getClass().getClassLoader().getResourceAsStream("quarantine_first_edition.xml");
+        story = readXMLFile(is);
         buildChapters();
     }
 
@@ -31,13 +32,12 @@ public class ChapterBuilder {
         return instance;
     }
 
-    private HashMap<String, ArrayList<HashMap<String, String>>> readXMLFile(String file) {
+    private HashMap<String, ArrayList<HashMap<String, String>>> readXMLFile(InputStream is) {
         HashMap<String, ArrayList<HashMap<String, String>>> story = new HashMap<>();
         try {
-            File xmlFile = new File(file);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document storyDoc = dBuilder.parse(xmlFile);
+            Document storyDoc = dBuilder.parse(is);
             storyDoc.getDocumentElement().normalize();
             story = buildStoryMap(storyDoc);
 
