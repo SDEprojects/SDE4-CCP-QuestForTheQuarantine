@@ -144,6 +144,7 @@
     <Cell><Data Type="String">loseItems</Data></Cell>
     <Cell><Data Type="String">requiredItems</Data></Cell>
     <Cell><Data Type="String">pathText</Data></Cell>
+    <Cell><Data Type="String">lossId</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">0</Data></Cell>
@@ -529,6 +530,7 @@
     <Cell><Data Type="String">fist,medkit</Data></Cell>
     <Cell><Data Type="String">fist</Data></Cell>
     <Cell><Data Type="String">The odds are not great fight with fist.  During the fight, you got banged up and won't be fighting with your fist fro a while, and you used your medkit during the squirmish.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">63</Data></Cell>

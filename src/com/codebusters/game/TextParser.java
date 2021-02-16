@@ -9,6 +9,8 @@ package com.codebusters.game;
  * Last Edited: 02/09/2021
  */
 
+import com.codebusters.game.combat.CombatSystem;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -65,6 +67,8 @@ public class TextParser {
     // private ArrayList<Items> inventory;
     private Player player;
 
+    private boolean isGameOver = false;
+
     private TextParser() {
         currentChapter = new Chapter();
         setValidInput(false);
@@ -116,9 +120,12 @@ public class TextParser {
                     // if we have a valid input
                     if ((verb.equals(reqVerb) || isSynonym(reqVerb, verb)) && (noun.equals(reqNoun) || isSynonym(reqNoun, noun))) {
                         //TODO: check if fight, get fight result, render correct path after
-
+                        if ("fight".equals(verb)) {
+                            //battle happening
+                            fightScene(path, noun);
+                        }
                         // first, we check for required items
-                        if (!(path.get("requiredItems") == null)) {
+                        else if (!(path.get("requiredItems") == null)) {
                             checkRequiredItems(path);
 
                             // if a required item is found, then proceed, otherwise invalid input
@@ -126,15 +133,19 @@ public class TextParser {
                                 logInventoryChanges(path);
                             }
                             // else no required items and valid input: just add the items
-                        } else {
+                        }
+                        else {
                             logInventoryChanges(path);
                             setValidInput(true);
                         }
-
-                        if (!(path.get("pathText") == null)) {
+                        //TODO: may need to change this call
+                        if (!(path.get("pathText") == null) && !isGameOver) {
                             setPathText((String) path.get("pathText"));
                             setPathText(true);
                         }
+//                        else {
+//                            setPathText((String) path.get(""));
+//                        }
                     }
                 }
             }
@@ -168,6 +179,26 @@ public class TextParser {
         );
     }
 
+    private void fightScene(HashMap<String, String> path, String userWeapon) {
+        boolean userFightWin = CombatSystem.getInstance().combat(userWeapon);
+        System.out.println("FIGHT RESULT, USER WIN? " + userFightWin);
+        if (!(path.get("requiredItems") == null)) {
+            checkRequiredItems(path);
+
+            // if a required item is found, then proceed, otherwise invalid input
+            if (isValidInput()) {
+                isGameOver = !userFightWin;
+                logInventoryChanges(path);
+            }
+        }
+        // else no required items and valid input: just add the items
+        else {
+            isGameOver = !userFightWin;
+            logInventoryChanges(path);
+            setValidInput(true);
+        }
+    }
+
     private void checkRequiredItems(HashMap<String, String> path) {
         String[] reqItems = path.get("requiredItems").split(",");
 
@@ -185,7 +216,7 @@ public class TextParser {
 
     private void logInventoryChanges(HashMap<String, String> path) {
         setValidInput(true);
-        nextChapter = path.get("nextId");
+        nextChapter = isGameOver ? path.get("lossId") : path.get("nextId");
         itemsToAdd.clear();
         itemsToRemove.clear();
 
