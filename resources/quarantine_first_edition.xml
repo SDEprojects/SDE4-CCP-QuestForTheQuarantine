@@ -493,7 +493,8 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">ammo</Data></Cell>
     <Cell><Data Type="String">pistol,ammo</Data></Cell>
-    <Cell><Data Type="String">Good thing you aquired the pistol and ammo; as that gives you the best odds in a fight.  Unfortunately you used up ammo.</Data></Cell>
+    <Cell><Data Type="String">Good thing you aquired the pistol and ammo as that gives you the best odds in a fight. Esperanza's aim was true and she has survived the fight, unfortunately she used up ammo.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="String">51B</Data></Cell>
@@ -505,7 +506,8 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">machete</Data></Cell>
     <Cell><Data Type="String">machete</Data></Cell>
-    <Cell><Data Type="String">Fighting with the machete improves your odds. But during the fight you lost the machete.</Data></Cell>
+    <Cell><Data Type="String">Fighting with the machete improves your odds. Esperanza hacked and slashed her way to victory, unfortunately during the fight she lost the machete.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="String">51C</Data></Cell>
@@ -517,7 +519,8 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">knife</Data></Cell>
     <Cell><Data Type="String">knife</Data></Cell>
-    <Cell><Data Type="String">Fighting with knife is better than fist, but the odds are still tough. But during the fight you lost the knife.</Data></Cell>
+    <Cell><Data Type="String">Fighting with knife is better than fist, but the odds are still tough. Even with poor odds Esperanza stabbed her way to victory, but during the fight she lost the knife.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">51D</Data></Cell>
@@ -529,7 +532,7 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">fist,medkit</Data></Cell>
     <Cell><Data Type="String">fist</Data></Cell>
-    <Cell><Data Type="String">The odds are not great fight with fist.  During the fight, you got banged up and won't be fighting with your fist fro a while, and you used your medkit during the squirmish.</Data></Cell>
+    <Cell><Data Type="String">The odds are not great fight with fist, however Esperanza has come out triumphant during the fight, she got banged up and won't be fighting with her fist for a while, and she used her medkit after the squirmish.</Data></Cell>
     <Cell><Data Type="Number">98</Data></Cell>
    </Row>
    <Row>
@@ -602,7 +605,8 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">ammo</Data></Cell>
     <Cell><Data Type="String">pistol,ammo</Data></Cell>
-    <Cell><Data Type="String">The pistol is a good choice and gives you the best odds.  During the fight you used up ammo.</Data></Cell>
+    <Cell><Data Type="String">Good thing you aquired the pistol and ammo as that gives you the best odds in a fight. Esperanza's aim was true and she has survived the fight, unfortunately she used up ammo.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">75</Data></Cell>
@@ -614,7 +618,7 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">machete</Data></Cell>
     <Cell><Data Type="String">machete</Data></Cell>
-    <Cell><Data Type="String">The mechete is a good choice.</Data></Cell>
+    <Cell><Data Type="String">Fighting with the machete improves your odds. Esperanza hacked and slashed her way to victory, unfortunately during the fight she lost the machete.</Data></Cell>    <Cell><Data Type="Number">98</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">76</Data></Cell>
@@ -626,7 +630,7 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Sting">knife</Data></Cell>
     <Cell><Data Type="String">knife</Data></Cell>
-    <Cell><Data Type="String">The knife is better than nothing but the odds are not great.</Data></Cell>
+    <Cell><Data Type="String">Fighting with knife is better than fist, but the odds are still tough. Even with poor odds Esperanza stabbed her way to victory, but during the fight she lost the knife.</Data></Cell>    <Cell><Data Type="Number">98</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">77</Data></Cell>
@@ -638,7 +642,8 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">ax</Data></Cell>
     <Cell><Data Type="String">ax</Data></Cell>
-    <Cell><Data Type="String">Fighting with an ax is risk, but works.</Data></Cell>
+    <Cell><Data Type="String">Fighting with an ax is risk, but Esperanza made it work and hacked her way to triumph.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">78</Data></Cell>
@@ -650,7 +655,7 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">fist,medkit</Data></Cell>
     <Cell><Data Type="String">fist</Data></Cell>
-    <Cell><Data Type="String">The odds are not great, but if you're tough it can be done.</Data></Cell>
+    <Cell><Data Type="String">The odds are not great fight with fist, however Esperanza has come out triumphant during the fight, she got banged up and won't be fighting with her fist for a while, and she used her medkit after the squirmish.</Data></Cell>    <Cell><Data Type="Number">98</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">81</Data></Cell>
@@ -686,7 +691,7 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">ammo</Data></Cell>
     <Cell><Data Type="String">pistol,ammo</Data></Cell>
-    <Cell><Data Type="String">Good choice using the pistol.  During the fight you used up ammo.</Data></Cell>
+    <Cell><Data Type="String">Good thing you aquired the pistol and ammo as that gives you the best odds in a fight. Esperanza's aim was true and she has survived the fight, unfortunately she used up ammo.</Data></Cell>    <Cell><Data Type="Number">98</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">102</Data></Cell>
@@ -698,7 +703,8 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">ax</Data></Cell>
     <Cell><Data Type="String">ax</Data></Cell>
-    <Cell><Data Type="String">Let us see how using an ax works.</Data></Cell>
+    <Cell><Data Type="String">Fighting with an ax is risk, but Esperanza made it work and hacked her way to triumph.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">103</Data></Cell>
@@ -710,7 +716,8 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">machete</Data></Cell>
     <Cell><Data Type="String">machete</Data></Cell>
-    <Cell><Data Type="String">This is gonna be bloody with the machete.</Data></Cell>
+    <Cell><Data Type="String">Fighting with the machete improves your odds. Esperanza hacked and slashed her way to victory, unfortunately during the fight she lost the machete.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">104</Data></Cell>
@@ -722,7 +729,7 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">knife</Data></Cell>
     <Cell><Data Type="String">knife</Data></Cell>
-    <Cell><Data Type="String">Let see how the knife works.</Data></Cell>
+    <Data Type="String">Fighting with knife is better than fist, but the odds are still tough. Even with poor odds Esperanza stabbed her way to victory, but during the fight she lost the knife.</Data></Cell>    <Cell><Data Type="Number">98</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">105</Data></Cell>
@@ -734,7 +741,8 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">fist,medkit</Data></Cell>
     <Cell><Data Type="String">fist</Data></Cell>
-    <Cell><Data Type="String">A fist fight against miners is not good odds. You will need your medkit and won't be fist fighting for a while.</Data></Cell>
+    <Cell><Data Type="String">The odds are not great fight with fist, however Esperanza has come out triumphant during the fight, she got banged up and won't be fighting with her fist for a while, and she used her medkit after the squirmish.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">111</Data></Cell>
@@ -746,7 +754,8 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">ammo</Data></Cell>
     <Cell><Data Type="String">pistol,ammo</Data></Cell>
-    <Cell><Data Type="String">The pistol was a good choice.  During the fight you used up ammo.</Data></Cell>
+    <Cell><Data Type="String">Good thing you aquired the pistol and ammo as that gives you the best odds in a fight. Esperanza's aim was true and she has survived the fight, unfortunately she used up ammo.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">112</Data></Cell>
@@ -758,7 +767,8 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">machete</Data></Cell>
     <Cell><Data Type="String">machete</Data></Cell>
-    <Cell><Data Type="String">Lets see how the machete works out.  </Data></Cell>
+    <Cell><Data Type="String">Fighting with the machete improves your odds. Esperanza hacked and slashed her way to victory, unfortunately during the fight she lost the machete.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">113</Data></Cell>
@@ -770,7 +780,8 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="String">ax</Data></Cell>
     <Cell><Data Type="String">ax</Data></Cell>
-    <Cell><Data Type="String">This ax is gonna make a bloody mess.</Data></Cell>
+    <Cell><Data Type="String">Fighting with an ax is risk, but Esperanza made it work and hacked her way to triumph.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">114</Data></Cell>
@@ -782,7 +793,8 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Sting">knife</Data></Cell>
     <Cell><Data Type="String">knife</Data></Cell>
-    <Cell><Data Type="String">A knife fight against this crowd will be tough.</Data></Cell>
+    <Cell><Data Type="String">Fighting with knife is better than fist, but the odds are still tough. Even with poor odds Esperanza stabbed her way to victory, but during the fight she lost the knife.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">115</Data></Cell>
@@ -794,7 +806,8 @@
     <Cell><Data Type="Number">-1</Data></Cell>
     <Cell><Data Type="Number">fist,medkit</Data></Cell>
     <Cell><Data Type="String">fist</Data></Cell>
-    <Cell><Data Type="String">Fist fight will be tough.</Data></Cell>
+    <Cell><Data Type="String">The odds are not great fight with fist, however Esperanza has come out triumphant during the fight, she got banged up and won't be fighting with her fist for a while, and she used her medkit after the squirmish.</Data></Cell>
+    <Cell><Data Type="Number">98</Data></Cell>
    </Row>
 
    <Row>

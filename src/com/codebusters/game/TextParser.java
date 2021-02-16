@@ -143,9 +143,10 @@ public class TextParser {
                             setPathText((String) path.get("pathText"));
                             setPathText(true);
                         }
-//                        else {
-//                            setPathText((String) path.get(""));
-//                        }
+                        else if (isGameOver) {
+                            setPathText("Esperanza tried her best, but her " + noun + " failed her. She was brutally murdered.");
+                            setPathText(true);
+                        }
                     }
                 }
             }
