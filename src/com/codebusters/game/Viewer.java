@@ -8,7 +8,6 @@ package com.codebusters.game;
  * Last Edited: 02/09/2021
  */
 
-import com.codebusters.game.scene.Scene;
 import com.codebusters.game.scene.StoryScene;
 
 import javax.imageio.ImageIO;
@@ -28,7 +27,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Viewer implements ActionListener {
+public class Viewer extends JFrame implements ActionListener {
     private static final JFrame window = new JFrame();
     private static final JFrame quitWindow = new JFrame();
     private static Container container;
@@ -54,7 +53,7 @@ public class Viewer implements ActionListener {
     private static final Border empty = BorderFactory.createEmptyBorder(1, 1, 1, 1);
     private static final Border compound = new CompoundBorder(empty, dashed);
 
-    private Scene storyScene;
+    private StoryScene storyScene;
 
     private Game game;
 
@@ -63,11 +62,14 @@ public class Viewer implements ActionListener {
         this.game = game;
         window.setSize(880, 690); //size for the frame
         window.setLocationRelativeTo(null); //window pops up in center of screen
+//        window.setLayout(new GridBagLayout());
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closes the window
 
         storyScene = new StoryScene();
         //once everything is added pack() to make everything fit snugly into frame then set frame to visible
+        window.getContentPane().add(storyScene.getMainPanel());
+//        window.add(storyScene.getMainPanel());
         window.pack();
         window.setVisible(true);
     }
@@ -402,6 +404,10 @@ public class Viewer implements ActionListener {
             return false;
         }
         return saveOrLoadSuccessful;
+    }
+
+    public static void main(String[] args) {
+        Game game = new Game();
     }
 
 }

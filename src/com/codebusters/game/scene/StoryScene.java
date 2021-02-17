@@ -14,7 +14,7 @@ public class StoryScene implements Scene {
     private JPanel mainPanel;
 
     private static JPanel storyPanel, inventoryPanel, bottomPanel, bottomRightPanel;
-    private static JLabel titleName, inventoryTitle;
+    private static JLabel titleName, inventoryTitle, backgroundImg;
     private static JTextField userInputField;
     private static final JButton inputBtn = new JButton("Enter");
     private static final JButton saveBtn = new JButton("Save");
@@ -29,9 +29,16 @@ public class StoryScene implements Scene {
     private static final Font titleFont = new Font("Times New Roman", Font.BOLD, 32);
     private static final Font normalFont = new Font("Times New Roman", Font.PLAIN, 16);
 
+    /*
+     * Sets up the layout and format of the main games story GUI
+     * Uses a JLabel backgroundImg to set the background, then adds all components to that label using GridBagLayout
+     * Once everything is set on the background the backgroundImg label is added to the mainPanel which can then be used
+     * by a JFrame to display the scene
+     */
     public StoryScene() {
         //main panel
         mainPanel = new JPanel();
+
         //create background image
         BufferedImage img = null;
         InputStream is = getClass().getClassLoader().getResourceAsStream("bgImage.png");
@@ -43,9 +50,10 @@ public class StoryScene implements Scene {
         assert img != null;
         Image bgImg = img.getScaledInstance(880, 690, Image.SCALE_SMOOTH);
         ImageIcon imageIcon = new ImageIcon(bgImg);
-        mainPanel.add(new JLabel(imageIcon));
-        mainPanel.setLayout(new GridBagLayout()); //created new GridBagLayout so text moves with screen resize
-//        container = window.getContentPane(); //container inside the window that contains all the content
+        //adding background image to JLabel
+        backgroundImg = new JLabel(imageIcon);
+        backgroundImg.setSize(880,690);//size for the frame
+        backgroundImg.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints(); //needed to specify constraints for components
 
         //bottom panel to hold user input field and submit buttons
@@ -54,7 +62,7 @@ public class StoryScene implements Scene {
         c.gridx = 1;
         c.gridy = 2;
         c.insets = new Insets(0,-20, 0, -20);
-        mainPanel.add(bottomPanel, c);
+        backgroundImg.add(bottomPanel, c);
 
 
         //user input
@@ -84,7 +92,7 @@ public class StoryScene implements Scene {
         c.gridx = 2;
         c.gridy = 2;
         c.insets = new Insets(0,-60,0, 70);
-        mainPanel.add(bottomRightPanel, c);
+        backgroundImg.add(bottomRightPanel, c);
 
 
         //help button
@@ -140,7 +148,7 @@ public class StoryScene implements Scene {
         c.insets = new Insets(0,110, 30, -100);
         titleName.setForeground(Color.decode("#e76f51")); //title text color
         titleName.setFont(titleFont); //title font
-        mainPanel.add(titleName, c);
+        backgroundImg.add(titleName, c);
 
         //text panel for main story
         storyPanel = new JPanel();
@@ -150,7 +158,7 @@ public class StoryScene implements Scene {
         c.gridwidth = 2;
         c.insets = new Insets(0, 140, 0, -80);
         storyPanel.setBackground(Color.decode("#EDE5D0"));
-        mainPanel.add(storyPanel, c); //adding story panel to main container
+        backgroundImg.add(storyPanel, c); //adding story panel to main container
 
         //panel for inventory
         inventoryPanel = new JPanel();
@@ -170,7 +178,9 @@ public class StoryScene implements Scene {
         inventoryTitle.setForeground(Color.decode("#635147")); //title text color
         inventoryTitle.setFont(new Font("Arial", Font.BOLD, 13)); //title font
         inventoryPanel.add(inventoryTitle);
-        mainPanel.add(inventoryPanel, c);
+        backgroundImg.add(inventoryPanel, c);
+
+        mainPanel.add(backgroundImg);
     }
 
     public JPanel getMainPanel() {
