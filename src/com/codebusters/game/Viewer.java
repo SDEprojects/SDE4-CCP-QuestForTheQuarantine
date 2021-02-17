@@ -9,7 +9,6 @@ package com.codebusters.game;
  */
 
 import com.codebusters.game.scene.HelpScene;
-import com.codebusters.game.scene.Scene;
 import com.codebusters.game.scene.StoryScene;
 
 import javax.imageio.ImageIO;
@@ -19,6 +18,8 @@ import javax.swing.border.CompoundBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -29,17 +30,11 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Viewer implements ActionListener {
+public class Viewer implements ActionListener, KeyListener {
     private static final JFrame window = new JFrame();
     private static final JFrame quitWindow = new JFrame();
     private static final Font titleFont = new Font("Times New Roman", Font.BOLD, 32);
     private static final Font normalFont = new Font("Times New Roman", Font.PLAIN, 16);
-    private static final JButton gainBtn = new JButton("Gain");
-    private static final JButton loseBtn = new JButton("Lose");
-    private static final JButton useBtn = new JButton("Use");
-    private static final JButton entryBtn = new JButton("Entry");
-    private static final JButton exitBtn = new JButton("Exit");
-    private static final JButton verbsBtn = new JButton("Verbs");
     private static final JButton yesButton = new JButton("Yes");
     private static final JButton noButton = new JButton("No");
     private static final Border dashed = BorderFactory.createDashedBorder(Color.decode("#0D5B69"), 1.2f, 8.0f, 2.0f, true);
@@ -48,7 +43,6 @@ public class Viewer implements ActionListener {
 
     private StoryScene storyScene;
     private HelpScene helpScene;
-    private Scene currentScene;
 
     private Game game;
 
@@ -68,7 +62,6 @@ public class Viewer implements ActionListener {
         storyScene.getQuitBtn().addActionListener(this);
         storyScene.getSaveBtn().addActionListener(this);
         storyScene.getLoadBtn().addActionListener(this);
-        currentScene = storyScene;
 
         //once everything is added pack() to make everything fit snugly into frame then set frame to visible
         window.add(storyScene.getMainPanel());
@@ -86,7 +79,7 @@ public class Viewer implements ActionListener {
 
     public void helpWindowDisplay() {
         if (helpScene == null) {
-            helpScene = new HelpScene();
+            setHelpScene();
         }
         storyScene.getMainPanel().setVisible(false);
         window.add(helpScene.getHelpPanel());
@@ -128,24 +121,35 @@ public class Viewer implements ActionListener {
         }
         else if (e.getSource() == storyScene.getHelpBtn()) {
             helpWindowDisplay();
-        } else if (e.getSource() == gainBtn) {
-            displayExamples(TextParser.getInstance().getITEM_VERBS_GAIN(), gainBtn.getText());
-        } else if (e.getSource() == loseBtn) {
-            displayExamples(TextParser.getInstance().getITEM_VERBS_LOSE(), loseBtn.getText());
-        } else if (e.getSource() == useBtn) {
-            displayExamples(TextParser.getInstance().getITEM_VERBS_USE(), useBtn.getText());
-        } else if (e.getSource() == entryBtn) {
-            displayExamples(TextParser.getInstance().getPLACES_VERBS_ENTRY(), entryBtn.getText());
-        } else if (e.getSource() == exitBtn) {
-            displayExamples(TextParser.getInstance().getPLACES_VERBS_EXIT(), exitBtn.getText());
-        } else if (e.getSource() == verbsBtn) {
-            ArrayList<String> data = new ArrayList<String>();
+        } else if (e.getSource() == helpScene.getGainBtn()) {
+            displayExamples(TextParser.getInstance().getITEM_VERBS_GAIN(), helpScene.getGainBtn().getText());
+        } else if (e.getSource() == helpScene.getLoseBtn()) {
+            displayExamples(TextParser.getInstance().getITEM_VERBS_LOSE(), helpScene.getLoseBtn().getText());
+        } else if (e.getSource() == helpScene.getUseBtn()) {
+            displayExamples(TextParser.getInstance().getITEM_VERBS_USE(), helpScene.getUseBtn().getText());
+        } else if (e.getSource() == helpScene.getEntryBtn()) {
+            displayExamples(TextParser.getInstance().getPLACES_VERBS_ENTRY(), helpScene.getEntryBtn().getText());
+        } else if (e.getSource() == helpScene.getExitBtn()) {
+            displayExamples(TextParser.getInstance().getPLACES_VERBS_EXIT(), helpScene.getExitBtn().getText());
+        } else if (e.getSource() == helpScene.getVerbsBtn()) {
+            ArrayList<String> data = new ArrayList<>();
             data.addAll(TextParser.getInstance().getVERBS1());
             data.addAll(TextParser.getInstance().getVERBS2());
-            displayExamples(data, verbsBtn.getText());
+            displayExamples(data, helpScene.getVerbsBtn().getText());
         }
     }
 
+    private void setHelpScene() {
+        helpScene = new HelpScene();
+        helpScene.getEntryBtn().addActionListener(this);
+        helpScene.getExitBtn().addActionListener(this);
+        helpScene.getGainBtn().addActionListener(this);
+        helpScene.getLoseBtn().addActionListener(this);
+        helpScene.getUseBtn().addActionListener(this);
+        helpScene.getVerbsBtn().addActionListener(this);
+    }
+
+    //TODO: needs to become a JDialogue popup
     private void askToQuit() {
         JLabel quitTitle;
         Container quitContainer;
@@ -200,6 +204,7 @@ public class Viewer implements ActionListener {
         quitWindow.setVisible(true);
     }
 
+    //TODO: this needs to be transferred to helpscene and become a JDialouge popup
     private void displayExamples(ArrayList<String> data, String buttonName) {
         JFrame examplesWindow = new JFrame(); //initiate help window
         JLabel helpTitle;
@@ -244,9 +249,6 @@ public class Viewer implements ActionListener {
         helpContainer.add(commands);
     }
 
-    //Create list of commands window
-
-
     //create load and save window and check for file being saved or loaded successfully
     private boolean saveOrLoadGame(String flag) {
         boolean saveOrLoadSuccessful;
@@ -268,10 +270,20 @@ public class Viewer implements ActionListener {
         return saveOrLoadSuccessful;
     }
 
-    public static void main(String[] args) {
-        Game game = new Game();
+    @Override
+    public void keyTyped(KeyEvent e) {
+
     }
 
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
 }
 
 

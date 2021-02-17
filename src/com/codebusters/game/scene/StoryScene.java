@@ -221,7 +221,7 @@ public class StoryScene implements Scene {
     }
 
     @Override
-    public Scene respondToInput(KeyEvent keyPressed) {
+    public JPanel respondToInput(KeyEvent keyPressed) {
         return null;
     }
 

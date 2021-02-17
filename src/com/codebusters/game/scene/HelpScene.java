@@ -110,11 +110,37 @@ public class HelpScene implements Scene {
     }
 
     @Override
-    public Scene respondToInput(KeyEvent keyPressed) {
+    public JPanel respondToInput(KeyEvent keyPressed) {
         return null;
     }
 
+    //**** GETTERS ****/
+
     public JPanel getHelpPanel() {
         return helpPanel;
+    }
+
+    public JButton getGainBtn() {
+        return gainBtn;
+    }
+
+    public JButton getLoseBtn() {
+        return loseBtn;
+    }
+
+    public JButton getUseBtn() {
+        return useBtn;
+    }
+
+    public JButton getEntryBtn() {
+        return entryBtn;
+    }
+
+    public JButton getExitBtn() {
+        return exitBtn;
+    }
+
+    public JButton getVerbsBtn() {
+        return verbsBtn;
     }
 }
