@@ -15,6 +15,7 @@ public class HelpScene implements Scene {
     private JLabel backgroundImg;
     private JTextArea helpText;
     private static final Font titleFont = new Font("Times New Roman", Font.BOLD, 32);
+    private static final Font normalFont = new Font("Times New Roman", Font.PLAIN, 16);
     private static final JButton gainBtn = new JButton("Gain");
     private static final JButton loseBtn = new JButton("Lose");
     private static final JButton useBtn = new JButton("Use");
@@ -41,18 +42,18 @@ public class HelpScene implements Scene {
         backgroundImg = new JLabel(image);
         backgroundImg.setSize(880,690);
         backgroundImg.setLayout(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints(); //needed to specify constraints for components
+        GridBagConstraints constraints = new GridBagConstraints();
 
         //help title
         helpTitle = new JLabel("Little Helper");
         helpTitle.setPreferredSize(new Dimension(480, 46));
-        c.gridx = 1;
-        c.gridy = 0;
-        c.gridwidth = 2;
-        c.insets = new Insets(0,110, 30, -100);
         helpTitle.setForeground(Color.decode("#e76f51")); //title text color
         helpTitle.setFont(titleFont); //title font
-        backgroundImg.add(helpTitle, c);
+        helpTitle.setHorizontalAlignment(JLabel.CENTER);
+        constraints.gridx = 1;
+        constraints.gridy = 0;
+        constraints.insets = new Insets(-200,0,0,0);
+        backgroundImg.add(helpTitle, constraints);
 
         // examplesBtn.setPreferredSize(new Dimension(80,30));
         ArrayList<JButton> buttons = new ArrayList<>(Arrays.asList(gainBtn, loseBtn, useBtn, entryBtn, exitBtn, verbsBtn));
@@ -69,18 +70,24 @@ public class HelpScene implements Scene {
 
         //help text panel
         helpText = new JTextArea();
-        c.gridx = 0;
-        c.gridy = 1;
-        c.gridwidth = 3;
-        c.gridheight = 3;
-        c.insets = new Insets(0, 140, 0, -80);
+        helpText.setPreferredSize(new Dimension(600, 250));
+        helpText.setText("Welcome, I'm your Little Helper! You are in a survival text based game where you take a role of a brave girl named Esperanza." +
+                "Your journey is a dangerous one, but with your wits and my guidance I believe you will find your salvation.\n\n" +
+                "Pay attention to the story and navigate the game by making your decisions carefully for each choice changes your fate be it for better or worse.\n\n" +
+                "Enter only two commands in the text field at a time to progress through the story: 1 verb and 1 noun.");
+        helpText.setFont(normalFont);
         helpText.setBackground(Color.decode("#EDE5D0"));
-        backgroundImg.add(helpText, c);
+        helpText.setForeground(Color.black);
+        helpText.setLineWrap(true);
+        helpText.setWrapStyleWord(true);
+        helpText.setEditable(false);
+        constraints.gridx = 1;
+        constraints.gridy = 1;
+        constraints.insets = new Insets(50,0,30,0);
+        backgroundImg.add(helpText, constraints);
 
         JPanel buttonPanel = new JPanel();
-        c.gridx = 1;
-        c.gridy = 2;
-        c.insets = new Insets(0,-20, 0, -20);
+        buttonPanel.setPreferredSize(new Dimension(300,90));
         buttonPanel.setBackground(Color.decode("#EDE5D0"));
         buttonPanel.setLayout(new GridLayout(2,3, 4,4));
         for (JButton button : buttons) {
@@ -88,8 +95,11 @@ public class HelpScene implements Scene {
             button.setBorderPainted(false);
             buttonPanel.add(button);
         }
+        constraints.gridx = 1;
+        constraints.gridy = 2;
+        constraints.insets = new Insets(0,0,-200,0);
 
-        backgroundImg.add(buttonPanel, c);
+        backgroundImg.add(buttonPanel, constraints);
         helpPanel.add(backgroundImg);
     }
 
