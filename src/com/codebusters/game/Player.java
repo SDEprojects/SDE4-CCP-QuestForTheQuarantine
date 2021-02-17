@@ -6,7 +6,6 @@ import java.util.ArrayList;
 public class Player implements Serializable {
     private String name;
     private ArrayList<Items> inventory;
-    private int money = 0;
 
     public Player() {
         inventory = new ArrayList<>();
@@ -26,14 +25,6 @@ public class Player implements Serializable {
     }
     public void setInventory(ArrayList<Items> inventory) {
         this.inventory = inventory;
-    }
-
-    public int getMoney() {
-        return money;
-    }
-
-    public void setMoney(int money) {
-        this.money = money;
     }
 
     // BUSINESS METHODS

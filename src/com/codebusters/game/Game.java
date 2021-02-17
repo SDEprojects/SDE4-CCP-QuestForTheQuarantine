@@ -19,7 +19,7 @@ public class Game {
     // private final ArrayList<Items> inventory;
     private ArrayList<Chapter> story;
     private Chapter currentChapter;
-    public static Player player;
+    private Player player;
 
     public Game() {
         story = new ArrayList<>();
