@@ -8,6 +8,7 @@ package com.codebusters.game;
  * Last Edited: 02/09/2021
  */
 
+import com.codebusters.game.scene.Scene;
 import com.codebusters.game.scene.StoryScene;
 
 import javax.imageio.ImageIO;
@@ -30,17 +31,8 @@ import java.util.Arrays;
 public class Viewer extends JFrame implements ActionListener {
     private static final JFrame window = new JFrame();
     private static final JFrame quitWindow = new JFrame();
-    private static Container container;
-    private static JPanel storyPanel, inventoryPanel, bottomPanel, bottomRightPanel;
-    private static JLabel titleName, inventoryTitle;
     private static final Font titleFont = new Font("Times New Roman", Font.BOLD, 32);
     private static final Font normalFont = new Font("Times New Roman", Font.PLAIN, 16);
-    private static JTextField userInputField;
-    private static final JButton inputBtn = new JButton("Enter");
-    private static final JButton saveBtn = new JButton("Save");
-    private static final JButton loadBtn = new JButton("Load");
-    private static final JButton quitBtn = new JButton("Quit");
-    private static final JButton helpBtn = new JButton("Help");
     private static final JButton gainBtn = new JButton("Gain");
     private static final JButton loseBtn = new JButton("Lose");
     private static final JButton useBtn = new JButton("Use");
@@ -54,6 +46,7 @@ public class Viewer extends JFrame implements ActionListener {
     private static final Border compound = new CompoundBorder(empty, dashed);
 
     private StoryScene storyScene;
+    private Scene currentScene;
 
     private Game game;
 
@@ -62,56 +55,28 @@ public class Viewer extends JFrame implements ActionListener {
         this.game = game;
         window.setSize(880, 690); //size for the frame
         window.setLocationRelativeTo(null); //window pops up in center of screen
-//        window.setLayout(new GridBagLayout());
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closes the window
 
         storyScene = new StoryScene();
+        //add action listeners
+        storyScene.getUserInputField().addActionListener(this);
+        storyScene.getInputBtn().addActionListener(this);
+        storyScene.getHelpBtn().addActionListener(this);
+        storyScene.getQuitBtn().addActionListener(this);
+        storyScene.getSaveBtn().addActionListener(this);
+        storyScene.getLoadBtn().addActionListener(this);
+        currentScene = storyScene;
+
         //once everything is added pack() to make everything fit snugly into frame then set frame to visible
-        window.getContentPane().add(storyScene.getMainPanel());
-//        window.add(storyScene.getMainPanel());
+        window.add(storyScene.getMainPanel());
         window.pack();
         window.setVisible(true);
     }
 
     //*************** METHODS ***************
     public void updateViewer() {
-        titleName.setText(GameState.getInstance().getSceneTitle());
-
-        //create StringBuilder for inventory to be displayed as string in the inventory text area.
-        StringBuilder inv = new StringBuilder();
-        for (Items item : GameState.getInstance().getInventory()) {
-            inv.append(item).append("\n");
-        }
-        //text area for the inventory
-        JTextArea inventoryTextArea = new JTextArea(inv.toString());
-        inventoryTextArea.setBounds(620, 180, 100, 100);
-        inventoryTextArea.setBackground(Color.decode("#EDE5D0"));
-        inventoryTextArea.setForeground(Color.black);
-        inventoryTextArea.setFont(normalFont);
-        inventoryTextArea.setLineWrap(true);
-        inventoryTextArea.setWrapStyleWord(true);
-        inventoryTextArea.setEditable(false);
-
-        //inventory panel updated
-        inventoryPanel.removeAll();
-        inventoryPanel.add(inventoryTitle);
-        inventoryPanel.add(inventoryTextArea);
-        inventoryTextArea.update(inventoryTextArea.getGraphics()); //updates text area
-
-        //text area of the main story
-        JTextArea storyTextArea = new JTextArea(GameState.getInstance().getSceneText()); //connects to the story text in the game.
-        storyTextArea.setBounds(10, 150, 430, 350);
-        storyTextArea.setBackground(Color.decode("#EDE5D0"));
-        storyTextArea.setForeground(Color.black);
-        storyTextArea.setFont(normalFont);
-        storyTextArea.setLineWrap(true);
-        storyTextArea.setWrapStyleWord(true); //creates readable text that is separated by word when wrapped.
-        storyTextArea.setEditable(false);
-
-        storyPanel.removeAll();
-        storyPanel.add(storyTextArea);
-        storyTextArea.update(storyTextArea.getGraphics()); //updates text area
+        storyScene.updateDisplay();
 
         window.revalidate();
         window.repaint();
@@ -185,13 +150,6 @@ public class Viewer extends JFrame implements ActionListener {
         helpText1.setForeground(Color.black);
         helpText1.setEditable(false);
 
-        // helpText2.setBounds(34, 310, 425, 40);
-        // helpText2.setBackground(Color.decode("#EDE5D0"));
-        // helpText2.setLineWrap(true);
-        // helpText2.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-        // helpText2.setWrapStyleWord(true); //creates readable text that is separated by word when wrapped.
-        // helpText2.setForeground(Color.black);
-        // helpText2.setEditable(false);
 
         //image inside the help text
         imagePane.insertIcon(new ImageIcon(getClass().getClassLoader().getResource("inputFieldImg.png")));
@@ -219,21 +177,21 @@ public class Viewer extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == userInputField || e.getSource() == inputBtn) {
-            String input = userInputField.getText();
+        if (e.getSource() == storyScene.getUserInputField() || e.getSource() == storyScene.getInputBtn()) {
+            String input = storyScene.getUserInputField().getText();
             //pass user input to be validated and game updated
             game.playerAction(input);
 
-            userInputField.setText("");
+            storyScene.getUserInputField().setText("");
             //update the window to reflect any changes caused by user input
             updateViewer();
         }
         //when saveBtn is pressed pass "save" parameter to saveOrLoadGame method
-        else if (e.getSource() == saveBtn) {
+        else if (e.getSource() == storyScene.getSaveBtn()) {
             saveOrLoadGame("save");
         }
         //when loadBtn is pressed pass "load" parameter to saveOrLoadGame method.
-        else if (e.getSource() == loadBtn) {
+        else if (e.getSource() == storyScene.getLoadBtn()) {
             saveOrLoadGame("load");
             //updates viewer with the GameState from loaded game
             updateViewer();
@@ -241,7 +199,7 @@ public class Viewer extends JFrame implements ActionListener {
             game.loadGame();
         }
         //when quitBtn is pressed the GUI window and game closes.
-        else if (e.getSource() == quitBtn) {
+        else if (e.getSource() == storyScene.getQuitBtn()) {
             askToQuit();
         }
         else if (e.getSource() == yesButton) {
@@ -252,7 +210,7 @@ public class Viewer extends JFrame implements ActionListener {
         else if (e.getSource() == noButton) {
             quitWindow.dispose();
         }
-        else if (e.getSource() == helpBtn) {
+        else if (e.getSource() == storyScene.getHelpBtn()) {
             helpWindowDisplay();
         } else if (e.getSource() == gainBtn) {
             gainBtn.setOpaque(true);

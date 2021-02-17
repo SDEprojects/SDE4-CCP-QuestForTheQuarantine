@@ -1,5 +1,8 @@
 package com.codebusters.game.scene;
 
+import com.codebusters.game.GameState;
+import com.codebusters.game.Items;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -11,7 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class StoryScene implements Scene {
-    private JPanel mainPanel;
+    private final JPanel mainPanel;
 
     private static JPanel storyPanel, inventoryPanel, bottomPanel, bottomRightPanel;
     private static JLabel titleName, inventoryTitle, backgroundImg;
@@ -72,12 +75,10 @@ public class StoryScene implements Scene {
         userInputField.setBackground(Color.decode("#EDE5D0"));
         userInputField.setBorder(BorderFactory.createLoweredBevelBorder());
         userInputField.setForeground(Color.black);
-//        userInputField.addActionListener(this);
         bottomPanel.add(userInputField);
 
         //input button
         inputBtn.setPreferredSize(new Dimension(80,30));
-//        inputBtn.addActionListener(this);
         inputBtn.setForeground(Color.white);
         inputBtn.setBackground(Color.darkGray);
         inputBtn.setOpaque(true);
@@ -97,7 +98,6 @@ public class StoryScene implements Scene {
 
         //help button
         helpBtn.setPreferredSize(new Dimension(80,30));
-//        helpBtn.addActionListener(this);
         helpBtn.setForeground(Color.white);
         helpBtn.setBackground(Color.darkGray);
         helpBtn.setOpaque(true);
@@ -108,7 +108,6 @@ public class StoryScene implements Scene {
 
         //quit button
         quitBtn.setPreferredSize(new Dimension(80,30));
-//        quitBtn.addActionListener(this);
         quitBtn.setForeground(Color.white);
         quitBtn.setBackground(Color.darkGray);
         quitBtn.setOpaque(true);
@@ -119,7 +118,6 @@ public class StoryScene implements Scene {
 
         //save button
         saveBtn.setPreferredSize(new Dimension(80,30));
-//        saveBtn.addActionListener(this);
         saveBtn.setForeground(Color.white);
         saveBtn.setBackground(Color.darkGray);
         saveBtn.setOpaque(true);
@@ -130,7 +128,6 @@ public class StoryScene implements Scene {
 
         //load button
         loadBtn.setPreferredSize(new Dimension(80,30));
-//        loadBtn.addActionListener(this);
         loadBtn.setForeground(Color.white);
         loadBtn.setBackground(Color.darkGray);
         loadBtn.setOpaque(true);
@@ -183,17 +180,77 @@ public class StoryScene implements Scene {
         mainPanel.add(backgroundImg);
     }
 
-    public JPanel getMainPanel() {
-        return mainPanel;
-    }
-
     @Override
-    public void display(JPanel scene) {
+    public void updateDisplay() {
+        titleName.setText(GameState.getInstance().getSceneTitle());
 
+        //create StringBuilder for inventory to be displayed as string in the inventory text area.
+        StringBuilder inv = new StringBuilder();
+        for (Items item : GameState.getInstance().getInventory()) {
+            inv.append(item).append("\n");
+        }
+        //text area for the inventory
+        JTextArea inventoryTextArea = new JTextArea(inv.toString());
+        inventoryTextArea.setBounds(620, 180, 100, 100);
+        inventoryTextArea.setBackground(Color.decode("#EDE5D0"));
+        inventoryTextArea.setForeground(Color.black);
+        inventoryTextArea.setFont(normalFont);
+        inventoryTextArea.setLineWrap(true);
+        inventoryTextArea.setWrapStyleWord(true);
+        inventoryTextArea.setEditable(false);
+
+        //inventory panel updated
+        inventoryPanel.removeAll();
+        inventoryPanel.add(inventoryTitle);
+        inventoryPanel.add(inventoryTextArea);
+        inventoryTextArea.update(inventoryTextArea.getGraphics()); //updates text area
+
+        //text area of the main story
+        JTextArea storyTextArea = new JTextArea(GameState.getInstance().getSceneText()); //connects to the story text in the game.
+        storyTextArea.setBounds(10, 150, 430, 350);
+        storyTextArea.setBackground(Color.decode("#EDE5D0"));
+        storyTextArea.setForeground(Color.black);
+        storyTextArea.setFont(normalFont);
+        storyTextArea.setLineWrap(true);
+        storyTextArea.setWrapStyleWord(true); //creates readable text that is separated by word when wrapped.
+        storyTextArea.setEditable(false);
+
+        storyPanel.removeAll();
+        storyPanel.add(storyTextArea);
+        storyTextArea.update(storyTextArea.getGraphics()); //updates text area
     }
 
     @Override
     public Scene respondToInput(KeyEvent keyPressed) {
         return null;
+    }
+
+    //*** GETTERS ****//
+    public JPanel getMainPanel() {
+        return mainPanel;
+    }
+
+    public JTextField getUserInputField() {
+        return userInputField;
+    }
+
+    public JButton getInputBtn() {
+        return inputBtn;
+    }
+
+    public JButton getHelpBtn() {
+        return helpBtn;
+    }
+
+    public JButton getSaveBtn() {
+        return saveBtn;
+    }
+
+    public JButton getLoadBtn() {
+        return loadBtn;
+    }
+
+    public JButton getQuitBtn() {
+        return quitBtn;
     }
 }
