@@ -8,6 +8,7 @@ package com.codebusters.game;
  * Last Edited: 02/09/2021
  */
 
+import com.codebusters.game.scene.HelpScene;
 import com.codebusters.game.scene.Scene;
 import com.codebusters.game.scene.StoryScene;
 
@@ -28,7 +29,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Viewer extends JFrame implements ActionListener {
+public class Viewer implements ActionListener {
     private static final JFrame window = new JFrame();
     private static final JFrame quitWindow = new JFrame();
     private static final Font titleFont = new Font("Times New Roman", Font.BOLD, 32);
@@ -46,6 +47,7 @@ public class Viewer extends JFrame implements ActionListener {
     private static final Border compound = new CompoundBorder(empty, dashed);
 
     private StoryScene storyScene;
+    private HelpScene helpScene;
     private Scene currentScene;
 
     private Game game;
@@ -83,97 +85,11 @@ public class Viewer extends JFrame implements ActionListener {
     }
 
     public void helpWindowDisplay() {
-        JFrame helpWindow = new JFrame(); //initiate help window
-        Container helpContainer;
-        JLabel helpTitle;
-
-        //set up help window
-        helpWindow.setSize(500, 415);
-        helpWindow.setLocationRelativeTo(window); //help window will now pop up in front of main game window so user doesn't have to look for it
-        helpWindow.setResizable(false);
-
-        //create background image for help window
-        BufferedImage bgImg = null;
-        InputStream is = getClass().getClassLoader().getResourceAsStream("helpBgImage.png");
-        try {
-            bgImg = ImageIO.read(is);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (helpScene == null) {
+            helpScene = new HelpScene();
         }
-        assert bgImg != null;
-        Image helpBgImg = bgImg.getScaledInstance(500, 380, Image.SCALE_SMOOTH);
-        ImageIcon image = new ImageIcon(helpBgImg);
-        helpWindow.setContentPane(new JLabel(image));
-        helpWindow.setLayout(null); //disables default layout
-        helpWindow.setResizable(false); //keep window from being resized
-        //help window container
-        helpContainer = helpWindow.getContentPane(); //container inside the window with help content
-
-        //help title
-        helpTitle = new JLabel("Little Helper");
-        helpTitle.setBounds(160, -80, 200, 250);
-        helpTitle.setForeground(Color.decode("#e76f51")); //title text color
-        helpTitle.setFont(titleFont);
-        helpContainer.add(helpTitle);
-
-        //text area for the help window
-        JTextArea helpText1 = new JTextArea();
-        JTextArea helpText2 = new JTextArea();
-        JTextPane imagePane = new JTextPane();
-
-        helpText1.setText("Welcome, I'm your Little Helper! You are in a survival text based game where you take a role of a brave girl named Esperanza." +
-                "Your journey is a dangerous one, but with your wits and my guidance I believe you will find your salvation.\n\n" +
-                "Pay attention to the story and navigate the game by making your decisions carefully for each choice changes your fate be it for better or worse.\n\n" +
-                "Enter only two commands in the text field at a time to progress through the story: 1 verb and 1 noun.");
-
-
-        // examplesBtn.setPreferredSize(new Dimension(80,30));
-        ArrayList<JButton> buttons = new ArrayList<>(Arrays.asList(gainBtn, loseBtn, useBtn, entryBtn, exitBtn, verbsBtn));
-        for (JButton button : buttons) {
-            button.addActionListener(this);
-            button.setForeground(Color.white);
-            button.setBackground(Color.darkGray);
-            button.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-            button.setBorder(BorderFactory.createRaisedBevelBorder());
-            button.setPreferredSize(new Dimension(100,35));
-            button.setOpaque(true);
-            button.setBorderPainted(false);
-        }
-
-        // helpText2.setText("Examples: go around, use firecrackers, enter store, leave city, go farther, search cabinets, grab crate, trade ammo, run away, threaten farmer.");
-
-        helpText1.setBounds(34, 75, 425, 200);
-        helpText1.setBackground(Color.decode("#EDE5D0"));
-        helpText1.setLineWrap(true);
-        helpText1.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-        helpText1.setWrapStyleWord(true); //creates readable text that is separated by word when wrapped.
-        helpText1.setForeground(Color.black);
-        helpText1.setEditable(false);
-
-
-        //image inside the help text
-        imagePane.insertIcon(new ImageIcon(getClass().getClassLoader().getResource("inputFieldImg.png")));
-        imagePane.setBackground(Color.decode("#EDE5D0"));
-        imagePane.setBounds(45, 268, 200, 40);
-        imagePane.setEditable(false);
-
-        //add all content to the container
-
-        // helpContainer.add(imagePane);
-        helpContainer.add(helpText1);
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setBounds(45, 270, 400, 80);
-        buttonPanel.setBackground(Color.decode("#EDE5D0"));
-        for (JButton button : buttons) {
-            buttonPanel.add(button);
-        }
-        helpContainer.add(buttonPanel);
-
-
-        //ensure everything fits snugly in JFrame and set visible
-        helpWindow.pack();
-        helpWindow.setVisible(true);
-
+        storyScene.getMainPanel().setVisible(false);
+        window.add(helpScene.getHelpPanel());
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -213,28 +129,16 @@ public class Viewer extends JFrame implements ActionListener {
         else if (e.getSource() == storyScene.getHelpBtn()) {
             helpWindowDisplay();
         } else if (e.getSource() == gainBtn) {
-            gainBtn.setOpaque(true);
-            gainBtn.setBorderPainted(false);
             displayExamples(TextParser.getInstance().getITEM_VERBS_GAIN(), gainBtn.getText());
         } else if (e.getSource() == loseBtn) {
-            loseBtn.setOpaque(true);
-            loseBtn.setBorderPainted(false);
             displayExamples(TextParser.getInstance().getITEM_VERBS_LOSE(), loseBtn.getText());
         } else if (e.getSource() == useBtn) {
-            useBtn.setOpaque(true);
-            useBtn.setBorderPainted(false);
             displayExamples(TextParser.getInstance().getITEM_VERBS_USE(), useBtn.getText());
         } else if (e.getSource() == entryBtn) {
-            entryBtn.setOpaque(true);
-            entryBtn.setBorderPainted(false);
             displayExamples(TextParser.getInstance().getPLACES_VERBS_ENTRY(), entryBtn.getText());
         } else if (e.getSource() == exitBtn) {
-            exitBtn.setOpaque(true);
-            exitBtn.setBorderPainted(false);
             displayExamples(TextParser.getInstance().getPLACES_VERBS_EXIT(), exitBtn.getText());
         } else if (e.getSource() == verbsBtn) {
-            verbsBtn.setOpaque(true);
-            verbsBtn.setBorderPainted(false);
             ArrayList<String> data = new ArrayList<String>();
             data.addAll(TextParser.getInstance().getVERBS1());
             data.addAll(TextParser.getInstance().getVERBS2());
