@@ -389,6 +389,7 @@ public class Viewer implements ActionListener {
             gainBtn.setOpaque(true);
             gainBtn.setBorderPainted(false);
             displayExamples(TextParser.getInstance().getITEM_VERBS_GAIN(), gainBtn.getText());
+
         } else if (e.getSource() == loseBtn) {
             loseBtn.setOpaque(true);
             loseBtn.setBorderPainted(false);
@@ -434,7 +435,6 @@ public class Viewer implements ActionListener {
         Image quitBgImg = bgImg.getScaledInstance(500, 200, Image.SCALE_SMOOTH);
         ImageIcon image = new ImageIcon(quitBgImg);
         quitWindow.setContentPane(new JLabel(image));
-        JLabel bg = new JLabel(new ImageIcon(bgImg));
         quitWindow.setLayout(null); //disables default layout
         quitWindow.setVisible(true); //makes window appear on screen
 
@@ -471,8 +471,8 @@ public class Viewer implements ActionListener {
 
     private void displayExamples(ArrayList<String> data, String buttonName) {
         JFrame examplesWindow = new JFrame(); //initiate help window
-        JLabel helpTitle;
-        Container helpContainer;
+        JLabel examplesTitle;
+        Container examplesContainer;
         examplesWindow.setResizable(false);
         examplesWindow.setVisible(true);
         examplesWindow.setSize(500, 415);
@@ -487,30 +487,30 @@ public class Viewer implements ActionListener {
             e.printStackTrace();
         }
         assert bgImg != null;
-        Image helpBgImg = bgImg.getScaledInstance(500, 380, Image.SCALE_SMOOTH);
-        ImageIcon image = new ImageIcon(helpBgImg);
+        Image examplesBgImg = bgImg.getScaledInstance(500, 380, Image.SCALE_SMOOTH);
+        ImageIcon image = new ImageIcon(examplesBgImg);
         examplesWindow.setContentPane(new JLabel(image));
         JLabel bg = new JLabel(new ImageIcon(bgImg));
         examplesWindow.setLayout(null); //disables default layout
         examplesWindow.setVisible(true); //makes window appear on screen
 
         //help window container
-        helpContainer = examplesWindow.getContentPane(); //container inside the window with help content
-        helpContainer.add(bg);
+        examplesContainer = examplesWindow.getContentPane(); //container inside the window with help content
+        examplesContainer.add(bg);
 
         //help title
-        helpTitle = new JLabel(buttonName + " Commands");
-        helpTitle.setBounds(130, -80, 400, 250);
-        helpTitle.setForeground(Color.decode("#e76f51")); //title text color
-        helpTitle.setFont(titleFont);
-        helpContainer.add(helpTitle);
+        examplesTitle = new JLabel(buttonName + " Commands");
+        examplesTitle.setBounds(130, -80, 400, 250);
+        examplesTitle.setForeground(Color.decode("#e76f51")); //title text color
+        examplesTitle.setFont(titleFont);
+        examplesContainer.add(examplesTitle);
 
         JTextArea commands = new JTextArea();
         commands.setBounds(200, 90, 100, 80);
         commands.setBackground(Color.decode("#EDE5D0"));
         commands.setFont(normalFont);
         data.forEach(x -> commands.append(x.toUpperCase() + "\n"));
-        helpContainer.add(commands);
+        examplesContainer.add(commands);
     }
 
     //Create list of commands window
