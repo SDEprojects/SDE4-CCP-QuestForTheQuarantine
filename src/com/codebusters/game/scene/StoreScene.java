@@ -1,5 +1,9 @@
 package com.codebusters.game.scene;
 
+import com.codebusters.game.Game;
+import com.codebusters.game.Items;
+import com.codebusters.game.Trader;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -153,6 +157,29 @@ public class StoreScene {
         backgroundImg.add(howToResumeGame, constraints);
         //add backgroundImg to the main help panel
         storePanel.add(backgroundImg);
+    }
+
+    public void updateInventories() {
+        //set store inventory
+        updateStoreInventory();
+        //set player inventory
+        updateUserInventory();
+    }
+
+    private void updateStoreInventory() {
+        StringBuilder sb = new StringBuilder();
+        for (Items storeItem : Trader.getInstance().getShop()) {
+            sb.append(storeItem.getName()).append(" --- $").append(storeItem.getValue()).append("\n");
+        }
+        storeInventory.setText(sb.toString());
+    }
+
+    private void updateUserInventory() {
+        StringBuilder sb = new StringBuilder();
+        for (Items userItem : Game.player.getInventory()) {
+            sb.append(userItem.getName()).append(" X ").append(userItem.getCount()).append("\n");
+        }
+        userInventory.setText(sb.toString());
     }
 
     //**** GETTERS ****//

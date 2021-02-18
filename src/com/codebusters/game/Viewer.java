@@ -128,6 +128,9 @@ public class Viewer implements ActionListener, KeyListener {
         window.repaint();
     }
 
+    /*
+     * Manages transition from store to main game
+     */
     private void exitStoreAndEnterStory() {
         storeScene.getStorePanel().setVisible(false);
         isStoreScene = false;
@@ -180,6 +183,7 @@ public class Viewer implements ActionListener, KeyListener {
         else {
             storeScene.getStorePanel().setVisible(true);
         }
+        storeScene.updateInventories();
         storyScene.getMainPanel().setVisible(false);
         isStoryScene = false;
         isStoreScene = true;
@@ -198,6 +202,8 @@ public class Viewer implements ActionListener, KeyListener {
         storeScene.getInventories().addKeyListener(this);
         storeScene.getStorePanel().setFocusable(true);
         storeScene.getStorePanel().requestFocusInWindow();
+
+        storeScene.updateInventories();
     }
 
     //create load and save window and check for file being saved or loaded successfully
