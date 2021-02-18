@@ -90,21 +90,25 @@ public class Viewer implements ActionListener, KeyListener {
         window.repaint();
     }
 
+    /*
+     * Sets all action and key listeners to components on the help scene
+     */
     private void setHelpScene() {
         helpScene = new HelpScene();
+        //add action listeners to the buttons to display
         helpScene.getEntryBtn().addActionListener(this);
         helpScene.getExitBtn().addActionListener(this);
         helpScene.getGainBtn().addActionListener(this);
         helpScene.getLoseBtn().addActionListener(this);
         helpScene.getUseBtn().addActionListener(this);
         helpScene.getVerbsBtn().addActionListener(this);
-        helpScene.getEntryBtn().addKeyListener(this);
-        helpScene.getExitBtn().addKeyListener(this);
-        helpScene.getGainBtn().addKeyListener(this);
-        helpScene.getLoseBtn().addKeyListener(this);
-        helpScene.getUseBtn().addKeyListener(this);
-        helpScene.getVerbsBtn().addKeyListener(this);
-
+        //adding key listener to all buttons, in case they are in focus
+        for (Component comp : helpScene.getButtonPanel().getComponents()) {
+            if (comp.getName().equals("button")) {
+                comp.addKeyListener(this);
+            }
+        }
+        //adding key listener to main help panel and components
         helpScene.getHelpPanel().addKeyListener(this);
         helpScene.getBackgroundImg().addKeyListener(this);
         helpScene.getHelpText().addKeyListener(this);

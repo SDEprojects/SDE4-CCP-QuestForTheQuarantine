@@ -2,7 +2,6 @@ package com.codebusters.game.scene;
 
 import com.codebusters.game.GameState;
 import com.codebusters.game.Items;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -13,23 +12,27 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class StoryScene {
+    //main panel to hold all components
     private final JPanel mainPanel;
+    //panel to hold story text
+    private static JPanel storyPanel;
+    //panel to hold the inventory
+    private final JPanel inventoryPanel;
+    //title label
+    private final JLabel titleName;
+    //inventory label
+    private final JLabel inventoryTitle;
+    //user input text field
+    private final JTextField userInputField;
+    //Buttons
+    private final JButton inputBtn = new JButton("Enter");
+    private final JButton saveBtn = new JButton("Save");
+    private final JButton loadBtn = new JButton("Load");
+    private final JButton quitBtn = new JButton("Quit");
+    private final JButton helpBtn = new JButton("Help");
 
-    private static JPanel storyPanel, inventoryPanel, bottomPanel, bottomRightPanel;
-    private static JLabel titleName, inventoryTitle, backgroundImg;
-    private static JTextField userInputField;
-    private static final JButton inputBtn = new JButton("Enter");
-    private static final JButton saveBtn = new JButton("Save");
-    private static final JButton loadBtn = new JButton("Load");
-    private static final JButton quitBtn = new JButton("Quit");
-    private static final JButton helpBtn = new JButton("Help");
-
-    private static final Border dashed = BorderFactory.createDashedBorder(Color.decode("#0D5B69"), 1.2f, 8.0f, 2.0f, true);
-    private static final Border empty = BorderFactory.createEmptyBorder(1, 1, 1, 1);
-    private static final Border compound = new CompoundBorder(empty, dashed);
-
-    private static final Font titleFont = new Font("Times New Roman", Font.BOLD, 32);
-    private static final Font normalFont = new Font("Times New Roman", Font.PLAIN, 16);
+    //normal game font
+    private final Font normalFont = new Font("Times New Roman", Font.PLAIN, 16);
 
     /*
      * Sets up the layout and format of the main games story GUI
@@ -41,10 +44,11 @@ public class StoryScene {
         //main panel
         mainPanel = new JPanel();
 
-        //create background image
+        //create background image and setting image
         BufferedImage img = null;
         InputStream is = getClass().getClassLoader().getResourceAsStream("bgImage.png");
         try {
+            assert is != null;
             img = ImageIO.read(is);
         } catch (IOException e) {
             e.printStackTrace();
@@ -53,18 +57,18 @@ public class StoryScene {
         Image bgImg = img.getScaledInstance(880, 690, Image.SCALE_SMOOTH);
         ImageIcon imageIcon = new ImageIcon(bgImg);
         //adding background image to JLabel
-        backgroundImg = new JLabel(imageIcon);
+        JLabel backgroundImg = new JLabel(imageIcon);
         backgroundImg.setSize(880,690);//size for the frame
         backgroundImg.setLayout(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints(); //needed to specify constraints for components
+        GridBagConstraints constraints = new GridBagConstraints(); //needed to specify constraints for components
 
         //bottom panel to hold user input field and submit buttons
-        bottomPanel = new JPanel();
+        JPanel bottomPanel = new JPanel();
         bottomPanel.setBackground(Color.decode("#EDE5D0"));
-        c.gridx = 1;
-        c.gridy = 2;
-        c.insets = new Insets(0,-20, 0, -20);
-        backgroundImg.add(bottomPanel, c);
+        constraints.gridx = 1;
+        constraints.gridy = 2;
+        constraints.insets = new Insets(0,-20, 0, -20);
+        backgroundImg.add(bottomPanel, constraints);
 
 
         //user input
@@ -87,12 +91,12 @@ public class StoryScene {
         bottomPanel.add(inputBtn);
 
         //bottom right panel to hold help, quit, save and load buttons
-        bottomRightPanel = new JPanel();
+        JPanel bottomRightPanel = new JPanel();
         bottomRightPanel.setBackground(Color.decode("#EDE5D0"));
-        c.gridx = 2;
-        c.gridy = 2;
-        c.insets = new Insets(0,-60,0, 70);
-        backgroundImg.add(bottomRightPanel, c);
+        constraints.gridx = 2;
+        constraints.gridy = 2;
+        constraints.insets = new Insets(0,-60,0, 70);
+        backgroundImg.add(bottomRightPanel, constraints);
 
 
         //help button
@@ -138,34 +142,38 @@ public class StoryScene {
         //panel for game title
         titleName = new JLabel("The Quest for Quarantine");
         titleName.setPreferredSize(new Dimension(480, 46));
-        c.gridx = 1;
-        c.gridy = 0;
-        c.gridwidth = 2;
-        c.insets = new Insets(0,110, 30, -100);
+        constraints.gridx = 1;
+        constraints.gridy = 0;
+        constraints.gridwidth = 2;
+        constraints.insets = new Insets(0,110, 30, -100);
         titleName.setForeground(Color.decode("#e76f51")); //title text color
+        Font titleFont = new Font("Times New Roman", Font.BOLD, 32);
         titleName.setFont(titleFont); //title font
-        backgroundImg.add(titleName, c);
+        backgroundImg.add(titleName, constraints);
 
         //text panel for main story
         storyPanel = new JPanel();
         storyPanel.setPreferredSize(new Dimension(430, 350));
-        c.gridx = 0;
-        c.gridy = 1;
-        c.gridwidth = 2;
-        c.insets = new Insets(0, 140, 0, -80);
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        constraints.gridwidth = 2;
+        constraints.insets = new Insets(0, 140, 0, -80);
         storyPanel.setBackground(Color.decode("#EDE5D0"));
-        backgroundImg.add(storyPanel, c); //adding story panel to main container
+        backgroundImg.add(storyPanel, constraints); //adding story panel to main container
 
         //panel for inventory
         inventoryPanel = new JPanel();
         inventoryPanel.setPreferredSize(new Dimension(150, 340));
-        c.gridx = 2;
-        c.gridy = 0;
-        c.gridheight = 2;
-        c.gridwidth = 1;
-        c.insets = new Insets(0,30,0,0);
+        constraints.gridx = 2;
+        constraints.gridy = 0;
+        constraints.gridheight = 2;
+        constraints.gridwidth = 1;
+        constraints.insets = new Insets(0,30,0,0);
         inventoryPanel.setBackground(Color.decode("#EDE5D0"));
         inventoryPanel.setForeground(Color.decode("#e76f51")); //title text color
+        Border dashed = BorderFactory.createDashedBorder(Color.decode("#0D5B69"), 1.2f, 8.0f, 2.0f, true);
+        Border empty = BorderFactory.createEmptyBorder(1, 1, 1, 1);
+        Border compound = new CompoundBorder(empty, dashed);
         inventoryPanel.setBorder(compound);
         inventoryPanel.setFont(normalFont); //font
 
@@ -174,11 +182,15 @@ public class StoryScene {
         inventoryTitle.setForeground(Color.decode("#635147")); //title text color
         inventoryTitle.setFont(new Font("Arial", Font.BOLD, 13)); //title font
         inventoryPanel.add(inventoryTitle);
-        backgroundImg.add(inventoryPanel, c);
+        backgroundImg.add(inventoryPanel, constraints);
 
+        //add backgroundImg to main panel
         mainPanel.add(backgroundImg);
     }
 
+    /*
+     * Updates components of the main panel with current GameState
+     */
     public void updateDisplay() {
         titleName.setText(GameState.getInstance().getSceneTitle());
 
