@@ -137,6 +137,7 @@ public class Viewer implements ActionListener, KeyListener {
         isStoryScene = true;
         storyScene.getMainPanel().setVisible(true);
         storyScene.getUserInputField().requestFocusInWindow();
+        storyScene.updateDisplay();
         window.repaint();
     }
 
@@ -183,6 +184,7 @@ public class Viewer implements ActionListener, KeyListener {
         else {
             storeScene.getStorePanel().setVisible(true);
         }
+
         storeScene.updateInventories();
         storyScene.getMainPanel().setVisible(false);
         isStoryScene = false;
@@ -203,6 +205,31 @@ public class Viewer implements ActionListener, KeyListener {
         storeScene.getStorePanel().setFocusable(true);
         storeScene.getStorePanel().requestFocusInWindow();
 
+        storeScene.updateInventories();
+    }
+
+    private void buyFromStore() {
+        //Done: add JOptionPane popup
+        String itemToBuy = JOptionPane.showInputDialog(window, "What would you like to buy?");
+        ArrayList<Items> items = Trader.getInstance().getShop();
+        for (Items item : items) {
+            if (item.getName().equals(itemToBuy.toLowerCase())) {
+                Trader.getInstance().itemPlayerIsBuying(item);
+                break;
+            }
+        }
+        storeScene.updateInventories();
+    }
+
+    private void sellFromStore() {
+        String itemToSell = JOptionPane.showInputDialog(window, "What would you like to sell?");
+        ArrayList<Items> userItems = Game.player.getInventory();
+        for (Items item : userItems) {
+            if (item.getName().equals(itemToSell.toLowerCase())) {
+                Trader.getInstance().itemPlayerIsSelling(item);
+                break;
+            }
+        }
         storeScene.updateInventories();
     }
 
@@ -254,10 +281,10 @@ public class Viewer implements ActionListener, KeyListener {
             askToQuit();
         }
         else if (e.getSource() == storeScene.getBuyBtn()) {
-            System.out.println("Buy");
+            buyFromStore();
         }
         else if (e.getSource() == storeScene.getSellBtn()) {
-            System.out.println("sell");
+            sellFromStore();
         }
         else if (e.getSource() == storyScene.getHelpBtn()) {
             helpWindowDisplay();
