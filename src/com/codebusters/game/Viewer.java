@@ -11,39 +11,27 @@ package com.codebusters.game;
 import com.codebusters.game.scene.HelpScene;
 import com.codebusters.game.scene.StoryScene;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 
+/*
+ * Main display for the game
+ */
 public class Viewer implements ActionListener, KeyListener {
     private static final JFrame window = new JFrame();
-    private static final JFrame quitWindow = new JFrame();
-    private static final Font titleFont = new Font("Times New Roman", Font.BOLD, 32);
-    private static final JButton yesButton = new JButton("Yes");
-    private static final JButton noButton = new JButton("No");
-    private static final Border dashed = BorderFactory.createDashedBorder(Color.decode("#0D5B69"), 1.2f, 8.0f, 2.0f, true);
-    private static final Border empty = BorderFactory.createEmptyBorder(1, 1, 1, 1);
-
-    private StoryScene storyScene;
-    private HelpScene helpScene;
-
-    private boolean isStoryScene = true;
-
-    private Game game;
+    private final StoryScene storyScene; //main game scene
+    private HelpScene helpScene; //help scene
+    private boolean isStoryScene = true; //tracks if story scene is currently displayed in window
+    private final Game game;
 
     //Constructor
     public Viewer(Game game) {
@@ -70,6 +58,9 @@ public class Viewer implements ActionListener, KeyListener {
     }
 
     //*************** METHODS ***************
+    /*
+     * Updates the game scene to mach the current game state
+     */
     public void updateViewer() {
         storyScene.updateDisplay();
 
@@ -77,6 +68,9 @@ public class Viewer implements ActionListener, KeyListener {
         window.repaint();
     }
 
+    /*
+     * Manages the transition from the main game scene to the help scene
+     */
     public void helpWindowDisplay() {
         if (helpScene == null) {
             setHelpScene();
@@ -116,6 +110,9 @@ public class Viewer implements ActionListener, KeyListener {
         helpScene.getHelpPanel().requestFocusInWindow();
     }
 
+    /*
+     * Manages the transition from the help scene back to the main game scene
+     */
     private void exitHelpAndEnterStory() {
         helpScene.getHelpPanel().setVisible(false);
         isStoryScene = true;
@@ -123,59 +120,18 @@ public class Viewer implements ActionListener, KeyListener {
         window.repaint();
     }
 
-    //TODO: needs to become a JDialogue popup
+    /*
+     * Creates a popup for the user to confirm they want to quit the game or not
+     * If yes is selected game exits otherwise game continues
+     */
     private void askToQuit() {
-        JLabel quitTitle;
-        Container quitContainer;
-        quitWindow.setResizable(false);
-        quitWindow.setVisible(true);
-        quitWindow.setSize(500, 200);
-        quitWindow.setLocationRelativeTo(window);
-        quitWindow.setBackground(Color.decode("#EDE5D0"));
-        BufferedImage bgImg = null;
-        InputStream is = getClass().getClassLoader().getResourceAsStream("helpBgImage.png");
-        try {
-            bgImg = ImageIO.read(is);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        assert bgImg != null;
-        Image quitBgImg = bgImg.getScaledInstance(500, 200, Image.SCALE_SMOOTH);
-        ImageIcon image = new ImageIcon(quitBgImg);
-        quitWindow.setContentPane(new JLabel(image));
-        JLabel bg = new JLabel(new ImageIcon(bgImg));
-        quitWindow.setLayout(null); //disables default layout
-        quitWindow.setVisible(true); //makes window appear on screen
+        int userChoice = JOptionPane.showOptionDialog(window, "Are you sure you want to quit?", "Exit Game",
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[] {"Yes", "No"}, JOptionPane.YES_OPTION);
 
-        quitTitle = new JLabel("Are you sure you want to quit?");
-        quitTitle.setBounds(55, 0, 400, 100);
-        quitTitle.setForeground(Color.decode("#e76f51")); //title text color
-        Font quitFontTitle = titleFont.deriveFont(30F);
-        quitTitle.setFont(quitFontTitle);
-        quitContainer = quitWindow.getContentPane();
-        quitContainer.add(quitTitle);
-
-        ArrayList<JButton> buttons = new ArrayList<>(Arrays.asList(yesButton, noButton));
-        for (JButton button : buttons) {
-            button.addActionListener(this);
-            button.setForeground(Color.white);
-            button.setBackground(Color.darkGray);
-            button.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-            button.setBorder(BorderFactory.createRaisedBevelBorder());
-            button.setPreferredSize(new Dimension(100, 35));
-            button.setOpaque(true);
-            button.setBorderPainted(false);
+        if (userChoice == JOptionPane.YES_OPTION) {
+            window.dispose();
+            System.exit(0);
         }
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setBounds(45, 90, 400, 80);
-        buttonPanel.setBackground(Color.decode("#EDE5D0"));
-        for (JButton button : buttons) {
-            buttonPanel.add(button);
-        }
-        quitContainer.add(buttonPanel);
-
-        quitWindow.pack();
-        quitWindow.setVisible(true);
     }
 
     /*
@@ -245,14 +201,6 @@ public class Viewer implements ActionListener, KeyListener {
         //when quitBtn is pressed the GUI window and game closes.
         else if (e.getSource() == storyScene.getQuitBtn()) {
             askToQuit();
-        }
-        else if (e.getSource() == yesButton) {
-            window.dispose();
-            quitWindow.dispose();
-            System.exit(0);
-        }
-        else if (e.getSource() == noButton) {
-            quitWindow.dispose();
         }
         else if (e.getSource() == storyScene.getHelpBtn()) {
             helpWindowDisplay();
