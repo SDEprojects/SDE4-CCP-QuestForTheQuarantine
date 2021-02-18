@@ -176,8 +176,6 @@ public class Viewer implements ActionListener, KeyListener {
         storeScene = new StoreScene();
         storeScene.getBuyBtn().addActionListener(this);
         storeScene.getSellBtn().addActionListener(this);
-        storeScene.getUserInventory().setText("machete\nknife\npistol");
-        storeScene.getStoreInventory().setText("machete\nknife\npistol");
     }
 
     //create load and save window and check for file being saved or loaded successfully
