@@ -204,49 +204,25 @@ public class Viewer implements ActionListener, KeyListener {
         quitWindow.setVisible(true);
     }
 
-    //TODO: this needs to be transferred to helpscene and become a JDialouge popup
+    /*
+     * Creates a popup window that shows the list of available verbs that can be used in game
+     * based on specific help button pressed
+     */
     private void displayExamples(ArrayList<String> data, String buttonName) {
-        JFrame examplesWindow = new JFrame(); //initiate help window
-        JLabel helpTitle;
-        Container helpContainer;
-        examplesWindow.setResizable(false);
-        examplesWindow.setVisible(true);
-        examplesWindow.setSize(500, 415);
-        examplesWindow.setLocationRelativeTo(window);
-        examplesWindow.setBackground(Color.decode("#EDE5D0"));
-
-        BufferedImage bgImg = null;
-        InputStream is = getClass().getClassLoader().getResourceAsStream("helpBgImage.png");
-        try {
-            bgImg = ImageIO.read(is);
-        } catch (IOException e) {
-            e.printStackTrace();
+        //setting title for popup
+        String title = buttonName.toLowerCase().equals("verbs") ? "Other Verbs" : buttonName + " Verbs";
+        //formatting the list of available verbs
+        StringBuilder sb = new StringBuilder();
+        for (String verb : data) {
+            if (verb.equals(data.get(data.size()-1))) {
+                sb.append(verb);
+            }
+            else {
+                sb.append(verb).append(", ");
+            }
         }
-        assert bgImg != null;
-        Image helpBgImg = bgImg.getScaledInstance(500, 380, Image.SCALE_SMOOTH);
-        ImageIcon image = new ImageIcon(helpBgImg);
-        examplesWindow.setContentPane(new JLabel(image));
-        JLabel bg = new JLabel(new ImageIcon(bgImg));
-        examplesWindow.setLayout(null); //disables default layout
-        examplesWindow.setVisible(true); //makes window appear on screen
 
-        //help window container
-        helpContainer = examplesWindow.getContentPane(); //container inside the window with help content
-        helpContainer.add(bg);
-
-        //help title
-        helpTitle = new JLabel(buttonName + " Commands");
-        helpTitle.setBounds(130, -80, 400, 250);
-        helpTitle.setForeground(Color.decode("#e76f51")); //title text color
-        helpTitle.setFont(titleFont);
-        helpContainer.add(helpTitle);
-
-        JTextArea commands = new JTextArea();
-        commands.setBounds(200, 90, 100, 80);
-        commands.setBackground(Color.decode("#EDE5D0"));
-        commands.setFont(normalFont);
-        data.forEach(x -> commands.append(x.toUpperCase() + "\n"));
-        helpContainer.add(commands);
+        JOptionPane.showMessageDialog(window, sb.toString(), title, JOptionPane.INFORMATION_MESSAGE);
     }
 
     //create load and save window and check for file being saved or loaded successfully

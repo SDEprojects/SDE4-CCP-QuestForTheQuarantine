@@ -15,6 +15,7 @@ public class HelpScene implements Scene {
     private JLabel backgroundImg;
     private JTextArea helpText;
     private static final Font titleFont = new Font("Times New Roman", Font.BOLD, 32);
+    private static final Font helperFont = new Font("Times New Roman", Font.ITALIC, 28);
     private static final Font normalFont = new Font("Times New Roman", Font.PLAIN, 16);
     private static final JButton gainBtn = new JButton("Gain");
     private static final JButton loseBtn = new JButton("Lose");
@@ -97,9 +98,18 @@ public class HelpScene implements Scene {
         }
         constraints.gridx = 1;
         constraints.gridy = 2;
-        constraints.insets = new Insets(0,0,-200,0);
+        constraints.insets = new Insets(0,0,-50,0);
 
         backgroundImg.add(buttonPanel, constraints);
+        //quit screen helper message
+        JTextArea howToResumeGame = new JTextArea("-- Press [ESC] to exit help screen --");
+        howToResumeGame.setFont(helperFont);
+        howToResumeGame.setBackground(Color.decode("#EDE5D0"));
+        howToResumeGame.setForeground(Color.BLUE);
+        constraints.gridx = 1;
+        constraints.gridy = 4;
+        constraints.insets = new Insets(100,0,-100,0);
+        backgroundImg.add(howToResumeGame, constraints);
         helpPanel.add(backgroundImg);
     }
 
