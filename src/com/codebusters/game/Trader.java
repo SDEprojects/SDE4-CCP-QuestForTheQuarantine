@@ -42,25 +42,28 @@ public class Trader {
     }
 
     public boolean itemPlayerIsBuying(Items itemToBuy) {
-        try{
-            //Gets price
-            int itemValue = 0;
-            for (Items items : shop) {
-                if (items.equals(itemToBuy)){
-                    itemValue = items.getValue();
+            try{
+                //Gets price
+                int itemValue = 0;
+                for (Items items : shop) {
+                    if (items.equals(itemToBuy)){
+                        itemValue = items.getValue();
+                        break;
+                    }
                 }
+                if (subMoney(itemValue)) {
+                    //Adds item to player inventory
+                    player.addToInventory(new Items(itemToBuy.getName(), 1));
+                    itemToBuy.setCount(itemToBuy.getCount() - 1);
+                    //Success!
+                    return true;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            //Subtracts money
-            subMoney(itemValue);
-            //Adds item to player inventory
-            player.addToInventory(itemToBuy);
-            //Success!
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         return false;
     }
+
     public boolean itemPlayerIsSelling(Items itemToSell) {
         try{
             //Gets price
@@ -75,7 +78,7 @@ public class Trader {
             //Player gets money
             addMoney(convertedPrice);
             //Itemremoved from player inventory
-            player.removeItemFromInventory(itemToSell);
+            player.removeItemFromInventory(new Items(itemToSell.getName(), 1));
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -101,7 +104,7 @@ public class Trader {
         }
         else {
             try {
-                player.setMoney(player.getMoney() + amountToSub);
+                player.setMoney(player.getMoney() - amountToSub);
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();
