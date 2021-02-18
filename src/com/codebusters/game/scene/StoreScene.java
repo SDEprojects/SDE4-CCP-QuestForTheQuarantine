@@ -55,17 +55,19 @@ public class StoreScene {
         //add to the backgroundImg Label
         backgroundImg.add(storeTitle, constraints);
 
-        //set labels for inventory
+        //set labels for user inventory
         JLabel userInventoryLabel = new JLabel("PLAYER INVENTORY");
         userInventoryLabel.setForeground(Color.decode("#635147"));
         userInventoryLabel.setFont(new Font("Arial", Font.BOLD, 13));
         userInventoryLabel.setHorizontalAlignment(JLabel.CENTER);
 
+        //set label for store inventory
         JLabel storeInventoryLabel = new JLabel("STORE INVENTORY");
         storeInventoryLabel.setForeground(Color.decode("#635147"));
         storeInventoryLabel.setFont(new Font("Arial", Font.BOLD, 13));
         storeInventoryLabel.setHorizontalAlignment(JLabel.CENTER);
 
+        //create panel to hold labels
         JPanel inventoryLabelsPanel = new JPanel();
         inventoryLabelsPanel.setPreferredSize(new Dimension(600, 20));
         inventoryLabelsPanel.setBackground(Color.decode("#EDE5D0"));
