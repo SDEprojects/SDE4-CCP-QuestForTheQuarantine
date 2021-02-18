@@ -33,6 +33,8 @@ public class Viewer implements ActionListener, KeyListener {
     private StoreScene storeScene; //store
     private HelpScene helpScene; //help scene
     private boolean isStoryScene = true; //tracks if story scene is currently displayed in window
+    private boolean isHelpScene = false; //tracks if help scene is being displayed
+    private boolean isStoreScene = false; //tracks if store scene is being displayed
     private final Game game;
 
     //Constructor
@@ -84,6 +86,7 @@ public class Viewer implements ActionListener, KeyListener {
         }
         storyScene.getMainPanel().setVisible(false);
         isStoryScene = false;
+        isHelpScene = true;
         window.repaint();
     }
 
@@ -118,6 +121,16 @@ public class Viewer implements ActionListener, KeyListener {
      */
     private void exitHelpAndEnterStory() {
         helpScene.getHelpPanel().setVisible(false);
+        isHelpScene = false;
+        isStoryScene = true;
+        storyScene.getMainPanel().setVisible(true);
+        storyScene.getUserInputField().requestFocusInWindow();
+        window.repaint();
+    }
+
+    private void exitStoreAndEnterStory() {
+        storeScene.getStorePanel().setVisible(false);
+        isStoreScene = false;
         isStoryScene = true;
         storyScene.getMainPanel().setVisible(true);
         storyScene.getUserInputField().requestFocusInWindow();
@@ -169,6 +182,7 @@ public class Viewer implements ActionListener, KeyListener {
         }
         storyScene.getMainPanel().setVisible(false);
         isStoryScene = false;
+        isStoreScene = true;
         window.repaint();
     }
 
@@ -176,6 +190,14 @@ public class Viewer implements ActionListener, KeyListener {
         storeScene = new StoreScene();
         storeScene.getBuyBtn().addActionListener(this);
         storeScene.getSellBtn().addActionListener(this);
+        storeScene.getBuyBtn().addKeyListener(this);
+        storeScene.getSellBtn().addKeyListener(this);
+        storeScene.getStorePanel().addKeyListener(this);
+        storeScene.getStoreInventory().addKeyListener(this);
+        storeScene.getUserInventory().addKeyListener(this);
+        storeScene.getInventories().addKeyListener(this);
+        storeScene.getStorePanel().setFocusable(true);
+        storeScene.getStorePanel().requestFocusInWindow();
     }
 
     //create load and save window and check for file being saved or loaded successfully
@@ -252,8 +274,11 @@ public class Viewer implements ActionListener, KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_ESCAPE && !isStoryScene) {
+        if (e.getKeyCode() == KeyEvent.VK_ESCAPE && (!isStoryScene && !isStoreScene)) {
             exitHelpAndEnterStory();
+        }
+        else if (e.getKeyCode() == KeyEvent.VK_ESCAPE && (!isStoryScene && !isHelpScene)) {
+            exitStoreAndEnterStory();
         }
         else if (e.getKeyCode() == KeyEvent.VK_CONTROL && isStoryScene) {
             enterStore();
