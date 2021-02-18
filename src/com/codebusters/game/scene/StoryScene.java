@@ -201,7 +201,7 @@ public class StoryScene {
         }
         //text area for the inventory
         JTextArea inventoryTextArea = new JTextArea(inv.toString());
-        inventoryTextArea.setBounds(620, 180, 100, 100);
+        inventoryTextArea.setBounds(620, 180, 100, 200);
         inventoryTextArea.setBackground(Color.decode("#EDE5D0"));
         inventoryTextArea.setForeground(Color.black);
         inventoryTextArea.setFont(normalFont);
