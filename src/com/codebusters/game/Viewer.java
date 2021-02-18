@@ -9,6 +9,7 @@ package com.codebusters.game;
  */
 
 import com.codebusters.game.scene.HelpScene;
+import com.codebusters.game.scene.StoreScene;
 import com.codebusters.game.scene.StoryScene;
 
 import javax.swing.*;
@@ -29,6 +30,7 @@ import java.util.ArrayList;
 public class Viewer implements ActionListener, KeyListener {
     private static final JFrame window = new JFrame();
     private final StoryScene storyScene; //main game scene
+    private StoreScene storeScene; //store
     private HelpScene helpScene; //help scene
     private boolean isStoryScene = true; //tracks if story scene is currently displayed in window
     private final Game game;
@@ -45,6 +47,7 @@ public class Viewer implements ActionListener, KeyListener {
         storyScene = new StoryScene();
         //add action listeners
         storyScene.getUserInputField().addActionListener(this);
+        storyScene.getUserInputField().addKeyListener(this);
         storyScene.getInputBtn().addActionListener(this);
         storyScene.getHelpBtn().addActionListener(this);
         storyScene.getQuitBtn().addActionListener(this);
@@ -117,6 +120,7 @@ public class Viewer implements ActionListener, KeyListener {
         helpScene.getHelpPanel().setVisible(false);
         isStoryScene = true;
         storyScene.getMainPanel().setVisible(true);
+        storyScene.getUserInputField().requestFocusInWindow();
         window.repaint();
     }
 
@@ -153,6 +157,27 @@ public class Viewer implements ActionListener, KeyListener {
         }
 
         JOptionPane.showMessageDialog(window, sb.toString(), title, JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void enterStore() {
+        if (storeScene == null) {
+            setStoreScene();
+            window.add(storeScene.getStorePanel());
+        }
+        else {
+            storeScene.getStorePanel().setVisible(true);
+        }
+        storyScene.getMainPanel().setVisible(false);
+        isStoryScene = false;
+        window.repaint();
+    }
+
+    private void setStoreScene() {
+        storeScene = new StoreScene();
+        storeScene.getBuyBtn().addActionListener(this);
+        storeScene.getSellBtn().addActionListener(this);
+        storeScene.getUserInventory().setText("machete\nknife\npistol");
+        storeScene.getStoreInventory().setText("machete\nknife\npistol");
     }
 
     //create load and save window and check for file being saved or loaded successfully
@@ -231,6 +256,9 @@ public class Viewer implements ActionListener, KeyListener {
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_ESCAPE && !isStoryScene) {
             exitHelpAndEnterStory();
+        }
+        else if (e.getKeyCode() == KeyEvent.VK_CONTROL && isStoryScene) {
+            enterStore();
         }
     }
 
