@@ -253,6 +253,12 @@ public class Viewer implements ActionListener, KeyListener {
         else if (e.getSource() == storyScene.getQuitBtn()) {
             askToQuit();
         }
+        else if (e.getSource() == storeScene.getBuyBtn()) {
+            System.out.println("Buy");
+        }
+        else if (e.getSource() == storeScene.getSellBtn()) {
+            System.out.println("sell");
+        }
         else if (e.getSource() == storyScene.getHelpBtn()) {
             helpWindowDisplay();
         } else if (e.getSource() == helpScene.getGainBtn()) {
