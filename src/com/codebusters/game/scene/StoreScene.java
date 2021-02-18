@@ -17,9 +17,10 @@ public class StoreScene {
     private final JPanel storePanel;
     private final JPanel buySellBtnPanel;
     private final JLabel backgroundImg;
+    private JLabel userCashLabel;
     private final JSplitPane inventories;
-    private JTextArea userInventory;
-    private JTextArea storeInventory;
+    private final JTextArea userInventory;
+    private final JTextArea storeInventory;
     private final JButton buyBtn = new JButton("Buy");
     private final JButton sellBtn = new JButton("Sell");
     private final Font normalFont = new Font("Times New Roman", Font.PLAIN, 16);
@@ -127,11 +128,18 @@ public class StoreScene {
             button.setName("button");
         }
 
+        //label for user total cash
+        userCashLabel = new JLabel();
+        userCashLabel.setFont(new Font("Arial", Font.BOLD, 14));
+        userCashLabel.setForeground(Color.BLACK);
+        userCashLabel.setHorizontalAlignment(JLabel.CENTER);
+
         //Setup button panel, add buttons to panel
         buySellBtnPanel = new JPanel();
         buySellBtnPanel.setPreferredSize(new Dimension(300,90));
         buySellBtnPanel.setBackground(Color.decode("#EDE5D0"));
-        buySellBtnPanel.setLayout(new GridLayout(2,3, 4,4));
+        buySellBtnPanel.setLayout(new GridLayout(3,2, 4,4));
+        buySellBtnPanel.add(userCashLabel);
         for (JButton button : buttons) {
             button.setOpaque(true);
             button.setBorderPainted(false);
@@ -164,6 +172,8 @@ public class StoreScene {
         updateStoreInventory();
         //set player inventory
         updateUserInventory();
+        //update user cash
+        updateUserCash();
     }
 
     private void updateStoreInventory() {
@@ -182,10 +192,21 @@ public class StoreScene {
         userInventory.setText(sb.toString());
     }
 
+    private void updateUserCash() {
+        String cashText = "PLAYER CASH: $";
+        getUserCashLabel().setText(cashText + Game.player.getMoney());
+    }
+
+
+
     //**** GETTERS ****//
 
     public JPanel getStorePanel() {
         return storePanel;
+    }
+
+    public JLabel getUserCashLabel() {
+        return userCashLabel;
     }
 
     public JPanel getBuySellBtnPanel() {
