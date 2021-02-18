@@ -80,10 +80,13 @@ public class Viewer implements ActionListener, KeyListener {
     public void helpWindowDisplay() {
         if (helpScene == null) {
             setHelpScene();
+            window.add(helpScene.getHelpPanel());
+        }
+        else {
+            helpScene.getHelpPanel().setVisible(true);
         }
         storyScene.getMainPanel().setVisible(false);
         isStoryScene = false;
-        window.add(helpScene.getHelpPanel());
         window.repaint();
     }
 
@@ -95,11 +98,18 @@ public class Viewer implements ActionListener, KeyListener {
         helpScene.getLoseBtn().addActionListener(this);
         helpScene.getUseBtn().addActionListener(this);
         helpScene.getVerbsBtn().addActionListener(this);
+        helpScene.getEntryBtn().addKeyListener(this);
+        helpScene.getExitBtn().addKeyListener(this);
+        helpScene.getGainBtn().addKeyListener(this);
+        helpScene.getLoseBtn().addKeyListener(this);
+        helpScene.getUseBtn().addKeyListener(this);
+        helpScene.getVerbsBtn().addKeyListener(this);
 
-        //add key listener
-        for (Component comp : helpScene.getHelpPanel().getComponents()) {
-            comp.addKeyListener(this);
-        }
+        helpScene.getHelpPanel().addKeyListener(this);
+        helpScene.getBackgroundImg().addKeyListener(this);
+        helpScene.getHelpText().addKeyListener(this);
+        helpScene.getHelpPanel().setFocusable(true);
+        helpScene.getHelpPanel().requestFocusInWindow();
     }
 
     private void exitHelpAndEnterStory() {
@@ -267,9 +277,7 @@ public class Viewer implements ActionListener, KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        System.out.println("IN KEY PRESSED");
         if (e.getKeyCode() == KeyEvent.VK_ESCAPE && !isStoryScene) {
-            System.out.println("IN IF BLOCK");
             exitHelpAndEnterStory();
         }
     }

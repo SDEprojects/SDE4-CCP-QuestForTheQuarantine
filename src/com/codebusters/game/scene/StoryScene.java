@@ -8,12 +8,11 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class StoryScene implements Scene {
+public class StoryScene {
     private final JPanel mainPanel;
 
     private static JPanel storyPanel, inventoryPanel, bottomPanel, bottomRightPanel;
@@ -180,7 +179,6 @@ public class StoryScene implements Scene {
         mainPanel.add(backgroundImg);
     }
 
-    @Override
     public void updateDisplay() {
         titleName.setText(GameState.getInstance().getSceneTitle());
 
@@ -218,11 +216,6 @@ public class StoryScene implements Scene {
         storyPanel.removeAll();
         storyPanel.add(storyTextArea);
         storyTextArea.update(storyTextArea.getGraphics()); //updates text area
-    }
-
-    @Override
-    public JPanel respondToInput(KeyEvent keyPressed) {
-        return null;
     }
 
     //*** GETTERS ****//

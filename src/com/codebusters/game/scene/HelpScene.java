@@ -3,17 +3,16 @@ package com.codebusters.game.scene;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class HelpScene implements Scene {
+public class HelpScene {
     private JPanel helpPanel;
-    private JLabel backgroundImg;
-    private JTextArea helpText;
+    private final JLabel backgroundImg;
+    private final JTextArea helpText;
     private static final Font titleFont = new Font("Times New Roman", Font.BOLD, 32);
     private static final Font helperFont = new Font("Times New Roman", Font.ITALIC, 28);
     private static final Font normalFont = new Font("Times New Roman", Font.PLAIN, 16);
@@ -114,17 +113,6 @@ public class HelpScene implements Scene {
         helpPanel.add(backgroundImg);
     }
 
-
-    @Override
-    public void updateDisplay() {
-
-    }
-
-    @Override
-    public JPanel respondToInput(KeyEvent keyPressed) {
-        return null;
-    }
-
     //**** GETTERS ****/
 
     public JPanel getHelpPanel() {
@@ -153,5 +141,13 @@ public class HelpScene implements Scene {
 
     public JButton getVerbsBtn() {
         return verbsBtn;
+    }
+
+    public JLabel getBackgroundImg() {
+        return backgroundImg;
+    }
+
+    public JTextArea getHelpText() {
+        return helpText;
     }
 }
