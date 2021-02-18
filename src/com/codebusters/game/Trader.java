@@ -48,6 +48,7 @@ public class Trader {
             for (Items items : shop) {
                 if (items.equals(itemToBuy)){
                     itemValue = items.getValue();
+                    break;
                 }
             }
             //Subtracts money
@@ -68,13 +69,14 @@ public class Trader {
             for (Items items : shop) {
                 if (items.equals(itemToSell)){
                     itemValue = items.getValue();
+                    break;
                 }
             }
             //Convert
             int convertedPrice = (int) ((double) itemValue * exchangeRate);
             //Player gets money
             addMoney(convertedPrice);
-            //Itemremoved from player inventory
+            //Item removed from player inventory
             player.removeItemFromInventory(itemToSell);
             return true;
         } catch (Exception e) {
