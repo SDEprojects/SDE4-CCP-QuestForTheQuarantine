@@ -208,13 +208,14 @@ public class Viewer implements ActionListener, KeyListener {
         storeScene.updateInventories();
     }
 
+    //TODO: add success and non success messages after buying and selling, create seperate method to check if items contain item put in
     private void buyFromStore() {
-        //Done: add JOptionPane popup
         String itemToBuy = JOptionPane.showInputDialog(window, "What would you like to buy?");
+        boolean isSuccessfulPurchase = false;
         ArrayList<Items> items = Trader.getInstance().getShop();
         for (Items item : items) {
             if (item.getName().equals(itemToBuy.toLowerCase())) {
-                Trader.getInstance().itemPlayerIsBuying(item);
+               isSuccessfulPurchase = Trader.getInstance().itemPlayerIsBuying(item);
                 break;
             }
         }
