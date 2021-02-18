@@ -187,7 +187,7 @@ public class StoreScene {
     private void updateUserInventory() {
         StringBuilder sb = new StringBuilder();
         for (Items userItem : Game.player.getInventory()) {
-            sb.append(userItem.getName()).append(" X ").append(userItem.getCount()).append("\n");
+            sb.append(userItem);
         }
         userInventory.setText(sb.toString());
     }
