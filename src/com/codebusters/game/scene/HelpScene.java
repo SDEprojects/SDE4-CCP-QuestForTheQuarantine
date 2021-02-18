@@ -106,6 +106,7 @@ public class HelpScene implements Scene {
         howToResumeGame.setFont(helperFont);
         howToResumeGame.setBackground(Color.decode("#EDE5D0"));
         howToResumeGame.setForeground(Color.BLUE);
+        howToResumeGame.setEditable(false);
         constraints.gridx = 1;
         constraints.gridy = 4;
         constraints.insets = new Insets(100,0,-100,0);

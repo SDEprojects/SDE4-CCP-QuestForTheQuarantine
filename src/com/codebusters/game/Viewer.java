@@ -14,7 +14,6 @@ import com.codebusters.game.scene.StoryScene;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.Border;
-import javax.swing.border.CompoundBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,15 +33,15 @@ public class Viewer implements ActionListener, KeyListener {
     private static final JFrame window = new JFrame();
     private static final JFrame quitWindow = new JFrame();
     private static final Font titleFont = new Font("Times New Roman", Font.BOLD, 32);
-    private static final Font normalFont = new Font("Times New Roman", Font.PLAIN, 16);
     private static final JButton yesButton = new JButton("Yes");
     private static final JButton noButton = new JButton("No");
     private static final Border dashed = BorderFactory.createDashedBorder(Color.decode("#0D5B69"), 1.2f, 8.0f, 2.0f, true);
     private static final Border empty = BorderFactory.createEmptyBorder(1, 1, 1, 1);
-    private static final Border compound = new CompoundBorder(empty, dashed);
 
     private StoryScene storyScene;
     private HelpScene helpScene;
+
+    private boolean isStoryScene = true;
 
     private Game game;
 
@@ -53,6 +52,7 @@ public class Viewer implements ActionListener, KeyListener {
         window.setLocationRelativeTo(null); //window pops up in center of screen
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closes the window
+        window.addKeyListener(this);
 
         storyScene = new StoryScene();
         //add action listeners
@@ -82,61 +82,9 @@ public class Viewer implements ActionListener, KeyListener {
             setHelpScene();
         }
         storyScene.getMainPanel().setVisible(false);
+        isStoryScene = false;
         window.add(helpScene.getHelpPanel());
-    }
-
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == storyScene.getUserInputField() || e.getSource() == storyScene.getInputBtn()) {
-            String input = storyScene.getUserInputField().getText();
-            //pass user input to be validated and game updated
-            game.playerAction(input);
-
-            storyScene.getUserInputField().setText("");
-            //update the window to reflect any changes caused by user input
-            updateViewer();
-        }
-        //when saveBtn is pressed pass "save" parameter to saveOrLoadGame method
-        else if (e.getSource() == storyScene.getSaveBtn()) {
-            saveOrLoadGame("save");
-        }
-        //when loadBtn is pressed pass "load" parameter to saveOrLoadGame method.
-        else if (e.getSource() == storyScene.getLoadBtn()) {
-            saveOrLoadGame("load");
-            //updates viewer with the GameState from loaded game
-            updateViewer();
-            //updates the current chapter in the game to track the newly loaded GameState
-            game.loadGame();
-        }
-        //when quitBtn is pressed the GUI window and game closes.
-        else if (e.getSource() == storyScene.getQuitBtn()) {
-            askToQuit();
-        }
-        else if (e.getSource() == yesButton) {
-            window.dispose();
-            quitWindow.dispose();
-            System.exit(0);
-        }
-        else if (e.getSource() == noButton) {
-            quitWindow.dispose();
-        }
-        else if (e.getSource() == storyScene.getHelpBtn()) {
-            helpWindowDisplay();
-        } else if (e.getSource() == helpScene.getGainBtn()) {
-            displayExamples(TextParser.getInstance().getITEM_VERBS_GAIN(), helpScene.getGainBtn().getText());
-        } else if (e.getSource() == helpScene.getLoseBtn()) {
-            displayExamples(TextParser.getInstance().getITEM_VERBS_LOSE(), helpScene.getLoseBtn().getText());
-        } else if (e.getSource() == helpScene.getUseBtn()) {
-            displayExamples(TextParser.getInstance().getITEM_VERBS_USE(), helpScene.getUseBtn().getText());
-        } else if (e.getSource() == helpScene.getEntryBtn()) {
-            displayExamples(TextParser.getInstance().getPLACES_VERBS_ENTRY(), helpScene.getEntryBtn().getText());
-        } else if (e.getSource() == helpScene.getExitBtn()) {
-            displayExamples(TextParser.getInstance().getPLACES_VERBS_EXIT(), helpScene.getExitBtn().getText());
-        } else if (e.getSource() == helpScene.getVerbsBtn()) {
-            ArrayList<String> data = new ArrayList<>();
-            data.addAll(TextParser.getInstance().getVERBS1());
-            data.addAll(TextParser.getInstance().getVERBS2());
-            displayExamples(data, helpScene.getVerbsBtn().getText());
-        }
+        window.repaint();
     }
 
     private void setHelpScene() {
@@ -147,6 +95,18 @@ public class Viewer implements ActionListener, KeyListener {
         helpScene.getLoseBtn().addActionListener(this);
         helpScene.getUseBtn().addActionListener(this);
         helpScene.getVerbsBtn().addActionListener(this);
+
+        //add key listener
+        for (Component comp : helpScene.getHelpPanel().getComponents()) {
+            comp.addKeyListener(this);
+        }
+    }
+
+    private void exitHelpAndEnterStory() {
+        helpScene.getHelpPanel().setVisible(false);
+        isStoryScene = true;
+        storyScene.getMainPanel().setVisible(true);
+        window.repaint();
     }
 
     //TODO: needs to become a JDialogue popup
@@ -246,6 +206,60 @@ public class Viewer implements ActionListener, KeyListener {
         return saveOrLoadSuccessful;
     }
 
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == storyScene.getUserInputField() || e.getSource() == storyScene.getInputBtn()) {
+            String input = storyScene.getUserInputField().getText();
+            //pass user input to be validated and game updated
+            game.playerAction(input);
+
+            storyScene.getUserInputField().setText("");
+            //update the window to reflect any changes caused by user input
+            updateViewer();
+        }
+        //when saveBtn is pressed pass "save" parameter to saveOrLoadGame method
+        else if (e.getSource() == storyScene.getSaveBtn()) {
+            saveOrLoadGame("save");
+        }
+        //when loadBtn is pressed pass "load" parameter to saveOrLoadGame method.
+        else if (e.getSource() == storyScene.getLoadBtn()) {
+            saveOrLoadGame("load");
+            //updates viewer with the GameState from loaded game
+            updateViewer();
+            //updates the current chapter in the game to track the newly loaded GameState
+            game.loadGame();
+        }
+        //when quitBtn is pressed the GUI window and game closes.
+        else if (e.getSource() == storyScene.getQuitBtn()) {
+            askToQuit();
+        }
+        else if (e.getSource() == yesButton) {
+            window.dispose();
+            quitWindow.dispose();
+            System.exit(0);
+        }
+        else if (e.getSource() == noButton) {
+            quitWindow.dispose();
+        }
+        else if (e.getSource() == storyScene.getHelpBtn()) {
+            helpWindowDisplay();
+        } else if (e.getSource() == helpScene.getGainBtn()) {
+            displayExamples(TextParser.getInstance().getITEM_VERBS_GAIN(), helpScene.getGainBtn().getText());
+        } else if (e.getSource() == helpScene.getLoseBtn()) {
+            displayExamples(TextParser.getInstance().getITEM_VERBS_LOSE(), helpScene.getLoseBtn().getText());
+        } else if (e.getSource() == helpScene.getUseBtn()) {
+            displayExamples(TextParser.getInstance().getITEM_VERBS_USE(), helpScene.getUseBtn().getText());
+        } else if (e.getSource() == helpScene.getEntryBtn()) {
+            displayExamples(TextParser.getInstance().getPLACES_VERBS_ENTRY(), helpScene.getEntryBtn().getText());
+        } else if (e.getSource() == helpScene.getExitBtn()) {
+            displayExamples(TextParser.getInstance().getPLACES_VERBS_EXIT(), helpScene.getExitBtn().getText());
+        } else if (e.getSource() == helpScene.getVerbsBtn()) {
+            ArrayList<String> data = new ArrayList<>();
+            data.addAll(TextParser.getInstance().getVERBS1());
+            data.addAll(TextParser.getInstance().getVERBS2());
+            displayExamples(data, helpScene.getVerbsBtn().getText());
+        }
+    }
+
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -253,7 +267,11 @@ public class Viewer implements ActionListener, KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-
+        System.out.println("IN KEY PRESSED");
+        if (e.getKeyCode() == KeyEvent.VK_ESCAPE && !isStoryScene) {
+            System.out.println("IN IF BLOCK");
+            exitHelpAndEnterStory();
+        }
     }
 
     @Override
@@ -261,6 +279,3 @@ public class Viewer implements ActionListener, KeyListener {
 
     }
 }
-
-
-
