@@ -56,11 +56,13 @@ public class Viewer implements ActionListener, KeyListener {
         storyScene.getSaveBtn().addActionListener(this);
         storyScene.getLoadBtn().addActionListener(this);
 
+        setHelpScene();
+        setStoreScene();
+
         //once everything is added pack() to make everything fit snugly into frame then set frame to visible
         window.add(storyScene.getMainPanel());
         window.pack();
         window.setVisible(true);
-
     }
 
 
@@ -79,8 +81,7 @@ public class Viewer implements ActionListener, KeyListener {
      * Manages the transition from the main game scene to the help scene
      */
     public void helpWindowDisplay() {
-        if (helpScene == null) {
-            setHelpScene();
+        if (!isSceneOnWindow("help")) {
             window.add(helpScene.getHelpPanel());
         }
         else {
@@ -179,8 +180,7 @@ public class Viewer implements ActionListener, KeyListener {
     }
 
     private void enterStore() {
-        if (storeScene == null) {
-            setStoreScene();
+        if (!isSceneOnWindow("store")) {
             window.add(storeScene.getStorePanel());
         }
         else {
@@ -206,8 +206,6 @@ public class Viewer implements ActionListener, KeyListener {
         storeScene.getInventories().addKeyListener(this);
         storeScene.getStorePanel().setFocusable(true);
         storeScene.getStorePanel().requestFocusInWindow();
-
-        storeScene.updateInventories();
     }
 
     /*
@@ -241,6 +239,18 @@ public class Viewer implements ActionListener, KeyListener {
             }
         }
         storeScene.updateInventories();
+    }
+
+    private boolean isSceneOnWindow(String sceneName) {
+        boolean exists = false;
+
+        for (Component component : window.getContentPane().getComponents()) {
+            if (component.getName().equals(sceneName)) {
+                exists = true;
+            }
+        }
+
+        return exists;
     }
 
     //create load and save window and check for file being saved or loaded successfully
