@@ -290,6 +290,14 @@ public class Viewer implements ActionListener, KeyListener {
         return saveOrLoadSuccessful;
     }
 
+    /*
+     * Gives the focus to the input text field in the story scene
+     * Ensures ease of use for user by removing the need to continuously click in the text box to type
+     */
+    private void giveUserInputTextFocus() {
+        storyScene.getUserInputField().requestFocusInWindow();
+    }
+
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == storyScene.getUserInputField() || e.getSource() == storyScene.getInputBtn()) {
             String input = storyScene.getUserInputField().getText();
@@ -303,10 +311,12 @@ public class Viewer implements ActionListener, KeyListener {
         //when saveBtn is pressed pass "save" parameter to saveOrLoadGame method
         else if (e.getSource() == storyScene.getSaveBtn()) {
             saveOrLoadGame("save");
+            giveUserInputTextFocus();
         }
         //when loadBtn is pressed pass "load" parameter to saveOrLoadGame method.
         else if (e.getSource() == storyScene.getLoadBtn()) {
             saveOrLoadGame("load");
+            giveUserInputTextFocus();
             //updates viewer with the GameState from loaded game
             updateViewer();
             //updates the current chapter in the game to track the newly loaded GameState
@@ -315,6 +325,7 @@ public class Viewer implements ActionListener, KeyListener {
         //when quitBtn is pressed the GUI window and game closes.
         else if (e.getSource() == storyScene.getQuitBtn()) {
             askToQuit();
+            giveUserInputTextFocus();
         }
         else if (e.getSource() == storyScene.getHelpBtn()) {
             helpWindowDisplay();
