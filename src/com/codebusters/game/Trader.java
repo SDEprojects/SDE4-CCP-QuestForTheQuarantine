@@ -71,6 +71,7 @@ public class Trader {
             for (Items items : shop) {
                 if (items.equals(itemToSell)){
                     itemValue = items.getValue();
+                    break;
                 }
             }
             //Convert
