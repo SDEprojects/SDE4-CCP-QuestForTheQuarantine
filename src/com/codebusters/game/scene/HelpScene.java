@@ -28,6 +28,7 @@ public class HelpScene {
 
     public HelpScene() {
         helpPanel = new JPanel();
+        helpPanel.setName("help");
 
         //create background image for the backgroundImg label
         BufferedImage bgImg = null;
