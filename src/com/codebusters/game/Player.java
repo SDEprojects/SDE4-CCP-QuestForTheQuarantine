@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Player implements Serializable {
     private String name;
     private ArrayList<Items> inventory;
+    private int money = 0;
 
     public Player() {
         inventory = new ArrayList<>();
@@ -27,10 +28,29 @@ public class Player implements Serializable {
         this.inventory = inventory;
     }
 
+    public int getMoney() {
+        return money;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
+    }
+
     // BUSINESS METHODS
     public boolean addToInventory(Items item) {
         try {
-            inventory.add(item);
+            if (inventory.contains(item)) {
+                for (Items x : inventory) {
+                    if (x.equals(item)){
+                        x.setCount(x.getCount() + item.getCount());
+                        break;
+                    }
+                }
+            }
+            else {
+                inventory.add(item);
+            }
+
             return true;
         }
         catch (Exception e){
