@@ -84,20 +84,6 @@ public class Game {
     }
 
     /*
-     * checks if currentChapter is the last chapter of game
-     * returns true if last chapter
-     * returns false if not last chapter
-     * TODO: may not need
-     */
-    public boolean isGameOver() {
-        boolean isOver = false;
-        if (isEndChapter(currentChapter)) {
-            isOver = true;
-        }
-        return isOver;
-    }
-
-    /*
      * If game is loaded GameState is updated with that saved games information
      * This method checks if the GameState is tracking a different current chapter than the game class
      * If the chapters are different, currentChapter is set to the chapter GameState reflects,

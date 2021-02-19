@@ -40,9 +40,10 @@ public class Viewer implements ActionListener, KeyListener {
     //Constructor
     public Viewer(Game game) {
         this.game = game;
+        //Frame setup
+        window.setTitle("Quest For Quarantine");
         window.setSize(880, 690); //size for the frame
         window.setLocationRelativeTo(null); //window pops up in center of screen
-
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closes the window
         window.addKeyListener(this);
 
@@ -56,11 +57,16 @@ public class Viewer implements ActionListener, KeyListener {
         storyScene.getSaveBtn().addActionListener(this);
         storyScene.getLoadBtn().addActionListener(this);
 
+        //initializing help and store scenes
+        setHelpScene();
+        setStoreScene();
+
         //once everything is added pack() to make everything fit snugly into frame then set frame to visible
         window.add(storyScene.getMainPanel());
         window.pack();
         window.setVisible(true);
     }
+
 
     //*************** METHODS ***************
     /*
@@ -77,8 +83,7 @@ public class Viewer implements ActionListener, KeyListener {
      * Manages the transition from the main game scene to the help scene
      */
     public void helpWindowDisplay() {
-        if (helpScene == null) {
-            setHelpScene();
+        if (!isSceneOnWindow("help")) {
             window.add(helpScene.getHelpPanel());
         }
         else {
@@ -176,9 +181,11 @@ public class Viewer implements ActionListener, KeyListener {
         JOptionPane.showMessageDialog(window, sb.toString(), title, JOptionPane.INFORMATION_MESSAGE);
     }
 
+    /*
+     * displays the store scene on window
+     */
     private void enterStore() {
-        if (storeScene == null) {
-            setStoreScene();
+        if (!isSceneOnWindow("store")) {
             window.add(storeScene.getStorePanel());
         }
         else {
@@ -192,6 +199,9 @@ public class Viewer implements ActionListener, KeyListener {
         window.repaint();
     }
 
+    /*
+     * creates the store scene and sets all listeners
+     */
     private void setStoreScene() {
         storeScene = new StoreScene();
         storeScene.getBuyBtn().addActionListener(this);
@@ -204,8 +214,6 @@ public class Viewer implements ActionListener, KeyListener {
         storeScene.getInventories().addKeyListener(this);
         storeScene.getStorePanel().setFocusable(true);
         storeScene.getStorePanel().requestFocusInWindow();
-
-        storeScene.updateInventories();
     }
 
     /*
@@ -214,14 +222,16 @@ public class Viewer implements ActionListener, KeyListener {
      */
     private void buyFromStore() {
         String itemToBuy = JOptionPane.showInputDialog(window, "What would you like to buy?");
-        ArrayList<Items> items = Trader.getInstance().getShop();
-        for (Items item : items) {
-            if (item.getName().equals(itemToBuy.toLowerCase())) {
-               Trader.getInstance().itemPlayerIsBuying(item);
-                break;
+        if (itemToBuy != null && !itemToBuy.isEmpty()) {
+            ArrayList<Items> items = Trader.getInstance().getShop();
+            for (Items item : items) {
+                if (item.getName().equals(itemToBuy.toLowerCase())) {
+                    Trader.getInstance().itemPlayerIsBuying(item);
+                    break;
+                }
             }
+            storeScene.updateInventories();
         }
-        storeScene.updateInventories();
     }
 
     /*
@@ -231,14 +241,32 @@ public class Viewer implements ActionListener, KeyListener {
      */
     private void sellFromStore() {
         String itemToSell = JOptionPane.showInputDialog(window, "What would you like to sell?");
-        ArrayList<Items> userItems = Game.player.getInventory();
-        for (Items item : userItems) {
-            if (item.getName().equals(itemToSell.toLowerCase())) {
-                Trader.getInstance().itemPlayerIsSelling(item);
-                break;
+        if (itemToSell != null && !itemToSell.isEmpty()) {
+            ArrayList<Items> userItems = Game.player.getInventory();
+            for (Items item : userItems) {
+                if (item.getName().equals(itemToSell.toLowerCase())) {
+                    Trader.getInstance().itemPlayerIsSelling(item);
+                    break;
+                }
+            }
+            storeScene.updateInventories();
+        }
+    }
+
+    /*
+     * Method checks if a scene to be displayed already exists on the window
+     * returns true if scene exists, false otherwise
+     */
+    private boolean isSceneOnWindow(String sceneName) {
+        boolean exists = false;
+
+        for (Component component : window.getContentPane().getComponents()) {
+            if (component.getName().equals(sceneName)) {
+                exists = true;
             }
         }
-        storeScene.updateInventories();
+
+        return exists;
     }
 
     //create load and save window and check for file being saved or loaded successfully
@@ -288,12 +316,6 @@ public class Viewer implements ActionListener, KeyListener {
         else if (e.getSource() == storyScene.getQuitBtn()) {
             askToQuit();
         }
-        else if (e.getSource() == storeScene.getBuyBtn()) {
-            buyFromStore();
-        }
-        else if (e.getSource() == storeScene.getSellBtn()) {
-            sellFromStore();
-        }
         else if (e.getSource() == storyScene.getHelpBtn()) {
             helpWindowDisplay();
         } else if (e.getSource() == helpScene.getGainBtn()) {
@@ -311,6 +333,12 @@ public class Viewer implements ActionListener, KeyListener {
             data.addAll(TextParser.getInstance().getVERBS1());
             data.addAll(TextParser.getInstance().getVERBS2());
             displayExamples(data, helpScene.getVerbsBtn().getText());
+        }
+        else if (e.getSource() == storeScene.getBuyBtn()) {
+            buyFromStore();
+        }
+        else if (e.getSource() == storeScene.getSellBtn()) {
+            sellFromStore();
         }
     }
 
