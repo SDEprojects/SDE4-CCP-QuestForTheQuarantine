@@ -33,6 +33,8 @@ public class Viewer implements ActionListener, KeyListener {
     private StoreScene storeScene; //store
     private HelpScene helpScene; //help scene
     private boolean isStoryScene = true; //tracks if story scene is currently displayed in window
+    private boolean isHelpScene = false; //tracks if help scene is being displayed
+    private boolean isStoreScene = false; //tracks if store scene is being displayed
     private final Game game;
 
     //Constructor
@@ -84,6 +86,7 @@ public class Viewer implements ActionListener, KeyListener {
         }
         storyScene.getMainPanel().setVisible(false);
         isStoryScene = false;
+        isHelpScene = true;
         window.repaint();
     }
 
@@ -118,9 +121,23 @@ public class Viewer implements ActionListener, KeyListener {
      */
     private void exitHelpAndEnterStory() {
         helpScene.getHelpPanel().setVisible(false);
+        isHelpScene = false;
         isStoryScene = true;
         storyScene.getMainPanel().setVisible(true);
         storyScene.getUserInputField().requestFocusInWindow();
+        window.repaint();
+    }
+
+    /*
+     * Manages transition from store to main game
+     */
+    private void exitStoreAndEnterStory() {
+        storeScene.getStorePanel().setVisible(false);
+        isStoreScene = false;
+        isStoryScene = true;
+        storyScene.getMainPanel().setVisible(true);
+        storyScene.getUserInputField().requestFocusInWindow();
+        storyScene.updateDisplay();
         window.repaint();
     }
 
@@ -167,8 +184,11 @@ public class Viewer implements ActionListener, KeyListener {
         else {
             storeScene.getStorePanel().setVisible(true);
         }
+
+        storeScene.updateInventories();
         storyScene.getMainPanel().setVisible(false);
         isStoryScene = false;
+        isStoreScene = true;
         window.repaint();
     }
 
@@ -176,6 +196,49 @@ public class Viewer implements ActionListener, KeyListener {
         storeScene = new StoreScene();
         storeScene.getBuyBtn().addActionListener(this);
         storeScene.getSellBtn().addActionListener(this);
+        storeScene.getBuyBtn().addKeyListener(this);
+        storeScene.getSellBtn().addKeyListener(this);
+        storeScene.getStorePanel().addKeyListener(this);
+        storeScene.getStoreInventory().addKeyListener(this);
+        storeScene.getUserInventory().addKeyListener(this);
+        storeScene.getInventories().addKeyListener(this);
+        storeScene.getStorePanel().setFocusable(true);
+        storeScene.getStorePanel().requestFocusInWindow();
+
+        storeScene.updateInventories();
+    }
+
+    /*
+     * Creates popup for user to input the name of the item they want to purchase from store
+     * If that item exists in the store the transaction will be processed through the Trader class
+     */
+    private void buyFromStore() {
+        String itemToBuy = JOptionPane.showInputDialog(window, "What would you like to buy?");
+        ArrayList<Items> items = Trader.getInstance().getShop();
+        for (Items item : items) {
+            if (item.getName().equals(itemToBuy.toLowerCase())) {
+               Trader.getInstance().itemPlayerIsBuying(item);
+                break;
+            }
+        }
+        storeScene.updateInventories();
+    }
+
+    /*
+     * Creates a popup for user to input an Item of theirs they would like to sell
+     * Validates they input an item that exists then passes the data off to the Trader to process
+     * the transaction
+     */
+    private void sellFromStore() {
+        String itemToSell = JOptionPane.showInputDialog(window, "What would you like to sell?");
+        ArrayList<Items> userItems = Game.player.getInventory();
+        for (Items item : userItems) {
+            if (item.getName().equals(itemToSell.toLowerCase())) {
+                Trader.getInstance().itemPlayerIsSelling(item);
+                break;
+            }
+        }
+        storeScene.updateInventories();
     }
 
     //create load and save window and check for file being saved or loaded successfully
@@ -225,6 +288,12 @@ public class Viewer implements ActionListener, KeyListener {
         else if (e.getSource() == storyScene.getQuitBtn()) {
             askToQuit();
         }
+        else if (e.getSource() == storeScene.getBuyBtn()) {
+            buyFromStore();
+        }
+        else if (e.getSource() == storeScene.getSellBtn()) {
+            sellFromStore();
+        }
         else if (e.getSource() == storyScene.getHelpBtn()) {
             helpWindowDisplay();
         } else if (e.getSource() == helpScene.getGainBtn()) {
@@ -252,8 +321,11 @@ public class Viewer implements ActionListener, KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_ESCAPE && !isStoryScene) {
+        if (e.getKeyCode() == KeyEvent.VK_ESCAPE && (!isStoryScene && !isStoreScene)) {
             exitHelpAndEnterStory();
+        }
+        else if (e.getKeyCode() == KeyEvent.VK_ESCAPE && (!isStoryScene && !isHelpScene)) {
+            exitStoreAndEnterStory();
         }
         else if (e.getKeyCode() == KeyEvent.VK_CONTROL && isStoryScene) {
             enterStore();

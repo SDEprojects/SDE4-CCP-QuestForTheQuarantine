@@ -57,4 +57,19 @@ public class Items implements Serializable {
     public String toString() {
         return getName() + " x" + getCount();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Items items = (Items) o;
+
+        return name.equals(items.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
+    }
 }

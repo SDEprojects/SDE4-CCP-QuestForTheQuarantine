@@ -39,7 +39,18 @@ public class Player implements Serializable {
     // BUSINESS METHODS
     public boolean addToInventory(Items item) {
         try {
-            inventory.add(item);
+            if (inventory.contains(item)) {
+                for (Items x : inventory) {
+                    if (x.equals(item)){
+                        x.setCount(x.getCount() + item.getCount());
+                        break;
+                    }
+                }
+            }
+            else {
+                inventory.add(item);
+            }
+
             return true;
         }
         catch (Exception e){
