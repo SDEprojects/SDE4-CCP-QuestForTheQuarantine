@@ -20,6 +20,7 @@ public class Game {
     private ArrayList<Chapter> story;
     private Chapter currentChapter;
     public static Player player;
+    private MusicPlayer bgMusicPlayer = new MusicPlayer("Hotel California.wav");
 
     public Game() {
         story = new ArrayList<>();
@@ -28,6 +29,8 @@ public class Game {
         currentChapter = story.get(0);
         GUI = new Viewer(this);
         player = new Player();
+        bgMusicPlayer.setVolume(-15);
+        bgMusicPlayer.startMusic();
         // inventory = new ArrayList<>();
     }
 
