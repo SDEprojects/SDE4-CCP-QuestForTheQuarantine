@@ -11,6 +11,7 @@ package com.codebusters.game;
  */
 
 import com.codebusters.data.ChapterBuilder;
+import com.codebusters.game.util.DisplayError;
 
 import java.util.ArrayList;
 
@@ -33,9 +34,6 @@ public class Game {
         bgMusicPlayer.startMusic();
         // inventory = new ArrayList<>();
     }
-
-    //*************** GETTERS/SETTERS ***************
-
 
     //*************** METHODS ***************
 
@@ -64,7 +62,7 @@ public class Game {
         // check if viewer sent valid input to test parser
         if (!TextParser.getInstance().isValidInput()){
             // if not, we need to tell the player to try again
-            promptAgain(currentChapter);
+            DisplayError.getInstance().errorPopup(GUI.getWindow(), TextParser.getInstance().getInvalidInputMessage(), "Input Error");
         }
         else {
             // we need to update the inventory and current chapter
@@ -111,12 +109,6 @@ public class Game {
         GameState.getInstance().setSceneText(TextParser.getInstance().getPathText() + "\n\n" + currentText);
     }
 
-    private boolean isEndChapter(Chapter currentChapter) {
-        //initiate "end" or "death" outcome
-        String chapterName = currentChapter.getChapterName();
-        return chapterName.equals("End") || chapterName.equals("Death");
-    }
-
     private void updateInventory() {
         for (Items item : TextParser.getInstance().getItemsToAdd()) {
             addItemToInventory(item);
@@ -125,14 +117,6 @@ public class Game {
         for (Items item : TextParser.getInstance().getItemsToRemove()) {
             player.removeItemFromInventory(item);
         }
-    }
-
-    private void promptAgain(Chapter currentChapter) {
-        // get the current scene text
-        String tryAgain = currentChapter.getSceneText();
-        tryAgain += "\n\n";
-        tryAgain += TextParser.getInstance().getInvalidInputMessage();
-        GameState.getInstance().setSceneText(tryAgain);
     }
 
     private void updateGameState(Chapter currentChapter) {

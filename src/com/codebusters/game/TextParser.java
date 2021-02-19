@@ -14,6 +14,7 @@ import com.codebusters.game.combat.CombatSystem;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class TextParser {
@@ -117,6 +118,7 @@ public class TextParser {
                     reqNoun = reqNoun.replaceAll(" ", "");
                     reqVerb = reqVerb.replaceAll(" ", "");
 
+
                     // if we have a valid input
                     if ((verb.equals(reqVerb) || isSynonym(reqVerb, verb)) && (noun.equals(reqNoun) || isSynonym(reqNoun, noun))) {
                         //Done: check if fight, get fight result, render correct path after
@@ -160,9 +162,37 @@ public class TextParser {
             String error = "You need to have a " + noun + " in your inventory to perform this action!";
             setInvalidInputMessage(error);
         } else {
-            String invalid = "That is an unrecognized input, please try again.";
-            setInvalidInputMessage(invalid);
+            String invalid = "That is an unrecognized input, please try again.\n";
+            String wordHelp = "Combinations you can use here\n";
+            String wordTable = buildWordString();
+            String invalidString = invalid + wordHelp + wordTable;
+            setInvalidInputMessage(invalidString);
         }
+    }
+
+    /*
+     * Builds a detailed helper message for user when wrong input is submitted
+     * gives a list of acceptable verb and nouns for the current location
+     */
+    private String buildWordString() {
+        ArrayList<HashMap> paths = currentChapter.getPaths();
+        List<String> pathVerbs = new ArrayList<>(paths.size());
+        List<String> pathNouns = new ArrayList<>(paths.size());
+        StringBuilder sb = new StringBuilder();
+
+        paths.forEach(path -> {
+            String verb = (String) path.get("verb");
+            String noun = (String) path.get("noun");
+            pathVerbs.add(verb);
+            pathNouns.add(noun);
+        });
+
+        sb.append(String.format("%-18s%-15s\n", "VERBS", "NOUNS"));
+        for (int i = 0; i < pathVerbs.size(); i++) {
+            sb.append(String.format("%-22s%-22s\n", pathVerbs.get(i), pathNouns.get(i)));
+        }
+
+        return sb.toString();
     }
 
     private boolean isSynonym(String reqWord, String word) {
