@@ -396,4 +396,8 @@ public class Viewer implements ActionListener, KeyListener {
     public void keyReleased(KeyEvent e) {
 
     }
+
+    public JFrame getWindow() {
+        return window;
+    }
 }
