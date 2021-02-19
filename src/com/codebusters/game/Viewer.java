@@ -11,6 +11,7 @@ package com.codebusters.game;
 import com.codebusters.game.scene.HelpScene;
 import com.codebusters.game.scene.StoreScene;
 import com.codebusters.game.scene.StoryScene;
+import com.codebusters.game.util.DisplayError;
 
 import javax.swing.*;
 import java.awt.*;
@@ -224,13 +225,21 @@ public class Viewer implements ActionListener, KeyListener {
         String itemToBuy = JOptionPane.showInputDialog(window, "What would you like to buy?");
         if (itemToBuy != null && !itemToBuy.isEmpty()) {
             ArrayList<Items> items = Trader.getInstance().getShop();
-            for (Items item : items) {
-                if (item.getName().equals(itemToBuy.toLowerCase())) {
-                    Trader.getInstance().itemPlayerIsBuying(item);
-                    break;
+            if (hasItem(items, itemToBuy)) {
+                for (Items item : items) {
+                    if (item.getName().equals(itemToBuy.toLowerCase())) {
+                        boolean isSuccess = Trader.getInstance().itemPlayerIsBuying(item);
+                        if (!isSuccess) {
+                            DisplayError.getInstance().errorPopup(window, "You don't have enough money to purchase " + itemToBuy, "Cash Balance");
+                        }
+                        break;
+                    }
                 }
+                storeScene.updateInventories();
             }
-            storeScene.updateInventories();
+            else {
+                DisplayError.getInstance().errorPopup(window, "Can't find the item you are looking for", "Unknown Item");
+            }
         }
     }
 
@@ -243,14 +252,26 @@ public class Viewer implements ActionListener, KeyListener {
         String itemToSell = JOptionPane.showInputDialog(window, "What would you like to sell?");
         if (itemToSell != null && !itemToSell.isEmpty()) {
             ArrayList<Items> userItems = Game.player.getInventory();
-            for (Items item : userItems) {
-                if (item.getName().equals(itemToSell.toLowerCase())) {
-                    Trader.getInstance().itemPlayerIsSelling(item);
-                    break;
+            if (hasItem(userItems, itemToSell)) {
+                for (Items item : userItems) {
+                    if (item.getName().equals(itemToSell.toLowerCase())) {
+                        Trader.getInstance().itemPlayerIsSelling(item);
+                        break;
+                    }
                 }
+                storeScene.updateInventories();
             }
-            storeScene.updateInventories();
+            else {
+                DisplayError.getInstance().errorPopup(window, "You don't currently possess that item", "Inventory Error");
+            }
         }
+    }
+
+    /*
+     * Checks if an item exists in an items list
+     */
+    private boolean hasItem(ArrayList<Items> items, String itemName) {
+        return items.stream().anyMatch(item -> item.getName().equals(itemName.toLowerCase()));
     }
 
     /*
