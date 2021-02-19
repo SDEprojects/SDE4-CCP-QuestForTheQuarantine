@@ -40,9 +40,10 @@ public class Viewer implements ActionListener, KeyListener {
     //Constructor
     public Viewer(Game game) {
         this.game = game;
+        //Frame setup
+        window.setTitle("Quest For Quarantine");
         window.setSize(880, 690); //size for the frame
         window.setLocationRelativeTo(null); //window pops up in center of screen
-
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //closes the window
         window.addKeyListener(this);
 
