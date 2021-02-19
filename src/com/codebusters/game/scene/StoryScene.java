@@ -43,6 +43,7 @@ public class StoryScene {
     public StoryScene() {
         //main panel
         mainPanel = new JPanel();
+        mainPanel.setName("story");
 
         //create background image and setting image
         BufferedImage img = null;

@@ -60,7 +60,9 @@ public class Viewer implements ActionListener, KeyListener {
         window.add(storyScene.getMainPanel());
         window.pack();
         window.setVisible(true);
+
     }
+
 
     //*************** METHODS ***************
     /*
@@ -288,12 +290,6 @@ public class Viewer implements ActionListener, KeyListener {
         else if (e.getSource() == storyScene.getQuitBtn()) {
             askToQuit();
         }
-        else if (e.getSource() == storeScene.getBuyBtn()) {
-            buyFromStore();
-        }
-        else if (e.getSource() == storeScene.getSellBtn()) {
-            sellFromStore();
-        }
         else if (e.getSource() == storyScene.getHelpBtn()) {
             helpWindowDisplay();
         } else if (e.getSource() == helpScene.getGainBtn()) {
@@ -311,6 +307,12 @@ public class Viewer implements ActionListener, KeyListener {
             data.addAll(TextParser.getInstance().getVERBS1());
             data.addAll(TextParser.getInstance().getVERBS2());
             displayExamples(data, helpScene.getVerbsBtn().getText());
+        }
+        else if (e.getSource() == storeScene.getBuyBtn()) {
+            buyFromStore();
+        }
+        else if (e.getSource() == storeScene.getSellBtn()) {
+            sellFromStore();
         }
     }
 

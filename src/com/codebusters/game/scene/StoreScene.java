@@ -27,6 +27,7 @@ public class StoreScene {
 
     public StoreScene() {
         storePanel = new JPanel();
+        storePanel.setName("store");
 
         //create background image
         BufferedImage bgImg = null;
