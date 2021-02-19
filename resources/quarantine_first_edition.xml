@@ -70,7 +70,7 @@
    <Row>
     <Cell><Data Type="Number">53</Data></Cell>
     <Cell><Data Type="String">Durango</Data></Cell>
-    <Cell><Data Type="String">You will need to fight or flee. ¿But what to use to fight with? ¿Fight with weapon (fight what weapon) or is this gonna be a fist fight (use, fist)? </Data></Cell>
+    <Cell><Data Type="String">You will need to fight. ¿But what to use to fight with? ¿Fight with weapon (fight what weapon) or is this gonna be a fist fight (use, fist)? </Data></Cell>
    </Row>
    <Row>
     <Cell><Data Type="Number">51</Data></Cell>
@@ -646,7 +646,7 @@
    </Row>
    <Row>
     <Cell><Data Type="Number">73</Data></Cell>
-    <Cell><Data Type="Number">70</Data></Cell>
+    <Cell><Data Type="Number">75</Data></Cell>
     <Cell><Data Type="String">fight cowboys w/ pistol</Data></Cell>
     <Cell><Data Type="String">fight</Data></Cell>
     <Cell><Data Type="String">pistol</Data></Cell>
