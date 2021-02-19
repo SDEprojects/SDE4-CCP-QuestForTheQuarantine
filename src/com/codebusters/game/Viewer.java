@@ -208,19 +208,27 @@ public class Viewer implements ActionListener, KeyListener {
         storeScene.updateInventories();
     }
 
+    /*
+     * Creates popup for user to input the name of the item they want to purchase from store
+     * If that item exists in the store the transaction will be processed through the Trader class
+     */
     private void buyFromStore() {
-        //Done: add JOptionPane popup
         String itemToBuy = JOptionPane.showInputDialog(window, "What would you like to buy?");
         ArrayList<Items> items = Trader.getInstance().getShop();
         for (Items item : items) {
             if (item.getName().equals(itemToBuy.toLowerCase())) {
-                Trader.getInstance().itemPlayerIsBuying(item);
+               Trader.getInstance().itemPlayerIsBuying(item);
                 break;
             }
         }
         storeScene.updateInventories();
     }
 
+    /*
+     * Creates a popup for user to input an Item of theirs they would like to sell
+     * Validates they input an item that exists then passes the data off to the Trader to process
+     * the transaction
+     */
     private void sellFromStore() {
         String itemToSell = JOptionPane.showInputDialog(window, "What would you like to sell?");
         ArrayList<Items> userItems = Game.player.getInventory();

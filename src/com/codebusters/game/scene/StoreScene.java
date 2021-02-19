@@ -198,7 +198,6 @@ public class StoreScene {
     }
 
 
-
     //**** GETTERS ****//
 
     public JPanel getStorePanel() {
