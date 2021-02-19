@@ -97,6 +97,7 @@ public class Game {
                     currentChapter = chapter;
                     player.clearInventory();
                     player.addToInventory(GameState.getInstance().getInventory());
+                    player.setMoney(GameState.getInstance().getPlayer().getMoney());
                     break;
                 }
             }
