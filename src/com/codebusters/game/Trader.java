@@ -55,6 +55,7 @@ public class Trader {
                     //Adds item to player inventory
                     player.addToInventory(new Items(itemToBuy.getName(), 1));
                     itemToBuy.setCount(itemToBuy.getCount() - 1);
+                    GameState.getInstance().getPlayer().setMoney(player.getMoney());
                     //Success!
                     return true;
                 }
@@ -80,6 +81,7 @@ public class Trader {
             addMoney(convertedPrice);
             //Itemremoved from player inventory
             player.removeItemFromInventory(new Items(itemToSell.getName(), 1));
+            GameState.getInstance().getPlayer().setMoney(player.getMoney());
             return true;
         } catch (Exception e) {
             e.printStackTrace();
